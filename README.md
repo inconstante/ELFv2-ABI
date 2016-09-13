@@ -33,10 +33,11 @@ The project which control the look and feel of the document is the
 [Docs-Maven-Plugin project](https://github.com/OpenPOWERFoundation/Docs-Maven-Plugin).
 
 ## License
-This project is licensed under the Apache V2 license.  More information
+This project is licensed under the GNU Free Documentation V1.3 license with no Invariants 
+Sections, with no Front-Cover Texts, and with no Back-Cover Texts.  More information
 can be found in the LICENSE file or online at
 
-  http://www.apache.org/licenses/LICENSE-2.0
+  http://www.gnu.org/licenses/fdl-1.3.txt
 
 ## Contributions
 To contribute to the OpenPOWER Foundation template document project, contact Jeff Scheel \([scheel@us.ibm.com](mailto://scheel@us.ibm.com)\) or 
