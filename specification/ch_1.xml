@@ -1,0 +1,193 @@
+<chapter xmlns="http://docbook.org/ns/docbook"
+xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
+  <title>Introduction</title>
+  <section xml:id="dbdoclet.50655239_pgfId-1101854">
+    <title>Introduction</title>
+    <para>The Executable and Linking Format (ELF) defines a linking interface
+    for executables and shared objects in two parts.</para>
+    <itemizedlist>
+      <listitem>
+        <para>The first part is the generic System V ABI (
+        <emphasis>
+          <link xl:href="http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/normativerefs.html#NORMATIVEREFSSECT">
+
+            <citetitle>
+            http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/normativerefs.html#NORMATIVEREFSSECT</citetitle>
+          </link>
+        </emphasis>).</para>
+      </listitem>
+      <listitem>
+        <para>The second part is a processor-specific supplement.</para>
+      </listitem>
+    </itemizedlist>
+    <para>This document, the OpenPOWER ABI for Linux Supplement for the Power
+    Architecture 64-bit ELF V2 ABI, is the OpenPOWER-compliant
+    processor-specific supplement for use with ELF V2 on 64-bit IBM Power
+    Architecture® systems. This is not a complete System V ABI supplement
+    because it does not define any library interfaces.</para>
+    <para>This document establishes both big-endian and little-endian
+    application binary interfaces (see 
+    <xref linkend="dbdoclet.50655240___RefHeading___Toc377640574" />).
+    OpenPOWER-compliant processors in the 64-bit Power Architecture can execute
+    in either big-endian or little-endian mode. Executables and
+    executable-generated data (in general) that subscribes to either byte
+    ordering is not portable to a system running in the other mode.</para>
+    <itemizedlist>
+      <listitem>
+        <para>Note: 
+        <link xl:href="http://www.power.org/">
+          <citetitle>http://www.power.org/</citetitle>
+        </link></para>
+      </listitem>
+    </itemizedlist>
+    <para>The OpenPOWER ELF V2 ABI is not the same as either the Power
+    Architecture 32-bit ABI supplement or the 64-bit IBM PowerPC® ELF ABI (ELF
+    V1).</para>
+    <para>The Power Architecture 64-bit OpenPOWER ELF V2 ABI supplement is
+    intended to use the same structural layout now followed in practice by
+    other processor-specific ABIs.</para>
+  </section>
+  <section xml:id="dbdoclet.50655239___RefHeading___Toc377640569">
+    <title>Reference Documentation</title>
+    <para>The archetypal ELF ABI is described by the System V ABI.
+    Supersessions and addenda that are specific to OpenPOWER ELF V2 Power
+    Architecture (64-bit) processors are described in this document.</para>
+    <para>The following documents are complementary to this document and
+    equally binding:</para>
+    <itemizedlist>
+      <listitem>
+        <para>
+        <emphasis>Power Instruction Set Architecture,</emphasis> Version 3.0,
+        IBM, 2016. 
+        <emphasis>
+          <link xl:href="http://www.power.org">
+            <citetitle>http://www.power.org</citetitle>
+          </link>
+        </emphasis></para>
+      </listitem>
+      <listitem>
+        <para>
+        <emphasis>DWARF Debugging Information Format,</emphasis> Version 4,
+        DWARF Debugging Information Format Workgroup, 2010. 
+        <emphasis>
+          <link xl:href="http://dwarfstd.org/Dwarf4Std.php">
+            <citetitle>http://dwarfstd.org/Dwarf4Std.php</citetitle>
+          </link>
+        </emphasis></para>
+      </listitem>
+      <listitem>
+        <para>
+        <emphasis>ISO/IEC 9899:2011: Programming languages—C</emphasis>. 
+        <emphasis>
+          <link xl:href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=57853">
+
+            <citetitle>
+            http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=57853</citetitle>
+          </link>
+        </emphasis></para>
+      </listitem>
+      <listitem xml:id="dbdoclet.50655239_page12">
+        <para>Itanium C++ ABI: Exception Handling. Rev 1.22, CodeSourcery,
+        2001.
+        <emphasis>
+          <link xl:href="http://www.codesourcery.com/public/cxx-abi/abi-eh.html">
+
+            <citetitle>
+            http://www.codesourcery.com/public/cxx-abi/abi-eh.html</citetitle>
+          </link>
+        </emphasis></para>
+      </listitem>
+      <listitem>
+        <para>
+        <emphasis>ISO/IEC TR 24732:2009 - Programming languages, their
+        environments and system software interfaces - Extension for the
+        programming language C to support decimal floating-point
+        arithmetic</emphasis>, ISO/IEC, January 05, 2009. Available from ISO. 
+        <emphasis>
+          <link xl:href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_tc_browse.htm?commid=45202">
+
+            <citetitle>
+            http://www.iso.org/iso/home/store/catalogue_tc/catalogue_tc_browse.htm?commid=45202</citetitle>
+          </link>
+        </emphasis></para>
+      </listitem>
+      <listitem>
+        <para>
+        <emphasis>ELF Handling for Thread-Local Storage</emphasis>, Version
+        0.20, Ulrich Drepper, Red Hat Inc., December 21, 2005. 
+        <emphasis>
+          <link xl:href="http://people.redhat.com/drepper/tls.pdf">
+            <citetitle>http://people.redhat.com/drepper/tls.pdf</citetitle>
+          </link>
+        </emphasis></para>
+      </listitem>
+    </itemizedlist>
+    <para>The following documents are of interest for their historical
+    information but are not normative in any way.</para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          <emphasis>64-bit PowerPC ELF Application Binary Interface Supplement
+          1.9.</emphasis>
+          <emphasis>
+            <link xl:href="http://refspecs.linuxfoundation.org/ELF/ppc64/PPC-elf64abi.html">
+
+              <citetitle>
+              http://refspecs.linuxfoundation.org/ELF/ppc64/PPC-elf64abi.html</citetitle>
+            </link>
+          </emphasis>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis>IBM PowerOpen™ ABI Application Binary Interface Big-Endian
+          32-Bit Hardware Implementation.</emphasis>
+          <emphasis>
+            <link xl:href="ftp://www.sourceware.org/pub/binutils/ppc-docs/ppc-poweropen/">
+
+              <citetitle>
+              ftp://www.sourceware.org/pub/binutils/ppc-docs/ppc-poweropen/</citetitle>
+            </link>
+          </emphasis>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis>Power Architecture 32-bit ABI Supplement 1.0
+          Embedded/Linux/Unified.</emphasis>
+          <emphasis>
+            <link xl:href="https://www.power.org/documentation/power-architecture-32-bit-abi-supplement-1-0-embeddedlinuxunified/">
+
+              <citetitle>
+              https://www.power.org/documentation/power-architecture-32-bit-abi-supplement-1-0-embeddedlinuxunified/</citetitle>
+            </link>
+          </emphasis>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+        <emphasis>ALTIVEC PIM: AltiVec™ Technology Programming Interface
+        Manual</emphasis>, Freescale Semiconductor, 1999. 
+        <emphasis>
+          <link xl:href="http://www.freescale.com/files/32bit/doc/ref_manual/ALTIVECPIM.pdf">
+
+            <citetitle>
+            http://www.freescale.com/files/32bit/doc/ref_manual/ALTIVECPIM.pdf</citetitle>
+          </link>
+        </emphasis></para>
+      </listitem>
+      <listitem>
+        <para>ELF Assembly User’s Guide, Fourth edition, IBM, 2000.</para>
+        <para>
+          <emphasis>
+            <link xl:href="https://www-03.ibm.com/technologyconnect/tgcm/TGCMFileServlet.wss/assem_um.pdf?id=109917A251EFD64C872569D900656D07&amp;linkid=1h3000&amp;c_t=md515o6ntgh671shz9ioar20oyfp1grs">
+
+              <citetitle>
+              https://www-03.ibm.com/technologyconnect/tgcm/TGCMFileServlet.wss/assem_um.pdf?id=109917A251EFD64C872569D900656D07&amp;linkid=1h3000&amp;c_t=md515o6ntgh671shz9ioar20oyfp1grs</citetitle>
+            </link>
+          </emphasis>
+        </para>
+      </listitem>
+    </itemizedlist>
+  </section>
+</chapter>

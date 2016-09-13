@@ -1,0 +1,369 @@
+<chapter xmlns="http://docbook.org/ns/docbook"
+xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" 
+xml:lang="en"
+xml:id="dbdoclet.50655243_pgfId-1099317">
+  <title>Libraries</title>
+  <section xml:id="dbdoclet.50655243___RefHeading___Toc377640665">
+    <title>Library Requirements</title>
+    <para>This ABI does not specify any additional interfaces for
+    general-purpose libraries. However, certain processor-specific support
+    routines are defined to ensure portability between ABI-conforming
+    implementations.</para>
+    <para>Such processor-specific support definitions concern vector and
+    floating-point alignment, register save and restore routines, variable
+    argument list layout, and a limited set of data definitions.</para>
+    <section xml:id="dbdoclet.50655243___RefHeading___Toc377640666">
+      <title>C Library Conformance with Generic ABI</title>
+      <para />
+      <section xml:id="dbdoclet.50655243___RefHeading___Toc377640667">
+        <title>Malloc Routine Return Pointer Alignment</title>
+        <para>The malloc() routine must always return a pointer with the
+        alignment of the largest alignment needed for loads and stores of the
+        built-in data types. This is currently 16 bytes.</para>
+      </section>
+      <section xml:id="dbdoclet.50655243___RefHeading___Toc377640668">
+        <title>Library Handling of Limited-Access Bits in Registers</title>
+        <para>Requirements for the handling of limited-access bits in certain
+        registers by standard library functions are defined in 
+        <xref linkend="dbdoclet.50655240___RefHeading___Toc377640581" />.</para>
+      </section>
+    </section>
+    <section xml:id="dbdoclet.50655243_49403">
+      <title>Save and Restore Routines</title>
+      <para>All of the save and restore routines described in 
+      <xref linkend="dbdoclet.50655240_24141" /> are required. These routines
+      use unusual calling conventions due to their special purpose. Parameters
+      for these functions are described in 
+      <xref linkend="dbdoclet.50655240_41483" />, 
+      <xref linkend="dbdoclet.50655240_56788" />, and 
+      <xref linkend="dbdoclet.50655240_96790" />.</para>
+      <para>The symbols for these functions shall be hidden and locally
+      resolved within each module. The symbols so created shall not be
+      exported.</para>
+      <para>These functions can either be provided in a utility library that is
+      linked by the linker to each module, or the functions can be synthesized
+      by the linker as necessary to resolve symbols.</para>
+    </section>
+    <section xml:id="dbdoclet.50655243_page131">
+      <title>Types Defined in the Standard Header
+      <anchor xml:id="dbdoclet.50655243___RefHeading___Toc377640670"
+      xreflabel="" /> Types Defined in the Standard Header</title>
+      <para>The type va_list shall be defined as follows:</para>
+      <para><literal>typedef void * va_list;</literal></para>
+      <para>The following integer types are defined in headers, which must be
+      provided by freestanding implementations, or have their limits defined in
+      such headers. They shall have the following definitions:</para>
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>typedef long ptrdiff_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef unsigned long size_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef int wchar_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef int sig_atomic_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef unsigned int wint_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef signed char int8_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef short int16_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef int int32_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef long int64_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef unsigned char uint8_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef unsigned short uint16_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef unsigned int uint32_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef unsigned long uint64_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef signed char int_least8_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef short int_least16_t;</para>
+        </listitem>
+        <listitem xml:id="dbdoclet.50655243_page136">
+          <para>typedef int int_least32_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef long int_least64_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef unsigned char uint_least8_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef unsigned short uint_least16_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef unsigned int uint_least32_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef unsigned long uint_least64_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef signed char int_fast8_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef int int_fast16_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef int int_fast32_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef long int_fast64_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef unsigned char uint_fast8_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef unsigned int uint_fast16_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef unsigned int uint_fast32_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef unsigned long uint_fast64_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef long intptr_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef unsigned long uintptr_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef long intmax_t;</para>
+        </listitem>
+        <listitem>
+          <para>typedef unsigned long uintmax_t;</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section xml:id="dbdoclet.50655243_75216">
+      <title>Predefined Macros</title>
+      <para>A C preprocessor that conforms to this ABI shall predefine the
+      macro _CALL_ELF to have a value of 2.</para>
+      <para>The macros listed in 
+      <xref linkend="dbdoclet.50655243_37910" /> are based on environment
+      characteristics. They shall be predefined to a value of 1 by conforming C
+      preprocessors when the corresponding condition applies.</para>
+      <para> </para>
+      <table frame="all" pgwide="1" xml:id="dbdoclet.50655243_37910">
+        <title>Predefined Target Architecture Macros</title>
+        <tgroup cols="2">
+          <colspec colname="c1" colwidth="20*" align="center"/>
+          <colspec colname="c2" colwidth="80*" />
+          <thead>
+            <row>
+              <entry>
+                <para>
+                  <emphasis role="bold">Macro</emphasis>
+                </para>
+              </entry>
+              <entry align="center">
+                <para>
+                  <emphasis role="bold">Condition</emphasis>
+                </para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para>__PPC__</para>
+                <para>__powerpc__</para>
+              </entry>
+              <entry>
+                <para>The target is a Power Architecture processor.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>__PPC64__</para>
+                <para>__powerpc64__</para>
+                <para>__64BIT__
+                <footnote xml:id="pgfId-1101811">
+                  <para>Phased in.</para>
+                </footnote></para>
+              </entry>
+              <entry>
+                <para>The target is a Power Architecture processor running in
+                64-bit mode.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>__BIG_ENDIAN__</para>
+              </entry>
+              <entry>
+                <para>The target processor is big endian.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>__LITTLE_ENDIAN__</para>
+              </entry>
+              <entry>
+                <para>The target processor is little endian.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>ARCH_PWRn</para>
+              </entry>
+              <entry>
+                <para>Indicates that the target processor supports the Power
+                ISA level for POWERn or higher. For example, ARCH_PWR8 supports
+                the Power ISA for a POWER8 processor.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para> </para>
+      <para> </para>
+      <para>The macros in listed 
+      <xref linkend="dbdoclet.50655243_98814" /> are based on the order of the
+      data elements. They shall be predefined to one of the allowable values by
+      conforming C preprocessors when the corresponding condition
+      applies.</para>
+      <para> </para>
+      <table frame="all" pgwide="1" xml:id="dbdoclet.50655243_98814">
+        <title>Predefined Target Data Order Macros</title>
+        <tgroup cols="3">
+          <colspec colname="c1" colwidth="30*" align="center"/>
+          <colspec colname="c2" colwidth="25*" align="center"/>
+          <colspec colname="c3" colwidth="45*" />
+          <thead>
+            <row>
+              <entry>
+                <para>
+                  <emphasis role="bold">Macro</emphasis>
+                </para>
+              </entry>
+              <entry>
+                <para>
+                  <emphasis role="bold">Value</emphasis>
+                </para>
+              </entry>
+              <entry align="center">
+                <para>
+                  <emphasis role="bold">Condition</emphasis>
+                </para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry morerows="1">
+                <para>__BYTE_ORDER__</para>
+              </entry>
+              <entry>
+                <para>__ORDER_BIG_ENDIAN__</para>
+              </entry>
+              <entry>
+                <para>The target processor is big endian.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>__ORDER_LITTLE_ENDIAN__</para>
+              </entry>
+              <entry>
+                <para>The target processor is little endian.</para>
+              </entry>
+            </row>
+            <row>
+              <entry morerows="1">
+                <para>__FLOAT_WORD_ORDER__</para>
+              </entry>
+              <entry>
+                <para>__ORDER_BIG_ENDIAN__</para>
+              </entry>
+              <entry>
+                <para>The target processor is big endian.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>__ORDER_LITTLE_ENDIAN__</para>
+              </entry>
+              <entry>
+                <para>The target processor is little endian.</para>
+              </entry>
+            </row>
+            <row>
+              <entry morerows="1">
+                <para>__VEC_ELEMENT_REG_ORDER__</para>
+                <para>For more information, see 
+                <xref linkend="dbdoclet.50655244_25365" />.</para>
+              </entry>
+              <entry>
+                <para>__ORDER_BIG_ENDIAN__</para>
+              </entry>
+              <entry>
+                <para>The target processor is big endian, or big-endian vector
+                element order has been requested.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>__ORDER_LITTLE_ENDIAN__</para>
+              </entry>
+              <entry>
+                <para>The target processor is little endian, and big-endian
+                vector element order has not been requested.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para> </para>
+      <para> </para>
+    </section>
+  </section>
+  <section>
+    <title>POWER ISA-Specific API and ABI Extensions</title>
+    <para>The Data Stream Control Register (DSCR) affects how the processor
+    handles data streams that are detected by the hardware and defined by the
+    software. For more information, see “Data Stream Control Overview, ABI, and
+    API” at the following link:</para>
+    <para>
+      <emphasis>
+        <link xl:href="https://github.com/paflib/paflib/wiki/Data-Stream-Control-Overview,-ABI,-and-API">
+
+          <citetitle>
+          https://github.com/paflib/paflib/wiki/Data-Stream-Control-Overview,-ABI,-and-API</citetitle>
+        </link>
+      </emphasis>
+    </para>
+    <para>The event-based branching facility generates exceptions when certain
+    criteria are met. For more information, see the “Event Based Branching
+    Overview, ABI, and API” section at the following link:</para>
+    <para>
+      <emphasis>
+        <link xl:href="https://github.com/paflib/paflib/wiki/Event-Based-Branching----Overview,-ABI,-and-API">
+
+          <citetitle>
+          https://github.com/paflib/paflib/wiki/Event-Based-Branching----Overview,-ABI,-and-API</citetitle>
+        </link>
+      </emphasis>
+    </para>
+  </section>
+</chapter>

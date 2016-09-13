@@ -1,0 +1,623 @@
+<appendix xmlns="http://docbook.org/ns/docbook"
+xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en"
+xml:id="dbdoclet.50655246_33489">
+  <title>Glossary</title>
+
+      <informaltable frame="none" rowsep='0' colsep='0'>
+        <tgroup cols="2">
+          <colspec colname="c1" colwidth="20*" />
+          <colspec colname="c2" colwidth="80*" />
+          <tbody>
+            <row>
+              <entry>
+                <para>ABI</para>
+              </entry>
+              <entry>
+                <para>Application binary interface</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>AES</para>
+              </entry>
+              <entry>
+                <para>Advanced Encryption Standard</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>API</para>
+              </entry>
+              <entry>
+                <para>Application programming interface</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>ASCII</para>
+              </entry>
+              <entry>
+                <para>American Standard Code for Information Interchange</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>BCD</para>
+              </entry>
+              <entry>
+                <para>Binary-coded decimal</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>BE</para>
+              </entry>
+              <entry>
+                <para>Big-endian</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>COBOL</para>
+              </entry>
+              <entry>
+                <para>Common Business Oriented Language</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>CR</para>
+              </entry>
+              <entry>
+                <para>Condition Register</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>CTR</para>
+              </entry>
+              <entry>
+                <para>Count Register</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>DFP</para>
+              </entry>
+              <entry>
+                <para>Decimal floating-point</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>DP</para>
+              </entry>
+              <entry>
+                <para>Double precision</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>DRN</para>
+              </entry>
+              <entry>
+                <para>The DFP Rounding Control field [DRN] of the 64-bit FPSCR
+                register.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>DSCR</para>
+              </entry>
+              <entry>
+                <para>Data Stream Control Register</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>DSO</para>
+              </entry>
+              <entry>
+                <para>Dynamic shared object</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>DTV</para>
+              </entry>
+              <entry>
+                <para>Dynamic thread vector</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>DWARF</para>
+              </entry>
+              <entry>
+                <para>Debug with arbitrary record format</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>EA</para>
+              </entry>
+              <entry>
+                <para>Effective address</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>ELF</para>
+              </entry>
+              <entry>
+                <para>Executable and Linking Format</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>EOS</para>
+              </entry>
+              <entry>
+                <para>End-of-string</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>FPR</para>
+              </entry>
+              <entry>
+                <para>Floating-Point Register</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>FPSCR</para>
+              </entry>
+              <entry>
+                <para>Floating-Point Status and Control Register</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>GCC</para>
+              </entry>
+              <entry>
+                <para>GNU Compiler Collection</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>GEP</para>
+              </entry>
+              <entry>
+                <para>Global entry point</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>GOT</para>
+              </entry>
+              <entry>
+                <para>Global offset table</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>GPR</para>
+              </entry>
+              <entry>
+                <para>General Purpose Register</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>HTM</para>
+              </entry>
+              <entry>
+                <para>Hardware trace monitor</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>ID</para>
+              </entry>
+              <entry>
+                <para>Identification</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>IEC</para>
+              </entry>
+              <entry>
+                <para>International Electrotechnical Commission</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>IEEE</para>
+              </entry>
+              <entry>
+                <para>Institute of Electrical and Electronics Engineers</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>INF</para>
+              </entry>
+              <entry>
+                <para>Infinity</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>ISA</para>
+              </entry>
+              <entry>
+                <para>Instruction Set Architecture</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>ISO</para>
+              </entry>
+              <entry>
+                <para>International Organization for Standardization</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>KB</para>
+              </entry>
+              <entry>
+                <para>Kilobyte</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>LE</para>
+              </entry>
+              <entry>
+                <para>Little-endian</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>LEP</para>
+              </entry>
+              <entry>
+                <para>Local entry point</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>LR</para>
+              </entry>
+              <entry>
+                <para>Link Register</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>LSB</para>
+              </entry>
+              <entry>
+                <para>Least-significant byte</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>MB</para>
+              </entry>
+              <entry>
+                <para>Megabyte</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>MSB</para>
+              </entry>
+              <entry>
+                <para>Most-significant byte</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>MSR</para>
+              </entry>
+              <entry>
+                <para>Machine State Register</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>N/A</para>
+              </entry>
+              <entry>
+                <para>Not applicable</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>NaN</para>
+              </entry>
+              <entry>
+                <para>Not-a-Number</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>NOP</para>
+              </entry>
+              <entry>
+                <para>No operation. A single-cycle operation that does not
+                affect registers or generate bus activity.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>NOR</para>
+              </entry>
+              <entry>
+                <para>In Boolean logic, the negation of a logical OR.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>OE</para>
+              </entry>
+              <entry>
+                <para>The Floating-Point Overflow Exception Enable bit of the
+                FPSCR register.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>PIC</para>
+              </entry>
+              <entry>
+                <para>Position-independent code</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>PIE</para>
+              </entry>
+              <entry>
+                <para>Position-independent executable</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>PIM</para>
+              </entry>
+              <entry>
+                <para>Programming Interface Manual</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>PLT</para>
+              </entry>
+              <entry>
+                <para>Procedure linkage table</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>PMR</para>
+              </entry>
+              <entry>
+                <para>Performance Monitor Registers</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>POSIX</para>
+              </entry>
+              <entry>
+                <para>Portable Operating System Interface</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>PS</para>
+              </entry>
+              <entry>
+                <para>Positive sign</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>RN</para>
+              </entry>
+              <entry>
+                <para>The Binary Floating-Point Rounding Control field [of the
+                FPSCR register.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>RPG</para>
+              </entry>
+              <entry>
+                <para>Report Program Generator</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>SHA</para>
+              </entry>
+              <entry>
+                <para>Secure Hash Algorithm</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>SIMD</para>
+              </entry>
+              <entry>
+                <para>Single instruction, multiple data</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>SP</para>
+              </entry>
+              <entry>
+                <para>Stack pointer</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>SPR</para>
+              </entry>
+              <entry>
+                <para>Special Purpose Register</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>SVID</para>
+              </entry>
+              <entry>
+                <para>System V Interface Definition</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>TCB</para>
+              </entry>
+              <entry>
+                <para>Thread control block</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>TLS</para>
+              </entry>
+              <entry>
+                <para>Thread local storage</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>TOC</para>
+              </entry>
+              <entry>
+                <para>Table of contents</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>TP</para>
+              </entry>
+              <entry>
+                <para>Thread pointer</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>UE</para>
+              </entry>
+              <entry>
+                <para>The Floating-Point Underflow Exception Enable bit [of the
+                FPSCR register.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>ULP</para>
+              </entry>
+              <entry>
+                <para>Unit of least precision</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>VDSO</para>
+              </entry>
+              <entry>
+                <para>Virtual dynamic shared object</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>VE</para>
+              </entry>
+              <entry>
+                <para>The Floating-Point Invalid Operation Exception Enable bit
+                of the FPSCR register.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>VMX</para>
+              </entry>
+              <entry>
+                <para>Vector multimedia extension</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>VSCR</para>
+              </entry>
+              <entry>
+                <para>Vector Status and Control Register</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>VSX</para>
+              </entry>
+              <entry>
+                <para>Vector scalar extension</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>XE</para>
+              </entry>
+              <entry>
+                <para>The Floating-Point Inexact Exception Enable bit of the
+                FPSCR register.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>XER</para>
+              </entry>
+              <entry>
+                <para>Fixed-Point Exception Register</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>XNOR</para>
+              </entry>
+              <entry>
+                <para>Exclusive NOR</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>XOR</para>
+              </entry>
+              <entry>
+                <para>Exclusive OR</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>ZE</para>
+              </entry>
+              <entry>
+                <para>The Floating-Point Zero Divide Exception Enable bit of
+                the FPSCR register.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+
+</appendix>

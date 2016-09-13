@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2016 OpenPOWER Foundation
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  
+-->
+<preface xmlns="http://docbook.org/ns/docbook"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  version="5.0"
+  xml:id="ch_PAPR_preface">
+    <title>Notices</title>
+    <?dbhtml stop-chunking?>
+
+    <para>This document is based on the following publications:</para>
+    
+    <para><citetitle>Power Architecture 32-bit Application Binary Interface Supplement 1.0</citetitle>
+    by Ryan S. Arnold, Greg Davis, Brian Deitrich, Michael Eager, Emil Medve, Steven J. Munroe, 
+    Joseph S. Myers, Steve Papacharalambous, Anmol P. Paralkar, Katherine Stewart, and Edmar Wienskoski,
+    1.0 Edition. Published April 19, 2011. Copyright © 1999, 2003, 2004 IBM Corporation. Copyright © 2002 
+    Freescale Semiconductor, Inc. Copyright © 2003, 2004 Free Standards Group. Copyright © 2011 Power.org
+    </para>
+    
+    <para>Portions of <citetitle>Power Architecture 32-bit Application Binary Interface Supplement 1.0</citetitle>
+    are derived from the 64-bit PowerPC® ELF Application Binary Interface Supplement 1.8, originally written by 
+    Ian Lance Taylor under contract for IBM, with later revisions by: David Edelsohn, Torbjorn Granlund, 
+    Mark Mendell, Kristin Thomas, Alan Modra, Steve Munroe, and Chris Lorenze.
+    </para>
+    
+    <para>The Thread Local Storage section of this document is an original contribution of IBM written by 
+    Alan Modra and Steven Munroe.
+    </para>
+
+    <para>IBM, the IBM logo, and ibm.com are trademarks or registered trademarks of International Business 
+    Machines Corp., registered in many jurisdictions worldwide. Other product and service names might be 
+    trademarks of IBM or other companies. A current list of IBM trademarks is available on the Web at 
+    “Copyright and trademark information” at 
+    <link xlink:href="http://www.ibm.com/legal/copytrade.shtml">www.ibm.com/legal/copytrade.shtml</link>.
+    </para>
+
+    <para>The following terms are trademarks or registered trademarks licensed by Power.org in the 
+    United States and/or other countries: Power ISA<superscript>TM</superscript>, Power Architecture®. 
+    Information on the list of U.S. trademarks licensed by Power.org may be found at 
+    <link xlink:href="http://www.power.org/about/brand-center/">www.power.org/about/brand-center/</link>.
+    </para>
+
+    <para>The following terms are trademarks or registered trademarks of Freescale Semiconductor 
+    in the United States and/or other countries: AltiVec<superscript>TM</superscript>, e500<superscript>TM</superscript>. 
+    Information on the list of U.S. trademarks owned by Freescale Semiconductor may be found at 
+    <link xlink:href="http://www.freescale.com/files/abstract/help_page/TERMSOFUSE.html">www.freescale.com/files/abstract/help_page/TERMSOFUSE.html</link>.
+    </para>
+
+    <para>Linux is a trademark of Linus Torvalds in the United States, other countries, or both.
+    </para>
+
+    <para>Java, and all Java-based trademarks and logos are trademarks or registered trademarks of 
+    Oracle and/or its affiliates.
+    </para>
+
+    <para>Other company, product, and service names may be trademarks or service marks of others.
+    </para>
+
+</preface>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book xmlns="http://docbook.org/ns/docbook"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  version="5.0"
+  status="draft"
+  xml:id="bk_main">
+
+    <!-- TODO: When ready to publish document, remove the 'status="draft"' statement from the book object above. -->
+
+    <title>64-Bit ELF V2 ABI Specification</title>
+    <subtitle>Power Architecture </subtitle>
+
+    <info>
+    <author>
+      <personname>
+          System Software Work Group
+      </personname>
+      <!-- TODO: Set correct email address of document author -->
+      <email>syssw-chair@openpowerfoundation.org</email>
+      <affiliation>
+          <!-- TODO: Insert appropriate orgname -->
+          <orgname>IBM</orgname>
+      </affiliation>
+    </author>
+    <copyright>
+      <!-- TODO: Keep second year accurate for latest publish -->
+      <year>2014,2016</year>
+      <holder>OpenPOWER Foundation</holder>
+    </copyright>
+    <copyright>
+      <year>1999,2003, 2004, 2013, 2014</year>
+      <holder>IBM Corporation</holder>
+    </copyright>
+    <copyright>
+      <year>2011</year>
+      <holder>Power.org</holder>
+    </copyright>
+    <copyright>
+      <year>2003, 2004</year>
+      <holder>Free Standards Group</holder>
+    </copyright>
+    <copyright>
+      <year>2002</year>
+      <holder>Freescale Semiconductor, Inc</holder>
+    </copyright>
+    <!-- TODO: Set the correct document releaseinfo -->
+    <releaseinfo>Revision 1.2b</releaseinfo>
+    <productname>OpenPOWER</productname>
+    <pubdate/>
+
+    <!-- TODO: Change license to "gnuFreeDoc" when JAR 1.5 becomes available. -->
+    <!--legalnotice role="gnuFreeDoc"-->
+    <legalnotice role="apache2">
+
+      <annotation>
+          <remark>Copyright details are filled in by the template.</remark>
+      </annotation>
+    </legalnotice>
+    
+    <abstract>
+      <para>The Executable and Linking Format (ELF) defines a linking interface for executables 
+      and shared objects in two parts: the first part is the generic System V ABI, the second part 
+      is a processor-specific supplement.</para>
+      <para>This document, the OpenPOWER ABI for Linux Supplement for the Power Architecture 64-bit ELF
+      V2 ABI, is the OpenPOWER-compliant processor-specific supplement for use with ELF V2 on 64-bit 
+      IBM Power Architecture® systems. This is not a complete System V ABI supplement because it
+      does not define any library interfaces.</para>
+      <para>This document establishes both big-endian and little-endian application binary 
+      interfaces. OpenPOWER-compliant processors in the 64-bit Power Architecture can execute 
+      in either big-endian or little-endian mode. Executables and executable-generated 
+      data (in general) that subscribes to either byte ordering is not portable to a system running in the
+      other mode.</para>
+      <para>This document is a Standards Track, Work Group work product owned by the
+      System Software Workgroup and handled in compliance with the requirements outlined in the
+      <citetitle>OpenPOWER Foundation Work Group (WG) Process</citetitle> document. It was
+      created using the <citetitle>Master Template Guide</citetitle> version 1.0. Comments,
+      questions, etc. can be submitted to the public mailing list  for this document at 
+      <link xlink:href="http://tbd.openpowerfoundation.org">TBD</link>.</para>
+    </abstract>
+
+    <revhistory>
+      <!-- TODO: Set the initial version information and clear any old information out -->
+      <revision>
+          <date>2016-08-29</date>
+          <revdescription>
+            <itemizedlist spacing="compact">
+              <listitem>
+                <para>Revision 1.1b - initial conversion from framemaker</para>
+              </listitem>
+            </itemizedlist>
+          </revdescription>
+      </revision>
+     </revhistory>
+    </info>
+
+  <!-- The ch_preface.xml file is required by all documents -->
+  <xi:include href="../../Docs-Master/common/ch_preface.xml"/>
+  <xi:include href="ch_preface.xml"/>
+
+  <!-- TODO: Add your chapter heading files here.  Remove both files and insert your own. -->
+  <!--       See the template document for naming conventions and location of files.      -->
+
+
+  <xi:include href="ch_1.xml"/>
+  <xi:include href="ch_2.xml"/>
+  <xi:include href="ch_3.xml"/>
+  <xi:include href="ch_4.xml"/>
+  <xi:include href="ch_5.xml"/>
+  <xi:include href="ch_6.xml"/>
+  <xi:include href="app_a.xml"/>
+  <xi:include href="app_b.xml"/>
+  <xi:include href="app_glossary.xml"/>
+
+  <!-- The app_foundation.xml appendix file is required by all documents. -->
+  <xi:include href="../../Docs-Master/common/app_foundation.xml"/>
+
+  <!-- TODO: The following template document may be modified to create additional appendices as needed. -->
+  <!--xi:include href="app_template.xml"/ -->
+
+</book>

@@ -1,0 +1,1085 @@
+<chapter xmlns="http://docbook.org/ns/docbook"
+xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
+  <title>Program Loading and Dynamic Linking</title>
+  <section xml:id="dbdoclet.50655242___RefHeading___Toc377640650">
+    <title>Program Loading</title>
+    <para>A number of criteria constrain the mapping of an executable file or
+    shared object file to virtual memory segments. During mapping, the
+    operating system may use delayed physical reads to improve performance,
+    which necessitates that file offsets and virtual addresses are congruent,
+    modulo the page size.</para>
+    <para>Page size must be less than or equal to the operating system
+    implemented congruency. This ABI defines 64 KB congruency as the minimum
+    allowable. To maintain interoperability between operating system
+    implementations, 64 KB congruency is recommended.</para>
+    <note>
+      <para>There is historical precedence for 64 KB congruency in that
+      there is synergy with the Power Architecture instruction set whereby
+      low and high adjusted relocations can be easily performed using addi or
+      addis instructions.</para>
+    </note>
+    <para>The value of the p_align member of the program header struct must be
+    0x10000 or a larger power of 2. If a larger congruency size is used for
+    large pages, p_align should match the congruency value.</para>
+    <para>The following program header information illustrates an application
+    that is mapped with a base address of 0x10000000:</para>
+    <table frame="all" pgwide="1" xml:id="dbdoclet.50655242_44623">
+      <title>Program Header Example</title>
+      <tgroup cols="3">
+        <colspec colname="c1" colwidth="33*" align="center" />
+        <colspec colname="c2" colwidth="33*" align="center" />
+        <colspec colname="c3" colwidth="33*" align="center" />
+        <thead>
+          <row>
+            <entry>
+              <para>
+                <emphasis role="bold">Header Member</emphasis>
+              </para>
+            </entry>
+            <entry>
+              <para>
+                <emphasis role="bold">Text Segment</emphasis>
+              </para>
+            </entry>
+            <entry>
+              <para>
+                <emphasis role="bold">Data Segment</emphasis>
+              </para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para>p_type</para>
+            </entry>
+            <entry>
+              <para>PT_LOAD</para>
+            </entry>
+            <entry>
+              <para>PT_LOAD</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>p_offset</para>
+            </entry>
+            <entry>
+              <para>0x000000</para>
+            </entry>
+            <entry>
+              <para>0x000af0</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>p_vaddr</para>
+            </entry>
+            <entry>
+              <para>0x10000000</para>
+            </entry>
+            <entry>
+              <para>0x10010af0</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>p_paddr</para>
+            </entry>
+            <entry>
+              <para>0x10000000</para>
+            </entry>
+            <entry>
+              <para>0x10010af0</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>p_filesz</para>
+            </entry>
+            <entry>
+              <para>0x00af0</para>
+            </entry>
+            <entry>
+              <para>0x00124</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>p_memsz</para>
+            </entry>
+            <entry>
+              <para>0x00af0</para>
+            </entry>
+            <entry>
+              <para>0x00128</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>p_flags</para>
+            </entry>
+            <entry>
+              <para>R-E</para>
+            </entry>
+            <entry>
+              <para>RW-</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>p_align</para>
+            </entry>
+            <entry>
+              <para>0x10000</para>
+            </entry>
+            <entry>
+              <para>0x10000</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <note>
+      <para>Note: For the PT_LOAD entry describing the data segment, the
+      p_memsz may be greater than the p_filesz. The difference is the size of
+      the .bss section. On implementations that use virtual memory file
+      mapping, only the portion of the file between the .data p_offset
+      (rounded down to the nearest page) to p_offset + p_filesz (rounded up
+      to the next page size) is included. If the distance between p_offset +
+      p_filesz and p_offset + p_memsz crosses a page boundary, then
+      additional memory must be allocated out of anonymous memory to include
+      data through p_vaddr + p_memsz.</para>
+    </note>
+    <para>
+    <xref linkend="dbdoclet.50655242_44623" /> demonstrates a typical mapping of
+    file to memory segments.</para>
+    <table frame="all" pgwide="1" xml:id="dbdoclet.50655242_45730">
+      <title>Memory Segment Mappings</title>
+      <tgroup cols="3">
+        <colspec colname="c1" colwidth="33*" align="center" />
+        <colspec colname="c2" colwidth="33*" align="center" />
+        <colspec colname="c3" colwidth="33*" align="center" />
+        <thead>
+          <row>
+            <entry>
+              <para>
+                <emphasis role="bold">File</emphasis>
+              </para>
+            </entry>
+            <entry>
+              <para>
+                <emphasis role="bold">Section</emphasis>
+              </para>
+            </entry>
+            <entry>
+              <para>
+                <emphasis role="bold">Virtual Address</emphasis>
+              </para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para>0x0</para>
+            </entry>
+            <entry>
+              <para>header</para>
+            </entry>
+            <entry>
+              <para>0x10000000</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>0x100</para>
+            </entry>
+            <entry>
+              <para>.text</para>
+            </entry>
+            <entry>
+              <para>0x10000100</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>0xaf0</para>
+            </entry>
+            <entry>
+              <para>.data</para>
+            </entry>
+            <entry>
+              <para>0x10010af0</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Not applicable. Zero-initialized data is not stored in the
+              file.</para>
+            </entry>
+            <entry>
+              <para>.bss</para>
+            </entry>
+            <entry>
+              <para>0x10010c14</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Not stored in the file.</para>
+            </entry>
+            <entry>
+              <para>End of sections</para>
+            </entry>
+            <entry>
+              <para>0x10010c18</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>Operating systems typically enforce memory permission on a per-page
+    granularity. This ABI maintains that the memory permissions are consistent
+    across each memory segment when a file image is mapped to a process memory
+    segment. The text segment and data segment require differing memory
+    permissions. To maintain congruency of file offset to virtual address
+    modulo the page size, the system maps the file region holding the
+    overlapped text and data twice at different virtual addresses for each
+    segment (see 
+    <xref linkend="dbdoclet.50655242_42741" />).</para>
+    <para>To increase the security attributes of this ABI, the text and certain
+    sections of the data segment (such as the .rodata section) may be protected
+    as read only after the pages are mapped and relocations are resolved. See 
+    <xref linkend="dbdoclet.50655242_93623" /> for more information.</para>
+    <figure pgwide="1" xml:id="dbdoclet.50655242_42741">
+      <title>File Image to Process Memory Image Mapping</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/fig4-1.png" format="PNG"
+          scalefit="1" width="100%" />
+        </imageobject>
+      </mediaobject>
+    </figure>
+    <para>As a result of this mapping, there can be up to four pages of impure
+    text or data in the virtual memory segments for the application as
+    described in the following list:</para>
+    <orderedlist>
+      <listitem>
+        <para>ELF header information, program headers, and other information will 
+        precede the .text section and reside at the beginning of the text segment.</para>
+      </listitem>
+      <listitem>
+        <para>The last memory page of the text segment can contain a copy of
+        the partial, first file-image data page as an artifact of page faulting
+        the last file-image text page from the file image to the text segment
+        while maintaining the required offsets as shown in 
+        <xref linkend="dbdoclet.50655242_42741" />.</para>
+      </listitem>
+      <listitem>
+        <para>Likewise, the first memory page of the data segment may
+        contain a copy of the partial, last file-image text page as an artifact
+        of page faulting the first file-image data page from the file image to
+        the data segment while maintaining the required offsets.</para>
+      </listitem>
+      <listitem>
+        <para>The last faulted data-segment memory page may contain residual
+        data from the last file-image data page that is not part of the actual
+        file image. The system is required to zero this residual memory after
+        that page is mapped to the data segment. If the application requires
+        static data, the remainder of this page is used for that purpose. If
+        the static data requirements exceed the remnant left in the last
+        faulted memory page, additional pages shall be mapped from anonymous
+        memory and zeroed.</para>
+      </listitem>
+    </orderedlist>
+    <note>
+      <para>The handling of the contents of the first three
+      pages is undefined by this ABI. They are unused by the
+      executable program once started.</para>
+    </note>
+    <section xml:id="dbdoclet.50655242_10560">
+      <title>Addressing Models</title>
+      <para>When mapping an executable file or shared object file to memory,
+      the system can use the following addressing models. Each application is
+      allocated its own virtual address space.</para>
+      <itemizedlist>
+        <listitem>
+          <para>Traditionally, executable files are mapped to virtual memory 
+          using an absolute addressing model, where the mapping of the sections to
+          segments uses the section p_vaddr specified by the ELF header directly 
+          as an absolute address.
+          </para>
+        </listitem>
+        <listitem>
+          <para>The position-independent code (PIC) addressing model allows the
+          file image text of an executable file or shared object file to be
+          loaded into the virtual address space of a process at an arbitrary
+          starting address chosen by the kernel loader or program interpreter
+          (dynamic linker).</para>
+        </listitem>
+      </itemizedlist>
+      <note> 
+        <itemizedlist>
+          <listitem>
+            <para>Shared objects need to use the PIC addressing model
+            so that all references to global variables go through the
+            Global Offset Table.</para>
+          </listitem>
+          <listitem>
+            <para>Position-independent executables should use the PIC
+            addressing model.</para>
+          </listitem>
+        </itemizedlist>
+      </note>
+    </section>
+    <section xml:id="dbdoclet.50655242_82123">
+      <title>Process Initialization</title>
+      <para>To provide a standard environment for application programs, the
+      exec system call creates an initial program machine state. That state
+      includes the use of registers, the layout of the stack frame, and
+      argument passing. For example, a C program might typically issue the
+      following declaration to begin executing at the local entry point of a
+      function named main:</para>
+      <programlisting>
+        extern int main (int argc, char *argv[], char *envp[], void *auxv[]);
+        int main(int argc, char *argv[], char *envp[], ElfW(auxv_t) *auxvec)
+      </programlisting>
+      <para>where:</para>
+      <itemizedlist mark="none">
+        <listitem>
+          <para>argc is a nonnegative argument count.</para>
+        </listitem>
+        <listitem>
+         
+          <para> argv is an array of argument strings.
+          It is terminated by a NULL pointer, argv[argc] == 0.</para>
+        </listitem>
+        <listitem>
+          <para>envp is an array of environment strings. It is also
+          terminated by a NULL pointer.</para>
+        </listitem>
+        <listitem>
+          <para>auxv is an array of structures that contain the auxiliary
+          vector. It is terminated by a structure entry with an a_type of
+          AT_NULL. For more information, see 
+          <xref linkend="dbdoclet.50655242_98651" />.</para>
+        </listitem>
+      </itemizedlist>
+      <para>This section explains how to implement the call to main or to the
+      entry point.</para>
+    </section>
+    <section xml:id="dbdoclet.50655242___RefHeading___Toc377640653">
+      <title>Registers
+      <anchor xml:id="dbdoclet.50655242_PROC-REG"
+      xreflabel="" /> Registers</title>
+      <para>The contents of most registers are 
+      <emphasis>not</emphasis> specified when a process is first entered from an
+      exec system call. A program should not expect the operating system to set
+      all registers to 0. If a register other than those listed in 
+      <xref linkend="dbdoclet.50655242_74550" /> must have a specific value, the
+      program must set it to that value during process initialization.</para>
+      <para>The contents of the following registers 
+      <emphasis>are</emphasis> specified:</para>
+      <para> </para>
+      <table frame="all" pgwide="1" xml:id="dbdoclet.50655242_74550">
+        <title>Registers Specified during Process Initialization</title>
+        <tgroup cols="2">
+          <colspec colname="c1" colwidth="15*" align="center"/>
+          <colspec colname="c2" colwidth="85*" />
+          <thead>
+            <row>
+              <entry>
+                <para>
+                  <emphasis role="bold">Register</emphasis>
+                </para>
+              </entry>
+              <entry align="center">
+                <para>
+                  <emphasis role="bold">Description</emphasis>
+                </para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para>r1</para>
+              </entry>
+              <entry>
+                <para>The initial stack pointer, aligned to a quadword
+                boundary.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>r2</para>
+              </entry>
+              <entry>
+                <para>Undefined.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>r3</para>
+              </entry>
+              <entry>
+                <para>Contains argc, the nonnegative argument count.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>r4</para>
+              </entry>
+              <entry>
+                <para>Contains argv, a pointer to the array of argument
+                pointers in the stack. The array is immediately followed by a
+                NULL pointer. If there are no arguments, r4 points to a NULL
+                pointer.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>r5</para>
+              </entry>
+              <entry>
+                <para>Contains envp, a pointer to the array of environment
+                pointers in the stack. The array is immediately followed by a
+                NULL pointer. If no environment exists, r5 points to a NULL
+                pointer.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>r6</para>
+              </entry>
+              <entry>
+                <para>Contains a pointer to the auxiliary vector. The auxiliary
+                vector shall have at least one member, a terminating entry with
+                an a_type of AT_NULL (see 
+                <xref linkend="dbdoclet.50655242_98651" />).</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>r7</para>
+              </entry>
+              <entry>
+                <para>Contains a termination function pointer. If r7 contains a
+                nonzero value, the value represents a function pointer that the
+                application should register with atexit. If r7 contains zero,
+                no action is required.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>r12</para>
+              </entry>
+              <entry>
+                <para>Contains the address of the global entry point of the
+                first function being invoked, which represents the start
+                address of the executable specified in the exec call.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>FPSCR</para>
+              </entry>
+              <entry>
+                <para>Contains 0, specifying “round to nearest” mode for both
+                binary and decimal rounding modes, IEEE Mode, and the disabling
+                of floating-point exceptions.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>VSCR</para>
+              </entry>
+              <entry>
+                <para>Vector Status and Control Register. Contains 0,
+                specifying vector Java/IEEE mode and that no saturation has
+                occurred.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>The run-time that gets control from _start is responsible for:</para>
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Creating the first stack frame</para>
+        </listitem>
+        <listitem>
+          <para>Initializing the first stack frame's back chain pointer to
+          NULL</para>
+        </listitem>
+        <listitem>
+          <para>Allocating and initializing TLS storage</para>
+        </listitem>
+        <listitem>
+          <para>Initializing the thread control block (TCB) and dynamic thread
+          vector (DTV)</para>
+        </listitem>
+        <listitem>
+          <para>Initializing any __thread variables</para>
+        </listitem>
+        <listitem>
+          <para>Setting R13 for the initial process thread.</para>
+        </listitem>
+      </itemizedlist>
+      <para>This initialization must be completed before any library
+      initialization codes are run and before control is transferred to the
+      main program (main()).</para>
+    </section>
+    <section xml:id="dbdoclet.50655242_83727">
+      <title>Process Stack</title>
+      <para>Although every process has a stack, no fixed stack address is
+      defined by the system. In addition, a program's stack address can change
+      from one system to another. It can even change from one process
+      invocation to another. Thus, the process initialization code must use the
+      stack address in general-purpose register r1. Data in the stack segment
+      at addresses below the stack pointer contain undefined values.</para>
+    </section>
+    <section xml:id="dbdoclet.50655242_98651">
+      <title>Auxiliary Vector</title>
+      <para>The argument and environment vectors transmit information from one
+      application program to another. However, the auxiliary vector conveys
+      information from the operating system to the program. This vector is an
+      array of structures, defined as follows:</para>
+      <programlisting>
+      typedef struct
+      {
+         long a_type;
+         union
+            {
+               long a_val;
+               void *a_ptr;
+               void (*a_fcn)();
+            } a_un;
+      } auxv_t;
+       
+      Name               Value   a_un field    Comment
+      AT_NULL            0       ignored       /* End of vector */
+      AT_PHDR            3       a_ptr         /* Program headers for program */
+      AT_PHENT           4       a_val         /* Size of program header entry */
+      AT_PHNUM           5       a_val         /* Number of program headers */
+      AT_PAGESZ          6       a_val         /* System page size */
+      AT_BASE            7       a_ptr         /* Base address of interpreter */
+      AT_FLAGS           8       a_val         /* Flags */
+      AT_ENTRY           9       a_ptr         /* Entry point of program */
+      AT_UID             11                    /* Real user ID (uid) */
+      AT_EUID            12                    /* Effective user ID (euid) */
+      AT_GID             13                    /* Real group ID (gid) */
+      AT_EGID            14                    /* Effective group ID (egid) */
+      AT_PLATFORM        15      a_ptr         /* String identifying platform. */
+      AT_HWCAP           16      a_val         /* Machine-dependent hints about 
+                                               processor capabilities. */
+      AT_CLKTCK          17                    /* Frequency of times(), always 100 */
+      AT_DCACHEBSIZE     19      a_val         /* Data cache block size */
+      AT_ICACHEBSIZE     20      a_val         /* Instruction cache block size */
+      AT_UCACHEBSIZE     21      a_val         /* Unified cache block size */
+      AT_IGNOREPPC       22                    /* Ignore this entry! */
+      AT_SECURE          23                    /* Boolean, was exec authorized to use 
+                                               setuid or setgid */
+      AT_BASE_PLATFORM   24      a_ptr         /* String identifying real platforms */
+      AT_RANDOM          25                    /* Address of 16 random bytes */
+      AT_HWCAP2          26      a_val         /* More machine-dependent hints about 
+                                               processor capabilities. */
+      AT_EXECFN          31                    /* File name of executable */
+      AT_SYSINFO_EHDR    33                    /* In many architectures, the kernel 
+                                               provides a virtual dynamic shared 
+                                               object (VDSO) that contains a function 
+                                               callable from the user state.   
+                                               AT_SYSINFO_EHDR is the address of the
+                                               VDSO header that is used by the
+                                               dynamic linker to resolve function 
+                                               symbols with the VDSO. */
+      </programlisting>
+      <para>AT_NULL</para>
+      <para>The auxiliary vector has no fixed length; instead an entry of this
+      type denotes the end of the vector. The corresponding value of a_un is
+      undefined.</para>
+      <para>AT_PHDR</para>
+      <para>Under some conditions, the system creates the memory image of the
+      application program before passing control to an interpreter program.
+      When this happens, the a_ptr member of the AT_PHDR entry tells the
+      interpreter where to find the program header table in the memory image.
+      If the AT_PHDR entry is present, entries of types AT_PHENT, AT_PHNUM, and
+      AT_ENTRY must also be present. See the Program Header section in Chapter
+      5 of the 
+      <emphasis>System V ABI</emphasis> for more information about the program
+      header table.</para>
+      <para>AT_PHENT</para>
+      <para>The a_val member of this entry holds the size, in bytes, of one
+      entry in the program header table to which the AT_PHDR entry
+      points.</para>
+      <para>AT_PHNUM</para>
+      <para>The a_val member of this entry holds the number of entries in the
+      program header table to which the AT_PHDR entry points.</para>
+      <para>AT_PAGESZ</para>
+      <para>If present, this entry's a_val member gives the system page size in
+      bytes. The same information is also available through the sysconf system
+      call.</para>
+      <para>AT_BASE</para>
+      <para>The a_ptr member of this entry holds the base address at which the
+      interpreter program was loaded into memory. See the Program Header
+      section in Chapter 5 of the 
+      <emphasis>System V ABI</emphasis> for more information about the base
+      address.</para>
+      <para>AT_FLAGS</para>
+      <para>If present, the a_val member of this entry holds 1-bit flags. Bits
+      with undefined semantics are set to zero. Other auxiliary vector types
+      are reserved. No flags are currently defined for AT_FLAGS on the 64-bit
+      OpenPOWER ABI Architecture.</para>
+      <para>AT_ENTRY</para>
+      <para>The a_ptr member of this entry holds the entry point of the
+      application program to which the interpreter program should transfer
+      control.</para>
+      <para>AT_DCACHEBSIZE</para>
+      <para>The a_val member of this entry gives the data cache block size for
+      processors on the system on which this program is running. If the
+      processors have unified caches, AT_DCACHEBSIZE is the same as
+      AT_UCACHEBSIZE.</para>
+      <para>AT_ICACHEBSIZE</para>
+      <para>The a_val member of this entry gives the instruction cache block
+      size for processors on the system on which this program is running. If
+      the processors have unified caches, AT_ICACHEBSIZE is the same as
+      AT_UCACHEBSIZE.</para>
+      <para>AT_UCACHEBSIZE</para>
+      <para>The a_val member of this entry is zero if the processors on the
+      system on which this program is running do not have a unified instruction
+      and data cache. Otherwise, it gives the cache block size.</para>
+      <para>AT_PLATFORM</para>
+      <para>The a_ptr member is the address of the platform name string. For
+      virtualized systems, this may be different (that is, an older platform)
+      than the physical machine running this environment.</para>
+      <para>AT_BASE_PLATFORM</para>
+      <para>The a_ptr member is the address of the platform name string for the
+      physical machine. For virtualized systems, this will be the platform name
+      of the real hardware.</para>
+      <para>AT_HWCAP</para>
+      <para>The a_val member of this entry is a bit map of hardware
+      capabilities. Some bit mask values include:</para>
+      <programlisting>
+      PPC_FEATURE_32            0x80000000 /* Always set for powerpc64 */
+      PPC_FEATURE_64            0x40000000 /* Always set for powerpc64 */
+      PPC_FEATURE_HAS_ALTIVEC   0x10000000
+      PPC_FEATURE_HAS_FPU       0x08000000
+      PPC_FEATURE_HAS_MMU       0x04000000
+      PPC_FEATURE_UNIFIED_CACHE 0x01000000
+      PPC_FEATURE_NO_TB         0x00100000 /* 601/403gx have no timebase */
+      PPC_FEATURE_POWER4        0x00080000 /* POWER4 ISA 2.00 */
+      PPC_FEATURE_POWER5        0x00040000 /* POWER5 ISA 2.02 */
+      PPC_FEATURE_POWER5_PLUS   0x00020000 /* POWER5+ ISA 2.03 */
+      PPC_FEATURE_CELL_BE       0x00010000 /* CELL Broadband Engine */
+      PPC_FEATURE_BOOKE         0x00008000 /* ISA Category Embedded */
+      PPC_FEATURE_SMT           0x00004000 /* Simultaneous Multi-Threading */
+      PPC_FEATURE_ICACHE_SNOOP  0x00002000
+      PPC_FEATURE_ARCH_2_05     0x00001000 /* ISA 2.05 */
+      PPC_FEATURE_PA6T          0x00000800 /* PA Semi 6T Core */
+      PPC_FEATURE_HAS_DFP       0x00000400 /* Decimal FP Unit */
+      PPC_FEATURE_POWER6_EXT    0x00000200 /* P6 + mffgpr/mftgpr */
+      PPC_FEATURE_ARCH_2_06     0x00000100 /* ISA 2.06 */
+      PPC_FEATURE_HAS_VSX       0x00000080 /* P7 Vector Extension. */
+      PPC_FEATURE_PSERIES_PERFMON_COMPAT 0x00000040
+      PPC_FEATURE_TRUE_LE       0x00000002
+      PPC_FEATURE_PPC_LE        0x00000001
+      </programlisting>
+      <para>AT_HWCAP2</para>
+      <para>The a_val member of this entry is a bit map of hardware
+      capabilities. Some bit mask values include:</para>
+      <programlisting>
+      PPC_FEATURE2_ARCH_2_07    0x80000000 /* ISA 2.07 */
+      PPC_FEATURE2_HAS_HTM      0x40000000 /* Hardware Transactional Memory */
+      PPC_FEATURE2_HAS_DSCR     0x20000000 /* Data Stream Control Register */
+      PPC_FEATURE2_HAS_EBB      0x10000000 /* Event Base Branching */
+      PPC_FEATURE2_HAS_ISEL     0x08000000 /* Integer Select */
+      PPC_FEATURE2_HAS_TAR      0x04000000 /* Target Address Register */
+      PPC_FEATURE2_HAS_VCRYPTO  0x02000000 /* The processor implements the
+                                              Vector.AES category */
+      </programlisting>
+      <para>When a process starts to execute, its stack holds the arguments,
+      environment, and auxiliary vector received from the exec call. The system
+      makes no guarantees about the relative arrangement of argument strings,
+      environment strings, and the auxiliary information, which appear in no
+      defined or predictable order. Further, the system may allocate memory
+      after the null auxiliary vector entry and before the beginning of the
+      information block.</para>
+    </section>
+  </section>
+  <section>
+    <title>Dynamic Linking</title>
+    <section xml:id="dbdoclet.50655242___RefHeading___Toc377640656">
+      <title>Program Interpreter</title>
+      <para>For dynamic linking, the standard program interpreter is
+      /lib/ld64.so.2. It may be located in different places on different
+      distributions.</para>
+    </section>
+    <section>
+      <title>Dynamic Section</title>
+      <para>
+      <anchor xml:id="dbdoclet.50655242_page119" xreflabel="" /> The dynamic
+      section provides information used by the dynamic linker to manage
+      dynamically loaded shared objects, including relocation, initialization,
+      and termination when loaded or unloaded, resolving dependencies on other
+      shared objects, resolving references to symbols in the shared object, and
+      supporting debugging. The following dynamic tags are relevant to this
+      processor-specific ABI:</para>
+      <para>DT_PLTGOT</para>
+      <para>
+      The dynamic section provides information used by the dynamic linker
+      to manage dynamically loaded shared objects, including relocation,
+      initialization, and termination when loaded or unloaded, resolving 
+      dependencies on other shared objects, resolving references to 
+      symbols in the shared object, and supporting debugging.  The following
+      dynamic tags are relevant to this processor-specific ABI:</para>
+      <para>DT_JMPREL</para>
+      <para>The d_ptr member of this dynamic tag points to the first byte of
+      the table of relocation entries, which have a one-to-one correspondence
+      with PLT entries. Any executable or shared object with a PLT must have
+      DT_JMPREL. A shared object containing only data will not have a PLT and
+      thus will not have DT_JMPREL.</para>
+      <para>DT_PPC64_GLINK (DT_LOPROC + 0)</para>
+      <para>The d_ptr member of this dynamic tag points to 32 bytes before the
+      .glink lazy link symbol resolver stubs that are described in 
+      <xref linkend="dbdoclet.50655242_82622" />.</para>
+      <para>DT_PPC64_OPT (DT_LOPROC + 3)</para>
+      <para>The d_val member of this dynamic tag specifies whether various
+      optimizations are possible. The low bit will be set to indicate that an
+      optimized __tls_get_addr call stub is used. The next most-significant bit
+      will be set if multiple TOCs are present.</para>
+    </section>
+    <section xml:id="dbdoclet.50655242_47739">
+      <title>Global Offset Table</title>
+      <para>To support position-independent code, a Global Offset Table (GOT)
+      shall be constructed by the link editor in the data segment when linking
+      code that contains any of the various R_PPC64_GOT* relocations or when
+      linking code that references the .TOC. address. The GOT consists of an
+      8-byte header that contains the TOC base (the first TOC base when
+      multiple TOCs are present), followed by an array of 8-byte addresses. The
+      link editor shall emit dynamic relocations as appropriate for each entry
+      in the GOT. At runtime, the dynamic linker will apply these relocations
+      after the addresses of all memory segments are known (and thus the
+      addresses of all symbols). While the GOT may be appear to be an array of
+      absolute addresses, this ABI does not preclude the GOT containing
+      nonaddress entries and specifies the presence of nonaddress tls_index
+      entries.</para>
+      <para>Absolute addresses are generated for all GOT relocations by the
+      dynamic linker before giving control to general application code.
+      (However, IFUNC resolution functions may be invoked before relocation is
+      completed, limiting the use of global variables by such functions.) The
+      dynamic linker is free to choose different memory segment addresses for
+      the executable or shared objects in a different process image. After the
+      initial mapping of the process image by the dynamic linker, memory
+      segments reside at fixed addresses for the life of a process.</para>
+      <para>The symbol .TOC. may be used to access the GOT or in TOC-relative
+      addressing to other data constructs, such as the procedure linkage table.
+      The symbol may be offset by 0x8000 bytes, or another offset, from the
+      start of the .got section. This offset allows the use of the full (64 KB)
+      signed range of 16-bit displacement fields by using both positive and
+      negative subscripts into the array of addresses, or a larger offset to
+      afford addressing using references within ±2 GB with 32-bit
+      displacements. The 32-bit displacements are constructed by using the
+      addis instruction to provide a first high-order 16-bit portion of a
+      32-bit displacement in conjunction with an instruction to supply a
+      low-order 16-bit portion of a 32-bit displacement.</para>
+      <para>In PIC code, the TOC pointer r2 points to the TOC base, enabling
+      easy reference. For static nonrelocatable modules, the GOT address is
+      fixed and can be directly used by code.</para>
+      <para>All functions except leaf routines must load the value of the TOC
+      base into the TOC register r2.</para>
+    </section>
+    <section>
+      <title>Function Addresses</title>
+      <para>The following requirements concern function addresses.</para>
+      <para>When referencing a function address, consider the following
+      requirements:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Intraobject executable or shared object function address
+          references may be resolved by the dynamic linker to the absolute
+          virtual address of the symbol.</para>
+        </listitem>
+        <listitem>
+          <para>Function address references from within the executable file 
+          to a function defined in a shared object file are resolved by the
+          link editor to the .text section address of the PLT call stub for 
+          that functionwithin the executable file.
+          </para>
+        </listitem>
+        <listitem>
+          <para>In a static module, when a function pointer reference is made
+          to a function provided by a dynamically loaded shared module, the
+          function may be resolved to the address of a PLT stub. If this
+          resolution is made, all function pointer references must be made
+          through the same PLT stub in the static module to ensure correct
+          intraobject comparisons for function addresses.</para>
+        </listitem>
+        <listitem>
+          <para>A function address of a nested function
+          <emphasis>may</emphasis> also be resolved to the address of a
+          trampoline used to call it.</para>
+        </listitem>
+      </itemizedlist>
+      <para>When comparing function addresses, consider the following
+      requirements:</para>
+      <itemizedlist>
+        <listitem>
+          <para>The address of a function shall compare to the same value in
+          executables and shared objects.</para>
+        </listitem>
+        <listitem>
+          <para>For intraobject comparisons of function addresses within the
+          executable or shared object, the link editor may directly compare the
+          absolute virtual addresses.</para>
+        </listitem>
+        <listitem>
+          <para>For a function address comparison where an executable 
+          references a function defined in a a shared object, the link 
+          editor will place the address of a .text section PLT call stub
+	  for that function in the corresponding dynamic symbol table
+	  entry's st_value field (see <xref linkend="dbdoclet.50655241_95185" />).</para>
+        </listitem>
+        <listitem>
+          <para>When the dynamic linker loads shared objects associated with an
+          executable and resolves any GOT entry relocations into absolute
+          addresses, it will search the dynamic symbol table of the executable
+          for each symbol that needs to be resolved.</para>
+        </listitem>
+        <listitem>
+          <para>If it finds the symbol and the st_value of the symbol table
+          entry is nonzero, it shall use the address indicated in the st_value
+          entry as the symbol’s address. If the dynamic linker does not find
+          the symbol in the executable’s dynamic symbol table or the entry’s
+          st_value member is zero, the dynamic linker may consider the symbol
+          as undefined in the executable file.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+    <section xml:id="dbdoclet.50655242_20388">
+      <title>Procedure Linkage Table</title>
+      <para>When the link editor builds an executable file or shared object
+      file, it does not know the absolute address of undefined function calls.
+      Therefore, it cannot generate code to directly transfer execution to
+      another shared object or executable. For each execution transfer to an
+      undefined function call in the file image, the link editor places a
+      relocation against an entry in the Procedure Linkage Table (PLT) of the
+      executable or shared object that corresponds to that function
+      call.</para>
+      <para>Additionally, for all nonstatic functions with standard (nonhidden)
+      visibility in a shared object, the link editor invokes the function
+      through the PLT, even if the shared object defines the function. The same
+      is not true for executables.</para>
+      <para>The link editor knows the number of functions invoked through the
+      PLT, and it reserves space for an appropriately sized .plt section. The
+      .plt section is located in the section following the .got. It consists of
+      an array of addresses and is initialized by the module loader. There will
+      also be an array of R_PPC_JMP_SLOT relocations in .rela.plt, with a
+      one-to-one correspondence between elements of each array. Each
+      R_PPC_JMP_SLOT relocation will have r_offset pointing at the .plt word it
+      relocates.</para>
+      <para>A unique PLT is constructed by the static linker for each static
+      module (that is, the main executable) and each dynamic shared object. The
+      PLT is located in the data segment of the process image at object load
+      time by the dynamic linker using the information about the .plt section
+      stored in the file image. The individual PLT entries are populated by the
+      dynamic linker using one of the following binding methods. Execution can
+      then be redirected to a dependent shared object or executable.</para>
+    </section>
+    <section>
+      <title>Lazy Binding</title>
+      <para>The lazy binding method is the default. It delays the resolution of
+      a PLT entry to an absolute address until the function call is made the
+      first time. The benefit of this method is that the application does not
+      pay the resolution cost until the first time it needs to call the
+      function, if at all.</para>
+      <para>To implement lazy binding, the dynamic loader points each PLT entry
+      to a lazy resolution stub at load time. After the function call is made
+      the first time, this lazy resolution stub gets control, resolves the
+      symbol, and updates the PLT entry to hold the final value to be used for
+      future calls.</para>
+    </section>
+    <section xml:id="dbdoclet.50655242_93623">
+      <title>Immediate Binding</title>
+      <para>The immediate binding method resolves the absolute addresses of all
+      PLT entries in the executable and dependent shared objects at load time,
+      before passing execution control to the application. The environment
+      variable LD_BIND_NOW may be set to a nonnull value to signal the dynamic
+      linker that immediate binding is requested at load time, before control
+      is given to the application.</para>
+      <para>For some performance-sensitive situations, it may be better to pay
+      the resolution cost to populate the PLT entries up front rather than
+      during execution.</para>
+    </section>
+    <section xml:id="dbdoclet.50655242_82622">
+      <title>Procedure Linkage Table</title>
+      <para>For every call site that needs to use the PLT, the link editor
+      constructs a call stub in the .text section and resolves the call site to
+      use that call stub. The call stub transfers control to the address
+      indicated in the PLT entry. These call stubs need not be adjacent to one
+      another or unique. They can be scattered throughout the text segment so
+      that they can be reached with a branch and link instruction.</para>
+      <para>Depending on relocation information at the call site, the stub
+      provides one of the following properties:</para>
+      <orderedlist>
+        <listitem>
+          <para>The caller has set up r2 to hold the TOC pointer and expects
+          the PLT call stub to save that value to the TOC save stack slot. This
+          is the default.</para>
+        </listitem>
+        <listitem>
+          <para>The caller has set up r2 to hold the TOC pointer and has
+          already saved that value to the TOC save stack slot itself. This is
+          indicated by the presence of a R_PPC64_TOCSAVE relocation on the nop
+          following the call.</para>
+        </listitem>
+      </orderedlist>
+      <programlisting>
+      tocsaveloc:
+         nop
+       ...
+      bl target
+         .reloc ., R_PPC64_TOCSAVE, tocsaveloc
+         nop
+      </programlisting>
+      <orderedlist>
+        <listitem>
+          <para>3. The caller has not set up r2 to hold the TOC pointer. This
+          is indicated by use of a R_PPC64_REL24_NOTOC relocation (instead of
+          R_PPC64_REL24) on the call instruction.</para>
+        </listitem>
+      </orderedlist>
+      <para>In any scenario, the PLT call stub must transfer control to the
+      function whose address is provided in the associated PLT entry. This
+      address is treated as a global entry point for ABI purposes. This means
+      that the PLT call stub loads the address into r12 before transferring
+      control.</para>
+      <para>Although the details of the call stub implementation are left to
+      the link editor, some examples are provided. In those examples, func@plt
+      is used to denote the address of the PLT entry for func; func@plt@toc
+      denotes the offset of that address relative to the TOC pointer; and the
+      @ha and @l variants denote the high-adjusted and low parts of these
+      values as usual. Because the link editor synthesizes the PLT call stubs
+      directly, it can determine all these values as immediate constants. The
+      assembler is not required to support those notations.</para>
+      <para>A possible implementation for case 1 looks as follows (if
+      func@plt@toc is less than 32 KB, the call stub may be simplified to omit
+      the addis):</para>
+      <programlisting>
+         std    r2,24(r1)
+         addis  r12,r2,func@plt@toc@ha
+         ld     r12,func@plt@toc@l(r12)
+         mtctr  r12
+         bctr
+      </programlisting>
+      <para>For case 2, the same implementation as for case 1 may be used,
+      except that the first instruction “std r2,24(r1)” is omitted:</para>
+      <programlisting>
+         addis  r12,r2,func@plt@toc@ha
+         ld     r12,func@plt@toc@l(r12)
+         mtctr  r12
+         bctr
+      </programlisting>
+      <para>
+      <anchor xml:id="dbdoclet.50655242___DdeLink__61883_1749258592"
+      xreflabel="" /> A possible implementation for case 3 looks as
+      follows:</para>
+      <programlisting>
+         mflr   r0
+         bcl    20,31,1f
+      1: mflr   r2
+         mtlr   r0
+         addis  r2,r2,(.TOC.-1b)@ha
+         addi   r2,r2,(.TOC.-1b)@l
+         addis  r12,r2,func@plt@toc@ha
+         ld     r12,func@plt@toc@l(r12)
+         mtctr  r12
+         bctr
+      </programlisting>
+      <para>When generating non-PIC code for the small or medium code model, a
+      simpler variant may alternatively be used for cases 2 or 3:</para>
+      <programlisting>
+         lis    r12,func@plt@ha
+         ld     r12,func@plt@l(r12)
+         mtctr  r12
+         bctr
+      </programlisting>
+      <para>To support lazy binding, the link editor also provides a set of
+      symbol resolver stubs, one for each PLT entry. Each resolver stub
+      consists of a single instruction, which is usually a branch to a common
+      resolver entry point or a nop. The resolver stubs are placed in the
+      .glink section, which is merged into the .text section of the final
+      executable or dynamic object. The address of the resolver stubs is
+      communicated to the dynamic loader through the DT_PPC64_GLINK dynamic
+      section entry. The address of the symbol resolver stub associated with
+      PLT entry N is determined by adding 4xN + 32 to the d_ptr field of the
+      DT_PPC64_GLINK entry. When using lazy binding, the dynamic linker
+      initializes each PLT entry at load time to that address.</para>
+      <para>The resolver stubs provided by the link editor must call into the
+      main resolver routine provided by the dynamic linker. This resolver
+      routine must be called with r0 set to the index of the PLT entry to be
+      resolved, r11 set to the identifier of the current dynamic object, and
+      r12 set to the resolver entry point address (as usual when calling a
+      global entry point). The resolver entry point address and the dynamic
+      object identifier are installed at load time by the dynamic linker into
+      the two doublewords immediately preceding the array of PLT entries,
+      allowing the resolver stubs to retrieve these values from there. These
+      two doublewords are considered part of the .plt section; the DT_PLTGOT
+      dynamic section entry points to the first of those words.</para>
+      <para>Beyond the above requirements, the implementation of the .glink
+      resolver stubs is up to the link editor. The following shows an example
+      implementation:</para>
+      <programlisting>
+      # ABI note: At entry to the resolver stub:
+      # - r12 holds the address of the res_N stub for the target routine
+      # - all argument registers hold arguments for the target routine
+   PLTresolve:
+      # Determine addressability. This sequence works for both PIC
+      # and non-PIC code and does not rely on presence of the TOC pointer.
+      mflr r0
+      bcl 20,31,1f
+   1: mflr r11
+      mtlr r0
+      # Compute .plt section index from entry point address in r12
+      # .plt section index is placed into r0 as argument to the resolver
+      sub r0,r12,r11
+      subi r0,r0,res_0-1b
+      srdi r0,r0,2
+      # Load address of the first byte of the PLT
+      ld r12,PLToffset-1b(r11)
+      add r11,r12,r11
+      # Load resolver address and DSO identifier from the
+      # first two doublewords of the PLT
+      ld r12,0(r11)
+      ld r11,8(r11)
+      # Branch to resolver
+      mtctr r12
+      bctr
+      # ABI note: At entry to the resolver:
+      # - r12 holds the resolver address
+      # - r11 holds the DSO identifier
+      # - r0 holds the PLT index of the target routine
+      # - all argument registers hold arguments for the target routine
+       
+      # Constant pool holding offset to the PLT
+      # Note that there is no actual symbol PLT; the link editor
+      # synthesizes this value when creating the .glink section
+   PLToffset:
+      .quad PLT-.
+       
+      # A table of branches, one for each PLT entry
+      # The idea is that the PLT call stub loads r12 with these
+      # addresses, so (r12 - res_0) gives the PLT index × 4.
+       
+   res_0: b PLTresolve
+   res_1: b PLTresolve
+      ...
+      </programlisting>
+      <para>After resolution, the value of a PLT entry in the PLT is the
+      address of the function’s global entry point, unless the resolver can
+      determine that a module-local call occurs with a shared TOC value wherein
+      the TOC is shared between the caller and the callee.</para>
+      <para> </para>
+    </section>
+  </section>
+</chapter>

@@ -1,0 +1,851 @@
+<appendix xmlns="http://docbook.org/ns/docbook"
+xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en"
+xml:id="dbdoclet.50655245_pgfId-1450875">
+  <title>Binary-Coded Decimal Built-In Functions</title>
+    <para>Binary-coded decimal (BCD) values are compressed; each decimal digit
+    and sign bit occupies 4 bits. Digits are ordered right-to-left in the order
+    of significance. The final 4 bits encode the sign. A valid encoding must
+    have a value in the range 0 - 9 in each of its 31 digits, and a value in
+    the range 10 - 15 for the sign field.</para>
+    <para>Source operands with sign codes of 0b1010, 0b1100, 0b1110, or 0b1111
+    are interpreted as positive values. Source operands with sign codes of
+    0b1011 or 0b1101 are interpreted as negative values.</para>
+    <para>BCD arithmetic operations encode the sign of their result as follows:
+    A value of 0b1101 indicates a negative value, while 0b1100 and 0b1111
+    indicate positive values or zero, depending on the value of the positive
+    sign (PS) bit.</para>
+    <para>These built-in functions can operate on values of at most 31 digits.
+    BCD values are stored in memory as contiguous arrays of 1 - 16
+    bytes.</para>
+      <note>
+        <para>BCD built-in functions are valid only when -
+        <emphasis>march</emphasis> or -
+        <emphasis>qarch</emphasis> is set to target POWER8 processors or
+        later.</para>
+      </note>
+    <para>
+    <xref linkend="dbdoclet.50655245_77606" /> summarizes the BCD built-in
+    functions. Functions are grouped by type. Within type, functions are listed
+    alphabetically. Prototypes are provided for each function.</para>
+    <para> </para>
+    <table frame="all" pgwide="1" xml:id="dbdoclet.50655245_77606">
+      <title>Binary-Coded Decimal Built-In Functions</title>
+      <tgroup cols="2">
+        <colspec colname="c1" colwidth="30*" />
+        <colspec colname="c2" colwidth="70*" />
+        <thead>
+          <row>
+            <entry align="center">
+              <para>
+                <emphasis role="bold">Group</emphasis>
+              </para>
+            </entry>
+            <entry align="center">
+              <para>
+                <emphasis role="bold">Description of Binary-Coded Decimal
+                Built-In Functions (with Prototypes)</emphasis>
+              </para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry nameend="c2" namest="c1">
+              <para>
+                <emphasis role="bold">BCD Add and Subtract</emphasis>
+              </para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>___BUILTIN_BCDADD (a, b, ps)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Returns the result of the addition of the BCD values a and
+              b.</para>
+              <para>The sign of the result is determined as follows:</para>
+              <itemizedlist>
+                <listitem>
+                  <para>If the result is a nonnegative value and
+                  <emphasis>ps</emphasis> is 0, the sign is set to 0b1100
+                  (0xC).</para>
+                </listitem>
+                <listitem>
+                  <para>If the result is a nonnegative value and
+                  <emphasis>ps</emphasis> is 1, the sign is set to 0b1111
+                  (0xF).</para>
+                </listitem>
+                <listitem>
+                  <para>If the result is a negative value, the sign is set to
+                  0b1101 (0xD).</para>
+                </listitem>
+              </itemizedlist>
+              <para>Parameters:</para>
+              <para>The ps parameter selects the numeric format for the
+              positive-signed BCD numbers. It must be set to one of the values
+              defined in 
+              <xref linkend="dbdoclet.50655245_32368" />.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>vector unsigned char __builtin_bcdadd (vector unsigned
+              char, vector unsigned char, const int);</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>__BUILTIN_BCDSUB (a, b, ps)</para>
+            </entry>
+            <entry>
+              <para>Purpose</para>
+              <para>Returns the result of the subtraction of the BCD values a
+              and b. Sets the sign of the nonnegative result to 0b1100 if 
+              <emphasis>ps</emphasis> is 0. Otherwise, sets the sign of the
+              nonnegative result to 0b1111.</para>
+              <para>The sign of the result is determined as follows:</para>
+              <itemizedlist>
+                <listitem>
+                  <para>If the result is a nonnegative value and
+                  <emphasis>ps</emphasis> is 0, the sign is set to 0b1100
+                  (0xC).</para>
+                </listitem>
+                <listitem>
+                  <para>If the result is a nonnegative value and
+                  <emphasis>L</emphasis> is 1, the sign is set to 0b1111
+                  (0xF).</para>
+                </listitem>
+                <listitem>
+                  <para>If the result is a negative value, the sign is set to
+                  0b1101 (0xD).</para>
+                </listitem>
+              </itemizedlist>
+              <para>Parameters:</para>
+              <para>The ps parameter selects the numeric format for the
+              positive-signed BCD numbers. It must be set to one of the values
+              defined in 
+              <xref linkend="dbdoclet.50655245_32368" /></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>vector unsigned char __builtin_bcdsub (vector unsigned
+              char, vector unsigned char, long);</para>
+            </entry>
+          </row>
+          <row>
+            <entry nameend="c2" namest="c1">
+              <para>
+                <emphasis role="bold">BCD Predicates</emphasis>
+              </para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>__BUILTIN_BCDADD_OFL (a, b)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Returns one if the corresponding BCD add operation results
+              in an overflow. Otherwise, returns zero.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>int __ builtin_bcdadd_ofl (vector unsigned char, vector
+              unsigned char);</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>__BUILTIN_BCDSUB_OFL (a, b)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Returns one if the corresponding BCD subtract operation
+              results in an overflow. Otherwise, returns zero.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>int __ builtin_bcdsub_ofl (vector unsigned char, vector
+              unsigned char
+              <emphasis>)</emphasis>;</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>__ BUILTIN_BCD_INVALID (a)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Returns one if
+              <emphasis>a</emphasis> is an invalid encoding of a BCD value.
+              Otherwise, returns zero.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>int __ builtin_bcd_invalid (vector unsigned char);</para>
+            </entry>
+          </row>
+          <row>
+            <entry nameend="c2" namest="c1">
+              <para>
+                <emphasis role="bold">BCD Comparison</emphasis>
+              </para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>__ BUILTIN_BCDCMPEQ (a, b)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Returns one if the BCD value
+              <emphasis>a</emphasis> is equal to 
+              <emphasis>b</emphasis>. Otherwise, returns zero.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>int __ builtin_bcdcmpeq (vector unsigned char, vector
+              unsigned char);</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>__ BUILTIN_BCDCMPGE (a, b)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Returns one if the BCD value
+              <emphasis>a</emphasis> is greater than or equal to 
+              <emphasis>b</emphasis>. Otherwise, returns zero.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>int __ builtin_bcdcmpge (vector unsigned char, vector
+              unsigned char);</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>__BUILTIN_BCDCMPGT (a, b)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Returns one if the BCD value
+              <emphasis>a</emphasis> is greater than 
+              <emphasis>b</emphasis>. Otherwise, returns zero.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>int __ builtin_bcdcmpgt (vector unsigned char, vector
+              unsigned char);</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>__BUILTIN_BCDCMPLE (a, b)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Returns one if the BCD value
+              <emphasis>a</emphasis> is less than or equal to 
+              <emphasis>b</emphasis>. Otherwise, returns zero.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>int __ builtin_bcdcmple (vector unsigned char, vector
+              unsigned char);</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>__ BUILTIN_BCDCMPLT (a, b)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Returns one if the BCD value
+              <emphasis>a</emphasis> is less than 
+              <emphasis>b</emphasis>. Otherwise, returns zero.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>int __ builtin_bcdcmplt (vector unsigned char, vector
+              unsigned char);</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>
+                <emphasis>BCD Load and Store</emphasis>
+              </para>
+            </entry>
+            <entry>
+              <para> </para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>__ BUILTIN_BCD2DFP (a)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Converts a signed BCD value stored as a vector of unsigned
+              characters to a 128-bit decimal floating-point format.</para>
+              <itemizedlist>
+                <listitem>
+                  <para>Parameter value a is a 128-bit vector that is treated
+                  as a signed BCD 31-digit value.</para>
+                </listitem>
+                <listitem>
+                  <para>The return value is a doubleword floating-point pair in
+                  a decimal 128 floating-point format.</para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>_Decimal128 __ builtin_bcd2dfp (vector unsigned
+              char);</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>__ BUILTIN_BCDMUL10 (ARG1)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Multiplies the BCD number in ARG1 by 10. The sign indicator
+              remains unmodified.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>vector unsigned char __builtin_bcdmul10 (vector unsigned
+              char);</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>__ BUILTIN_BCDDIV10 (ARG1)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Divides the BCD number in ARG1 by 10. The sign indicator
+              remains unmodified.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>vector unsigned char __builtin_bcddiv10 (vector unsigned
+              char);</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para> </para>
+  <section xml:id="dbdoclet.50655245_25759">
+    <title>BCD Header Functions</title>
+    <note>
+        <para>These functions are being phased in for POWER8, and might
+        not be available on all implementations. Phased-in functions are
+        optional for the current generation of compliant systems.</para>
+    </note>
+    <para>The bcd.h header file defines a BCD data type and the interfaces to
+    efficiently compute the BCD functions listed in 
+    <xref linkend="dbdoclet.50655245_12427" />. These interfaces can be
+    implemented as macros or by another method, such as static inline
+    functions. 
+    <xref linkend="dbdoclet.50655245_12427" /> shows one suggested
+    implementation using macros and the built-in operators shown in 
+    <xref linkend="dbdoclet.50655245_77606" />. A sample bcd.h listing is shown
+    in 
+    <xref linkend="dbdoclet.50655245_48437" />.</para>
+    <para>The bcd data type is defined as follows in the bcd.h:</para>
+    <para><literal>typedef bcd vector unsigned char;</literal></para>
+    <para>The header file also defines a bcd_default_format as follows:</para>
+    <para><literal>#ifndef bcd_default_format</literal></para>
+    <para><literal>#define bcd_default_format __BCD_SIGN_IBM</literal></para>
+    <para><literal>#endif</literal></para>
+    <para> </para>
+    <table frame="all" pgwide="1" xml:id="dbdoclet.50655245_12427">
+      <title>BCD Functions Defined by bcd.h</title>
+      <tgroup cols="2">
+        <colspec colname="c1" colwidth="30*" />
+        <colspec colname="c2" colwidth="80*" />
+        <thead>
+          <row>
+            <entry align="center">
+              <para>
+                <emphasis role="bold">Macro
+                <footnote xml:id="tabb2fna"><para>Or static inline function.</para></footnote></emphasis>
+              </para>
+            </entry>
+            <entry>
+              <para>
+                <emphasis role="bold">Macro Definition</emphasis>
+              </para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para>bcd_add(a,b)</para>
+            </entry>
+            <entry>
+              <para>(bcd)__builtin_bcdadd (a,b, bcd_default_format)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>bcd_sub(a,b)</para>
+            </entry>
+            <entry>
+              <para>(bcd)__builtin_bcdsub (a,b, bcd_default_format)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>bcd_add_ofl(a,b)</para>
+            </entry>
+            <entry>
+              <para>(_Bool)__builtin_bcdadd_ofl (a,b)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>bcd_sub_ofl(a,b)</para>
+            </entry>
+            <entry>
+              <para>(_Bool)__builtin_bcdsub_ofl (a,b)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>bcd_invalid(a)</para>
+            </entry>
+            <entry>
+              <para>(_Bool)__builtin_bcd_invalid (a)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>bcd_cmpeq(a,b)</para>
+            </entry>
+            <entry>
+              <para>(_Bool)__builtin_bcdcmpeq (a,b)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>bcd_cmpge(a,b)</para>
+            </entry>
+            <entry>
+              <para>(_Bool)__builtin_bcdcmpge (a,b)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>bcd_cmpgt(a,b)</para>
+            </entry>
+            <entry>
+              <para>(_Bool)__builtin_bcdcmpgt (a,b)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>bcd_cmple(a,b)</para>
+            </entry>
+            <entry>
+              <para>(_Bool)__builtin_bcdcmple (a,b)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>bcd_cmplt(a,b)</para>
+            </entry>
+            <entry>
+              <para>(_Bool)__builtin_bcdcmplt (a,b)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>bcd_cmpne(a,b)</para>
+            </entry>
+            <entry>
+              <para>!(_Bool)__builtin_bcdcmpeq (a,b)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>bcd_xl(a,b)</para>
+            </entry>
+            <entry>
+              <para>(bcd)vec_xl_len_r(a,b)
+              <footnote xml:id="tabb2fnb"><para>Optionaly, __builtin_ldrmb (a,b) for previous 
+              generations of XL compilers.</para></footnote>
+              </para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>bcd_xst(a,b)</para>
+            </entry>
+            <entry>
+              <para>(bcd)vec_xst_len_r(a,b)
+              <footnote xml:id="tabb2fnc"><para>Optionaly, __builti_strmb (a,b) for previous 
+              generatoin f XL compilers.</para></footnote>
+              </para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>bcd_quantize(d)</para>
+            </entry>
+            <entry>
+              <para>__builtin_bcdquantize (d)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>bcd_dfp(a)</para>
+            </entry>
+            <entry>
+              <para>__builtin_bcd2dfp (a)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>bcd_dfp2bcd(dfp)</para>
+            </entry>
+            <entry>
+              <para>(bcd)__builtin_vec_DFP2BCD (_Decimal128 dfp)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>bcd_string2bcd(string)</para>
+            </entry>
+            <entry>
+              <para>(bcd) __bcd_string2bcd (string, bcd_default_format)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>bcd_mul10(a)</para>
+            </entry>
+            <entry>
+              <para>(bcd) __builtin_bcdmul10 (a)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>bcd_div10(a)</para>
+            </entry>
+            <entry>
+              <para>(bcd) __builtin_bcddiv10 (a)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>bcd_mul(a,b)</para>
+            </entry>
+            <entry>
+              <para>(bcd) __bcd_mul (a,b,bcd_default_format)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>bcd_div(a,b)</para>
+            </entry>
+            <entry>
+              <para>(bcd) __bcd_div (a,b,bcd_default_format)</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>In addition, the bcd.h file provides access to the library functions
+    shown in 
+    <xref linkend="dbdoclet.50655245_92773" />. These functions may be provided
+    either as a static inline function by bcd.h or in a system library that is
+    linked with an application which uses such functions.</para>
+    <para> </para>
+    <table frame="all" pgwide="1" xml:id="dbdoclet.50655245_92773">
+      <title>BCD Support Functions</title>
+      <tgroup cols="2">
+        <colspec colname="c1" colwidth="30*" align="center"/>
+        <colspec colname="c2" colwidth="80*" />
+        <thead>
+          <row>
+            <entry>
+              <para>
+                <emphasis role="bold">Function Name</emphasis>
+              </para>
+            </entry>
+            <entry align="center">
+              <para>
+                <emphasis role="bold">Description of BCD Support Functions
+                (with Prototypes)</emphasis>
+              </para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para>__BCD_MUL (A,B,F)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Two signed 31-digit values are multiplied, and the lower 31
+              digits of the product are returned. Overflow is ignored.</para>
+              <itemizedlist>
+                <listitem>
+                  <para>Parameter A is a 128-bit vector that is treated as a
+                  signed BCD 31-digit value.</para>
+                </listitem>
+                <listitem>
+                  <para>Parameter B is a 128-bit vector that is treated as a
+                  signed BCD 31-digit value.</para>
+                </listitem>
+                <listitem>
+                  <para>Parameter F specifies the format of the BCD number
+                  result.</para>
+                </listitem>
+              </itemizedlist>
+              <para>This function returns a 128-bit vector that is the lower 31
+              digits of (a × b).</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>bcd __bcd_mul (bcd, bcd, long)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>__BCD_DIV (A,B,F)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>One signed 31-digit value is divided by a second 31-digit
+              value. The quotient is returned.</para>
+              <itemizedlist>
+                <listitem>
+                  <para>Parameter A is a 128-bit vector that is treated as a
+                  signed BCD 31-digit value.</para>
+                </listitem>
+                <listitem>
+                  <para>Parameter B is a 128-bit vector that is treated as a
+                  signed BCD 31-digit value.</para>
+                </listitem>
+                <listitem>
+                  <para>Parameter F specifies the format of the BCD number
+                  result.</para>
+                </listitem>
+              </itemizedlist>
+              <para>This function returns a 128-bit vector that is the lower 31
+              digits of (a / b).</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>bcd __builtin_bcddiv (bcd, bcd, long);</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>__BCD_STRING2BCD(S,F)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>The received ASCII string is converted to a BCD number and
+              returned as a BCD type.</para>
+              <itemizedlist>
+                <listitem>
+                  <para>Parameter S is the string to be converted.</para>
+                </listitem>
+                <listitem>
+                  <para>Parameter F specifies the format of the BCD number
+                  result.</para>
+                </listitem>
+              </itemizedlist>
+              <para>This function returns a 128-bit vector that consists of 31
+              BCD digits and a sign.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>bcd __bcd_string2bcd (char *, long);</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para> </para>
+    <section xml:id="dbdoclet.50655245_32368">
+      <title>BCD API Named Constants</title>
+      <para>The BCD header file, bcd.h, defines named constants. 
+      <xref linkend="dbdoclet.50655245_46767" /> defines constants for use in
+      conjunction with the BCD format representation. They can be used for
+      format specification and to set the bcd_default_format.</para>
+      <para> </para>
+      <table frame="all" pgwide="1" xml:id="dbdoclet.50655245_46767">
+        <title>Constants Used with BCD_FORMAT</title>
+        <tgroup cols="1">
+          <colspec colname="c1" colwidth="100*" />
+          <thead>
+            <row>
+              <entry>
+                <para>
+                  <emphasis role="bold">Constants</emphasis>
+                </para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para>#define BCD_FORMAT_IBM 0</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>#define BCD_FORMAT_Z 0</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>#define BCD_FORMAT_POWER 0</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>#define BCD_FORMAT_IBMi 1</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>#define BCD_FORMAT_I 1</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>#define BCD_FORMAT_NCR 1</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section xml:id="dbdoclet.50655245_48437">
+      <title>Exemplary Implementation for bcd.h</title>
+      <para>
+      <xref linkend="dbdoclet.50655245_52184" /> shows an exemplary
+      implementation of the bcd.h with the interfaces shown in 
+      <xref linkend="dbdoclet.50655245_12427" />, using the macros and the
+      built-in operators shown in 
+      <xref linkend="dbdoclet.50655245_77606" />, and the functions shown in 
+      <xref linkend="dbdoclet.50655245_92773" />.</para>
+    </section>
+    <section xml:id="dbdoclet.50655245_52184">
+      <title>Sample bcd.h Listing</title>
+      <programlisting>
+      #ifndef __BCD_H
+      #define __BCD_H
+      typedef bcd vector unsigned char;
+      #define BCD_FORMAT_IBM 0
+      #define BCD_FORMAT_Z 0
+      #define BCD_FORMAT_POWER 0
+      #define BCD_FORMAT_IBMi 1
+      #define BCD_FORMAT_I 1
+      #define BCD_FORMAT_NCR 1
+      #ifndef bcd_default_format
+      #define bcd_default_format __BCD_SIGN_IBM
+      #endif
+      #define bcd_add(a,b) ((bcd)__builtin_bcdadd (a,b,bcd_default_format))
+      #define bcd_sub(A,b) ((bcd)__builtin_bcdsub (a,b,bcd_default_format))
+      #define bcd_add_ofl(a,b) ((_Bool)__builtin_bcdadd_ofl (a,b))
+      #define bcd_add_ofl(a,b) ((_Bool)__builtin_bcdsub_ofl (a,b))
+      #define bcd_invalid(a) ((_Bool)__builtin_bcd_invalid (a))
+      #define bcd_cmpeq(a,b) ((_Bool)__builtin_bcdcmpeq (a,b))
+      #define bcd_cmpge(a,b) ((_Bool)__builtin_bcdcmpge (a,b))
+      #define bcd_cmpgt(a,b) ((_Bool)__builtin_bcdcmpgt (a,b))
+      #define bcd_cmple(a,b) ((_Bool)__builtin_bcdcmple (a,b))
+      #define bcd_cmplt(a,b) ((_Bool)__builtin_bcdcmplt (a,b))
+      #define bcd_cmpne(a,b) (!(_Bool)__builtin_bcdcmpeq (a,b))
+      #define bcd_xl(a,b) ((bcd)vec_xl_len_r(a,b))
+      #define bcd_xst(a,b) ((bcd)vec_xst_len_r(a,b))
+      #define bcd_quantize(d) (__builtin_bcdquantize(d))
+      #define bcd_dfp(a) (__builtin_bcd2dfp (a))
+      #define bcd_dfp2bcd(DFP) ((bcd)__builtin_vec_DFP2BCD (_Decimal128 dfp))
+      #define bcd_string2bcd(string) ((bcd) __bcd_string2bcd (string, bcd_default_format)
+      #define bcd_mul10(a) ((bcd) __builtin_bcdmul10 (a))
+      #define bcd_div10(a) ((bcd) __builtin_bcddiv10 (a))
+      #define bcd_mul(a,b) ((bcd) __bcd_mul (a,b,bcd_default_format))
+      #define bcd_div(a,b) ((bcd) __bcd_div (a,b,bcd_default_format))  
+      #endif /* __BCD_H */
+      </programlisting>
+    </section>
+  </section>
+</appendix>

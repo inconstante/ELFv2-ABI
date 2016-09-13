@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+
+        <groupId>org.openpowerfoundation.docs</groupId>
+        <artifactId>workgroup-pom</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- TODO: Rename the artifactID field to some appropriate for your new document -->
+    <artifactId>leabi</artifactId>
+
+    <packaging>jar</packaging>
+ 
+    <!-- TODO: Rename the name field to some appropriate for your new document -->
+   <name>leabi</name>
+
+    <properties>
+        <!-- This is set by Jenkins according to the branch. -->
+        <release.path.name></release.path.name>
+        <comments.enabled>0</comments.enabled>
+    </properties>
+    <!-- ################################################ -->
+    <!-- USE "mvn clean generate-sources" to run this POM -->
+    <!-- ################################################ -->
+    <build>
+        <plugins>
+            <plugin>
+
+                <groupId>org.openpowerfoundation.docs</groupId>
+
+                <artifactId>openpowerdocs-maven-plugin</artifactId>
+                <!-- version set in ../pom.xml -->
+                <executions>
+                    <execution>
+                        <id>generate-webhelp</id>
+                        <goals>
+                            <goal>generate-webhelp</goal>
+                        </goals>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <!-- These parameters only apply to webhelp -->
+                            <enableDisqus>${comments.enabled}</enableDisqus>
+                            <disqusShortname>openpower-template-guide</disqusShortname>
+                            <enableGoogleAnalytics>1</enableGoogleAnalytics>
+                            <googleAnalyticsId>UA-17511903-1</googleAnalyticsId>
+                            <generateToc>
+                                appendix		toc,title
+                                article/appendix	nop
+                                article   		toc,title
+                                book      		toc,title,figure,table,example,equation
+				book/appendix		nop
+                                book/chapter		nop
+                                chapter   		toc,title
+				chapter/section 	nop
+                                section   		toc
+                                part      		toc,title
+                                qandadiv  		toc
+                                qandaset  		toc
+                                reference 		toc,title
+                                set       		toc,title
+                            </generateToc>
+                            <!-- The following elements sets the autonumbering of sections in output for chapter numbers but no numbered sections-->
+                            <sectionAutolabel>1</sectionAutolabel>
+                            <tocSectionDepth>1</tocSectionDepth>
+                            <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
+
+                            <!-- TODO: Rename the webhelpDirname field to the new directory for new document -->
+                            <webhelpDirname>leabi</webhelpDirname>
+
+                            <!-- TODO: Rename the pdfFilenameBase field to the PDF name for new document -->
+                            <pdfFilenameBase>leabi</pdfFilenameBase>
+
+                            <!-- TODO: If the document is not yet public, uncomment one of the following statements to create 
+                                       a vertical running ribbon on the internal margin of the security status in all CAPS.
+                                       Values and definitions are formally defined by the IPR policy.  A layman's definition follows:
+
+                                         working =	typically new document within a work group that has not yet been reviewed
+                                                   	and/or approved for internal or external use.
+                                         internal = 	document that has been previously approved by a workgroup for internal use.
+                                         review =       document that is under review
+                                         writeronly =	document that has been created solely for the purpose of the writer (not in IPR policy)
+
+                                       The appropriate starting security for a new document is "working".
+
+                                       Note, the value of "external" is the same as specifying no status. -->
+                            <!-- security>review</security -->
+                            <security>working</security>
+                            <!-- security>internal</security -->
+                            <!-- security>writeronly</security -->
+                            <!-- security>external</security -->
+
+                            <!-- TODO: Define the appropriate work product type.  These values are defined by the IPR Policy.
+                                       Consult with the Work Group Chair or a Technical Steering Committee member if you have
+                                       questions about which value to select.
+                                       
+                                       If no value is provided below, the document will default to "Work Group Notes".-->
+                            <!-- workProduct>workgroupNotes</workProduct -->
+                            <workProduct>workgroupSpecification</workProduct>
+                            <!-- workProduct>candidateStandard</workProduct -->
+                            <!-- workProduct>openpowerStandard</workProduct -->
+
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- These parameters apply to pdf and webhelp -->
+                    <xincludeSupported>true</xincludeSupported>
+                    <sourceDirectory>.</sourceDirectory>
+                    <includes>
+                       <!-- TODO: If you desire, you may change the following filename to something more appropriate for the new document -->
+                       bk_main.xml
+                    </includes>
+
+                    <!-- **TODO: Set to the correct project URL.  This likely needs input from the TSC.  -->
+                    <!-- canonicalUrlBase>http://openpowerfoundation.org/docs/template-guide/content</canonicalUrlBase -->
+                    <glossaryCollection>${basedir}/../glossary/glossary-terms.xml</glossaryCollection>
+                    <includeCoverLogo>1</includeCoverLogo>
+                    <coverUrl>www.openpowerfoundation.org</coverUrl>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+

@@ -1,0 +1,1627 @@
+<chapter xmlns="http://docbook.org/ns/docbook"
+xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" 
+xml:lang="en"
+xml:id="dbdoclet.50655244_pgfId-1095944">
+  <title>Vector Programming Interfaces</title>
+  <para>To ensure portability of applications optimized to exploit the SIMD
+  functions of Power ISA processors, the ELF V2 ABI defines a set of
+  functions and data types for SIMD programming. ELF V2-compliant compilers
+  will provide suitable support for these functions, preferably as built-in
+  functions that translate to one or more Power ISA instructions.</para>
+  <para>Compilers are encouraged, but not required, to provide built-in
+  functions to access individual instructions in the IBM POWER® instruction
+  set architecture. In most cases, each such built-in function should provide
+  direct access to the underlying instruction.</para>
+  <para>However, to ease porting between little-endian (LE) and big-endian
+  (BE) POWER systems, and between POWER and other platforms, it is preferable
+  that some built-in functions provide the same semantics on both LE and BE
+  POWER systems, even if this means that the built-in functions are
+  implemented with different instruction sequences for LE and BE. To achieve
+  this, vector built-in functions provide a set of functions derived from the
+  set of hardware functions provided by the Power vector SIMD instructions.
+  Unlike traditional “hardware intrinsic” built-in functions, no fixed
+  mapping exists between these built-in functions and the generated hardware
+  instruction sequence. Rather, the compiler is free to generate optimized
+  instruction sequences that implement the semantics of the program specified
+  by the programmer using these built-in functions.</para>
+  <para>This is primarily applicable to the vector facility of the POWER ISA,
+  also known as Power SIMD, consisting of the VMX (or Altivec) and VSX
+  instructions. This set of instructions operates on groups of 2, 4, 8, or 16
+  vector elements at a time in 128-bit registers. On a big-endian POWER
+  platform, vector elements are loaded from memory into a register so that
+  the 0th element occupies the high-order bits of the register, and the
+  (N-1)th element occupies the low-order bits of the register. This is
+  referred to as big-endian element order. On a little-endian POWER platform,
+  vector elements are loaded from memory such that the 0th element occupies
+  the low-order bits of the register, and the (N-1)th element occupies the
+  high-order bits. This is referred to as little-endian element order.</para>
+  <section xml:id="dbdoclet.50655244_39970">
+    <title>Vector Data Types</title>
+    <para>Languages provide support for the data types in 
+    <xref linkend="dbdoclet.50655240_89351" /> to represent vector data types
+    stored in vector registers.</para>
+    <para>For the C and C++ programming languages (and related/derived
+    languages), these data types may be accessed based on the type names listed
+    in 
+    <xref linkend="dbdoclet.50655240_89351" /> when Power ISA SIMD language
+    extensions are enabled using either the vector or __vector keywords.</para>
+    <para>For the Fortran language, 
+    <xref linkend="dbdoclet.50655244_80766" /> gives a correspondence of Fortran
+    and C/C++ language types.</para>
+    <para>The assignment operator always performs a byte-by-byte data copy for
+    vector data types.</para>
+    <para>Like other C/C++ language types, vector types may be defined to have
+    const or volatile properties. Vector data types can be defined as being in
+    static, auto, and register storage.</para>
+    <para>Pointers to vector types are defined like pointers of other C/C++
+    types. Pointers to objects may be defined to have const and volatile
+    properties. While the preferred alignment for vector data types is a
+    multiple of 16 bytes, pointers may point to vector objects at an arbitrary
+    alignment.</para>
+    <para>The preferred way to access vectors at an application-defined address
+    is by using vector pointers and the C/C++ dereference operator *. Similar
+    to other C /C++ data types, the array reference operator [] may be used to
+    access vector objects with a vector pointer with the usual definition to
+    access the n-th vector element from a vector pointer. The use of vector
+    built-in functions such as vec_xl and vec_xst is discouraged except for
+    languages where no dereference operators are available.</para>
+    <programlisting>
+    vector char vca;
+    vector char vcb;
+    vector int via;
+    int a[4];
+    void *vp;
+     
+    via = *(vector int *) &amp;a[0];
+    vca = (vector char) via;
+    vcb = vca;
+    vca = *(vector char *)vp;
+    *(vector char *)&amp;a[0] = vca;
+    </programlisting>
+    <para>Compilers are expected to recognize and optimize multiple operations
+    that can be optimized into a single hardware instruction. For example, a
+    load and splat hardware instruction might be generated for the following
+    sequence:</para>
+    <programlisting>
+    double *double_ptr;
+    register vector double vd = vec_splats(*double_ptr);
+    </programlisting>
+  </section>
+  <section xml:id="dbdoclet.50655244_83520">
+    <title>Vector Operators</title>
+    <para>In addition to the dereference and assignment operators, the Power
+    SIMD Vector Programming API provides the usual operators that are valid on
+    pointers; these operators are also valid for pointers to vector
+    types.</para>
+    <para>The traditional C/C++ operators are defined on vector types with “do
+    all” semantics for unary and binary +, unary and binary -, binary *, binary
+    %, and binary / as well as the unary and binary logical and comparison
+    operators.</para>
+    <para>For unary operators, the specified operation is performed on the
+    corresponding base element of the single operand to derive the result value
+    for each vector element of the vector result. The result type of unary
+    operations is the type of the single input operand.</para>
+    <para>For binary operators, the specified operation is performed on the
+    corresponding base elements of both operands to derive the result value for
+    each vector element of the vector result. Both operands of the binary
+    operators must have the same vector type with the same base element type.
+    The result of binary operators is the same type as the type of the input
+    operands.</para>
+    <para>Further, the array reference operator may be applied to vector data
+    types, yielding an l-value corresponding to the specified element in
+    accordance with the vector element numbering rules (see 
+    <xref linkend="dbdoclet.50655244_25365" />). An l-value may either be
+    assigned a new value or accessed for reading its value.</para>
+  </section>
+  <section xml:id="dbdoclet.50655244_25365">
+    <title>Vector Layout and Element Numbering</title>
+    <para>Vector data types consist of a homogeneous sequence of elements of
+    the base data type specified in the vector data type. Individual elements
+    of a vector can be addressed by a vector element number. Element numbers
+    can be established either by counting from the “left” of a register and
+    assigning the left-most element the element number 0, or from the “right”
+    of the register and assigning the right-most element the element number
+    0.</para>
+    <para>In big-endian environments, establishing element counts from the left
+    makes the element stored at the lowest memory address the lowest-numbered
+    element. Thus, when vectors and arrays of a given base data type are
+    overlaid, vector element 0 corresponds to array element 0, vector element 1
+    corresponds to array element 1, and so forth.</para>
+    <para>In little-endian environments, establishing element counts from the
+    right makes the element stored at the lowest memory address the
+    lowest-numbered element. Thus, when vectors and arrays of a given base data
+    type are overlaid, vector element 0 will correspond to array element 0,
+    vector element 1 will correspond to array element 1, and so forth.</para>
+    <para>Consequently, the vector numbering schemes can be described as
+    big-endian and little-endian vector layouts and vector element numberings.
+    (The term “endian” comes from the endian debates presented in 
+    <emphasis>Gulliver's Travels</emphasis> by Jonathan Swift.)</para>
+    <para>For internal consistency, in the ELF V2 ABI, the default vector
+    layout and vector element ordering in big-endian environments shall be big
+    endian, and the default vector layout and vector element ordering in
+    little-endian environments shall be little endian.</para>
+    <para>This element numbering shall also be used by the [] accessor method
+    to vector elements provided as an extension of the C/C++ languages by some
+    compilers, as well as for other language extensions or library constructs
+    that directly or indirectly refer to elements by their element
+    number.</para>
+    <para>Application programs may query the vector element ordering in use
+    (that is, whether -qaltivec=be or -maltivec=be has been selected) by
+    testing the __VEC_ELEMENT_REG_ORDER__ macro. This macro has two possible
+    values:</para>
+    <informaltable frame="none" rowsep="0" colsep="0">
+      <tgroup cols="2">
+        <colspec colname="c1" colwidth="40*" />
+        <colspec colname="c2" colwidth="60*" />
+        <tbody>
+          <row>
+            <entry>
+              <para>__ORDER_LITTLE_ENDIAN__</para>
+            </entry>
+            <entry>
+              <para>Vector elements use little-endian element ordering.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>__ORDER_BIG_ENDIAN__</para>
+            </entry>
+            <entry>
+              <para>Vector elements use big-endian element ordering.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+  <section xml:id="dbdoclet.50655244_90667">
+    <title>Vector Built-in Functions</title>
+    <para>The Power language environments provide a well-known set of built-in
+    functions for the Power SIMD instructions (including both Altivec/VMX and
+    VSX). A full description of these built-in functions is beyond the scope of
+    this ABI document. Most built-in functions are polymorphic, operating on a
+    variety of vector types (vectors of signed characters, vectors of unsigned
+    halfwords, and so forth).</para>
+    <para>Some of the Power SIMD (VMX/Altivec and/or VSX) hardware instructions
+    refer, implicitly or explicitly, to vector element numbers. For example,
+    the vspltb instruction has as one of its inputs an index into a vector. The
+    element at that index position is to be replicated in every element of the
+    output vector. For another example, the vmuleuh instruction operates on the
+    even-numbered elements of its input vectors. The hardware instructions
+    define these element numbers using big-endian element order, even when the
+    machine is running in little-endian mode. Thus, a built-in function that
+    maps directly to the underlying hardware instruction, regardless of the
+    target endianness, has the potential to confuse programmers on
+    little-endian platforms.</para>
+    <para>It is more useful to define built-in functions that map to these
+    instructions to use natural element order. That is, the explicit or
+    implicit element numbers specified by such built-in functions should be
+    interpreted using big-endian element order on a big-endian platform, and
+    using little-endian element order on a little-endian platform.</para>
+    <para>This ABI defines the following built-in functions to use natural
+    element order. The Implementation Notes column suggests possible ways to
+    implement little-endian (LE) versions of the built-in functions, although
+    designers of a compiler are free to use other methods to implement the
+    specified semantics as they see fit.</para>
+    <para> </para>
+    <table frame="all" pgwide="1" xml:id="dbdoclet.50655244_35023">
+      <title>Endian-Sensitive Operations</title>
+      <tgroup cols="3">
+        <colspec colname="c1" colwidth="15*" align="center" />
+        <colspec colname="c2" colwidth="35*" align="center" />
+        <colspec colname="c3" colwidth="50*" />
+        <thead>
+          <row>
+            <entry>
+              <para>
+                <emphasis role="bold">Built-In Function</emphasis>
+              </para>
+            </entry>
+            <entry>
+              <para>
+                <emphasis role="bold">Corresponding POWER
+                Instructions</emphasis>
+              </para>
+            </entry>
+            <entry align="center">
+              <para>
+                <emphasis role="bold">Implementation Notes</emphasis>
+              </para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para>vec_bperm</para>
+            </entry>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>For LE unsigned long long ARGs, swap halves of ARG2 and of
+              the result.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_cntlz_lsbb</para>
+            </entry>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>For LE, use vctzlsbb.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_cnttz_lsbb</para>
+            </entry>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>For LE, use vclzlsbb.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_extract</para>
+            </entry>
+            <entry>
+              <para>None</para>
+            </entry>
+            <entry>
+              <para>vec_extract (v, 3) is equivalent to v[3].</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_extract_fp32_</para>
+              <para>from_shorth</para>
+            </entry>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>For LE, extract the left four elements.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_extract_fp32_</para>
+              <para>from_shortl</para>
+            </entry>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>For LE, extract the right four elements.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_extract4b</para>
+            </entry>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>For LE, subtract the byte position from 12, and swap the
+              halves of the result.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_first_match</para>
+              <para>_index</para>
+            </entry>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>For LE, use vctz.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_first_match</para>
+              <para>_index_or_eos</para>
+            </entry>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>For LE, use vctz.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_insert</para>
+            </entry>
+            <entry>
+              <para>None</para>
+            </entry>
+            <entry>
+              <para>vec_insert (x, v, 3) returns the vector v with the 
+              <emphasis>third</emphasis> element modified to contain x.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_insert4b</para>
+            </entry>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>For LE, subtract the byte position from 12, and swap the
+              halves of ARG2.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_mergee</para>
+            </entry>
+            <entry>
+              <para>vmrgew</para>
+            </entry>
+            <entry>
+              <para>Swap inputs and use vmrgow for LE. Phased in.
+              <footnote xml:id="pgfId-1105723">
+                <para>This optional function is being phased in, and it may not
+                be available on all implementations.</para>
+              </footnote></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_mergeh</para>
+            </entry>
+            <entry>
+              <para>vmrghb, vmrghh, vmrghw</para>
+            </entry>
+            <entry>
+              <para>Swap inputs and use vmrglb, and so on, for LE.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_mergel</para>
+            </entry>
+            <entry>
+              <para>vmrglb, vmrglh, vmrglw</para>
+            </entry>
+            <entry>
+              <para>Swap inputs and use vmrghb, and so on, for LE.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_mergeo</para>
+            </entry>
+            <entry>
+              <para>vmrgow</para>
+            </entry>
+            <entry>
+              <para>Swap inputs and use vmrgew for LE. Phased in.
+                <footnoteref linkend="pgfId-1105723" /> </para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_mule</para>
+            </entry>
+            <entry>
+              <para>vmuleub, vmulesb, vmuleuh, vmulesh</para>
+            </entry>
+            <entry>
+              <para>Replace with vmuloub, and so on, for LE.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_mulo</para>
+            </entry>
+            <entry>
+              <para>vmuloub, vmulosb, vmulouh, vmulosh</para>
+            </entry>
+            <entry>
+              <para>Replace with vmuleub, and so on, for LE.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_pack</para>
+            </entry>
+            <entry>
+              <para>vpkuhum, vpkuwum</para>
+            </entry>
+            <entry>
+              <para>Swap input arguments for LE.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_packpx</para>
+            </entry>
+            <entry>
+              <para>vpkpx</para>
+            </entry>
+            <entry>
+              <para>Swap input arguments for LE.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_packs</para>
+            </entry>
+            <entry>
+              <para>vpkuhus, vpkshss, vpkuwus, vpkswss</para>
+            </entry>
+            <entry>
+              <para>Swap input arguments for LE.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_packsu</para>
+            </entry>
+            <entry>
+              <para>vpkuhus, vpkshus, vpkuwus, vpkswus</para>
+            </entry>
+            <entry>
+              <para>Swap input arguments for LE.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_perm</para>
+            </entry>
+            <entry>
+              <para>vperm</para>
+            </entry>
+            <entry>
+              <para>For LE, swap input arguments and complement the selection
+              vector.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_splat</para>
+            </entry>
+            <entry>
+              <para>vspltb, vsplth, vspltw</para>
+            </entry>
+            <entry>
+              <para>Subtract the element number from N-1 for LE.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_sum2s</para>
+            </entry>
+            <entry>
+              <para>vsum2sws</para>
+            </entry>
+            <entry>
+              <para>For LE, swap elements 0 and 1, and elements 2 and 3, of the
+              second input argument; then swap elements 0 and 1, and elements 2
+              and 3, of the result vector.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_sums</para>
+            </entry>
+            <entry>
+              <para>vsumsws</para>
+            </entry>
+            <entry>
+              <para>For LE, use element 3 in little-endian order from the
+              second input vector, and place the result in element 3 in
+              little-endian order of the result vector.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_unpackh</para>
+            </entry>
+            <entry>
+              <para>vupkhsb, vupkhpx, vupkhsh</para>
+            </entry>
+            <entry>
+              <para>Use vupklsb, and so on, for LE.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_unpackl</para>
+            </entry>
+            <entry>
+              <para>vupklsb, vupklpx, vupklsh</para>
+            </entry>
+            <entry>
+              <para>Use vupkhsb, and so on, for LE.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_xl_len_r</para>
+            </entry>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>For LE, the bytes are loaded left justified then shifted
+              right 16-cnt bytes or rotated left cnt bytes. Let “cnt” be the
+              number of bytes specified to be loaded by vec_xl_len_r.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>vec_xst_len_r</para>
+            </entry>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>For LE, the bytes are shifted left 16-cnt bytes or rotated
+              right cnt bytes so they are left justified to be stored. Let
+              “cnt” be the number of bytes specified to be stored by
+              vec_xst_len_r.</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <note>
+      <para><emphasis>Reminder</emphasis>: The assignment operator = is the
+      preferred way to assign values from one vector data type to
+      another vector data type in accordance with the C and C++
+      programming languages.</para>
+    </note>
+    <bridgehead>Extended Data Movement Functions</bridgehead>
+      <para>The built-in functions in 
+      <xref linkend="dbdoclet.50655244_42521" /> map to Altivec/VMX load and
+      store instructions and provide access to the “auto-aligning” memory
+      instructions of the Altivec ISA where low-order address bits are
+      discarded before performing a memory access. These instructions access
+      load and store data in accordance with the program's current endian mode,
+      and do not need to be adapted by the compiler to reflect little-endian
+      operating during code generation:</para>
+      <para> </para>
+      <table frame="all" pgwide="1" xml:id="dbdoclet.50655244_42521">
+        <title>Altivec Memory Access Built-In Functions</title>
+        <tgroup cols="3">
+          <colspec colname="c1" colwidth="15*" align="center" />
+          <colspec colname="c2" colwidth="35*" align="center" />
+          <colspec colname="c3" colwidth="50*" />
+          <thead>
+            <row>
+              <entry>
+                <para>
+                  <emphasis role="bold">Built-in Function</emphasis>
+                </para>
+              </entry>
+              <entry>
+                <para>
+                  <emphasis role="bold">Corresponding POWER
+                  Instructions</emphasis>
+                </para>
+              </entry>
+              <entry align="center">
+                <para>
+                  <emphasis role="bold">Implementation Notes</emphasis>
+                </para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para>vec_ld</para>
+              </entry>
+              <entry>
+                <para>lvx</para>
+              </entry>
+              <entry>
+                <para>Hardware works as a function of endian mode.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>vec_lde</para>
+              </entry>
+              <entry>
+                <para>lvebx, lvehx, lvewx</para>
+              </entry>
+              <entry>
+                <para>Hardware works as a function of endian mode.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>vec_ldl</para>
+              </entry>
+              <entry>
+                <para>lvxl</para>
+              </entry>
+              <entry>
+                <para>Hardware works as a function of endian mode.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>vec_st</para>
+              </entry>
+              <entry>
+                <para>stvx</para>
+              </entry>
+              <entry>
+                <para>Hardware works as a function of endian mode.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>vec_ste</para>
+              </entry>
+              <entry>
+                <para>stvebx, stvehx, stvewx</para>
+              </entry>
+              <entry>
+                <para>Hardware works as a function of endian mode.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>vec_stl</para>
+              </entry>
+              <entry>
+                <para>stvxl</para>
+              </entry>
+              <entry>
+                <para>Hardware works as a function of endian mode.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>Previous versions of the Altivec built-in functions defined
+      intrinsics to access the Altivec instructions lvsl and lvsr, which could
+      be used in conjunction with vec_vperm and Altivec load and store
+      instructions for unaligned access. The vec_lvsl and vec_lvsr interfaces
+      are deprecated in accordance with the interfaces specified here. For
+      compatibility, the built-in pseudo sequences published in previous VMX
+      documents continue to work with little-endian data layout and the
+      little-endian vector layout described in this document. However, the use
+      of these sequences in new code is discouraged and usually results in
+      worse performance. It is recommended (but not required) that compilers
+      issue a warning when these functions are used in little-endian
+      environments. It is recommended that programmers use the assignment
+      operator = or the vector vec_xl and vec_xst vector built-in functions to
+      access unaligned data streams.</para>
+      <para>The set of extended mnemonics in 
+      <xref linkend="dbdoclet.50655244_62451" /> may be provided by some
+      compilers and are not required by the Power SIMD programming interfaces.
+      In particular, the assignment operator = will have the same effect of
+      copying values between vector data types and provides a preferable method
+      to assign values while giving the compiler more freedom to optimize data
+      allocation. The only use for these functions is to support some coding
+      patterns enabling big-endian vector layout code sequences in both
+      big-endian and little-endian environments. Memory access built-in
+      functions that specify a vector element format (that is, the w4 and d2
+      forms) are deprecated. They will be phased out in future versions of this
+      specification because vec_xl and vec_xst provide overloaded
+      layout-specific memory access based on the specified vector data
+      type.</para>
+      <table frame="all" pgwide="1" xml:id="dbdoclet.50655244_62451">
+        <title>Optional Built-In Memory Access Functions</title>
+        <tgroup cols="3">
+          <colspec colname="c1" colwidth="15*" align="center" />
+          <colspec colname="c2" colwidth="35*" align="center" />
+          <colspec colname="c3" colwidth="50*"  />
+          <thead>
+            <row>
+              <entry>
+                <para>
+                  <emphasis role="bold">Built-in Function</emphasis>
+                </para>
+              </entry>
+              <entry>
+                <para>
+                  <emphasis role="bold">Corresponding POWER
+                  Instructions</emphasis>
+                </para>
+              </entry>
+              <entry align="center">
+                <para>
+                  <emphasis role="bold">Little-Endian Implementation
+                  Notes</emphasis>
+                </para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para>vec_xl</para>
+              </entry>
+              <entry>
+                <para>lxvd2x</para>
+              </entry>
+              <entry>
+                <para>lxvd2x ; xxpermdi</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>vec_xlw4
+                  <footnote xml:id="dbdoclet.50655244_73052"><para>
+                  Deprecated. The use of vector data type
+                      assignment and overloaded vec_xl and vec_xst vector
+                      built-in functions are preferred forms for assigning
+                      vector operations. Similarly, the use of
+                      <literal>__builtin_lxvd2x</literal>, <literal>__builtin_lxvw4x</literal>, 
+                      <literal>__builtin_stxvd2x</literal>, <literal>__builtin_stxvw4x</literal>, 
+                      available in some compilers, is discouraged.</para></footnote>
+                </para>
+              </entry>
+              <entry>
+                <para>lxvw4x</para>
+              </entry>
+              <entry>
+                <para>lxvd2x ; xxpermdi</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>vec_xld2
+                  <footnoteref linkend="dbdoclet.50655244_73052"/>
+                </para>
+              </entry>
+              <entry>
+                <para>lxvd2x</para>
+              </entry>
+              <entry>
+                <para>lxvd2x ; xxpermdi</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>vec_xst</para>
+              </entry>
+              <entry>
+                <para>stxvd2x</para>
+              </entry>
+              <entry>
+                <para>xxpermdi ; stxvd2x</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>vec_xstw4
+                  <footnoteref linkend="dbdoclet.50655244_73052"/>
+                </para>
+              </entry>
+              <entry>
+                <para>stxvw4x</para>
+              </entry>
+              <entry>
+                <para>xxpermdi ; stxvd2x</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>vec_xstd2
+                  <footnoteref linkend="dbdoclet.50655244_73052"/>
+                </para>
+              </entry>
+              <entry>
+                <para>stxvd2x</para>
+              </entry>
+              <entry>
+                <para>xxpermdi ; stxvd2x</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>The two optional built-in vector functions in 
+      <xref linkend="dbdoclet.50655244_66443" /> can be used to load and store
+      vectors with a big-endian element ordering (that is, bytes from low to
+      high memory will be loaded from left to right into a vector char
+      variable), independent of the -qaltivec=be or -maltivec=be setting. For
+      more information, see 
+      <xref linkend="dbdoclet.50655244_34309" />.</para>
+      <para> </para>
+      <table frame="all" pgwide="1" xml:id="dbdoclet.50655244_66443">
+        <title>Optional Fixed Data Layout Built-In Vector Functions</title>
+        <tgroup cols="3">
+          <colspec colname="c1" colwidth="15*" align="center"/>
+          <colspec colname="c2" colwidth="35*" align="center"/>
+          <colspec colname="c3" colwidth="50*" />
+          <thead>
+            <row>
+              <entry>
+                <para>
+                  <emphasis role="bold">Built-in Function</emphasis>
+                </para>
+              </entry>
+              <entry>
+                <para>
+                  <emphasis role="bold">Corresponding POWER
+                  Instructions</emphasis>
+                </para>
+              </entry>
+              <entry align="center">
+                <para>
+                  <emphasis role="bold">Little-Endian Implementation
+                  Notes</emphasis>
+                </para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para>vec_xl_be</para>
+              </entry>
+              <entry>
+                <para>lxvd2x</para>
+              </entry>
+              <entry>
+                <para>Use lxvd2x for vector long long; vector long, vector
+                double.</para>
+                <para>Use lxvd2x followed by reversal of elements within each
+                doubleword for all other data types.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>vec_xst_be</para>
+              </entry>
+              <entry>
+                <para>stxvd2x</para>
+              </entry>
+              <entry>
+                <para>Use stxvd2x for vector long long; vector long, vector
+                double.</para>
+                <para>Use stxvd2x following a reversal of elements within each
+                doubleword for all other data types.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>In addition to the hardware-specific vector built-in functions,
+      implementations are expected to provide the interfaces listed in 
+      <xref linkend="dbdoclet.50655244_10651" />.</para>
+      <para> </para>
+      <table frame="all" pgwide="1" xml:id="dbdoclet.50655244_10651">
+        <title>Built-In Interfaces for Inserting and Extracting Elements from a
+        Vector</title>
+        <tgroup cols="2">
+          <colspec colname="c1" colwidth="40*" align="center"/>
+          <colspec colname="c2" colwidth="60*" />
+          <thead>
+            <row>
+              <entry>
+                <para>
+                  <emphasis role="bold">Built-In Function</emphasis>
+                </para>
+              </entry>
+              <entry align="center">
+                <para>
+                  <emphasis role="bold">Implementation Notes</emphasis>
+                </para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para>vec_extract</para>
+              </entry>
+              <entry>
+                <para>vec_extract (v, 3) is equivalent to v[3].</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>vec_insert</para>
+              </entry>
+              <entry>
+                <para>vec_insert (x, v, 3) returns the vector v with the 
+                <emphasis>third</emphasis> element modified to contain x.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>Environments may provide the optional built-in vector functions
+      listed in 
+      <xref linkend="dbdoclet.50655244_10811" /> to adjust for endian behavior
+      by reversing the order of elements (reve) and bytes within elements
+      (revb).</para>
+      <para> </para>
+      <table frame="all" pgwide="1" xml:id="dbdoclet.50655244_10811">
+        <title>Optional Built-In Functions</title>
+        <tgroup cols="2">
+          <colspec colname="c1" colwidth="20*" />
+          <colspec colname="c2" colwidth="80*" />
+          <thead>
+            <row>
+              <entry align="center">
+                <para>
+                  <emphasis role="bold">Name</emphasis>
+                </para>
+              </entry>
+              <entry align="center">
+                <para>
+                  <emphasis role="bold">Description</emphasis>
+                </para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para>vec_revb</para>
+              </entry>
+              <entry>
+                <para>Reverses the order of bytes within elements.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>vec_reve</para>
+              </entry>
+              <entry>
+                <para>Reverses the order of elements.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    <section xml:id="dbdoclet.50655244_34309">
+      <title>Big-Endian Vector Layout in Little-Endian Environments</title>
+      <para>Because the vector layout and element numbering cannot be
+      represented in source code in an endian-neutral manner, code originating
+      from big-endian platforms may need to be compiled on little-endian
+      platforms, or vice versa. To simplify such application porting, some
+      compilers may provide an additional bridge mode to enable a simplified
+      porting for some applications.</para>
+      <para>Note that such support only works for homogeneous data being loaded
+      into vector registers (that is, no unions or structs containing elements
+      of different sizes) and when those vectors are loaded from and stored to
+      memory with element-size-specific built-in vector memory functions of 
+      <xref linkend="dbdoclet.50655244_91731" /> and 
+      <xref linkend="dbdoclet.50655244_21918" />. That is because, in this
+      mode, data within each element must be adjusted for little-endian data
+      representation while providing a big-endian layout and numbering of
+      vector elements within a vector.</para>
+        <note>
+          <para>Because of the internal contradiction of big-endian
+          vector layouts and little-endian data, such an environment will have
+          intrinsic limitations for the type of functionality that may be
+          offered. However, it may provide a useful bridge in the porting of
+          code using vector built-ins between environments having different
+          data layout models.</para>
+        </note>
+      <para>Compiler designers may implement additional built-in functions or
+      other mechanisms that use big-endian element ordering in little-endian
+      mode. For example, the GCC and IBM XL compilers define the options
+      -maltivec=be and -qaltivec=be, respectively, to allow programmers to
+      specify that the built-ins will generate big-endian hardware instructions
+      directly for the corresponding big-endian sequences in little-endian
+      mode. To ensure consistent element operation in this mode, the lvx
+      instructions and related instructions are changed to maintain a
+      big-endian data layout in registers by adding appropriate permute
+      sequences as shown in 
+      <xref linkend="dbdoclet.50655244_91731" />. The selected vector element
+      order is reflected in the __VEC_ELEMENT_REG_ORDER__ macro. See 
+      <xref linkend="dbdoclet.50655243_page131" />.</para>
+      <table frame="all" pgwide="1" xml:id="dbdoclet.50655244_91731">
+        <title>Altivec Built-In Vector Memory Access Functions (BE Layout in LE
+        Mode)</title>
+        <tgroup cols="3">
+          <colspec colname="c1" colwidth="15*" align="center"/>
+          <colspec colname="c2" colwidth="35*" align="center"/>
+          <colspec colname="c3" colwidth="50*" />
+          <thead>
+            <row>
+              <entry>
+                <para>
+                  <emphasis role="bold">Built-In Function</emphasis>
+                </para>
+              </entry>
+              <entry>
+                <para>
+                  <emphasis role="bold">Corresponding POWER
+                  Instructions</emphasis>
+                </para>
+              </entry>
+              <entry align="center">
+                <para>
+                  <emphasis role="bold">BE Vector Layout in Little-Endian Mode
+                  Implementation Notes</emphasis>
+                </para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para>vec_ld</para>
+              </entry>
+              <entry>
+                <para>lvx</para>
+              </entry>
+              <entry>
+                <para>Reverse elements with a vperm after load for LE based on
+                vector base type.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>vec_lde</para>
+              </entry>
+              <entry>
+                <para>lvebx, lvehx, lvewx</para>
+              </entry>
+              <entry>
+                <para>Reverse elements with a vperm after load for LE based on
+                vector base type.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>vec_ldl</para>
+              </entry>
+              <entry>
+                <para>lvxl</para>
+              </entry>
+              <entry>
+                <para>Reverse elements with a vperm after load for LE based on
+                vector base type.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>vec_st</para>
+              </entry>
+              <entry>
+                <para>stvx</para>
+              </entry>
+              <entry>
+                <para>Reverse elements with a vperm before store for LE based
+                on vector base type.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>vec_ste</para>
+              </entry>
+              <entry>
+                <para>stvebx, stvehx, stvewx</para>
+              </entry>
+              <entry>
+                <para>Reverse elements with a vperm before store for LE based
+                on vector base type.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>vec_stl</para>
+              </entry>
+              <entry>
+                <para>stvxl</para>
+              </entry>
+              <entry>
+                <para>Reverse elements with a vperm before store for LE based
+                on vector base type.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>Access to memory instructions handling potentially unaligned
+      accesses may be accomplished by using instructions (or instruction
+      sequences) that perform little-endian load of the underlying vector data
+      type while maintaining big-endian element ordering. See 
+      <xref linkend="dbdoclet.50655244_21918" />.</para>
+      <para> </para>
+      <table frame="all" pgwide="1" xml:id="dbdoclet.50655244_21918">
+        <title>Optional Built-In Memory Access Functions (BE Layout in LE
+        Mode)</title>
+        <tgroup cols="3">
+          <colspec colname="c1" colwidth="15*" align="center"/>
+          <colspec colname="c2" colwidth="35*" align="center"/>
+          <colspec colname="c3" colwidth="50*" />
+          <thead>
+            <row>
+              <entry>
+                <para>
+                  <emphasis role="bold">Built-In Function</emphasis>
+                </para>
+              </entry>
+              <entry>
+                <para>
+                  <emphasis role="bold">Corresponding POWER
+                  Instructions</emphasis>
+                </para>
+              </entry>
+              <entry align="center">
+                <para>
+                  <emphasis role="bold">BE Vector Layout in Little-Endian Mode
+                  Implementation Notes</emphasis>
+                </para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para>vec_xl</para>
+              </entry>
+              <entry>
+                <para>lxvd2x</para>
+              </entry>
+              <entry>
+                <para>Use lxvd2x for vector long long; vector long, vector
+                double.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>vec_xlw4
+                  <footnote xml:id="dbdoclet.50655244_78719">
+                    <para>Deprecated. The use of vector data type
+                      assignment and overloaded vec_xl and vec_xst vector
+                      built-in functions are preferred forms for assigning
+                      vector operations. Similarly, the use of
+                      <literal>__builtin_lxvd2x</literal>,<literal> __builtin_lxvw4x</literal>, 
+                      <literal>__builtin_stxvd2x</literal>, <literal>__builtin_stxvw4x</literal>, 
+                      available in some compilers, is discouraged.</para></footnote>
+                </para>
+              </entry>
+              <entry>
+                <para>lxvw4x</para>
+              </entry>
+              <entry>
+                <para>Use lxvw4x for vector int; vector float.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>vec_xld2
+                  <footnoteref linkend="dbdoclet.50655244_78719"/>
+                </para>
+              </entry>
+              <entry>
+                <para>lxvd2x</para>
+              </entry>
+              <entry>
+                <para>Use lxvd2x, followed by reversal of elements within each
+                doubleword, for all other data types.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>vec_xst</para>
+              </entry>
+              <entry>
+                <para>stxvd2x</para>
+              </entry>
+              <entry>
+                <para>Use stxvd2x for vector long long; vector long, vector
+                double.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>vec_xstw4
+                  <footnoteref linkend="dbdoclet.50655244_78719"/>
+                </para>
+              </entry>
+              <entry>
+                <para>stxvw4x</para>
+              </entry>
+              <entry>
+                <para>Use stxvw4x for vector int; vector float.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>vec_xstd2
+                  <footnoteref linkend="dbdoclet.50655244_78719"/>
+                </para>
+              </entry>
+              <entry>
+                <para>stxvd2x</para>
+              </entry>
+              <entry>
+                <para>Use stxvd2x, following a reversal of elements within each
+                doubleword, for all other data types.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <note>
+        <para>The use of -maltivec=be or -qaltivec=be in
+        little-endian mode disables the transformations described
+        in 
+        <xref linkend="dbdoclet.50655244_35023" />.</para>
+      </note>
+      <para>The operation of the assignment operator is never changed by a
+      setting such as <literal>-qaltivec=be</literal> or <literal>-maltivec=be</literal>.</para>
+    </section>
+  </section>
+  <section xml:id="dbdoclet.50655244_20743">
+    <title>Language-Specific Vector Support for Other Languages</title>
+    <section xml:id="dbdoclet.50655244_37862">
+      <title>Fortran</title>
+      <para>
+      <xref linkend="dbdoclet.50655244_80766" /> shows the correspondence
+      between the C/C++ types described in this document and their Fortran
+      equivalents. In Fortran, the Boolean vector data types are represented by
+      VECTOR(UNSIGNED(n)).</para>
+      <para>Because the Fortran language does not support pointers, vector
+      built-in functions that expect pointers to a base type take an array
+      element reference to indicate the address of a memory location that is
+      the subject of a memory access built-in function.</para>
+      <para>Because the Fortran language does not support type casts, the
+      vec_convert and vec_concat built-in functions shown in 
+      <xref linkend="dbdoclet.50655244_14722" /> are provided to perform
+      bit-exact type conversions between vector types.</para>
+      <para> </para>
+      <table frame="all" pgwide="1" xml:id="dbdoclet.50655244_14722">
+        <title>Built-In Vector Conversion Function</title>
+        <tgroup cols="2">
+          <colspec colname="c1" colwidth="30*" align="center" />
+          <colspec colname="c2" colwidth="70*" />
+          <thead>
+            <row>
+              <entry>
+                <para>
+                  <emphasis role="bold">Group</emphasis>
+                </para>
+              </entry>
+              <entry align="center">
+                <para>
+                  <emphasis role="bold">Description</emphasis>
+                </para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para>VEC_CONCAT (ARG1, ARG2)</para>
+                <para>(Fortran)</para>
+                <para>POWER ISA 3.0</para>
+              </entry>
+              <entry>
+                <para>Purpose:</para>
+                <para>Concatenates two elements to form a vector.</para>
+                <para>Result value:</para>
+                <para>The resulting vector consists of the two scalar elements,
+                ARG1 and ARG2, assigned to elements 0 and 1 (using the
+                environment’s native endian numbering), respectively.</para>
+                <itemizedlist>
+                  <listitem>
+                    <para><emphasis role="bold">Note:  </emphasis>This function corresponds to the C/C++ vector
+                    constructor (vector type){a,b}. It is provided only for
+                    languages without vector constructors.</para>
+                  </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>POWER ISA 3.0</para>
+              </entry>
+              <entry>
+                <para>vector signed long long vec_concat (signed long long,
+                signed long long);</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>POWER ISA 3.0</para>
+              </entry>
+              <entry>
+                <para>vector unsigned long long vec_concat (unsigned long long,
+                unsigned long long);</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>POWER ISA 3.0</para>
+              </entry>
+              <entry>
+                <para>vector double vec_concat (double, double);</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>VEC_CONVERT(V, MOLD)</para>
+              </entry>
+              <entry>
+                <para>Purpose:</para>
+                <para>Converts a vector to a vector of a given type.</para>
+                <para>Class:</para>
+                <para>Pure function</para>
+                <para>Argument type and attributes:</para>
+                <itemizedlist spacing="compact">
+                  <listitem>
+                    <para>V Must be an INTENT(IN) vector.</para>
+                  </listitem>
+                  <listitem>
+                    <para>MOLD Must be an INTENT(IN) vector. If it is a
+                    variable, it need not be defined.</para>
+                  </listitem>
+                </itemizedlist>
+                <para>Result type and attributes:</para>
+                <para>The result is a vector of the same type as MOLD.</para>
+                <para>Result value:</para>
+                <para>The result is as if it were on the left-hand side of an
+                intrinsic assignment with V on the right-hand side.</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>
+      <xref linkend="dbdoclet.50655244_80766" /> gives a correspondence of
+      Fortran and C/C++ language types.</para>
+      <para> </para>
+      <table frame="all" pgwide="1" xml:id="dbdoclet.50655244_80766">
+        <title>Fortran Vector Data Types</title>
+        <tgroup cols="2">
+          <colspec colname="c1" colwidth="50*" />
+          <colspec colname="c2" colwidth="50*" />
+          <thead>
+            <row>
+              <entry align="center">
+                <para>
+                  <emphasis role="bold">XL Fortran Vector Type</emphasis>
+                </para>
+              </entry>
+              <entry align="center">
+                <para>
+                  <emphasis role="bold">XL C/C++ Vector Type</emphasis>
+                </para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para>VECTOR(INTEGER(1))</para>
+              </entry>
+              <entry>
+                <para>vector signed char</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>VECTOR(INTEGER(2))</para>
+              </entry>
+              <entry>
+                <para>vector signed short</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>VECTOR(INTEGER(4))</para>
+              </entry>
+              <entry>
+                <para>vector signed int</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>VECTOR(INTEGER(8))</para>
+              </entry>
+              <entry>
+                <para>vector signed long long, vector signed long</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>VECTOR(INTEGER(16))</para>
+              </entry>
+              <entry>
+                <para>vector signed __int128</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>VECTOR(UNSIGNED(1))</para>
+              </entry>
+              <entry>
+                <para>vector unsigned char</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>VECTOR(UNSIGNED(2))</para>
+              </entry>
+              <entry>
+                <para>vector unsigned short</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>VECTOR(UNSIGNED(4))</para>
+              </entry>
+              <entry>
+                <para>vector unsigned int</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>VECTOR(UNSIGNED(8))</para>
+              </entry>
+              <entry>
+                <para>vector unsigned long long, vector unsigned long</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>VECTOR(UNSIGNED(16))</para>
+              </entry>
+              <entry>
+                <para>vector unsigned __int128</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>VECTOR(REAL(4))</para>
+              </entry>
+              <entry>
+                <para>vector float</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>VECTOR(REAL(8))</para>
+              </entry>
+              <entry>
+                <para>vector double</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>VECTOR(PIXEL)</para>
+              </entry>
+              <entry>
+                <para>vector pixel</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+  </section>
+  <section>
+    <title>Library Interfaces</title>
+    <section>
+      <title>printf and scanf of Vector Data Types</title>
+      <para>Support for vector variable input and output 
+      <emphasis>may</emphasis> be provided as an extension to the following
+      POSIX library functions for the new vector conversion format
+      strings:</para>
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>scanf</para>
+        </listitem>
+        <listitem>
+          <para>fscanf</para>
+        </listitem>
+        <listitem>
+          <para>sscanf</para>
+        </listitem>
+        <listitem>
+          <para>wsscanf</para>
+        </listitem>
+        <listitem>
+          <para>printf</para>
+        </listitem>
+        <listitem>
+          <para>fprintf</para>
+        </listitem>
+        <listitem>
+          <para>sprintf</para>
+        </listitem>
+        <listitem>
+          <para>snprintf</para>
+        </listitem>
+        <listitem>
+          <para>wsprintf</para>
+        </listitem>
+        <listitem>
+          <para>vprintf</para>
+        </listitem>
+        <listitem>
+          <para>vfprintf</para>
+        </listitem>
+        <listitem>
+          <para>vsprintf</para>
+        </listitem>
+        <listitem>
+          <para>vwsprintf</para>
+        </listitem>
+      </itemizedlist>
+      <para>(One sample implementation for such an extended specification is
+      libvecprintf.)</para>
+      <para>The size formatters are as follows:</para>
+      <itemizedlist>
+        <listitem>
+          <para>vl or lv consumes one argument and modifies an existing integer
+          conversion, resulting in vector signed int, vector unsigned int, or
+          vector bool for output conversions or vector signed int * or vector
+          unsigned int * for input conversions. The data is then treated as a
+          series of four 4-byte components, with the subsequent conversion
+          format applied to each.</para>
+        </listitem>
+        <listitem>
+          <para>vh or hv consumes one argument and modifies an existing short
+          integer conversion, resulting in vector signed short or vector
+          unsigned short for output conversions or vector signed short * or
+          vector unsigned short * for input conversions. The data is treated as
+          a series of eight 2-byte components, with the subsequent conversion
+          format applied to each.</para>
+        </listitem>
+        <listitem>
+          <para>v consumes one argument and modifies a 1-byte integer, 1-byte
+          character, or 4-byte floating-point conversion. If the conversion is
+          a floating-point conversion, the result is vector float for output
+          conversion or vector float * for input conversion. The data is
+          treated as a series of four 4-byte floating-point components with the
+          subsequent conversion format applied to each. If the conversion is an
+          integer or character conversion, the result is either vector signed
+          char, vector unsigned char, or vector bool char for output
+          conversion, or vector signed char * or vector unsigned char * for
+          input conversions. The data is treated as a series of sixteen 1-byte
+          components, with the subsequent conversion format applied to
+          each.</para>
+        </listitem>
+        <listitem>
+          <para>vv consumes one argument and modifies an 8-byte floating-point
+          conversion. If the conversion is a floating-point conversion, the
+          result is vector double for output conversion or vector double * for
+          input conversion. The data is treated as a series of two 8-byte
+          floating-point components with the subsequent conversion format
+          applied to each. Integer and byte conversions are not defined for the
+          vv modifier.</para>
+        </listitem>
+      </itemizedlist>
+        <note>
+          <para>As new vector types are defined, new format codes should
+          be defined to support scanf and printf of those types.</para>
+        </note>
+      <para>Any conversion format that can be applied to the singular form of a
+      vector-data type can be used with a vector form. The %d, %x, %X, %u, %i,
+      and %o integer conversions can be applied with the %lv, %vl, %hv, %vh,
+      and %v vector-length qualifiers. The %c character conversion can be
+      applied with the %v vector length qualifier. The %a, %A, %e, %E, %f, %F,
+      %g, and %G float conversions can be applied with the %v vector length
+      qualifier.</para>
+      <para>For input conversions, an optional separator character can be
+      specified excluding white space preceding the separator. If no separator
+      is specified, the default separator is a space including white space
+      characters preceding the separator, unless the conversion is c. Then, the
+      default conversion is null.</para>
+      <para>For output conversions, an optional separator character can be
+      specified immediately preceding the vector size conversion. If no
+      separator is specified, the default separator is a space unless the
+      conversion is c. Then, the default separator is null.</para>
+      <para> </para>
+    </section>
+  </section>
+</chapter>
