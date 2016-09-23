@@ -53,10 +53,10 @@
                                 article/appendix	nop
                                 article   		toc,title
                                 book      		toc,title,figure,table,example,equation
-				book/appendix		nop
+                        				book/appendix		nop
                                 book/chapter		nop
                                 chapter   		toc,title
-				chapter/section 	nop
+                         				chapter/section 	nop
                                 section   		toc
                                 part      		toc,title
                                 qandadiv  		toc

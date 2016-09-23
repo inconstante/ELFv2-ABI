@@ -50,8 +50,8 @@
     <pubdate/>
 
     <!-- TODO: Change license to "gnuFreeDoc" when JAR 1.5 becomes available. -->
-    <!--legalnotice role="gnuFreeDoc"-->
-    <legalnotice role="apache2">
+    <legalnotice role="gnuFreeDoc">
+    <!--legalnotice role="apache2"-->
 
       <annotation>
           <remark>Copyright details are filled in by the template.</remark>
@@ -86,7 +86,38 @@
           <revdescription>
             <itemizedlist spacing="compact">
               <listitem>
-                <para>Revision 1.1b - initial conversion from framemaker</para>
+                <para>Revision 1.2b - initial conversion from framemaker</para>
+              </listitem>
+            </itemizedlist>
+          </revdescription>
+      </revision>
+      <revision>
+          <date revisionflag="added">2016-06-13</date>
+          <revdescription>
+            <itemizedlist revisionflag="added" spacing="compact">
+              <listitem>
+                <para>Version 1.2 - POWER8 erratum and POWER9 support.
+                </para>
+              </listitem>
+            </itemizedlist>
+          </revdescription>
+      </revision>
+      <revision>
+          <date>2015-07-16</date>
+          <revdescription>
+            <itemizedlist spacing="compact">
+              <listitem>
+                <para>Version 1.1 - initial conversion from framemaker</para>
+              </listitem>
+            </itemizedlist>
+          </revdescription>
+      </revision>
+      <revision>
+          <date>2014-07-21</date>
+          <revdescription>
+            <itemizedlist spacing="compact">
+              <listitem>
+                <para>Version 1.0 initial release.</para>
               </listitem>
             </itemizedlist>
           </revdescription>

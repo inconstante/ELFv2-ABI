@@ -45,9 +45,7 @@ xml:id="dbdoclet.50655243_pgfId-1099317">
       by the linker as necessary to resolve symbols.</para>
     </section>
     <section xml:id="dbdoclet.50655243_page131">
-      <title>Types Defined in the Standard Header
-      <anchor xml:id="dbdoclet.50655243___RefHeading___Toc377640670"
-      xreflabel="" /> Types Defined in the Standard Header</title>
+      <title xml:id="dbdoclet.50655243___RefHeading___Toc377640670">Types Defined in the Standard Header</title>
       <para>The type va_list shall be defined as follows:</para>
       <para><literal>typedef void * va_list;</literal></para>
       <para>The following integer types are defined in headers, which must be
@@ -55,13 +53,13 @@ xml:id="dbdoclet.50655243_pgfId-1099317">
       such headers. They shall have the following definitions:</para>
       <itemizedlist spacing="compact">
         <listitem>
-          <para>typedef long ptrdiff_t;</para>
+          <para>typedef long <phrase revisionflag="deleted">long</phrase> ptrdiff_t;</para>
         </listitem>
         <listitem>
-          <para>typedef unsigned long size_t;</para>
+          <para>typedef unsigned <phrase revisionflag="added">long</phrase><phrase revisionflag="deleted">int</phrase> size_t;</para>
         </listitem>
         <listitem>
-          <para>typedef int wchar_t;</para>
+          <para>typedef <phrase revisionflag="added">int</phrase><phrase revisionflag="deleted">long</phrase> wchar_t;</para>
         </listitem>
         <listitem>
           <para>typedef int sig_atomic_t;</para>
@@ -79,7 +77,7 @@ xml:id="dbdoclet.50655243_pgfId-1099317">
           <para>typedef int int32_t;</para>
         </listitem>
         <listitem>
-          <para>typedef long int64_t;</para>
+          <para>typedef long <phrase revisionflag="deleted">long</phrase> int64_t;</para>
         </listitem>
         <listitem>
           <para>typedef unsigned char uint8_t;</para>
@@ -91,7 +89,7 @@ xml:id="dbdoclet.50655243_pgfId-1099317">
           <para>typedef unsigned int uint32_t;</para>
         </listitem>
         <listitem>
-          <para>typedef unsigned long uint64_t;</para>
+          <para>typedef unsigned long <phrase revisionflag="deleted">long</phrase> uint64_t;</para>
         </listitem>
         <listitem>
           <para>typedef signed char int_least8_t;</para>
@@ -103,7 +101,7 @@ xml:id="dbdoclet.50655243_pgfId-1099317">
           <para>typedef int int_least32_t;</para>
         </listitem>
         <listitem>
-          <para>typedef long int_least64_t;</para>
+          <para>typedef long <phrase revisionflag="deleted">long</phrase> int_least64_t;</para>
         </listitem>
         <listitem>
           <para>typedef unsigned char uint_least8_t;</para>
@@ -115,7 +113,7 @@ xml:id="dbdoclet.50655243_pgfId-1099317">
           <para>typedef unsigned int uint_least32_t;</para>
         </listitem>
         <listitem>
-          <para>typedef unsigned long uint_least64_t;</para>
+          <para>typedef unsigned long <phrase revisionflag="deleted">long</phrase> uint_least64_t;</para>
         </listitem>
         <listitem>
           <para>typedef signed char int_fast8_t;</para>
@@ -127,7 +125,7 @@ xml:id="dbdoclet.50655243_pgfId-1099317">
           <para>typedef int int_fast32_t;</para>
         </listitem>
         <listitem>
-          <para>typedef long int_fast64_t;</para>
+          <para>typedef long <phrase revisionflag="deleted">long</phrase> int_fast64_t;</para>
         </listitem>
         <listitem>
           <para>typedef unsigned char uint_fast8_t;</para>
@@ -139,19 +137,19 @@ xml:id="dbdoclet.50655243_pgfId-1099317">
           <para>typedef unsigned int uint_fast32_t;</para>
         </listitem>
         <listitem>
-          <para>typedef unsigned long uint_fast64_t;</para>
+          <para>typedef unsigned long <phrase revisionflag="deleted">long</phrase> uint_fast64_t;</para>
         </listitem>
         <listitem>
-          <para>typedef long intptr_t;</para>
+          <para>typedef long <phrase revisionflag="deleted">long</phrase> intptr_t;</para>
         </listitem>
         <listitem>
-          <para>typedef unsigned long uintptr_t;</para>
+          <para>typedef unsigned long <phrase revisionflag="deleted">long</phrase> uintptr_t;</para>
         </listitem>
         <listitem>
-          <para>typedef long intmax_t;</para>
+          <para>typedef long <phrase revisionflag="deleted">long</phrase> intmax_t;</para>
         </listitem>
         <listitem>
-          <para>typedef unsigned long uintmax_t;</para>
+          <para>typedef unsigned long <phrase revisionflag="deleted">long</phrase> uintmax_t;</para>
         </listitem>
       </itemizedlist>
     </section>

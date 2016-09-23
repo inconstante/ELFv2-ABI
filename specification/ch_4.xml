@@ -341,10 +341,8 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
       argument passing. For example, a C program might typically issue the
       following declaration to begin executing at the local entry point of a
       function named main:</para>
-      <programlisting>
-        extern int main (int argc, char *argv[], char *envp[], void *auxv[]);
-        int main(int argc, char *argv[], char *envp[], ElfW(auxv_t) *auxvec)
-      </programlisting>
+      <programlisting revisionflag="changed">extern int main (int argc, char *argv[], char *envp[], void *auxv[]);
+int main(int argc, char *argv[], char *envp[], ElfW(auxv_t) *auxvec)</programlisting>
       <para>where:</para>
       <itemizedlist mark="none">
         <listitem>
@@ -546,55 +544,53 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
       application program to another. However, the auxiliary vector conveys
       information from the operating system to the program. This vector is an
       array of structures, defined as follows:</para>
-      <programlisting>
-      typedef struct
+      <programlisting>typedef struct
+{
+   long a_type;
+   union
       {
-         long a_type;
-         union
-            {
-               long a_val;
-               void *a_ptr;
-               void (*a_fcn)();
-            } a_un;
-      } auxv_t;
-       
-      Name               Value   a_un field    Comment
-      AT_NULL            0       ignored       /* End of vector */
-      AT_PHDR            3       a_ptr         /* Program headers for program */
-      AT_PHENT           4       a_val         /* Size of program header entry */
-      AT_PHNUM           5       a_val         /* Number of program headers */
-      AT_PAGESZ          6       a_val         /* System page size */
-      AT_BASE            7       a_ptr         /* Base address of interpreter */
-      AT_FLAGS           8       a_val         /* Flags */
-      AT_ENTRY           9       a_ptr         /* Entry point of program */
-      AT_UID             11                    /* Real user ID (uid) */
-      AT_EUID            12                    /* Effective user ID (euid) */
-      AT_GID             13                    /* Real group ID (gid) */
-      AT_EGID            14                    /* Effective group ID (egid) */
-      AT_PLATFORM        15      a_ptr         /* String identifying platform. */
-      AT_HWCAP           16      a_val         /* Machine-dependent hints about 
-                                               processor capabilities. */
-      AT_CLKTCK          17                    /* Frequency of times(), always 100 */
-      AT_DCACHEBSIZE     19      a_val         /* Data cache block size */
-      AT_ICACHEBSIZE     20      a_val         /* Instruction cache block size */
-      AT_UCACHEBSIZE     21      a_val         /* Unified cache block size */
-      AT_IGNOREPPC       22                    /* Ignore this entry! */
-      AT_SECURE          23                    /* Boolean, was exec authorized to use 
-                                               setuid or setgid */
-      AT_BASE_PLATFORM   24      a_ptr         /* String identifying real platforms */
-      AT_RANDOM          25                    /* Address of 16 random bytes */
-      AT_HWCAP2          26      a_val         /* More machine-dependent hints about 
-                                               processor capabilities. */
-      AT_EXECFN          31                    /* File name of executable */
-      AT_SYSINFO_EHDR    33                    /* In many architectures, the kernel 
-                                               provides a virtual dynamic shared 
-                                               object (VDSO) that contains a function 
-                                               callable from the user state.   
-                                               AT_SYSINFO_EHDR is the address of the
-                                               VDSO header that is used by the
-                                               dynamic linker to resolve function 
-                                               symbols with the VDSO. */
-      </programlisting>
+         long a_val;
+         void *a_ptr;
+         void (*a_fcn)();
+      } a_un;
+} auxv_t;
+ 
+Name               Value   a_un field    Comment
+AT_NULL            0       ignored       /* End of vector */
+AT_PHDR            3       a_ptr         /* Program headers for program */
+AT_PHENT           4       a_val         /* Size of program header entry */
+AT_PHNUM           5       a_val         /* Number of program headers */
+AT_PAGESZ          6       a_val         /* System page size */
+AT_BASE            7       a_ptr         /* Base address of interpreter */
+AT_FLAGS           8       a_val         /* Flags */
+AT_ENTRY           9       a_ptr         /* Entry point of program */
+AT_UID             11                    /* Real user ID (uid) */
+AT_EUID            12                    /* Effective user ID (euid) */
+AT_GID             13                    /* Real group ID (gid) */
+AT_EGID            14                    /* Effective group ID (egid) */
+AT_PLATFORM        15      a_ptr         /* String identifying platform. */
+AT_HWCAP           16      a_val         /* Machine-dependent hints about 
+                                         processor capabilities. */
+AT_CLKTCK          17                    /* Frequency of times(), always 100 */
+AT_DCACHEBSIZE     19      a_val         /* Data cache block size */
+AT_ICACHEBSIZE     20      a_val         /* Instruction cache block size */
+AT_UCACHEBSIZE     21      a_val         /* Unified cache block size */
+AT_IGNOREPPC       22                    /* Ignore this entry! */
+AT_SECURE          23                    /* Boolean, was exec authorized to use 
+                                         setuid or setgid */
+AT_BASE_PLATFORM   24      a_ptr         /* String identifying real platforms */
+AT_RANDOM          25                    /* Address of 16 random bytes */
+AT_HWCAP2          26      a_val         /* More machine-dependent hints about 
+                                         processor capabilities. */
+AT_EXECFN          31                    /* File name of executable */
+AT_SYSINFO_EHDR    33                    /* In many architectures, the kernel 
+                                         provides a virtual dynamic shared 
+                                         object (VDSO) that contains a function 
+                                         callable from the user state.   
+                                         AT_SYSINFO_EHDR is the address of the
+                                         VDSO header that is used by the
+                                         dynamic linker to resolve function 
+                                         symbols with the VDSO. */</programlisting>
       <para>AT_NULL</para>
       <para>The auxiliary vector has no fixed length; instead an entry of this
       type denotes the end of the vector. The corresponding value of a_un is
@@ -660,44 +656,40 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
       <para>AT_HWCAP</para>
       <para>The a_val member of this entry is a bit map of hardware
       capabilities. Some bit mask values include:</para>
-      <programlisting>
-      PPC_FEATURE_32            0x80000000 /* Always set for powerpc64 */
-      PPC_FEATURE_64            0x40000000 /* Always set for powerpc64 */
-      PPC_FEATURE_HAS_ALTIVEC   0x10000000
-      PPC_FEATURE_HAS_FPU       0x08000000
-      PPC_FEATURE_HAS_MMU       0x04000000
-      PPC_FEATURE_UNIFIED_CACHE 0x01000000
-      PPC_FEATURE_NO_TB         0x00100000 /* 601/403gx have no timebase */
-      PPC_FEATURE_POWER4        0x00080000 /* POWER4 ISA 2.00 */
-      PPC_FEATURE_POWER5        0x00040000 /* POWER5 ISA 2.02 */
-      PPC_FEATURE_POWER5_PLUS   0x00020000 /* POWER5+ ISA 2.03 */
-      PPC_FEATURE_CELL_BE       0x00010000 /* CELL Broadband Engine */
-      PPC_FEATURE_BOOKE         0x00008000 /* ISA Category Embedded */
-      PPC_FEATURE_SMT           0x00004000 /* Simultaneous Multi-Threading */
-      PPC_FEATURE_ICACHE_SNOOP  0x00002000
-      PPC_FEATURE_ARCH_2_05     0x00001000 /* ISA 2.05 */
-      PPC_FEATURE_PA6T          0x00000800 /* PA Semi 6T Core */
-      PPC_FEATURE_HAS_DFP       0x00000400 /* Decimal FP Unit */
-      PPC_FEATURE_POWER6_EXT    0x00000200 /* P6 + mffgpr/mftgpr */
-      PPC_FEATURE_ARCH_2_06     0x00000100 /* ISA 2.06 */
-      PPC_FEATURE_HAS_VSX       0x00000080 /* P7 Vector Extension. */
-      PPC_FEATURE_PSERIES_PERFMON_COMPAT 0x00000040
-      PPC_FEATURE_TRUE_LE       0x00000002
-      PPC_FEATURE_PPC_LE        0x00000001
-      </programlisting>
+      <programlisting>PPC_FEATURE_32            0x80000000 /* Always set for powerpc64 */
+PPC_FEATURE_64            0x40000000 /* Always set for powerpc64 */
+PPC_FEATURE_HAS_ALTIVEC   0x10000000
+PPC_FEATURE_HAS_FPU       0x08000000
+PPC_FEATURE_HAS_MMU       0x04000000
+PPC_FEATURE_UNIFIED_CACHE 0x01000000
+PPC_FEATURE_NO_TB         0x00100000 /* 601/403gx have no timebase */
+PPC_FEATURE_POWER4        0x00080000 /* POWER4 ISA 2.00 */
+PPC_FEATURE_POWER5        0x00040000 /* POWER5 ISA 2.02 */
+PPC_FEATURE_POWER5_PLUS   0x00020000 /* POWER5+ ISA 2.03 */
+PPC_FEATURE_CELL_BE       0x00010000 /* CELL Broadband Engine */
+PPC_FEATURE_BOOKE         0x00008000 /* ISA Category Embedded */
+PPC_FEATURE_SMT           0x00004000 /* Simultaneous Multi-Threading */
+PPC_FEATURE_ICACHE_SNOOP  0x00002000
+PPC_FEATURE_ARCH_2_05     0x00001000 /* ISA 2.05 */
+PPC_FEATURE_PA6T          0x00000800 /* PA Semi 6T Core */
+PPC_FEATURE_HAS_DFP       0x00000400 /* Decimal FP Unit */
+PPC_FEATURE_POWER6_EXT    0x00000200 /* P6 + mffgpr/mftgpr */
+PPC_FEATURE_ARCH_2_06     0x00000100 /* ISA 2.06 */
+PPC_FEATURE_HAS_VSX       0x00000080 /* P7 Vector Extension. */
+PPC_FEATURE_PSERIES_PERFMON_COMPAT 0x00000040
+PPC_FEATURE_TRUE_LE       0x00000002
+PPC_FEATURE_PPC_LE        0x00000001</programlisting>
       <para>AT_HWCAP2</para>
       <para>The a_val member of this entry is a bit map of hardware
       capabilities. Some bit mask values include:</para>
-      <programlisting>
-      PPC_FEATURE2_ARCH_2_07    0x80000000 /* ISA 2.07 */
-      PPC_FEATURE2_HAS_HTM      0x40000000 /* Hardware Transactional Memory */
-      PPC_FEATURE2_HAS_DSCR     0x20000000 /* Data Stream Control Register */
-      PPC_FEATURE2_HAS_EBB      0x10000000 /* Event Base Branching */
-      PPC_FEATURE2_HAS_ISEL     0x08000000 /* Integer Select */
-      PPC_FEATURE2_HAS_TAR      0x04000000 /* Target Address Register */
-      PPC_FEATURE2_HAS_VCRYPTO  0x02000000 /* The processor implements the
-                                              Vector.AES category */
-      </programlisting>
+      <programlisting>PPC_FEATURE2_ARCH_2_07    0x80000000 /* ISA 2.07 */
+PPC_FEATURE2_HAS_HTM      0x40000000 /* Hardware Transactional Memory */
+PPC_FEATURE2_HAS_DSCR     0x20000000 /* Data Stream Control Register */
+PPC_FEATURE2_HAS_EBB      0x10000000 /* Event Base Branching */
+PPC_FEATURE2_HAS_ISEL     0x08000000 /* Integer Select */
+PPC_FEATURE2_HAS_TAR      0x04000000 /* Target Address Register */
+PPC_FEATURE2_HAS_VCRYPTO  0x02000000 /* The processor implements the
+                                        Vector.AES category */</programlisting>
       <para>When a process starts to execute, its stack holds the arguments,
       environment, and auxiliary vector received from the exec call. The system
       makes no guarantees about the relative arrangement of argument strings,
@@ -934,14 +926,12 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
           following the call.</para>
         </listitem>
       </orderedlist>
-      <programlisting>
-      tocsaveloc:
-         nop
-       ...
-      bl target
-         .reloc ., R_PPC64_TOCSAVE, tocsaveloc
-         nop
-      </programlisting>
+      <programlisting>tocsaveloc:
+   nop
+ ...
+bl target
+   .reloc ., R_PPC64_TOCSAVE, tocsaveloc
+   nop</programlisting>
       <orderedlist>
         <listitem>
           <para>3. The caller has not set up r2 to hold the TOC pointer. This
@@ -965,45 +955,37 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
       <para>A possible implementation for case 1 looks as follows (if
       func@plt@toc is less than 32 KB, the call stub may be simplified to omit
       the addis):</para>
-      <programlisting>
-         std    r2,24(r1)
-         addis  r12,r2,func@plt@toc@ha
-         ld     r12,func@plt@toc@l(r12)
-         mtctr  r12
-         bctr
-      </programlisting>
+      <programlisting>std    r2,24(r1)
+addis  r12,r2,func@plt@toc@ha
+ld     r12,func@plt@toc@l(r12)
+mtctr  r12
+bctr</programlisting>
       <para>For case 2, the same implementation as for case 1 may be used,
       except that the first instruction “std r2,24(r1)” is omitted:</para>
-      <programlisting>
-         addis  r12,r2,func@plt@toc@ha
-         ld     r12,func@plt@toc@l(r12)
-         mtctr  r12
-         bctr
-      </programlisting>
+      <programlisting>addis  r12,r2,func@plt@toc@ha
+ld     r12,func@plt@toc@l(r12)
+mtctr  r12
+bctr</programlisting>
       <para>
       <anchor xml:id="dbdoclet.50655242___DdeLink__61883_1749258592"
       xreflabel="" /> A possible implementation for case 3 looks as
       follows:</para>
-      <programlisting>
-         mflr   r0
-         bcl    20,31,1f
-      1: mflr   r2
-         mtlr   r0
-         addis  r2,r2,(.TOC.-1b)@ha
-         addi   r2,r2,(.TOC.-1b)@l
-         addis  r12,r2,func@plt@toc@ha
-         ld     r12,func@plt@toc@l(r12)
-         mtctr  r12
-         bctr
-      </programlisting>
+      <programlisting>   mflr   r0
+   bcl    20,31,1f
+1: mflr   r2
+   mtlr   r0
+   addis  r2,r2,(.TOC.-1b)@ha
+   addi   r2,r2,(.TOC.-1b)@l
+   addis  r12,r2,func@plt@toc@ha
+   ld     r12,func@plt@toc@l(r12)
+   mtctr  r12
+   bctr</programlisting>
       <para>When generating non-PIC code for the small or medium code model, a
       simpler variant may alternatively be used for cases 2 or 3:</para>
-      <programlisting>
-         lis    r12,func@plt@ha
-         ld     r12,func@plt@l(r12)
-         mtctr  r12
-         bctr
-      </programlisting>
+      <programlisting>lis    r12,func@plt@ha
+ld     r12,func@plt@l(r12)
+mtctr  r12
+bctr</programlisting>
       <para>To support lazy binding, the link editor also provides a set of
       symbol resolver stubs, one for each PLT entry. Each resolver stub
       consists of a single instruction, which is usually a branch to a common
@@ -1029,52 +1011,50 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
       <para>Beyond the above requirements, the implementation of the .glink
       resolver stubs is up to the link editor. The following shows an example
       implementation:</para>
-      <programlisting>
-      # ABI note: At entry to the resolver stub:
-      # - r12 holds the address of the res_N stub for the target routine
-      # - all argument registers hold arguments for the target routine
-   PLTresolve:
-      # Determine addressability. This sequence works for both PIC
-      # and non-PIC code and does not rely on presence of the TOC pointer.
-      mflr r0
-      bcl 20,31,1f
-   1: mflr r11
-      mtlr r0
-      # Compute .plt section index from entry point address in r12
-      # .plt section index is placed into r0 as argument to the resolver
-      sub r0,r12,r11
-      subi r0,r0,res_0-1b
-      srdi r0,r0,2
-      # Load address of the first byte of the PLT
-      ld r12,PLToffset-1b(r11)
-      add r11,r12,r11
-      # Load resolver address and DSO identifier from the
-      # first two doublewords of the PLT
-      ld r12,0(r11)
-      ld r11,8(r11)
-      # Branch to resolver
-      mtctr r12
-      bctr
-      # ABI note: At entry to the resolver:
-      # - r12 holds the resolver address
-      # - r11 holds the DSO identifier
-      # - r0 holds the PLT index of the target routine
-      # - all argument registers hold arguments for the target routine
-       
-      # Constant pool holding offset to the PLT
-      # Note that there is no actual symbol PLT; the link editor
-      # synthesizes this value when creating the .glink section
-   PLToffset:
-      .quad PLT-.
-       
-      # A table of branches, one for each PLT entry
-      # The idea is that the PLT call stub loads r12 with these
-      # addresses, so (r12 - res_0) gives the PLT index × 4.
-       
-   res_0: b PLTresolve
-   res_1: b PLTresolve
-      ...
-      </programlisting>
+      <programlisting>  # ABI note: At entry to the resolver stub:
+  # - r12 holds the address of the res_N stub for the target routine
+  # - all argument registers hold arguments for the target routine
+PLTresolve:
+  # Determine addressability. This sequence works for both PIC
+  # and non-PIC code and does not rely on presence of the TOC pointer.
+  mflr r0
+  bcl 20,31,1f
+1: mflr r11
+  mtlr r0
+  # Compute .plt section index from entry point address in r12
+  # .plt section index is placed into r0 as argument to the resolver
+  sub r0,r12,r11
+  subi r0,r0,res_0-1b
+  srdi r0,r0,2
+  # Load address of the first byte of the PLT
+  ld r12,PLToffset-1b(r11)
+  add r11,r12,r11
+  # Load resolver address and DSO identifier from the
+  # first two doublewords of the PLT
+  ld r12,0(r11)
+  ld r11,8(r11)
+  # Branch to resolver
+  mtctr r12
+  bctr
+  # ABI note: At entry to the resolver:
+  # - r12 holds the resolver address
+  # - r11 holds the DSO identifier
+  # - r0 holds the PLT index of the target routine
+  # - all argument registers hold arguments for the target routine
+   
+  # Constant pool holding offset to the PLT
+  # Note that there is no actual symbol PLT; the link editor
+  # synthesizes this value when creating the .glink section
+PLToffset:
+  .quad PLT-.
+   
+  # A table of branches, one for each PLT entry
+  # The idea is that the PLT call stub loads r12 with these
+  # addresses, so (r12 - res_0) gives the PLT index × 4.
+   
+res_0: b PLTresolve
+res_1: b PLTresolve
+  ...</programlisting>
       <para>After resolution, the value of a PLT entry in the PLT is the
       address of the function’s global entry point, unless the resolver can
       determine that a module-local call occurs with a shared TOC value wherein

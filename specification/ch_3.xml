@@ -10,11 +10,9 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
     ELF header identification array, e_ident[EI_DATA], holds the value 2,
     defined as data encoding ELFDATA2MSB. For a little-endian encoded ELF file,
     it holds the value 1, defined as data encoding ELFDATA2LSB.</para>
-    <programlisting>
-    e_ident[EI_CLASS]    ELFCLASS64   For all 64-bit implementations.
-    e_ident[EI_DATA]     ELFDATA2MSB  For all big-endian implementations.
-    e_ident[EI_DATA]     ELFDATA2LSB  For all little-endian implementations.
-    </programlisting>
+    <programlisting>e_ident[EI_CLASS]    ELFCLASS64   For all 64-bit implementations.
+e_ident[EI_DATA]     ELFDATA2MSB  For all big-endian implementations.
+e_ident[EI_DATA]     ELFDATA2LSB  For all little-endian implementations.</programlisting>
     <para>The ELF header's e_flags member holds bit flags associated with the
     file. The 64-bit PowerPC processor family defines the following
     flags.</para>
@@ -57,9 +55,7 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
     </informaltable>
     <para>The ABI version to be used for the ELF header file is specified with
     the .abiversion pseudo-op:</para>
-    <programlisting>
-    .abiversion 2
-    </programlisting>
+    <programlisting>.abiversion 2</programlisting>
     <para>Processor identification resides in the ELF header's e_machine
     member, and must have the value EM_PPC64, defined as the value 21.</para>
   </section>
@@ -253,18 +249,16 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
     <para>The TOC may straddle the boundary between initialized and
     uninitialized data in the data segment. The common order of sections in the
     data segment, some of which may be empty, follows:</para>
-    <programlisting>
-    .rodata
-    .data
-    .data1
-    .got
-    .toc
-    .sdata
-    .sbss
-    .plt
-    .bss1
-    .bss
-    </programlisting>
+    <programlisting>.rodata
+.data
+.data1
+.got
+.toc
+.sdata
+.sbss
+.plt
+.bss1
+.bss</programlisting>
     <para>The medium code model is expected to provide a sufficiently large TOC
     to provide all data addressing needs of a module with a single TOC.</para>
     <para>Compilers may generate two-instruction medium code model references
@@ -275,6 +269,7 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
     instruction of the two instruction form with a nop and rewriting the second
     instruction. Consequently, the TOC pointer must be live during the first
     and second instruction of a two-instruction reference.)</para>
+    <para>&#160;</para>
     <bridgehead>Modules Containing Multiple TOCs</bridgehead>
     <para>The link editor may create multiple TOCs. In such a case, the
     constituent .got, .toc, .sdata, and .sbss sections are conceptually
@@ -436,16 +431,14 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
       </informaltable>
       <para>The local-entry-point handling field of st_other is generated with
       the .localentry pseudo op:</para>
-      <programlisting>
-          .globl my_func
-          .type my_func, @function
-      my_func:
-          addis r2, r12, my_sym@ha(.TOC.-my_func)
-          addi r2, r2, my_sym@l(.TOC.-my_func)
-          .localentry my_func, .-my_func
-          ... ; function definition
-          blr
-      </programlisting>
+      <programlisting revisionflag="changed">    .globl my_func
+    .type my_func, @function
+my_func:
+    addis r2, r12, my_sym@ha(.TOC.-my_func)
+    addi r2, r2, my_sym@l(.TOC.-my_func)
+    .localentry my_func, .-my_func
+    ... ; function definition
+    blr</programlisting>
       <para>Functions called via symbols with an st_other value of 0 may be
       called without a valid TOC pointer in r2. Symbols of functions that
       require a local entry with a valid TOC pointer should generate a symbol
@@ -2433,13 +2426,10 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
           <tfoot>
             <row>
               <entry nameend="c4" namest="c1" align="left">
-                <para>
-                  <note>
-                      <para>Relocation values 8, 9, 12, 13, 18, 23, 32,
+                <para><emphasis role="bold">Note:</emphasis>Relocation values 8, 9, 12, 13, 18, 23, 32,
                       and 247 are not used. This is to maintain a
                       correspondence to the relocation values used by the
-                      32-bit PowerPC ELF ABI.</para>
-                  </note>
+                      32-bit PowerPC ELF ABI.
                 </para>
               </entry>
             </row>
@@ -4201,10 +4191,8 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
       stored is given by the assembly syntax symbol@got. The value of the
       symbol alone is the address of the variable named symbol.</para>
       <para>For example:</para>
-      <programlisting>
-      addis  r3, r2,x@got@ha
-      ld     r3,x@got@l(r3)
-      </programlisting>
+      <programlisting>addis  r3, r2,x@got@ha
+ld     r3,x@got@l(r3)</programlisting>
       <para>Although the Power ISA only defines 16-bit displacements, many TOCs
       (and hence a GOT) are larger then 64 KB but fit within 2 GB, which can be
       addressed with 32-bit offsets from r2. Therefore, this ABI defines a
@@ -4239,18 +4227,14 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
       current object file.</para>
       <para>The following code might appear in a PIC code setup sequence to
       compute the distance from a function entry point to the TOC base:</para> 
-      <programlisting>      
-      addis  2,12,.TOC.-func@ha
-      addi   2,2,.TOC.-func@l
-      </programlisting>      
+      <programlisting>addis  2,12,.TOC.-func@ha
+addi   2,2,.TOC.-func@l</programlisting>      
       <para>The syntax 
       <emphasis>SYMBOL@localentry</emphasis> refers to the value of the local
       entry point associated with a function symbol. It can be used to
       initialize a memory word with the address of the local entry point as
       follows:</para>
-      <programlisting>      
-      .quad  func@localentry 
-      </programlisting>      
+      <programlisting>.quad  func@localentry</programlisting>      
     </section>
   </section>
   <section>
@@ -4282,15 +4266,11 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
       <emphasis>may</emphasis> optimize TOC reference code that consists of two
       instructions with equivalent code when offset@ha is 0.</para>
       <para>TOC reference code:</para>
-      <programlisting>      
-      addis  rt, r2, offset@ha
-      lwz    rt, offset@l(rt)
-      </programlisting>      
+      <programlisting>addis  rt, r2, offset@ha
+lwz    rt, offset@l(rt)</programlisting>      
       <para>Equivalent code:</para>
-      <programlisting>      
-      NOP
-      lwz    rt, offset(r2)
-      </programlisting>      
+      <programlisting>NOP
+lwz    rt, offset(r2)</programlisting>      
       <para>Compilers and programmers 
       <emphasis>must</emphasis> ensure that r2 is live at the actual data access
       point associated with extended displacement addressing.</para>
@@ -4308,32 +4288,30 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
       disabling linker optimization. However, this behavior in support of
       non-ABI-compliant code is not guaranteed to be portable and supported in
       all systems.</para>
+      <para>&#160;</para>
       <bridgehead>Compliant example</bridgehead>
-      <programlisting>
-              addis  r4, r2, mysym@toc@ha
-              b      target
-       
-       
-              ...
-       
-     
-              addis  r4, r2, mysym@toc@ha
-      target:
-              addi   r4, r4, mysym@toc@l
-              ...
-      </programlisting>
+      <programlisting>        addis  r4, r2, mysym@toc@ha
+        b      target
+ 
+ 
+        ...
+ 
+
+        addis  r4, r2, mysym@toc@ha
+target:
+        addi   r4, r4, mysym@toc@l
+        ...</programlisting>
+      <para>&#160;</para>
       <bridgehead>Non-compliant example</bridgehead>
-      <programlisting>
-                     li     r4, 0 ; #d1
-              b      target
-       
-              ...
-       
-              addis  r4, r2, mysym@toc@ha ; #d2
-      target:
-              addi   r4, r4, mysym@toc@l ; incompatible definitions #d1 and #d2 reach this
-              ...
-      </programlisting>
+      <programlisting>               li     r4, 0 ; #d1
+        b      target
+ 
+        ...
+ 
+        addis  r4, r2, mysym@toc@ha ; #d2
+target:
+        addi   r4, r4, mysym@toc@l ; incompatible definitions #d1 and #d2 reach this
+        ...</programlisting>
     </section>
     <section>
       <title>Table Jump Sequences</title>
@@ -4349,13 +4327,11 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
       first an addis followed by a second instruction using a D form
       instruction to create or load from a 32-bit offset from a register to
       enable hardware fusion whenever possible:</para>
-      <programlisting>
-      addis     r4, r3, upper
-      &lt;lbz,lhz,lwz,ld&gt; r4, lower(r4)
-       
-      addis     r4, r3, upper
-      addi      r4, r4, lower
-      </programlisting>
+      <programlisting>addis     r4, r3, upper
+&lt;lbz,lhz,lwz,ld&gt; r4, lower(r4)
+ 
+addis     r4, r3, upper
+addi      r4, r4, lower</programlisting>
       <para>It is encouraged that assemblers provide pseudo-ops to facilitate
       such code generation with a single assembler mnemonic.</para>
     </section>
@@ -4408,59 +4384,53 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
       computed as negative offsets from the TCB address. The fields must never
       be rearranged for any reason.</para>
       <para>The current glibc extended TCB is:</para>
-      <programlisting>
-      typedef struct {
-          /* Reservation for HWCAP data. */
-              unsigned int hwcap2;
-              unsigned int hwcap; /* not used in LE ABI */
-       
-          /* Indicate if HTM capable (ISA 2.07). */
-              int tm_capable;
-              int tm_pad;
-       
-          /* Reservation for dynamic system optimizer ABI. */
-              uintptr_t dso_slot2;
-              uintptr_t dso_slot1;
-       
-          /* Reservation for tar register (ISA 2.07). */
-              uintptr_t tar_save;
-       
-          /* GCC split stack support. */
-              void *__private_ss;
-       
-          /* Reservation for the event-based branching ABI. */
-              uintptr_t ebb_handler;
-              uintptr_t ebb_ctx_pointer;
-              uintptr_t ebb_reserved1;
-              uintptr_t ebb_reserved2;
-              uintptr_t pointer_guard;
-       
-          /* Reservation for stack guard */
-              uintptr_t stack_guard;
-       
-          /* DTV pointer */
-              dtv_t *dtv;
-          } tcbhead_t;
-      </programlisting>
+      <programlisting>typedef struct {
+    /* Reservation for HWCAP data. */
+        unsigned int hwcap2;
+        unsigned int hwcap; /* not used in LE ABI */
+ 
+    /* Indicate if HTM capable (ISA 2.07). */
+        int tm_capable;
+        int tm_pad;
+ 
+    /* Reservation for dynamic system optimizer ABI. */
+        uintptr_t dso_slot2;
+        uintptr_t dso_slot1;
+ 
+    /* Reservation for tar register (ISA 2.07). */
+        uintptr_t tar_save;
+ 
+    /* GCC split stack support. */
+        void *__private_ss;
+ 
+    /* Reservation for the event-based branching ABI. */
+        uintptr_t ebb_handler;
+        uintptr_t ebb_ctx_pointer;
+        uintptr_t ebb_reserved1;
+        uintptr_t ebb_reserved2;
+        uintptr_t pointer_guard;
+ 
+    /* Reservation for stack guard */
+        uintptr_t stack_guard;
+ 
+    /* DTV pointer */
+        dtv_t *dtv;
+    } tcbhead_t;</programlisting>
       <para>Modules that will not be unloaded will be present at startup time;
       the TLS blocks for these are created consecutively and immediately follow
       the TCB. The offset of the TLS block of an initially available module
       from the TCB remains fixed after program start.</para>
       <para>The tlsoffset(m) values for a module with index m, where m ranges 1
       - M, M being the total number of modules, are computed as follows:</para>
-      <programlisting>
-      tlsoffset(1) = round(16, align(1))
-      tlsoffset(m + 1) = round(tlsoffset(m) + tlssize(m), align(m + 1))
-      </programlisting>
+      <programlisting>tlsoffset(1) = round(16, align(1))
+tlsoffset(m + 1) = round(tlsoffset(m) + tlssize(m), align(m + 1))</programlisting>
       <itemizedlist>
         <listitem>
           <para>The function round() returns its first argument rounded up to
           the next multiple of its second argument:</para>
         </listitem>
       </itemizedlist>
-      <programlisting>
-      round(x, y) = y × ceiling(x / y)
-      </programlisting>
+      <programlisting>round(x, y) = y × ceiling(x / y)</programlisting>
       <itemizedlist>
         <listitem>
           <para>The function ceiling() returns the smallest integer greater
@@ -4468,24 +4438,20 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
           1 &lt; x ≤ n:</para>
         </listitem>
       </itemizedlist>
-      <programlisting>
-      ceiling(x) = n
-      </programlisting>
+      <programlisting>ceiling(x) = n</programlisting>
       <para>In the case of dynamic shared objects (DSO), TLS blocks are
       allocated on an as-needed basis, with the details of allocation
       abstracted away by the __tls_get_addr() function, which is used to
       retrieve the address of any TLS variable.</para>
       <para>The prototype for the __tls_get_addr() function, is defined as
       follows.</para>
-      <programlisting>
-      typedef struct
-      {
-         unsigned long int ti_module;
-         unsigned long int ti_offset;
-      } tls_index;
-       
-      extern void *__tls_get_addr (tls_index *ti);
-      </programlisting>
+      <programlisting>typedef struct
+{
+   unsigned long int ti_module;
+   unsigned long int ti_offset;
+} tls_index;
+ 
+extern void *__tls_get_addr (tls_index *ti);</programlisting>
       <para>The thread pointer (TP) is held in r13 and is used to access the
       TCB. The TP is initialized to point 0x7000 bytes past the end of the TCB.
       The TP offset allows for efficient addressing of the TCB and up to 4 KB -
@@ -4551,10 +4517,8 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
       thread-local variable x, the __tls_get_addr() function is called with one
       parameter. That parameter is a pointer to a data object of type
       tls_index.</para>
-      <programlisting>
-      extern __thread unsigned int x;
-      &amp;x;
-      </programlisting>
+      <programlisting>extern __thread unsigned int x;
+&amp;x;</programlisting>
       <table frame="all" pgwide="1">
         <title>General Dynamic Initial Relocations</title>
         <tgroup cols="3">
@@ -4702,14 +4666,12 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
       sequences may be used, depending on the size of the thread storage block
       offset to the variable. For the following code sequence, a different
       relocation sequence is used for each variable.</para>
-      <programlisting>
-      static __thread unsigned int x1;
-      static __thread unsigned int x2;
-      static __thread unsigned int x3;
-      &amp;x1;
-      &amp;x2;
-      &amp;x3;
-      </programlisting>
+      <programlisting>static __thread unsigned int x1;
+static __thread unsigned int x2;
+static __thread unsigned int x3;
+&amp;x1;
+&amp;x2;
+&amp;x3;</programlisting>
       <table frame="all" pgwide="1" xml:id="dbdoclet.50655241_45768">
         <title>Local Dynamic Initial Relocations</title>
         <tgroup cols="3">
@@ -5100,10 +5062,8 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
       <para>Given the following code fragment, the relocation sequence in 
       <xref linkend="dbdoclet.50655241_17435" /> is used for the Initial Exec
       TLS Model:</para>
-      <programlisting>
-      extern __thread unsigned int x;
-      &amp;x;
-      </programlisting>
+      <programlisting>extern __thread unsigned int x;
+&amp;x;</programlisting>
       <table frame="all" pgwide="1" xml:id="dbdoclet.50655241_17435">
         <title>Initial Exec Initial Relocations</title>
         <tgroup cols="3">
@@ -5232,10 +5192,8 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
       less than 2 GB + 28 KB relative to the end of the TCB. The third sequence
       is identical to the Initial Exec sequence shown in
       <xref linkend="dbdoclet.50655241_17435" />.</para>
-      <programlisting>
-      static __thread unsigned int x;
-      &amp;x;
-      </programlisting>
+      <programlisting>static __thread unsigned int x;
+&amp;x;</programlisting>
       <para><xref linkend="dbdoclet.50655241_51121" /> illustrates which sequence is
       used.</para>
       <para> </para>
@@ -5765,12 +5723,10 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
         <xref linkend="dbdoclet.50655241_16273" />, a linker may reschedule the
         sequence to exploit fusion by generating a sequence that may be fused
         by Power processors:</para>
-      <programlisting>
-      nop
-      addis  r3, r13, x@tprel@ha
-      addi   r3, r3, x@tprel@l
-      nop
-      </programlisting>
+      <programlisting>nop
+addis  r3, r13, x@tprel@ha
+addi   r3, r3, x@tprel@l
+nop</programlisting>
       </footnote></para>
       <para> </para>
       <table frame="all" pgwide="1">
@@ -6752,6 +6708,7 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
       <para>For more information, see 
       <xref linkend="dbdoclet.50655241_18894" />. For TLS relocations, see 
       <xref linkend="dbdoclet.50655241_47572" />.</para>
+      <para>&#160;</para>
       <bridgehead>TLS Relocation Descriptions</bridgehead>
       <para>The following marker relocations tie together instructions in TLS
       code sequences. They allow the link editor to reliably optimize TLS code.

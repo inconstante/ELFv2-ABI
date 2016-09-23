@@ -19,7 +19,55 @@
   xmlns:xi="http://www.w3.org/2001/XInclude"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   version="5.0"
-  xml:id="ch_PAPR_preface">
+  xml:id="ch_ABI_preface">
+  <title>About this Document</title>
+
+    <para>This specification defines the OpenPOWER ELF V2 application binary interface (ABI). 
+    This ABI is derived from and represents the first major update to the Power ABI since the 
+    original release of the IBM® RS/6000® ABI. It was developed to make extensive use of new 
+    functions available in OpenPOWER-compliant processors. It expects an OpenPOWER-compliant 
+    processor to implement at least Power ISA V2.07B with all OpenPOWER Architecture instruction 
+    categories as well as OpenPOWER-defined implementation characteristics for some 
+    implementation-specific features.
+    </para>
+    
+    <para>Specifically, to use this ABI and ABI-compliant programs, OpenPOWER-compliant 
+    processors must implement the following categories:
+      <itemizedlist>		      
+        <listitem><para>Base</para></listitem>
+        
+        <listitem><para>64-Bit</para></listitem>
+        
+        <listitem><para>Server (subject to system-level requirements)</para></listitem>
+        
+        <listitem><para>Floating-Point</para></listitem>
+        
+        <listitem><para>Floating-Point.Record</para></listitem>
+        
+        <listitem><para>Load/Store Quadword x2</para></listitem>
+        
+        <listitem><para>Store Conditional Page Mobility (subject to system-level requirements)</para></listitem>
+        
+        <listitem><para>Stream</para></listitem>
+        
+        <listitem><para>Transactional Memory</para></listitem>
+        
+        <listitem><para>Vector</para></listitem>
+        
+        <listitem><para>Vector.Little-Endian</para></listitem>
+        
+        <listitem><para>Vector-Scalar</para></listitem>
+      </itemizedlist>		      
+    </para>
+    
+    <para>For more information about these categories, see “Categories” in Book I of 
+    <citetitle>Power ISA</citetitle>, version 2.07B.
+    </para>
+    
+    <para>The OpenPOWER ELF V2 ABI is intended for use in little- and big-endian environments.
+    </para>
+    
+  <section>
     <title>Notices</title>
     <?dbhtml stop-chunking?>
 
@@ -61,6 +109,10 @@
     <link xlink:href="http://www.freescale.com/files/abstract/help_page/TERMSOFUSE.html">www.freescale.com/files/abstract/help_page/TERMSOFUSE.html</link>.
     </para>
 
+    <para>Itanium, Intel logo, Intel Inside logo, and Intel Centrino logo are trademarks or registered 
+    trademarks of Intel Corporation or its subsidiaries in the United States and other countries.
+    </para>
+    
     <para>Linux is a trademark of Linus Torvalds in the United States, other countries, or both.
     </para>
 
@@ -70,5 +122,6 @@
 
     <para>Other company, product, and service names may be trademarks or service marks of others.
     </para>
-
+  </section>
+  
 </preface>

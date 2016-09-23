@@ -1,6 +1,6 @@
 <appendix xmlns="http://docbook.org/ns/docbook"
 xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en"
-xml:id="dbdoclet.50655245_pgfId-1450875">
+xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
   <title>Binary-Coded Decimal Built-In Functions</title>
     <para>Binary-coded decimal (BCD) values are compressed; each decimal digit
     and sign bit occupies 4 bits. Digits are ordered right-to-left in the order
@@ -19,8 +19,8 @@ xml:id="dbdoclet.50655245_pgfId-1450875">
     bytes.</para>
       <note>
         <para>BCD built-in functions are valid only when -
-        <emphasis>march</emphasis> or -
-        <emphasis>qarch</emphasis> is set to target POWER8 processors or
+        <emphasis role="bold">march</emphasis> or -
+        <emphasis role="bold">qarch</emphasis> is set to target POWER8 processors or
         later.</para>
       </note>
     <para>
@@ -411,12 +411,11 @@ xml:id="dbdoclet.50655245_pgfId-1450875">
     in 
     <xref linkend="dbdoclet.50655245_48437" />.</para>
     <para>The bcd data type is defined as follows in the bcd.h:</para>
-    <para><literal>typedef bcd vector unsigned char;</literal></para>
+    <programlisting>typedef bcd vector unsigned char;</programlisting>
     <para>The header file also defines a bcd_default_format as follows:</para>
-    <para><literal>#ifndef bcd_default_format</literal></para>
-    <para><literal>#define bcd_default_format __BCD_SIGN_IBM</literal></para>
-    <para><literal>#endif</literal></para>
-    <para> </para>
+    <programlisting>#ifndef bcd_default_format
+#define bcd_default_format __BCD_SIGN_IBM
+#endif</programlisting>
     <table frame="all" pgwide="1" xml:id="dbdoclet.50655245_12427">
       <title>BCD Functions Defined by bcd.h</title>
       <tgroup cols="2">
@@ -810,42 +809,45 @@ xml:id="dbdoclet.50655245_pgfId-1450875">
     </section>
     <section xml:id="dbdoclet.50655245_52184">
       <title>Sample bcd.h Listing</title>
-      <programlisting>
-      #ifndef __BCD_H
-      #define __BCD_H
-      typedef bcd vector unsigned char;
-      #define BCD_FORMAT_IBM 0
-      #define BCD_FORMAT_Z 0
-      #define BCD_FORMAT_POWER 0
-      #define BCD_FORMAT_IBMi 1
-      #define BCD_FORMAT_I 1
-      #define BCD_FORMAT_NCR 1
-      #ifndef bcd_default_format
-      #define bcd_default_format __BCD_SIGN_IBM
-      #endif
-      #define bcd_add(a,b) ((bcd)__builtin_bcdadd (a,b,bcd_default_format))
-      #define bcd_sub(A,b) ((bcd)__builtin_bcdsub (a,b,bcd_default_format))
-      #define bcd_add_ofl(a,b) ((_Bool)__builtin_bcdadd_ofl (a,b))
-      #define bcd_add_ofl(a,b) ((_Bool)__builtin_bcdsub_ofl (a,b))
-      #define bcd_invalid(a) ((_Bool)__builtin_bcd_invalid (a))
-      #define bcd_cmpeq(a,b) ((_Bool)__builtin_bcdcmpeq (a,b))
-      #define bcd_cmpge(a,b) ((_Bool)__builtin_bcdcmpge (a,b))
-      #define bcd_cmpgt(a,b) ((_Bool)__builtin_bcdcmpgt (a,b))
-      #define bcd_cmple(a,b) ((_Bool)__builtin_bcdcmple (a,b))
-      #define bcd_cmplt(a,b) ((_Bool)__builtin_bcdcmplt (a,b))
-      #define bcd_cmpne(a,b) (!(_Bool)__builtin_bcdcmpeq (a,b))
-      #define bcd_xl(a,b) ((bcd)vec_xl_len_r(a,b))
-      #define bcd_xst(a,b) ((bcd)vec_xst_len_r(a,b))
-      #define bcd_quantize(d) (__builtin_bcdquantize(d))
-      #define bcd_dfp(a) (__builtin_bcd2dfp (a))
-      #define bcd_dfp2bcd(DFP) ((bcd)__builtin_vec_DFP2BCD (_Decimal128 dfp))
-      #define bcd_string2bcd(string) ((bcd) __bcd_string2bcd (string, bcd_default_format)
-      #define bcd_mul10(a) ((bcd) __builtin_bcdmul10 (a))
-      #define bcd_div10(a) ((bcd) __builtin_bcddiv10 (a))
-      #define bcd_mul(a,b) ((bcd) __bcd_mul (a,b,bcd_default_format))
-      #define bcd_div(a,b) ((bcd) __bcd_div (a,b,bcd_default_format))  
-      #endif /* __BCD_H */
-      </programlisting>
+      <programlisting>#ifndef __BCD_H
+#define __BCD_H
+
+typedef bcd vector unsigned char;
+
+#define BCD_FORMAT_IBM 0
+#define BCD_FORMAT_Z 0
+#define BCD_FORMAT_POWER 0
+#define BCD_FORMAT_IBMi 1
+#define BCD_FORMAT_I 1
+#define BCD_FORMAT_NCR 1
+
+#ifndef bcd_default_format
+#define bcd_default_format __BCD_SIGN_IBM
+#endif
+
+#define bcd_add(a,b) ((bcd)__builtin_bcdadd (a,b,bcd_default_format))
+#define bcd_sub(A,b) ((bcd)__builtin_bcdsub (a,b,bcd_default_format))
+#define bcd_add_ofl(a,b) ((_Bool)__builtin_bcdadd_ofl (a,b))
+#define bcd_add_ofl(a,b) ((_Bool)__builtin_bcdsub_ofl (a,b))
+#define bcd_invalid(a) ((_Bool)__builtin_bcd_invalid (a))
+#define bcd_cmpeq(a,b) ((_Bool)__builtin_bcdcmpeq (a,b))
+#define bcd_cmpge(a,b) ((_Bool)__builtin_bcdcmpge (a,b))
+#define bcd_cmpgt(a,b) ((_Bool)__builtin_bcdcmpgt (a,b))
+#define bcd_cmple(a,b) ((_Bool)__builtin_bcdcmple (a,b))
+#define bcd_cmplt(a,b) ((_Bool)__builtin_bcdcmplt (a,b))
+#define bcd_cmpne(a,b) (!(_Bool)__builtin_bcdcmpeq (a,b))
+#define bcd_xl(a,b) ((bcd)vec_xl_len_r(a,b))
+#define bcd_xst(a,b) ((bcd)vec_xst_len_r(a,b))
+#define bcd_quantize(d) (__builtin_bcdquantize(d))
+#define bcd_dfp(a) (__builtin_bcd2dfp (a))
+#define bcd_dfp2bcd(DFP) ((bcd)__builtin_vec_DFP2BCD (_Decimal128 dfp))
+#define bcd_string2bcd(string) ((bcd) __bcd_string2bcd (string, bcd_default_format)
+#define bcd_mul10(a) ((bcd) __builtin_bcdmul10 (a))
+#define bcd_div10(a) ((bcd) __builtin_bcddiv10 (a))
+#define bcd_mul(a,b) ((bcd) __bcd_mul (a,b,bcd_default_format))
+#define bcd_div(a,b) ((bcd) __bcd_div (a,b,bcd_default_format))  
+
+#endif /* __BCD_H */</programlisting>
     </section>
   </section>
 </appendix>

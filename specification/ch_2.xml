@@ -73,9 +73,11 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <xref linkend="dbdoclet.50655240_92041" />, byte numbers are indicated
         in the upper corners, and bit numbers are indicated in the lower
         corners.</para>
-        <para></para>
+
         <table frame="all" pgwide="1" rowsep="0" colsep="0"
         xml:id="dbdoclet.50655240_92041">
+          <?dbhtml table-width="60%" ?>
+          <?dbfo table-width="60%" ?>
           <title>Little-Endian Bit and Byte Numbering Example</title>
           <tgroup cols="2">
             <colspec colname="c1" colwidth="50*" />
@@ -91,12 +93,12 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
               </row>
               <row>
                 <entry nameend="c2" namest="c1">
-                  <para></para>
+                  <para>&#160;</para>
                 </entry>
               </row>
               <row>
                 <entry>
-                  <para></para>
+                  <para>&#160;</para>
                 </entry>
                 <entry>
                   <para></para>
@@ -113,9 +115,11 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </tbody>
           </tgroup>
         </table>
-        <para></para>
+
         <table frame="all" pgwide="1" rowsep="0" colsep="0"
         xml:id="dbdoclet.50655240_73292">
+          <?dbhtml table-width="30%" ?>
+          <?dbfo table-width="30%" ?>
           <title>Little-Endian Bit and Byte Numbering in Halfwords</title>
           <tgroup cols="6">
             <colspec colname="c1" colwidth="6*" />
@@ -164,8 +168,10 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </tbody>
           </tgroup>
         </table>
-        <para></para>
+
         <table frame="all" pgwide="1" rowsep="0" colsep="0">
+          <?dbhtml table-width="60%" ?>
+          <?dbfo table-width="60%" ?>
           <title>Little-Endian Bit and Byte Numbering in Words</title>
           <tgroup cols="12">
             <colspec colname="c1" colwidth="3*" />
@@ -298,8 +304,10 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </tbody>
           </tgroup>
         </table>
-        <para></para>
+
         <table frame="all" pgwide="1" colsep="0" rowsep="0">
+          <?dbhtml table-width="60%" ?>
+          <?dbfo table-width="60%" ?>
           <title>Little-Endian Bit and Byte Numbering in Doublewords</title>
           <tgroup cols="12">
             <colspec colname="c1" colwidth="3*" />
@@ -546,10 +554,11 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </tbody>
           </tgroup>
         </table>
-        <para></para>
-        <para></para>
+
         <table frame="all" pgwide="1" rowsep="0" colsep="0"
         xml:id="dbdoclet.50655240_16995">
+          <?dbhtml table-width="60%" ?>
+          <?dbfo table-width="60%" ?>
           <title>Little-Endian Bit and Byte Numbering in Quadwords</title>
           <tgroup cols="12">
             <colspec colname="c1" colwidth="3*" />
@@ -563,6 +572,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             <colspec colname="c9" colwidth="3*" />
             <colspec colname="c10" colwidth="3*" />
             <colspec colname="c11" colwidth="3*" />
+            <colspec colname="c12" colwidth="3*" />
             <tbody>
               <row>
                 <entry align="left" colsep="0">
@@ -718,7 +728,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
               </row>
               <row>
                 <entry align="left" colsep="0">
-                  <para></para>
+                  <para>&#160;</para>
                 </entry>
                 <entry align="center" colsep="0">
                   <para></para>
@@ -832,7 +842,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
               </row>
               <row>
                 <entry align="left" colsep="0">
-                  <para></para>
+                  <para>&#160;</para>
                 </entry>
                 <entry align="center" colsep="0">
                   <para></para>
@@ -976,7 +986,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para></para>
                 </entry>
                 <entry align="center" colsep="0">
-                  <para></para>
+                  <para>LSB</para>
                 </entry>
                 <entry align="right" colsep="1">
                   <para></para>
@@ -1032,9 +1042,11 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <xref linkend="dbdoclet.50655240_10997" />, byte numbers are indicated
         in the upper corners, and bit numbers are indicated in the lower
         corners.</para>
-        <para></para>
+
         <table frame="all" pgwide="1" colsep="0" rowsep="0"
         xml:id="dbdoclet.50655240_10997">
+          <?dbhtml table-width="60%" ?>
+          <?dbfo table-width="60%" ?>
           <title>Big-Endian Bit and Byte Numbering Example</title>
           <tgroup cols="2">
             <colspec colname="c1" colwidth="50*" />
@@ -1050,7 +1062,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
               </row>
               <row>
                 <entry>
-                  <para></para>
+                  <para>&#160;</para>
                 </entry>
                 <entry>
                   <para></para>
@@ -1067,9 +1079,11 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </tbody>
           </tgroup>
         </table>
-        <para></para>
+
         <table frame="all" pgwide="1" rowsep="0" colsep="0"
         xml:id="dbdoclet.50655240_85970">
+          <?dbhtml table-width="30%" ?>
+          <?dbfo table-width="30%" ?>
           <title>Big-Endian Bit and Byte Numbering in Halfwords</title>
           <tgroup cols="6">
             <colspec colname="c1" colwidth="6*" />
@@ -1142,9 +1156,11 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </tbody>
           </tgroup>
         </table>
-        <para></para>
+
         <table frame="all" pgwide="1" colsep="0" rowsep="0"
         xml:id="dbdoclet.50655240_41330">
+          <?dbhtml table-width="60%" ?>
+          <?dbfo table-width="60%" ?>
           <title>Big-Endian Bit and Byte Numbering in Words</title>
           <tgroup cols="12">
             <colspec colname="c1" colwidth="3*" />
@@ -1277,9 +1293,11 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </tbody>
           </tgroup>
         </table>
-        <para></para>
+
         <table frame="all" pgwide="1" colsep="0" rowsep="0"
         xml:id="dbdoclet.50655240_98446">
+          <?dbhtml table-width="60%" ?>
+          <?dbfo table-width="60%" ?>
           <title>Big-Endian Bit and Byte Numbering in Doublewords</title>
           <tgroup cols="12">
             <colspec colname="c1" colwidth="3*" />
@@ -1526,9 +1544,11 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </tbody>
           </tgroup>
         </table>
-        <table frame="none" pgwide="1" colsep="0" rowsep="0"
+        <table frame="all" pgwide="1" colsep="0" rowsep="0"
         xml:id="dbdoclet.50655240_23386">
           <title>Big-Endian Bit and Byte Numbering in Quadwords</title>
+          <?dbhtml table-width="60%" ?>
+          <?dbfo table-width="60%" ?>
           <tgroup cols="12">
             <colspec colname="c1" colwidth="3*" />
             <colspec colname="c2" colwidth="3*" />
@@ -1697,7 +1717,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
               </row>
               <row>
                 <entry align="left" colsep="0">
-                  <para></para>
+                  <para>&#160;</para>
                 </entry>
                 <entry align="center" colsep="0">
                   <para></para>
@@ -1727,13 +1747,13 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para></para>
                 </entry>
                 <entry align="center" colsep="0">
-                  <para>LSB</para>
+                  <para></para>
                 </entry>
                 <entry align="right" colsep="1">
                   <para></para>
                 </entry>
               </row>
-              <row>
+              <row rowsep="1">
                 <entry align="left" colsep="0">
                   <para>32</para>
                 </entry>
@@ -1811,7 +1831,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
               </row>
               <row>
                 <entry align="left" colsep="0">
-                  <para></para>
+                  <para>&#160;</para>
                 </entry>
                 <entry align="center" colsep="0">
                   <para></para>
@@ -2009,15 +2029,15 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         </note>
         <note>
           <para>
-          <emphasis>FPSCR Formats:</emphasis> As of Power ISA version 2.05, the
+          <emphasis role="bold">FPSCR Formats:</emphasis> As of Power ISA version 2.05, the
           FPSCR is extended from 32 bits to 64 bits. The fields of the original
           32-bit FPSCR are now held in bits 32 - 63 of the 64-bit FPSCR. The
           assembly instructions that operate upon the 64-bit FPSCR have either
           a W instruction field added to select the operative word for the
           instruction (for example, 
-          <emphasis>mtfsfi</emphasis>) or the instruction is extended to
+          <emphasis role="bold">mtfsfi</emphasis>) or the instruction is extended to
           operate upon the entire 64-bit FPSCR, (for example, 
-          <emphasis>mffs</emphasis>). Fields of the FPSCR that represent 1 or
+          <emphasis role="bold">mffs</emphasis>). Fields of the FPSCR that represent 1 or
           more bits are referred to by field number with an indication of the
           operative word rather than by bit number.</para>
         </note>
@@ -2039,8 +2059,9 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         shall return the value corresponding to a data type starting at the
         specified address when accessed with either the pointer dereference
         operator * or the array reference operator [].</para>
-        <para></para>
+
         <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_49259">
+          <?dbfo keep-together="always" ?>
           <title>Scalar Types</title>
           <tgroup cols="5">
             <colspec colname="c1" colwidth="15*" />
@@ -2695,7 +2716,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <emphasis>64</emphasis>- 1.</para>
                 </entry>
               </row>
-              <row>
+              <row revisionflag="changed">
                 <entry>
                   <para></para>
                 </entry>
@@ -2712,7 +2733,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para>Vector of 1 unsigned quadword.</para>
                 </entry>
               </row>
-              <row>
+              <row revisionflag="changed">
                 <entry>
                   <para></para>
                 </entry>
@@ -2729,7 +2750,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para>Vector of 1 signed quadword.</para>
                 </entry>
               </row>
-              <row>
+              <row revisionflag="added">
                 <entry>
                   <para></para>
                 </entry>
@@ -2793,6 +2814,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             bits set to 1.</para>
           </footnote>, is undefined for all vector elements.</para>
         </note>
+        <para>&#160;</para>
         <bridgehead xml:id="dbdoclet.50655240_43748">Decimal Floating-Point
         (ISO TR 24732 Support)</bridgehead>
         <para>The decimal floating-point data type is used to specify variables
@@ -2890,9 +2912,9 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </tbody>
           </tgroup>
         </table>
+        <para>&#160;</para>
         <bridgehead xml:id="dbdoclet.50655240_33603">IBM EXTENDED
         PRECISION</bridgehead>
-        <para></para>
         <table frame="all" pgwide="1">
           <title>IBM EXTENDED PRECISION Type</title>
           <tgroup cols="5">
@@ -2951,6 +2973,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </tbody>
           </tgroup>
         </table>
+        <para>&#160;</para>
         <bridgehead xml:id="dbdoclet.50655240_66797">IEEE BINARY 128 EXTENDED
         PRECISION</bridgehead>
         <table frame="all" pgwide="1">
@@ -3064,12 +3087,14 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </tbody>
           </tgroup>
         </table>
+        <para>&#160;</para>
         <bridgehead>IBM EXTENDED PRECISION &amp;&amp; IEEE BINARY 128 EXTENDED
         PRECISION</bridgehead>
         <para>Availability of the long double data type is subject to
         conformance to a long double standard where the IBM EXTENDED PRECISION
         format and the IEEE BINARY 128 EXTENDED PRECISION format are mutually
         exclusive.</para>
+        <para>&#160;</para>
         <bridgehead xml:id="dbdoclet.50655240_95080">IEEE BINARY 128 EXTENDED
         PRECISION || IBM EXTENDED PRECISION</bridgehead>
         <para>This ABI provides the following choices for implementation of
@@ -3079,62 +3104,66 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <itemizedlist>
           <listitem>
             <para>IEEE BINARY 128 EXTENDED PRECISION</para>
-          </listitem>
-          <listitem>
-            <para>Long double is implemented as an IEEE 128-bit quad-precision
-            binary floating-point type in accordance with the applicable IEEE
-            floating-point standards.</para>
-          </listitem>
-          <listitem>
-            <para>Support is provided for all IEEE standard features.</para>
-          </listitem>
-          <listitem>
-            <para>IEEE128 quad-precision values are passed in VMX parameter
-            registers.</para>
-          </listitem>
-          <listitem>
-            <para>With some compilers, _Float128 can be used to access IEEE128
-            independent of the floating-point representation chosen for the
-            long double ISO C type. However, this is not part of the C
-            standard.</para>
+            <itemizedlist>
+              <listitem>
+                <para>Long double is implemented as an IEEE 128-bit quad-precision
+                binary floating-point type in accordance with the applicable IEEE
+                floating-point standards.</para>
+              </listitem>
+              <listitem>
+                <para>Support is provided for all IEEE standard features.</para>
+              </listitem>
+              <listitem>
+                <para>IEEE128 quad-precision values are passed in VMX parameter
+                registers.</para>
+              </listitem>
+              <listitem>
+                <para>With some compilers, _Float128 can be used to access IEEE128
+                independent of the floating-point representation chosen for the
+                long double ISO C type. However, this is not part of the C
+                standard.</para>
+              </listitem>
+            </itemizedlist>
           </listitem>
           <listitem>
             <para>IBM EXTENDED PRECISION</para>
-          </listitem>
-          <listitem>
-            <para>Support is provided for the IBM EXTENDED PRECISION format. In
-            this format, double-precision numbers with different magnitudes
-            that do not overlap provide an effective precision of 106 bits or
-            more, depending on the value. The high-order double-precision value
-            (the one that comes first in storage) must have the larger
-            magnitude. The high-order double-precision value must equal the sum
-            of the two values, rounded to nearest double (the Linux convention,
-            unlike AIX).</para>
-          </listitem>
-          <listitem>
-            <para>IBM EXTENDED PRECISION form provides the same range as double
-            precision (about 10
-            <emphasis>-308</emphasis> to 10
-            <emphasis>308</emphasis>) but more precision (a variable amount,
-            about 31 decimal digits or more).</para>
-          </listitem>
-          <listitem>
-            <para>As the absolute value of the magnitude decreases (near the
-            denormal range), the precision available in the low-order double
-            also decreases.</para>
-          </listitem>
-          <listitem>
-            <para>When the value represented is in the subnormal or denormal
-            range, this representation provides no more precision than 64-bit
-            (double) floating-point.</para>
-          </listitem>
-          <listitem>
-            <para>The actual number of bits of precision can vary. If the
-            low-order part is much less than one unit of least precision (ULP)
-            of the high-order part, significant bits (all 0s or all 1s) are
-            implied between the significands of high-order and low-order
-            numbers. Some algorithms that rely on having a fixed number of bits
-            in the significand can fail when using extended precision.</para>
+            <itemizedlist>
+              <listitem>
+                <para>Support is provided for the IBM EXTENDED PRECISION format. In
+                this format, double-precision numbers with different magnitudes
+                that do not overlap provide an effective precision of 106 bits or
+                more, depending on the value. The high-order double-precision value
+                (the one that comes first in storage) must have the larger
+                magnitude. The high-order double-precision value must equal the sum
+                of the two values, rounded to nearest double (the Linux convention,
+                unlike AIX).</para>
+              </listitem>
+              <listitem>
+                <para>IBM EXTENDED PRECISION form provides the same range as double
+                precision (about 10
+                <emphasis>-308</emphasis> to 10
+                <emphasis>308</emphasis>) but more precision (a variable amount,
+                about 31 decimal digits or more).</para>
+              </listitem>
+              <listitem>
+                <para>As the absolute value of the magnitude decreases (near the
+                denormal range), the precision available in the low-order double
+                also decreases.</para>
+              </listitem>
+              <listitem>
+                <para>When the value represented is in the subnormal or denormal
+                range, this representation provides no more precision than 64-bit
+                (double) floating-point.</para>
+              </listitem>
+              <listitem>
+                <para>The actual number of bits of precision can vary. If the
+                low-order part is much less than one unit of least precision (ULP)
+                of the high-order part, significant bits (all 0s or all 1s) are
+                implied between the significands of high-order and low-order
+                numbers. Some algorithms that rely on having a fixed number of bits
+                in the significand can fail when using extended precision.</para>
+              </listitem>
+            </itemizedlist>
           </listitem>
         </itemizedlist>
         <para>This implementation differs from the IEEE 754 Standard in the
@@ -3195,7 +3224,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </imageobject>
           </mediaobject>
         </figure>
-        <para></para>
+        
         <figure pgwide="1">
           <title>Structure with No Padding</title>
           <mediaobject>
@@ -3205,7 +3234,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </imageobject>
           </mediaobject>
         </figure>
-        <para></para>
+        
         <figure pgwide="1">
           <title>Structure with Internal Padding</title>
           <mediaobject>
@@ -3215,7 +3244,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </imageobject>
           </mediaobject>
         </figure>
-        <para></para>
+        
         <figure pgwide="1">
           <title>Structure with Internal and Tail Padding</title>
           <mediaobject>
@@ -3225,7 +3254,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </imageobject>
           </mediaobject>
         </figure>
-        <para></para>
+        
         <figure pgwide="1" xml:id="dbdoclet.50655240_20058">
           <title>Structure with Vector Element and Internal Padding</title>
           <mediaobject>
@@ -3235,7 +3264,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </imageobject>
           </mediaobject>
         </figure>
-        <para></para>
+        
         <figure pgwide="1">
           <title>Structure with Vector Element and Tail Padding</title>
           <mediaobject>
@@ -3245,7 +3274,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </imageobject>
           </mediaobject>
         </figure>
-        <para></para>
+
         <figure pgwide="1">
           <title>Structure with Internal Padding and Vector Element</title>
           <mediaobject>
@@ -3255,7 +3284,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </imageobject>
           </mediaobject>
         </figure>
-        <para></para>
+
         <figure pgwide="1">
           <title>Structure with Internal Padding and 128-Bit Integer</title>
           <mediaobject>
@@ -3265,7 +3294,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </imageobject>
           </mediaobject>
         </figure>
-        <para></para>
+
         <figure pgwide="1" xml:id="dbdoclet.50655240_49841">
           <title>Packed Structure</title>
           <mediaobject>
@@ -3275,7 +3304,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </imageobject>
           </mediaobject>
         </figure>
-        <para></para>
+
         <figure pgwide="1" xml:id="dbdoclet.50655240_62361">
           <title>Union Allocation</title>
           <mediaobject>
@@ -3296,7 +3325,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <emphasis>w - 1</emphasis> to 2
         <emphasis>w - 1</emphasis>- 1 and an unsigned range goes from 0 to 2
         <emphasis>w</emphasis>- 1.</para>
-        <para></para>
+
         <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_47126">
           <title>Bit Field Types</title>
           <tgroup cols="2">
@@ -3449,9 +3478,11 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <xref linkend="dbdoclet.50655240_54268" />, the little-endian byte
         offsets are given in the upper right corners, and the bit numbers are
         given in the lower corners.</para>
-        <para></para>
+
         <table frame="all" pgwide="1" colsep="0" rowsep="0"
         xml:id="dbdoclet.50655240_54268">
+          <?dbhtml table-width="60%" ?>
+          <?dbfo table-width="60%" ?>
           <title>Little-Endian Bit Numbering for 0x01020304</title>
           <tgroup cols="12">
             <colspec colname="c1" colwidth="3*" />
@@ -3702,9 +3733,11 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <xref linkend="dbdoclet.50655240_47219" />, the big-endian byte offsets
         are given in the upper left corners, and the bit numbers are given in
         the lower corners.</para>
-        <para></para>
+
         <table frame="all" pgwide="1" colsep="0" rowsep="0"
         xml:id="dbdoclet.50655240_47219">
+          <?dbhtml table-width="60%" ?>
+          <?dbfo table-width="60%" ?>
           <title>Big-Endian Bit Numbering for 0x01020304</title>
           <tgroup cols="12">
             <colspec colname="c1" colwidth="3*" />
@@ -3951,11 +3984,11 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </tbody>
           </tgroup>
         </table>
-        <para></para>
+
         <para>The byte offsets for structure and union members are shown in 
         <xref linkend="dbdoclet.50655240_22573" /> through 
         <xref linkend="dbdoclet.50655240_30073" />.</para>
-        <para></para>
+
         <figure pgwide="1" xml:id="dbdoclet.50655240_22573">
           <title>Simple Bit Field Allocation</title>
           <mediaobject>
@@ -3965,8 +3998,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </imageobject>
           </mediaobject>
         </figure>
-        <para></para>
-        <para></para>
+
         <figure pgwide="1">
           <title>Bit Field Allocation with Boundary Alignment</title>
           <mediaobject>
@@ -3976,8 +4008,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </imageobject>
           </mediaobject>
         </figure>
-        <para></para>
-        <para></para>
+
         <figure pgwide="1">
           <title>Bit Field Allocation with Storage Unit Sharing</title>
           <mediaobject>
@@ -3987,8 +4018,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </imageobject>
           </mediaobject>
         </figure>
-        <para></para>
-        <para></para>
+
         <figure pgwide="1">
           <title>Bit Field Allocation in a Union</title>
           <mediaobject>
@@ -3998,8 +4028,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </imageobject>
           </mediaobject>
         </figure>
-        <para></para>
-        <para></para>
+
         <figure pgwide="1" xml:id="dbdoclet.50655240_30073">
           <title>Bit Field Allocation with Unnamed Bit Fields</title>
           <mediaobject>
@@ -4009,7 +4038,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </imageobject>
           </mediaobject>
         </figure>
-        <para></para>
+
         <note>
             <para><xref linkend="dbdoclet.50655240_30073" /> , the alignment of the
             structure is not affected by the unnamed short and int fields. The
@@ -4054,8 +4083,8 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       <xref linkend="dbdoclet.50655240_68174" /> give an overview of the
       registers that are global during program execution. The tables use three
       terms to describe register preservation rules:</para>
-      <para></para>
-      <informaltable frame="none">
+
+      <informaltable frame="none" colsep="0" rowsep="0">
         <tgroup cols="2">
           <colspec colname="c1" colwidth="20*" />
           <colspec colname="c2" colwidth="80*" />
@@ -4131,7 +4160,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         general-purpose registers, each 64 bits wide. Throughout this document
         the symbol rN is used, where N is a register number, to refer to
         general-purpose register N.</para>
-        <para></para>
+
         <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_56674">
           <title>Register Roles</title>
           <tgroup cols="3">
@@ -4367,6 +4396,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </tbody>
           </tgroup>
         </table>
+        <para>&#160;</para>
         <bridgehead xml:id="dbdoclet.50655240_51083">TOC Pointer
         Usage</bridgehead>
         <para>As described in 
@@ -4404,6 +4434,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         non-ABI compliant code is not guaranteed to be portable and supported
         in all systems. For examples of compliant and noncompliant code, see 
         <xref linkend="dbdoclet.50655241_19147" />.</para>
+        <para>&#160;</para>
         <bridgehead xml:id="dbdoclet.50655240_97283">Optional Function
         Linkage</bridgehead>
         <para>Except as follows, a function cannot depend on the values of
@@ -4427,6 +4458,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             <xref linkend="dbdoclet.50655240_13754" />.</para>
           </listitem>
         </itemizedlist>
+        <para>&#160;</para>
         <bridgehead>Stack Frame Pointer</bridgehead>
         <para>The stack pointer always points to the lowest allocated valid
         stack frame. It must maintain quadword alignment and grow toward the
@@ -4435,15 +4467,17 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         maintain back chains. A called function is permitted to decrement it if
         required. For more information, see 
         <xref linkend="dbdoclet.50655240_32686" />.</para>
+        <para>&#160;</para>
         <bridgehead>Link Register</bridgehead>
         <para>The link register contains the address that a called function
         normally returns to. It is volatile across function calls.</para>
+        <para>&#160;</para>
         <bridgehead>Condition Register Fields</bridgehead>
         <para>In the condition register, the bit fields CR2, CR3, and CR4 are
         nonvolatile. The value on entry must be restored on exit. The other bit
         fields are volatile.</para>
         <para>This ABI requires OpenPOWER-compliant processors to implement 
-        <emphasis>mfocr</emphasis> instructions in a manner that initializes
+        <emphasis role="bold">mfocr</emphasis> instructions in a manner that initializes
         undefined bits of the RT result register of 
         <emphasis>mfocr</emphasis> instructions to one of the following
         values:</para>
@@ -4454,27 +4488,27 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           </listitem>
           <listitem>
             <para>The architected value of the corresponding CR field in the
-            <emphasis>mfocr</emphasis> instruction</para>
+            <emphasis role="bold">mfocr</emphasis> instruction</para>
           </listitem>
         </itemizedlist>
-        <para></para>
-        <note>
-          <para>
-          <emphasis role="bold">POWER8 Erratum:</emphasis> When executing an 
-          <emphasis>mfocr</emphasis> instruction, the POWER8 processor does not
-          implement the behavior described in the "Fixed-Point Invalid Forms
-          and Undefined Conditions" section of 
-          <emphasis>POWER8 Processor User's Manual for the Single-Chip
-          Module</emphasis>. Instead, it replicates the selected condition
-          register field within the byte that contains it rather than
-          initializing to 0 the bits corresponding to the nonselected bits of
-          the byte that contains it. When generating code to save two condition
-          register fields that are stored in the same byte, the compiler must
-          mask the value received from 
-          <emphasis>mfocr</emphasis> to avoid corruption of the resulting
-          (partial) condition register word.</para>
-          <para>This erratum does not apply to the POWER9 processor.</para>
-        </note>
+
+        <para>
+        <emphasis role="bold"><phrase revisionflag="added">Note</phrase><phrase revisionflag="deleted">Erratum</phrase>:</emphasis> 
+        When executing an 
+        <emphasis role="bold">mfocr</emphasis> instruction, the POWER8 processor does not
+        implement the behavior described in the "Fixed-Point Invalid Forms
+        and Undefined Conditions" section of 
+        <emphasis>POWER8 Processor User's Manual for the Single-Chip
+        Module</emphasis>. Instead, it replicates the selected condition
+        register field within the byte that contains it rather than
+        initializing to 0 the bits corresponding to the nonselected bits of
+        the byte that contains it. When generating code to save two condition
+        register fields that are stored in the same byte, the compiler must
+        mask the value received from 
+        <emphasis>mfocr</emphasis> to avoid corruption of the resulting
+        (partial) condition register word.</para>
+        <para>This erratum does not apply to the POWER9 processor.</para>
+
         <para>
         <anchor xml:id="dbdoclet.50655240_Power-ISA-version-and-the-user-s-manual"
         xreflabel="" /> For more information, see 
@@ -4494,43 +4528,48 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         32-register subset of 64 bits per register. They can also be addressed
         with VMX instructions to refer to a 32-register subset of 128-bit wide
         registers.</para>
-        <para></para>
+
         <table frame="top" pgwide="1" colsep="1" rowsep="1"
         xml:id="dbdoclet.50655240_97144">
           <title>Floating-Point Registers as Part of VSRs</title>
-          <tgroup cols="5">
-            <colspec colname="c1" colwidth="10*" colsep="1" />
+          <tgroup cols="6">
+            <colspec colname="c1" colwidth="10*" />
             <colspec colname="c2" colwidth="22*" />
-            <colspec colname="c3" colwidth="22*" colsep="1" />
+            <colspec colname="c3" colwidth="22*" />
             <colspec colname="c4" colwidth="22*" />
-            <colspec colname="c5" colwidth="22*" colsep="1" />
+            <colspec colname="c5" colwidth="22*" />
+            <colspec colname="c6" colwidth="0*" />
             <tbody>
-              <row rowsep="1">
-                <entry align="right">
+              <row>
+                <entry align="right" rowsep="0">
                   <para>VSR(0)</para>
                 </entry>
                 <entry nameend="c3" namest="c2" align="center">
                   <para>FPR[0]</para>
                 </entry>
-                <entry nameend="c5" namest="c4">
-                  <para /><?dbhtml bgcolor="#EEEEEE" ?>
+                <entry nameend="c5" namest="c4" colsep="1">
+                  <para />
+                  <?dbhtml bgcolor="#EEEEEE" ?>
                   <?dbfo bgcolor="#EEEEEE" ?>
-                  </entry>
+                </entry>
+                <entry rowsep="0"></entry>
               </row>
               <row>
-                <entry align="right">
+                <entry align="right" rowsep="0">
                   <para>VSR(1)</para>
                 </entry>
                 <entry nameend="c3" namest="c2" align="center">
                   <para>FPR1]</para>
                 </entry>
-                <entry nameend="c5" namest="c4">
-                  <para /><?dbhtml bgcolor="#EEEEEE" ?>
+                <entry nameend="c5" namest="c4" colsep="1">
+                  <para />
+                  <?dbhtml bgcolor="#EEEEEE" ?>
                   <?dbfo bgcolor="#EEEEEE" ?>
-                  </entry>
+                </entry>
+                <entry rowsep="0"></entry>
               </row>
               <row>
-                <entry>
+                <entry rowsep="0">
                   <para></para>
                 </entry>
                 <entry nameend="c3" namest="c2" align="center">
@@ -4541,62 +4580,71 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                     <emphasis>...</emphasis>
                   </para>
                 </entry>
-                <entry nameend="c5" namest="c4">
-                  <para /><?dbhtml bgcolor="#EEEEEE" ?>
+                <entry nameend="c5" namest="c4" colsep="1">
+                  <para />
+                  <?dbhtml bgcolor="#EEEEEE" ?>
                   <?dbfo bgcolor="#EEEEEE" ?>
-                  </entry>
+                </entry>
+                <entry rowsep="0"></entry>
               </row>
               <row>
-                <entry align="right">
+                <entry align="right" rowsep="0">
                   <para>VSR(30)</para>
                 </entry>
                 <entry nameend="c3" namest="c2" align="center">
                   <para>FPR[30]</para>
                 </entry>
-                <entry nameend="c5" namest="c4">
-                  <para /><?dbhtml bgcolor="#EEEEEE" ?>
+                <entry nameend="c5" namest="c4" colsep="1">
+                  <para />
+                  <?dbhtml bgcolor="#EEEEEE" ?>
                   <?dbfo bgcolor="#EEEEEE" ?>
-                  </entry>
+                </entry>
+                <entry rowsep="0"></entry>
               </row>
               <row>
-                <entry align="right">
+                <entry align="right" rowsep="0">
                   <para>VSR(31)</para>
                 </entry>
                 <entry nameend="c3" namest="c2" align="center">
                   <para>FP[31]</para>
                 </entry>
-                <entry nameend="c5" namest="c4">
-                  <para /><?dbhtml bgcolor="#EEEEEE" ?>
+                <entry nameend="c5" namest="c4" colsep="1">
+                  <para />
+                  <?dbhtml bgcolor="#EEEEEE" ?>
                   <?dbfo bgcolor="#EEEEEE" ?>
-                  </entry>
+                </entry>
+                <entry rowsep="0"></entry>
               </row>
               <row>
-                <entry align="right">
+                <entry align="right" rowsep="0">
                   <para>VSR(32)</para>
                 </entry>
-                <entry nameend="c5" namest="c2">
-                  <para></para><?dbhtml bgcolor="#EEEEEE" ?>
+                <entry nameend="c5" namest="c2" colsep="1">
+                  <para></para>
+                  <?dbhtml bgcolor="#EEEEEE" ?>
                   <?dbfo bgcolor="#EEEEEE" ?>
-                  </entry>
+                </entry>
+                <entry rowsep="0"></entry>
               </row>
               <row>
-                <?dbhtml bgcolor="#EEEEEE" ?>
-                <?dbfo bgcolor="#EEEEEE" ?>
-                <entry align="right">
+                <entry align="right" rowsep="0">
                   <para>VSR(33)</para>
                 </entry>
-                <entry nameend="c5" namest="c2">
+                <entry nameend="c5" namest="c2" colsep="1">
+                  <?dbhtml bgcolor="#EEEEEE" ?>
+                  <?dbfo bgcolor="#EEEEEE" ?>
                   <para></para>
                 </entry>
+                <entry rowsep="0"></entry>
               </row>
               <row>
-                <?dbhtml bgcolor="#EEEEEE" ?>
-                <?dbfo bgcolor="#EEEEEE" ?>
-                <entry align="right">
+                <entry align="right" rowsep="0">
                   <para></para>
                   <para></para>
                 </entry>
-                <entry nameend="c5" namest="c2" align="center">
+                <entry nameend="c5" namest="c2" align="center" colsep="1">
+                  <?dbhtml bgcolor="#EEEEEE" ?>
+                  <?dbfo bgcolor="#EEEEEE" ?>
                   <para>
                     <emphasis>...</emphasis>
                   </para>
@@ -4604,29 +4652,32 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                     <emphasis>...</emphasis>
                   </para>
                 </entry>
+                <entry rowsep="0"></entry>
               </row>
               <row>
-                <?dbhtml bgcolor="#EEEEEE" ?>
-                <?dbfo bgcolor="#EEEEEE" ?>
-                <entry align="right">
+                <entry align="right" rowsep="0">
                   <para>VSR(62)</para>
                 </entry>
-                <entry nameend="c5" namest="c2">
+                <entry nameend="c5" namest="c2" colsep="1">
+                  <?dbhtml bgcolor="#EEEEEE" ?>
+                  <?dbfo bgcolor="#EEEEEE" ?>
                   <para></para>
                 </entry>
+                <entry rowsep="0"></entry>
               </row>
               <row>
-                <?dbhtml bgcolor="#EEEEEE" ?>
-                <?dbfo bgcolor="#EEEEEE" ?>
                 <entry align="right">
                   <para>VSR(63)</para>
                 </entry>
-                <entry nameend="c5" namest="c2">
+                <entry nameend="c5" namest="c2" colsep="1">
+                  <?dbhtml bgcolor="#EEEEEE" ?>
+                  <?dbfo bgcolor="#EEEEEE" ?>
                   <para />
                 </entry>
+                <entry></entry>
               </row>
-              <row rowsep="0">
-                <entry>
+              <row>
+                <entry rowsep="0">
                   <para></para>
                 </entry>
                 <entry align="left" colsep="0">
@@ -4641,92 +4692,105 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                 <entry align="right" colsep="1">
                   <para>255</para>
                 </entry>
+                <entry></entry>
               </row>
             </tbody>
           </tgroup>
         </table>
-        <para></para>
-        <table frame="top" pgwide="1" xml:id="dbdoclet.50655240_56800">
+
+        <table frame="top" pgwide="1" xml:id="dbdoclet.50655240_56800" rowsep="1" colsep="1">
           <title>Vector Registers as Part of VSRs</title>
           <tgroup cols="4">
-            <colspec colname="c1" colwidth="10*" colsep="1" />
-            <colspec colname="c2" colwidth="30*" />
-            <colspec colname="c3" colwidth="30*" />
-            <colspec colname="c4" colwidth="30*" colsep="1" />
+            <colspec colname="c1" colwidth="10*" />
+            <colspec colname="c2" colwidth="44*" />
+            <colspec colname="c3" colwidth="44*" />
+            <colspec colname="c4" colwidth="0*" />
             <tbody>
               <row>
-                <entry align="right">
+                <entry align="right" rowsep="0">
                   <para>VSR(0)</para>
                 </entry>
-                <entry nameend="c4" namest="c2">
-                  <para></para><?dbhtml bgcolor="#EEEEEE" ?>
+                <entry nameend="c3" namest="c2">
+                  <para></para>
+                  <?dbhtml bgcolor="#EEEEEE" ?>
                   <?dbfo bgcolor="#EEEEEE" ?>
-                  </entry>
+                </entry>
+                <entry rowsep="0"></entry>
               </row>
               <row>
-                <entry align="right">
+                <entry align="right" rowsep="0">
                   <para>VSR(1)</para>
                 </entry>
-                <entry nameend="c4" namest="c2">
-                  <para></para><?dbhtml bgcolor="#EEEEEE" ?>
+                <entry nameend="c3" namest="c2">
+                  <para></para>
+                  <?dbhtml bgcolor="#EEEEEE" ?>
                   <?dbfo bgcolor="#EEEEEE" ?>
-                  </entry>
+                </entry>
+                <entry rowsep="0"></entry>
               </row>
               <row>
-                <entry align="right">
+                <entry align="right" rowsep="0">
                   <para></para>
                   <para></para>
                 </entry>
-                <entry nameend="c4" namest="c2" align="center">
+                <entry nameend="c3" namest="c2" align="center">
                   <para>
                     <emphasis>...</emphasis>
                   </para>
                   <para>
                     <emphasis>...</emphasis>
-                  </para><?dbhtml bgcolor="#EEEEEE" ?>
+                  </para>
+                  <?dbhtml bgcolor="#EEEEEE" ?>
                   <?dbfo bgcolor="#EEEEEE" ?>
-                  </entry>
+                </entry>
+                <entry rowsep="0"></entry>
               </row>
               <row>
-                <entry align="right">
+                <entry align="right" rowsep="0">
                   <para>VSR(30)</para>
                 </entry>
-                <entry nameend="c4" namest="c2">
-                  <para></para><?dbhtml bgcolor="#EEEEEE" ?>
+                <entry nameend="c3" namest="c2">
+                  <para></para>
+                  <?dbhtml bgcolor="#EEEEEE" ?>
                   <?dbfo bgcolor="#EEEEEE" ?>
-                  </entry>
+                </entry>
+                <entry rowsep="0"></entry>
               </row>
               <row>
-                <entry align="right">
+                <entry align="right" rowsep="0">
                   <para>VSR(31)</para>
                 </entry>
-                <entry nameend="c4" namest="c2">
-                  <para></para><?dbhtml bgcolor="#EEEEEE" ?>
+                <entry nameend="c3" namest="c2">
+                  <para></para>
+                  <?dbhtml bgcolor="#EEEEEE" ?>
                   <?dbfo bgcolor="#EEEEEE" ?>
-                  </entry>
+                </entry>
+                <entry rowsep="0"></entry>
               </row>
               <row>
-                <entry align="right">
+                <entry align="right" rowsep="0">
                   <para>VSR(32)</para>
                 </entry>
-                <entry nameend="c4" namest="c2" align="center">
+                <entry nameend="c3" namest="c2" align="center">
                   <para>VR[0]</para>
                 </entry>
+                <entry rowsep="0"></entry>
               </row>
               <row>
-                <entry align="right">
+                <entry align="right" rowsep="0">
                   <para>VSR(33)</para>
                 </entry>
-                <entry nameend="c4" namest="c2" align="center">
+                <entry nameend="c3" namest="c2" align="center">
                   <para>VR[1]</para>
                 </entry>
+                <entry rowsep="0"></entry>
               </row>
               <row>
-                <entry align="right">
+                <entry align="right" rowsep="0">
                   <para></para>
                   <para></para>
                 </entry>
-                <entry nameend="c4" namest="c2" align="center">
+                <entry nameend="c3" namest="c2" align="center">
                   <para>
                     <emphasis>...</emphasis>
                   </para>
@@ -4734,22 +4798,25 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                     <emphasis>...</emphasis>
                   </para>
                 </entry>
+                <entry rowsep="0"></entry>
               </row>
               <row>
-                <entry align="right">
+                <entry align="right" rowsep="0">
                   <para>VSR(62)</para>
                 </entry>
-                <entry nameend="c4" namest="c2" align="center">
+                <entry nameend="c3" namest="c2" align="center">
                   <para>VR[30]</para>
                 </entry>
+                <entry rowsep="0"></entry>
               </row>
               <row>
                 <entry align="right">
                   <para>VSR(63)</para>
                 </entry>
-                <entry nameend="c4" namest="c2" align="center">
+                <entry nameend="c3" namest="c2" align="center">
                   <para>VR[31]</para>
                 </entry>
+                <entry></entry>
               </row>
               <row>
                 <entry>
@@ -4758,12 +4825,10 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                 <entry align="left" colsep="0">
                   <para>0</para>
                 </entry>
-                <entry colsep="0">
-                  <para></para>
-                </entry>
                 <entry align="right">
                   <para>127</para>
                 </entry>
+                <entry></entry>
               </row>
             </tbody>
           </tgroup>
@@ -4776,7 +4841,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <para>For the purpose of function calls, the right half of VSX
         registers, corresponding to the classic floating-point registers (that
         is, vsr0 - vsr31), is volatile.</para>
-        <para></para>
+
         <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_83567">
           <title>Floating-Point Register Roles for Binary Floating-Point
           Types</title>
@@ -4856,6 +4921,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </tbody>
           </tgroup>
         </table>
+        <para>&#160;</para>
         <bridgehead xml:id="dbdoclet.50655240_12913">DFP Support</bridgehead>
         <para>The OpenPOWER ABI supports the decimal floating-point (DFP)
         format and DFP language extensions. The default implementation of DFP
@@ -4891,7 +4957,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         register pair. When a floating-point register is skipped during input
         parameter allocation, words in the corresponding GPR or memory
         doubleword in the parameter list are not skipped.</para>
-        <para></para>
+
         <table frame="all" pgwide="1">
           <title>Floating-Point Register Roles for Decimal Floating-Point
           Types</title>
@@ -4941,7 +5007,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         vector-scalar register file, and a special-purpose register VSCR.
         Throughout this document, the symbol vN is used, where N is a register
         number, to refer to vector register N.</para>
-        <para></para>
+
         <table frame="all" pgwide="1">
           <title>Vector Register Roles</title>
           <tgroup cols="3">
@@ -5029,11 +5095,13 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </tbody>
           </tgroup>
         </table>
+        <para>&#160;</para>
         <bridgehead xml:id="dbdoclet.50655240_89740">IEEE BINARY 128 EXTENDED
         PRECISION</bridgehead>
         <para>Parameters in IEEE BINARY 128 EXTENDED PRECISION format shall be
         passed in a single 128-bit vector register as if they were vector
         values.</para>
+        <para>&#160;</para>
         <bridgehead xml:id="dbdoclet.50655240_40559">IBM EXTENDED
         PRECISION</bridgehead>
         <para>Parameters in the IBM EXTENDED PRECISION format with a pair of
@@ -5048,7 +5116,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <para>The Power ISA identifies a number of registers that have
         mutability limited to the specific bit fields indicated in the
         following list:</para>
-        <para></para>
+
         <informaltable frame="none" colsep="0" rowsep="0">
           <tgroup cols="2">
             <colspec colname="c1" colwidth="20*" />
@@ -5137,6 +5205,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         function without permission to change the limited-access bits across a
         function call shall save the value of the register before modifying the
         bits and restore it before returning to its calling function.</para>
+        <para>&#160;</para>
         <bridgehead>Limited-Access Conditions</bridgehead>
         <para>Standard library functions expressly defined to change the state
         of limited-access bits are not constrained by nonvolatile preservation
@@ -5233,7 +5302,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       default, the stack pointer always points to the back-chain word of the
       most recently allocated stack frame. For more information, see 
       <xref linkend="dbdoclet.50655240_84103" />.</para>
-      <para></para>
+
       <figure pgwide="1" xml:id="dbdoclet.50655240_97610">
         <title>Stack Frame Organization</title>
         <mediaobject>
@@ -5311,7 +5380,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <para>An example of a minimum stack frame allocation that meets these
         requirements is shown in 
         <xref linkend="dbdoclet.50655240_76854" />.</para>
-        <para></para>
+
         <figure xml:id="dbdoclet.50655240_76854">
           <title>Minimum Stack Frame Allocation with and without Back
           Chain</title>
@@ -5339,6 +5408,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         generation. A system shall provided a programmatic interface to query
         unwind information when system-wide unwind capabilities are
         provided.</para>
+        <para>&#160;</para>
         <bridgehead>CR Save Word</bridgehead>
         <para>If a function changes the value in any nonvolatile field of the
         condition register, it shall first save at least the value of those
@@ -5346,16 +5416,19 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         function exit. The caller frame CR Save Word may be used as the save
         location. This location in the current frame may be used as temporary
         storage, which is volatile over function calls.</para>
+         <para>&#160;</para>
         <bridgehead>Reserved Word</bridgehead>
         <para>This word is reserved for system functions. Modifications of the
         value contained in this word are prohibited unless explicitly allowed
         by future ABI amendments.</para>
+        <para>&#160;</para>
         <bridgehead>LR Save Doubleword</bridgehead>
         <para>If a function changes the value of the link register, it must
         first save the old value to restore before function exit. The caller
         frame LR Save Doubleword may be used as the save location. This
         location in the current frame may be used as temporary storage, which
         is volatile over a function call.</para>
+        <para>&#160;</para>
         <bridgehead>TOC Pointer Doubleword</bridgehead>
         <para>If a function changes the value of the TOC pointer register, it
         shall first save it in the TOC pointer doubleword.</para>
@@ -5375,6 +5448,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         might be necessary above the Vector Register Save Area to provide
         16-byte alignment, as shown in 
         <xref linkend="dbdoclet.50655240_97610" />.</para>
+        <para>&#160;</para>
         <bridgehead>Floating-Point Register Save Area</bridgehead>
         <para>If a function changes the value in any nonvolatile floating-point
         register fN, it shall first save the value in fN in the Floating-Point
@@ -5384,6 +5458,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         the number of floating-point registers that must be saved. If no
         floating-point registers are to be saved, the Floating-Point Register
         Save Area has a zero size.</para>
+        <para>&#160;</para>
         <bridgehead xml:id="dbdoclet.50655240_page42">General-Purpose Register
         Save Area</bridgehead>
         <para>If a function changes the value in any nonvolatile
@@ -5404,6 +5479,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         upon the number of general registers that must be saved. If no
         general-purpose registers are to be saved, the General-Purpose Register
         Save Area has a zero size.</para>
+        <para>&#160;</para>
         <bridgehead>Vector Register Save Area</bridgehead>
         <para>If a function changes the value in any nonvolatile vector
         register vN, it shall first save the value in vN in the Vector Register
@@ -5426,6 +5502,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         must be saved. It ranges from 0 bytes to a maximum of 192 bytes (12 X
         16). If no vector registers are to be saved, the Vector Register Save
         Area has a zero size.</para>
+        <para>&#160;</para>
         <bridgehead>Local Variable Space</bridgehead>
         <para>The Local Variable Space is used for allocation of local
         variables. The Local Variable Space is located immediately above the
@@ -5438,6 +5515,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <para>The Local Variable Space also contains any parameters that need
         to be assigned a memory address when the function's parameter list does
         not require a save area to be allocated by the caller.</para>
+        <para>&#160;</para>
         <bridgehead xml:id="dbdoclet.50655240_78421">Parameter Save
         Area</bridgehead>
         <para>The Parameter Save Area shall be allocated by the caller for
@@ -5603,8 +5681,10 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <itemizedlist>
           <listitem>
             <para>Pad an aggregate or union smaller than one doubleword in
-            size, but having a non-zero size, so that it is in the
-            least-significant bits of the doubleword. Pad all others, if
+            size<phrase revisionflag="added">, but having a non-zero size,</phrase>
+            so that it is in the
+            least-significant bits of the doubleword.
+            Pad all others, if
             necessary, at their tail. Variable size aggregates or unions are
             passed by reference.</para>
           </listitem>
@@ -5771,12 +5851,13 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       a number of GPRs are skipped, in allocation order, commensurate to the
       size of the corresponding in-memory representation of the passed
       argument's type.</para>
-      <para>The parameter size is always rounded up to the next multiple of a
-      doubleword.
-      <footnote xml:id="pgfId-1184124">
+      <para><phrase revisionflag="changed">The parameter size is always rounded up to the next multiple of a
+      doubleword.</phrase>
+      <footnote xml:id="pgfId-1184124" revisionflag="added">
         <para>Consequently, each parameter of a non-zero size is allocated to
         at least one doubleword.</para>
       </footnote></para>
+      <para>&#160;</para>
       <bridgehead>Full doubleword rule:</bridgehead>
       <para>When a doubleword in the Parameter Save Area (or its GPR copy)
       contains at least a portion of a structure, that doubleword must contain
@@ -5784,11 +5865,13 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       can either be completely valid, or completely invalid, but not partially
       valid and invalid, except in the last doubleword where invalid padding
       may be present.)</para>
+      <para>&#160;</para>
       <bridgehead>IEEE BINARY 128 EXTENDED PRECISION</bridgehead>
       <para>Up to 12 quad-precision parameters can be passed in v2 - v13. For
       the purpose of determining qualified floating-point and vector arguments,
       an IEEE 128b type shall be considered a "like" vector type, and a complex
       _Float128 shall be treated as two individual scalar elements.</para>
+      <para>&#160;</para>
       <bridgehead>IBM EXTENDED PRECISION</bridgehead>
       <para>IBM EXTENDED PRECISION format parameters are passed as if they were
       a struct consisting of separate double parameters.</para>
@@ -5861,7 +5944,8 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             buffer, set gr = 4; else set gr = 3.</para>
           </listitem>
         </itemizedlist>
-        <programlisting>Set fr = 1 Set vr = 2</programlisting>
+        <programlisting>Set fr = 1 
+Set vr = 2</programlisting>
         <itemizedlist>
           <listitem>
             <para>SCAN: If there are no more arguments, terminate. Otherwise,
@@ -5869,47 +5953,130 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             argument:</para>
           </listitem>
         </itemizedlist>
-        <programlisting>switch(class(argument)) unnamed parameter: if gr &gt;
-        10 goto mem_argument size = size_in_DW(argument) reg_size = min(size,
-        11-gr) pass (GPR, gr, first_n_DW (argument, reg_size)); if
-        remaining_members argument = after_n_DW(argument,reg_size)) goto
-        mem_argument break; integer: // up to 64b pointer: // this also
-        includes all pass by reference values if gr &gt; 10 goto mem_argument
-        pass (GPR, gr, argument); gr++ break; aggregate: if
-        (homogeneous(argument,float) and regs_needed(members(argument)) &lt;=
-        8) if (register_type_used (type (argument)) == vr) goto use_vrs;
-        n_fregs = n_fregs_for_type(member_type(argument,0)) agg_size =
-        members(argument) * n_fregs reg_size = min(agg_size, 15-fr)
-        pass(FPR,fr,first_n_DW(argument,reg_size) fr += reg_size; gr +=
-        size_in_DW (first_n_DW(argument,reg_size)) if remaining_members
-        argument = after_n_DW(argument,reg_size)) goto gpr_struct break; if
-        (homogeneous(argument,vector) and members(argument) &lt;= 8) use_vrs:
-        agg_size = members(argument) reg_size = min(agg_size, 14-vr) if
-        (gr&amp;1 = 0) // align vector in memory gr++
-        pass(VR,vr,first_n_elements(argument,reg_size); vr += reg_size gr +=
-        size_in_DW (first_n_elements(argument,reg_size) if remaining_members
-        argument = after_n_elements(argument,reg_size)) goto gpr_struct break;
-        if gr &gt; 10 goto mem_argument size = size_in_DW(argument) gpr_struct:
-        reg_size = min(size, 11-gr) pass (GPR, gr, first_n_DW (argument,
-        reg_size)); gr += size_in_DW (first_n_DW (argument, reg_size)) if
-        remaining_members argument = after_n_DW(argument,reg_size)) goto
-        mem_argument break; float: // float is passed in one FPR. // double is
-        passed in one FPR. // IBM EXTENDED PRECISION is passed in the next two
-        FPRs. // IEEE BINARY 128 EXTENDED PRECISION is passed in one VR. //
-        _Decimal32 is passed in the lower half of one FPR. // _Decimal64 is
-        passed in one FPR. // _Decimal128 is passed in an even-odd FPR pair,
-        skipping an FPR if necessary. if (register_type_used (type (argument))
-        == vr) // Assumes == vr is true for IEEE BINARY 128 EXTENDED PRECISION.
-        goto use_vr; fr += align_pad(fr,type(argument)) // Assumes align_pad =
-        8 for _Decimal128 if fr is odd; otherwise = 0. if fr &gt; 14 goto
-        mem_argument n_fregs = n_fregs_for_type(argument) // Assumes
-        n_fregs_for_type == 2 for IBM EXTENDED PRECISION or _Decimal128, == 1
-        for float, double, _Decimal32 or _Decimal64. pass(FPR,fr,argument) fr
-        += n_fregs gr += size_in_DW(argument) break; vector: Use vr: if vr &gt;
-        13 goto mem_argument if (gr&amp;1 = 0) // align vector in memory gr++
-        pass(VR,vr,argument) vr ++ gr += 2 break; next argument; mem_argument:
-        need_save_area = TRUE pass (stack, gr, argument) gr +=
-        size_in_DW(argument) next argument;</programlisting>
+        <programlisting>switch(class(argument)) 
+
+unnamed parameter: 
+        if gr &gt; 10 
+                goto mem_argument 
+        
+        size = size_in_DW(argument) 
+        reg_size = min(size, 11-gr) 
+        pass (GPR, gr, first_n_DW (argument, reg_size)); 
+        
+        if remaining_members 
+                argument = after_n_DW(argument,reg_size)) 
+                goto mem_argument 
+        
+        break; 
+
+integer: // up to 64b 
+pointer: // this also includes all pass by reference values 
+
+        if gr &gt; 10 
+                goto mem_argument
+        pass (GPR, gr, argument); 
+        gr++ 
+        
+        break; 
+        
+aggregate: 
+        if (homogeneous(argument,float) and regs_needed(members(argument)) &lt;=8) 
+                if (register_type_used (type (argument)) == vr)
+                   goto use_vrs;
+                  n_fregs = n_fregs_for_type(member_type(argument,0)) 
+                  agg_size = members(argument) * n_fregs 
+                  reg_size = min(agg_size, 15-fr)
+                  pass(FPR,fr,first_n_DW(argument,reg_size) 
+                  fr += reg_size; 
+                  gr += size_in_DW (first_n_DW(argument,reg_size)) 
+                  
+                if remaining_members
+                    argument = after_n_DW(argument,reg_size)) 
+                    goto gpr_struct 
+                
+                break; 
+                
+        if (homogeneous(argument,vector) and members(argument) &lt;= 8) 
+                use_vrs:
+                  agg_size = members(argument) 
+                  reg_size = min(agg_size, 14-vr) 
+                  if (gr&amp;1 = 0) // align vector in memory 
+                    gr++
+                  pass(VR,vr,first_n_elements(argument,reg_size); 
+                  vr += reg_size 
+                  gr += size_in_DW (first_n_elements(argument,reg_size) 
+                  
+                if remaining_members
+                    argument = after_n_elements(argument,reg_size)) 
+                    goto gpr_struct 
+        break;
+        
+        if gr &gt; 10 
+                goto mem_argument 
+                
+        size = size_in_DW(argument) 
+
+gpr_struct:
+        reg_size = min(size, 11-gr) 
+        pass (GPR, gr, first_n_DW (argument, reg_size)); 
+        gr += size_in_DW (first_n_DW (argument, reg_size)) 
+        
+        if remaining_members 
+                argument = after_n_DW(argument,reg_size)) 
+                goto mem_argument 
+                
+        break; 
+        
+float: 
+
+// float is passed in one FPR. 
+// double is passed in one FPR. 
+// IBM EXTENDED PRECISION is passed in the next two FPRs. 
+// IEEE BINARY 128 EXTENDED PRECISION is passed in one VR. 
+// _Decimal32 is passed in the lower half of one FPR. 
+// _Decimal64 is passed in one FPR. 
+// _Decimal128 is passed in an even-odd FPR pair, skipping an FPR if necessary. 
+
+        if (register_type_used (type (argument)) == vr) 
+        // Assumes == vr is true for IEEE BINARY 128 EXTENDED PRECISION.
+                goto use_vr; 
+        
+        fr += align_pad(fr,type(argument)) 
+        // Assumes align_pad = 8 for _Decimal128 if fr is odd; otherwise = 0. 
+        if fr &gt; 14 
+                goto mem_argument 
+        
+        n_fregs = n_fregs_for_type(argument) 
+        // Assumes n_fregs_for_type == 2 for IBM EXTENDED PRECISION 
+        // or _Decimal128, == 1 for float, double, _Decimal32 or _Decimal64. 
+        pass(FPR,fr,argument) 
+        fr += n_fregs 
+        gr += size_in_DW(argument) 
+        
+        break; 
+
+vector: 
+        Use vr: 
+          if vr &gt; 13 
+                  goto mem_argument 
+          
+          if (gr&amp;1 = 0) // align vector in memory 
+                  gr++
+          
+          pass(VR,vr,argument) 
+          vr ++ 
+          gr += 2 
+          
+          break; 
+
+next argument; 
+
+mem_argument:
+          need_save_area = TRUE 
+          pass (stack, gr, argument) 
+          gr += size_in_DW(argument) 
+
+next argument;</programlisting>
         <para>All complex data types are handled as if two scalar values of the
         base type were passed as separate parameters.</para>
         <para>If the callee takes the address of any of its parameters, values
@@ -5941,14 +6108,27 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         memory.</para>
         <figure xml:id="dbdoclet.50655240_87898">
           <title>Passing Arguments in GPRs, FPRs, and Memory</title>
-          <programlisting>typedef struct { int a; double dd; } sparm; sparm s,
-          t; int c, d, e; long double ld;/* IBM EXTENDED PRECISION format */
-          double ff, gg, hh; x = func(c, ff, d, ld, s, gg, t, e, hh); Parameter
-          Register Offset in parameter save area c r3 0-7 (not stored in
-          parameter save area) ff f1 8-15 (not stored) d r5 16-23 (not stored)
-          ld f2,f3 24-39 (not stored) s r8,r9 40-55 (not stored) gg f4 56-63
-          (not stored) t (none) 64-79 (stored in parameter save area) e (none)
-          80-87 (stored) hh f5 88-95 (not stored)</programlisting>
+          <programlisting>typedef struct { 
+  int a; 
+  double dd; 
+} sparm; 
+sparm s, t; 
+int c, d, e; 
+long double ld;/* IBM EXTENDED PRECISION format */
+double ff, gg, hh; 
+
+x = func(c, ff, d, ld, s, gg, t, e, hh); 
+
+Parameter    Register       Offset in parameter save area 
+c            r3             0-7 (not stored in parameter save area) 
+ff           f1             8-15 (not stored) 
+d            r5             16-23 (not stored)
+ld           f2,f3          24-39 (not stored) 
+s            r8,r9          40-55 (not stored) 
+gg           f4             56-63 (not stored) 
+t            (none)         64-79 (stored in parameter save area) 
+e            (none)         80-87 (stored) 
+hh           f5             88-95 (not stored)</programlisting>
         </figure>
         <note>
           <para>If a prototype is not in scope:</para>
@@ -5980,12 +6160,24 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         are used in the remaining examples of parameter passing.</para>
         <figure xml:id="dbdoclet.50655240_82633">
           <title>Parameter Passing Definitions</title>
-          <programlisting>typedef struct { double a double b; } dpfp2; typedef
-          struct float a float b; } spfp2; double a1,a4; dpfp2 a2,a3 ; spfp
-          a6,a7; double func2 (double a, dpfp2 p1, dpfp p2, double b, int x);
-          double func3 (double a, dpfp2 p1, dpfp p2, double b, int x, spfp2
-          p3,spfpp4); struct three_floats { float a,b,c;} struct two_floats {
-          float a,b;}</programlisting>
+          <programlisting>typedef struct { 
+  double a 
+  double b; 
+} dpfp2; 
+
+typedef struct 
+  float a 
+  float b; 
+} spfp2; 
+
+double a1,a4; 
+dpfp2 a2,a3 ; 
+spfp a6,a7; 
+double func2 (double a, dpfp2 p1, dpfp p2, double b, int x);
+double func3 (double a, dpfp2 p1, dpfp p2, double b, int x, spfp2 p3,spfpp4); 
+
+struct three_floats { float a,b,c;} 
+struct two_floats { float a,b;}</programlisting>
         </figure>
         <para>
         <xref linkend="dbdoclet.50655240_89721" /> shows how parameters are
@@ -5996,9 +6188,15 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <figure xml:id="dbdoclet.50655240_89721">
           <title>Passing Homogeneous Floating-Point Aggregates and Integer
           Parameters in Registers without a Parameter Save Area</title>
-          <programlisting>x = func2(a1,a2,a3,a4, 5); Parameter Register Offset
-          in parameter save area a1 f1 n/a a2.a f2 n/a a2.b f3 n/a a3.a f4 n/a
-          a3.b f5 n/a a4 f6 n/a 5 r9 n/a</programlisting>
+          <programlisting>x = func2(a1,a2,a3,a4, 5); 
+Parameter     Register    Offset in parameter save area 
+a1            f1          n/a 
+a2.a          f2          n/a 
+a2.b          f3          n/a 
+a3.a          f4          n/a
+a3.b          f5          n/a 
+a4            f6          n/a 
+5             r9          n/a</programlisting>
         </figure>
         <para>
         <xref linkend="dbdoclet.50655240_76432" /> shows how parameters are
@@ -6008,10 +6206,19 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <figure xml:id="dbdoclet.50655240_76432">
           <title>Passing Homogeneous Floating-Point Aggregates and Integer
           Parameters in Registers without a Parameter Save Area</title>
-          <programlisting>x = func3(a1,a2,a3,a4, 5,a6,a7); Parameter Register
-          Offset in parameter save area a1 f1 n/a a2.a f2 n/a a2.b f3 n/a a3.a
-          f4 n/a a3.b f5 n/a a4 f6 n/a 5 r9 n/a a6.a f7 n/a a6.b f8 n/a a7.a f9
-          n/a a7.b f10 n/a</programlisting>
+          <programlisting>x = func3(a1,a2,a3,a4, 5,a6,a7); 
+Parameter     Register    Offset in parameter save area 
+a1            f1          n/a 
+a2.a          f2          n/a 
+a2.b          f3          n/a 
+a3.a          f4          n/a 
+a3.b          f5          n/a 
+a4            f6          n/a 
+5             r9          n/a 
+a6.a          f7          n/a 
+a6.b          f8          n/a 
+a7.a          f9          n/a 
+a7.b          f10         n/a</programlisting>
         </figure>
         <para>
         <xref linkend="dbdoclet.50655240_63912" /> shows how parameters are
@@ -6022,15 +6229,25 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <figure xml:id="dbdoclet.50655240_63912">
           <title>Passing Floating-Point Scalars and Homogeneous Floating-Point
           Aggregates in Registers and Memory</title>
-          <programlisting>x = oddity (float d1, float d2, float d3, float d4,
-          float d5, float d6, float d7, float d8, float d9, float d10, float
-          d11, float d12, struct three_floats x) Parameter Register Offset in
-          parameter save area d1 f1 0 (not stored) d2 f2 8 (not stored) d3 f3
-          16 (not stored) d4 f4 24 (not stored) d5 f5 32 (not stored) d6 f6 40
-          (not stored) d7 f7 48 (not stored) d8 f8 56 (not stored) d9 f9 64
-          (not stored) d10 f10 72 (not stored) d11 f11 80 (not stored) d12 f12
-          88 (not stored) x.a f13 96 (store because of no partial DW rule) x.b
-          - 100 (stored) x.c - 104 (stored)</programlisting>
+          <programlisting>x = oddity (float d1, float d2, float d3, float d4, float d5, 
+            float d6, float d7, float d8, float d9, float d10, 
+            float d11, float d12, struct three_floats x)
+Parameter     Register    Offset in parameter save area 
+d1            f1          0 (not stored) 
+d2            f2          8 (not stored) 
+d3            f3          16 (not stored) 
+d4            f4          24 (not stored) 
+d5            f5          32 (not stored) 
+d6            f6          40 (not stored) 
+d7            f7          48 (not stored) 
+d8            f8          56 (not stored) 
+d9            f9          64 (not stored) 
+d10           f10         72 (not stored) 
+d11           f11         80 (not stored) 
+d12           f12         88 (not stored) 
+x.a           f13         96 (store because of no partial DW rule) 
+x.b           -           100 (stored) 
+x.c           -           104 (stored)</programlisting>
         </figure>
         <para>
         <xref linkend="dbdoclet.50655240_96711" /> shows how parameters are
@@ -6042,13 +6259,27 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <figure xml:id="dbdoclet.50655240_96711">
           <title>Passing Floating-Point Scalars and Homogeneous Floating-Point
           Aggregates in FPRs and GPRs without a Parameter Save Area</title>
-          <programlisting>x = oddity2 (struct two_floats s1, struct two_floats
-          s2, struct two_floats s3, struct two_floats s4, struct two_floats s5,
-          struct two_floats s6, struct two_floats s7, struct two_floats s8)
-          Parameter Register Offset in parameter save area s1.a f1 n/a s1.b f2
-          n/a s2.a f3 n/a s2.b f4 n/a s3.a f5 n/a s3.b f6 n/a s4.a f7 n/a s4.b
-          f8 n/a s5.a f9 n/a s5.b f10 n/a s6.a f11 n/a s6.b f12 n/a s7.a f13
-          n/a s7.b - n/a s7 gpr9 n/a s8 gpr10 n/a</programlisting>
+          <programlisting>x = oddity2 (struct two_floats s1, struct two_floats s2, 
+             struct two_floats s3, struct two_floats s4, 
+             struct two_floats s5, struct two_floats s6, 
+             struct two_floats s7, struct two_floats s8)
+Parameter     Register    Offset in parameter save area 
+s1.a          f1          n/a 
+s1.b          f2          n/a 
+s2.a          f3          n/a 
+s2.b          f4          n/a 
+s3.a          f5          n/a 
+s3.b          f6          n/a 
+s4.a          f7          n/a 
+s4.b          f8          n/a 
+s5.a          f9          n/a 
+s5.b          f10         n/a 
+s6.a          f11         n/a 
+s6.b          f12         n/a 
+s7.a          f13         n/a 
+s7.b          -           n/a 
+s7            gpr9        n/a 
+s8            gpr10       n/a</programlisting>
         </figure>
         <para>
         <xref linkend="dbdoclet.50655240_12078" /> shows how parameters are
@@ -6061,17 +6292,27 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <figure xml:id="dbdoclet.50655240_12078">
           <title>Passing Homogeneous Floating-Point Aggregates in FPRs, GPRs,
           and Memory with a Parameter Save Area</title>
-          <programlisting>x = oddity3 (struct two_floats s1, struct two_floats
-          s2, struct two_floats s3, struct two_floats s4, struct two_floats s5,
-          struct two_floats s6, struct two_floats s7, struct two_floats s8,
-          struct two_floats s9) Parameter Register Offset in parameter save
-          area s1.a f1 0 (not stored) s1.b f2 4 (not stored) s2.a f3 8 (not
-          stored) s2.b f4 12 (not stored) s3.a f5 16 (not stored) s3.b f6 20
-          (not stored) s4.a f7 24 (not stored) s4.b f8 28 (not stored) s5.a f9
-          32 (not stored) s5.b f10 36 (not stored) s6.a f11 40 (not stored)
-          s6.b f12 44 (not stored) s7.a f13 48 (not stored, SPFP in FPR) s7.b -
-          52 (not stored) s7 gpr9 48 (not stored, full gpr) s8 gpr10 56 (not
-          stored, full gpr) s9 64 (stored)</programlisting>
+          <programlisting>x = oddity3 (struct two_floats s1, struct two_floats s2, struct two_floats s3,
+             struct two_floats s4, struct two_floats s5, struct two_floats s6, 
+             struct two_floats s7, struct two_floats s8, struct two_floats s9) 
+Parameter     Register    Offset in parameter save area 
+s1.a          f1          0 (not stored) 
+s1.b          f2          4 (not stored) 
+s2.a          f3          8 (not stored) 
+s2.b          f4          12 (not stored) 
+s3.a          f5          16 (not stored) 
+s3.b          f6          20 (not stored) 
+s4.a          f7          24 (not stored) 
+s4.b          f8          28 (not stored) 
+s5.a          f9          32 (not stored) 
+s5.b          f10         36 (not stored) 
+s6.a          f11         40 (not stored)
+s6.b          f12         44 (not stored) 
+s7.a          f13         48 (not stored, SPFP in FPR) 
+s7.b          -           52 (not stored) 
+s7            gpr9        48 (not stored, full gpr) 
+s8            gpr10       56 (not stored, full gpr) 
+s9                        64 (stored)</programlisting>
         </figure>
         <para>
         <xref linkend="dbdoclet.50655240_78388" /> shows how parameters are
@@ -6079,10 +6320,14 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         FPRs. In this figure, a Parameter Save Area is not allocated.</para>
         <figure xml:id="dbdoclet.50655240_78388">
           <title>Passing Vector Data Types without Parameter Save Area</title>
-          <programlisting>x =func4(int s1, vector float s2, float s3, vector
-          int s4, vector char s5) Parameter Register Offset in parameter save
-          area s1 gpr3 n/a s2 v2 n/a s3 f1 n/a s4 v3 n/a s5 v4
-          n/a</programlisting>
+          <programlisting>x =func4(int s1, vector float s2, float s3, vector int s4, 
+         vector char s5) 
+Parameter     Register    Offset in parameter save area 
+s1            gpr3        n/a
+s2            v2          n/a 
+s3            f1          n/a 
+s4            v3          n/a 
+s5            v4          n/a</programlisting>
         </figure>
         <para>
         <xref linkend="dbdoclet.50655240_15894" /> shows how parameters are
@@ -6090,11 +6335,15 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         FPRs. In this figure, a Parameter Save Area is allocated.</para>
         <figure xml:id="dbdoclet.50655240_15894">
           <title>Passing Vector Data Types with a Parameter Save Area</title>
-          <programlisting>x =func5(int s1, vector float s2, float s3, vector
-          int s4, int s5, char s6) Parameter Register Offset in parameter save
-          area s1 gpr3 0 (not stored) s2 v2 16 (not stored) s3 f1 32 (not
-          stored) s4 v3 48 (not stored) s5 - 64 (stored) s6 - 72
-          (stored)</programlisting>
+          <programlisting>x =func5(int s1, vector float s2, float s3, vector int s4, 
+         int s5, char s6) 
+Parameter     Register    Offset in parameter save area 
+s1            gpr3        0 (not stored) 
+s2            v2          16 (not stored) 
+s3            f1          32 (not stored) 
+s4            v3          48 (not stored) 
+s5            -           64 (stored) 
+s6            -           72 (stored)</programlisting>
         </figure>
         <para>When a function takes the address of at least one of its
         arguments, it is the callee's responsibility to store function
@@ -6154,7 +6403,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       <para>Aggregates that are not returned by value are returned in a storage
       buffer provided by the caller. The address is provided as a hidden first
       input argument in general-purpose register r3.</para>
-      <para></para>
+
       <note>
         <para>Quadword decimal floating-point return values shall be returned
         in the first paired floating-point register parameter pair; that is,
@@ -6233,8 +6482,12 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             instructions:</para>
           </listitem>
         </itemizedlist>
-        <programlisting>lis r16, symbol@ha ld r12, symbol@l(r16) lis r16,
-        symbol2@ha addi r16, r16, symbol2@l lvx v1, r0, r16</programlisting>
+        <programlisting>lis     r16, symbol@ha 
+ld      r12, symbol@l(r16) 
+
+lis     r16, symbol2@ha 
+addi    r16, r16, symbol2@l 
+lvx     v1, r0, r16</programlisting>
         <itemizedlist>
           <listitem>
             <para>By instantiating the TOC pointer in r2 and using TOC-pointer
@@ -6242,16 +6495,24 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             <xref linkend="dbdoclet.50655241_66700" />.)</para>
           </listitem>
         </itemizedlist>
-        <programlisting>&lt;load TOC base to r2&gt; ld r12, symbol@toc(r2) li
-        r16, symbol2@toc lvx v1, r2, r16</programlisting>
+        <programlisting>&lt;load TOC base to r2&gt; 
+ld      r12, symbol@toc(r2) 
+
+li      r16, symbol2@toc 
+lvx     v1, r2, r16</programlisting>
         <itemizedlist>
           <listitem>
             <para>By instantiating the TOC pointer in r2 and using GOT-indirect
             addressing:</para>
           </listitem>
         </itemizedlist>
-        <programlisting>&lt;load TOC base to r2&gt; ld r12, symbol@got(r2) ld
-        r12, 0(r12) ld r12, symbol2@got(r2) lvx v1, 0, r12</programlisting>
+        <programlisting>&lt;load TOC base to r2&gt; 
+
+ld      r12, symbol@got(r2) 
+ld      r12, 0(r12) 
+
+ld      r12, symbol2@got(r2) 
+lvx     v1, 0, r12</programlisting>
         <para>In the OpenPOWER ELF V2 ABI, position-dependent code built with
         this addressing scheme may have a Global Offset Table (GOT) in the data
         segment that holds addresses. (For more information, see 
@@ -6325,8 +6586,12 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             relative addressing (for private data).</para>
           </listitem>
         </itemizedlist>
-        <programlisting>&lt;load TOC base to r2&gt; ld r12, symbol@toc(r2) li
-        r16, symbol2@toc lvx v1, r2, r16</programlisting>
+        <programlisting>&lt;load TOC base to r2&gt; 
+
+ld      r12, symbol@toc(r2) 
+
+li      r16, symbol2@toc 
+lvx     v1, r2, r16</programlisting>
         <itemizedlist>
           <listitem>
             <para>By instantiating the TOC pointer in r2 and using GOT-indirect
@@ -6334,8 +6599,14 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             sections):</para>
           </listitem>
         </itemizedlist>
-        <programlisting>&lt;load TOC base to r2&gt; ld r12, symbol@got(r2) ld
-        r12, 0(r12) ld r12 symbol2@got(r2) lvx v1, 0, r12</programlisting>
+        <programlisting>&lt;load TOC base to r2&gt; 
+
+ld      r12, symbol@got(r2) 
+
+ld      r12, 0(r12) 
+
+ld      r12 symbol2@got(r2) 
+lvx     v1, 0, r12</programlisting>
         <para>Position-independent executables or shared objects have a GOT in
         the data segment that holds addresses. When the system creates a memory
         image from the file, the GOT entries are updated to reflect the
@@ -6432,11 +6703,12 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <para>For example, while linking a static module with a known load
         address in the first 2 GB of the address space, the following code
         sequence may be rewritten:</para>
-        <programlisting>addis r2, r12, .TOC.-func@ha addi r2, r2,
-        .TOC.-func@l</programlisting>
+        <programlisting>addis r2, r12, .TOC.-func@ha 
+addi r2, r2, .TOC.-func@l</programlisting>
         <para>It may be rewritten by a linker or assembler to an equivalent
         form that is faster due to instruction fusion, such as:</para>
-        <programlisting>lis r2, .TOC.@ha addi r2, r2, .TOC.@l</programlisting>
+        <programlisting>lis r2, .TOC.@ha 
+addi r2, r2, .TOC.@l</programlisting>
         <para>In addition to establishing addressability, the function prologue
         is responsible for the following functions:</para>
         <itemizedlist>
@@ -6461,21 +6733,28 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <emphasis>mfocrf</emphasis> results with an OR instruction; for example,
         to yield a word in r0 including all three preserved CRs as
         follows:</para>
-        <programlisting>mfocrf r0, crf2 mfocrf r1, crf3 or r0, r0, r1 mfocrf
-        r1, crf4 or r0, r0, r1</programlisting>
+        <programlisting>mfocrf r0, crf2 
+mfocrf r1, crf3 
+or r0, r0, r1 
+mfocrf r1, crf4 
+or r0, r0, r1</programlisting>
         <para>Specifically, this allows each OpenPOWER-compliant processor
         implementation to set each field to hold either 0 or the correct
         in-order value of the corresponding CR field at the point where the 
         <emphasis>mfocrf</emphasis> instruction is performed.</para>
+        <para>&#160;</para>
         <bridgehead>Assembly Language Syntax for Defining Entry
         Points</bridgehead>
         <para>When a function has two entry points, the global entry point is
         defined as a symbol. The local entry point is defined with the
         .localentry assembler pseudo op.</para>
         <para />
-        <programlisting>my_func: addis r2, r12, (.TOC.-my_func)@ha addi r2, r2,
-        (.TOC.-my_func)@l .localentry my_func, .-my_func ... ; function
-        definition blr</programlisting>
+        <programlisting>my_func: 
+        addis r2, r12, (.TOC.-my_func)@ha 
+        addi r2, r2, (.TOC.-my_func)@l 
+        .localentry my_func, .-my_func 
+        ... ; function definition 
+        blr</programlisting>
         <para>
         <xref linkend="dbdoclet.50655241_95185" /> shows how to represent dual
         entry points in symbol tables in an ELF object file. It also defines
@@ -6511,47 +6790,53 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             <para>Before a function calls any other function, it shall
             establish its own stack frame, whose size shall be a multiple of 16
             bytes.</para>
-          </listitem>
-          <listitem>
-            <para>In instances where a function's prologue creates a stack
-            frame, the back-chain word of the stack frame shall be updated
-            atomically with the value of the stack pointer (r1) when a back
-            chain is implemented. (This must be supported as default by all ELF
-            V2 ABI-compliant environments.) This task can be done by using one
-            of the following Store Doubleword with Update instructions:</para>
-          </listitem>
-          <listitem>
-            <para>Store Doubleword with Update instruction with relevant
-            negative displacement for stack frames that are smaller than 32
-            KB</para>
-          </listitem>
-          <listitem>
-            <para>Store Doubleword with Update Indexed instruction where the
-            negative size of the stack frame has been computed, using
-            <emphasis>addis</emphasis> and 
-            <emphasis>addi</emphasis> or 
-            <emphasis>ori</emphasis> instructions, and then loaded into a
-            volatile register, for stack frames that are 32 KB or
-            greater</para>
-          </listitem>
-          <listitem>
-            <para>The function shall save the link register that contains its
-            return address in the LR save doubleword of its caller's stack
-            frame before calling another function.</para>
+            <itemizedlist>
+              <listitem>
+                <para>In instances where a function's prologue creates a stack
+                frame, the back-chain word of the stack frame shall be updated
+                atomically with the value of the stack pointer (r1) when a back
+                chain is implemented. (This must be supported as default by all ELF
+                V2 ABI-compliant environments.) This task can be done by using one
+                of the following Store Doubleword with Update instructions:</para>
+                <itemizedlist>
+                  <listitem>
+                    <para>Store Doubleword with Update instruction with relevant
+                    negative displacement for stack frames that are smaller than 32
+                    KB</para>
+                  </listitem>
+                  <listitem>
+                    <para>Store Doubleword with Update Indexed instruction where the
+                    negative size of the stack frame has been computed, using
+                    <emphasis role="bold">addis</emphasis> and 
+                    <emphasis role="bold">addi</emphasis> or 
+                    <emphasis role="bold">ori</emphasis> instructions, and then loaded into a
+                    volatile register, for stack frames that are 32 KB or
+                    greater</para>
+                  </listitem>
+                </itemizedlist>
+              </listitem>
+              <listitem>
+                <para>The function shall save the link register that contains its
+                return address in the LR save doubleword of its caller's stack
+                frame before calling another function.</para>
+              </listitem>
+            </itemizedlist>
           </listitem>
           <listitem>
             <para>The deallocation of a function's stack frame must be an
             atomic operation. This task can be accomplished by one of the
             following methods:</para>
-          </listitem>
-          <listitem>
-            <para>Increment the stack pointer by the identical value that it
-            was originally decremented by in the prologue when the stack frame
-            was created.</para>
-          </listitem>
-          <listitem>
-            <para>Load the stack pointer (r1) with the value in the back-chain
-            word in the stack frame, if a back chain is present.</para>
+            <itemizedlist>
+              <listitem>
+                <para>Increment the stack pointer by the identical value that it
+                was originally decremented by in the prologue when the stack frame
+                was created.</para>
+              </listitem>
+              <listitem>
+                <para>Load the stack pointer (r1) with the value in the back-chain
+                word in the stack frame, if a back chain is present.</para>
+              </listitem>
+            </itemizedlist>
           </listitem>
           <listitem>
             <para>The calling sequence does not restrict how languages leverage
@@ -6625,26 +6910,53 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <para>A sample implementation of _savegpr0_
         <emphasis>N</emphasis> and _restgpr0_
         <emphasis>N</emphasis> follows:</para>
-        <programlisting>_
-        savegpr0_14: std r14,-144(r1) _savegpr0_15: std
-        r15,-136(r1) _savegpr0_16: std r16,-128(r1) _savegpr0_17: std
-        r17,-120(r1) _savegpr0_18: std r18,-112(r1) _savegpr0_19: std
-        r19,-104(r1) _savegpr0_20: std r20,-96(r1) _savegpr0_21: std
-        r21,-88(r1) _savegpr0_22: std r22,-80(r1) _savegpr0_23: std r23,-72(r1)
-        _savegpr0_24: std r24,-64(r1) _savegpr0_25: std r25,-56(r1)
-        _savegpr0_26: std r26,-48(r1) _savegpr0_27: std r27,-40(r1)
-        _savegpr0_28: std r28,-32(r1) _savegpr0_29: std r29,-24(r1)
-        _savegpr0_30: std r30,-16(r1) _savegpr0_31: std r31,-8(r1) std r0,
-        16(r1) blr _restgpr0_14: ld r14,-144(r1) _restgpr0_15: ld r15,-136(r1)
-        _restgpr0_16: ld r16,-128(r1) _restgpr0_17: ld r17,-120(r1)
-        _restgpr0_18: ld r18,-112(r1) _restgpr0_19: ld r19,-104(r1)
-        _restgpr0_20: ld r20,-96(r1) _restgpr0_21: ld r21,-88(r1) _restgpr0_22:
-        ld r22,-80(r1) _restgpr0_23: ld r23,-72(r1) _restgpr0_24: ld
-        r24,-64(r1) _restgpr0_25: ld r25,-56(r1) _restgpr0_26: ld r26,-48(r1)
-        _restgpr0_27: ld r27,-40(r1) _restgpr0_28: ld r28,-32(r1) _restgpr0_29:
-        ld r0, 16(r1) ld r29,-24(r1) mtlr r0 ld r30,-16(r1) ld r31,-8(r1) blr
-        _restgpr0_30: ld r30,-16(r1) _restgpr0_31: ld r0, 16(r1) ld r31,-8(r1)
-        mtlr r0 blr</programlisting>
+        <programlisting>  _savegpr0_14: std r14,-144(r1) 
+  _savegpr0_15: std r15,-136(r1) 
+  _savegpr0_16: std r16,-128(r1) 
+  _savegpr0_17: std r17,-120(r1) 
+  _savegpr0_18: std r18,-112(r1) 
+  _savegpr0_19: std r19,-104(r1) 
+  _savegpr0_20: std r20,-96(r1) 
+  _savegpr0_21: std r21,-88(r1) 
+  _savegpr0_22: std r22,-80(r1) 
+  _savegpr0_23: std r23,-72(r1)
+  _savegpr0_24: std r24,-64(r1) 
+  _savegpr0_25: std r25,-56(r1)
+  _savegpr0_26: std r26,-48(r1) 
+  _savegpr0_27: std r27,-40(r1)
+  _savegpr0_28: std r28,-32(r1) 
+  _savegpr0_29: std r29,-24(r1)
+  _savegpr0_30: std r30,-16(r1) 
+  _savegpr0_31: std r31,-8(r1) 
+                std r0, 16(r1) 
+                blr 
+
+  _restgpr0_14: ld r14,-144(r1) 
+  _restgpr0_15: ld r15,-136(r1)
+  _restgpr0_16: ld r16,-128(r1) 
+  _restgpr0_17: ld r17,-120(r1)
+  _restgpr0_18: ld r18,-112(r1) 
+  _restgpr0_19: ld r19,-104(r1)
+  _restgpr0_20: ld r20,-96(r1) 
+  _restgpr0_21: ld r21,-88(r1) 
+  _restgpr0_22: ld r22,-80(r1) 
+  _restgpr0_23: ld r23,-72(r1) 
+  _restgpr0_24: ld r24,-64(r1) 
+  _restgpr0_25: ld r25,-56(r1) 
+  _restgpr0_26: ld r26,-48(r1)
+  _restgpr0_27: ld r27,-40(r1) 
+  _restgpr0_28: ld r28,-32(r1) 
+  _restgpr0_29: ld r0, 16(r1) 
+                ld r29,-24(r1) 
+                mtlr r0 
+                ld r30,-16(r1) 
+                ld r31,-8(r1) 
+                blr
+  _restgpr0_30: ld r30,-16(r1) 
+  _restgpr0_31: ld r0, 16(r1) 
+                ld r31,-8(r1)
+                mtlr r0 
+                blr</programlisting>
         <para>Each _savegpr1_N routine saves the general registers from rN -
         r31, inclusive. When the routine is called, r12 contains the address of
         the word just beyond the end of the general register save area.</para>
@@ -6654,25 +6966,45 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         normal use of r12 on a call.</para>
         <para>A sample implementation of _savegpr1_N and _restgpr1_N
         follows:</para>
-        <programlisting>_savegpr1_14: std r14,-144(r12) _savegpr1_15: std
-        r15,-136(r12) _savegpr1_16: std r16,-128(r12) _savegpr1_17: std
-        r17,-120(r12) _savegpr1_18: std r18,-112(r12) _savegpr1_19: std
-        r19,-104(r12) _savegpr1_20: std r20,-96(r12) _savegpr1_21: std
-        r21,-88(r12) _savegpr1_22: std r22,-80(r12) _savegpr1_23: std
-        r23,-72(r12) _savegpr1_24: std r24,-64(r12) _savegpr1_25: std
-        r25,-56(r12) _savegpr1_26: std r26,-48(r12) _savegpr1_27: std
-        r27,-40(r12) _savegpr1_28: std r28,-32(r12) _savegpr1_29: std
-        r29,-24(r12) _savegpr1_30: std r30,-16(r12) _savegpr1_31: std
-        r31,-8(r12) blr _restgpr1_14: ld r14,-144(r12) _restgpr1_15: ld
-        r15,-136(r12) _restgpr1_16: ld r16,-128(r12) _restgpr1_17: ld
-        r17,-120(r12) _restgpr1_18: ld r18,-112(r12) _restgpr1_19: ld
-        r19,-104(r12) _restgpr1_20: ld r20,-96(r12) _restgpr1_21: ld
-        r21,-88(r12) _restgpr1_22: ld r22,-80(r12) _restgpr1_23: ld
-        r23,-72(r12) _restgpr1_24: ld r24,-64(r12) _restgpr1_25: ld
-        r25,-56(r12) _restgpr1_26: ld r26,-48(r12) _restgpr1_27: ld
-        r27,-40(r12) _restgpr1_28: ld r28,-32(r12) _restgpr1_29: ld
-        r29,-24(r12) _restgpr1_30: ld r30,-16(r12) _restgpr1_31: ld r31,-8(r12)
-        blr</programlisting>
+        <programlisting>  _savegpr1_14: std r14,-144(r12) 
+  _savegpr1_15: std r15,-136(r12) 
+  _savegpr1_16: std r16,-128(r12) 
+  _savegpr1_17: std r17,-120(r12) 
+  _savegpr1_18: std r18,-112(r12) 
+  _savegpr1_19: std r19,-104(r12) 
+  _savegpr1_20: std r20,-96(r12) 
+  _savegpr1_21: std r21,-88(r12) 
+  _savegpr1_22: std r22,-80(r12) 
+  _savegpr1_23: std r23,-72(r12) 
+  _savegpr1_24: std r24,-64(r12) 
+  _savegpr1_25: std r25,-56(r12) 
+  _savegpr1_26: std r26,-48(r12) 
+  _savegpr1_27: std r27,-40(r12) 
+  _savegpr1_28: std r28,-32(r12) 
+  _savegpr1_29: std r29,-24(r12) 
+  _savegpr1_30: std r30,-16(r12) 
+  _savegpr1_31: std r31,-8(r12) 
+                blr
+
+  _restgpr1_14: ld r14,-144(r12) 
+  _restgpr1_15: ld r15,-136(r12) 
+  _restgpr1_16: ld r16,-128(r12) 
+  _restgpr1_17: ld r17,-120(r12) 
+  _restgpr1_18: ld r18,-112(r12) 
+  _restgpr1_19: ld r19,-104(r12) 
+  _restgpr1_20: ld r20,-96(r12) 
+  _restgpr1_21: ld r21,-88(r12) 
+  _restgpr1_22: ld r22,-80(r12) 
+  _restgpr1_23: ld r23,-72(r12) 
+  _restgpr1_24: ld r24,-64(r12) 
+  _restgpr1_25: ld r25,-56(r12) 
+  _restgpr1_26: ld r26,-48(r12) 
+  _restgpr1_27: ld r27,-40(r12) 
+  _restgpr1_28: ld r28,-32(r12) 
+  _restgpr1_29: ld r29,-24(r12) 
+  _restgpr1_30: ld r30,-16(r12) 
+  _restgpr1_31: ld r31,-8(r12)
+                blr</programlisting>
       </section>
       <section xml:id="dbdoclet.50655240_56788">
         <title>FPR Save and Restore Functions</title>
@@ -6697,25 +7029,54 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <para>A sample implementation of _savefpr_
         <emphasis>N</emphasis> and _restfpr_
         <emphasis>N</emphasis> follows:</para>
-        <programlisting>_savefpr_14: stfd f14,-144(r1) _savefpr_15: stfd
-        f15,-136(r1) _savefpr_16: stfd f16,-128(r1) _savefpr_17: stfd
-        f17,-120(r1) _savefpr_18: stfd f18,-112(r1) _savefpr_19: stfd
-        f19,-104(r1) _savefpr_20: stfd f20,-96(r1) _savefpr_21: stfd
-        f21,-88(r1) _savefpr_22: stfd f22,-80(r1) _savefpr_23: stfd f23,-72(r1)
-        _savefpr_24: stfd f24,-64(r1) _savefpr_25: stfd f25,-56(r1)
-        _savefpr_26: stfd f26,-48(r1) _savefpr_27: stfd f27,-40(r1)
-        _savefpr_28: stfd f28,-32(r1) _savefpr_29: stfd f29,-24(r1)
-        _savefpr_30: stfd f30,-16(r1) _savefpr_31: stfd f31,-8(r1) std r0,
-        16(r1) blr _restfpr_14: lfd f14,-144(r1) _restfpr_15: lfd f15,-136(r1)
-        _restfpr_16: lfd f16,-128(r1) _restfpr_17: lfd f17,-120(r1)
-        _restfpr_18: lfd f18,-112(r1) _restfpr_19: lfd f19,-104(r1)
-        _restfpr_20: lfd f20,-96(r1) _restfpr_21: lfd f21,-88(r1) _restfpr_22:
-        lfd f22,-80(r1) _restfpr_23: lfd f23,-72(r1) _restfpr_24: lfd
-        f24,-64(r1) _restfpr_25: lfd f25,-56(r1) _restfpr_26: lfd f26,-48(r1)
-        _restfpr_27: lfd f27,-40(r1) _restfpr_28: lfd f28,-32(r1) _restfpr_29:
-        ld r0, 16(r1) lfd f29,-24(r1) mtlr r0 lfd f30,-16(r1) lfd f31,-8(r1)
-        blr _restfpr_30: lfd f30,-16(r1) _restfpr_31: ld r0, 16(r1) lfd
-        f31,-8(r1) mtlr r0 blr</programlisting>
+        <programlisting>  _savefpr_14: stfd f14,-144(r1) 
+  _savefpr_15: stfd f15,-136(r1) 
+  _savefpr_16: stfd f16,-128(r1) 
+  _savefpr_17: stfd f17,-120(r1) 
+  _savefpr_18: stfd f18,-112(r1) 
+  _savefpr_19: stfd f19,-104(r1) 
+  _savefpr_20: stfd f20,-96(r1) 
+  _savefpr_21: stfd f21,-88(r1)
+  _savefpr_22: stfd f22,-80(r1) 
+  _savefpr_23: stfd f23,-72(r1)
+  _savefpr_24: stfd f24,-64(r1) 
+  _savefpr_25: stfd f25,-56(r1)
+  _savefpr_26: stfd f26,-48(r1) 
+  _savefpr_27: stfd f27,-40(r1)
+  _savefpr_28: stfd f28,-32(r1) 
+  _savefpr_29: stfd f29,-24(r1)
+  _savefpr_30: stfd f30,-16(r1) 
+  _savefpr_31: stfd f31,-8(r1) 
+               std r0, 16(r1) 
+               blr
+
+  _restfpr_14: lfd f14,-144(r1) 
+  _restfpr_15: lfd f15,-136(r1)
+  _restfpr_16: lfd f16,-128(r1) 
+  _restfpr_17: lfd f17,-120(r1)
+  _restfpr_18: lfd f18,-112(r1) 
+  _restfpr_19: lfd f19,-104(r1)
+  _restfpr_20: lfd f20,-96(r1) 
+  _restfpr_21: lfd f21,-88(r1) 
+  _restfpr_22: lfd f22,-80(r1) 
+  _restfpr_23: lfd f23,-72(r1) 
+  _restfpr_24: lfd f24,-64(r1) 
+  _restfpr_25: lfd f25,-56(r1) 
+  _restfpr_26: lfd f26,-48(r1)
+  _restfpr_27: lfd f27,-40(r1) 
+  _restfpr_28: lfd f28,-32(r1) 
+  _restfpr_29: ld r0, 16(r1) 
+               lfd f29,-24(r1) 
+               mtlr r0 
+               lfd f30,-16(r1) 
+               lfd f31,-8(r1)
+               blr 
+
+  _restfpr_30: lfd f30,-16(r1) 
+  _restfpr_31: ld r0, 16(r1) 
+               lfd f31,-8(r1) 
+               mtlr r0 
+               blr</programlisting>
       </section>
       <section xml:id="dbdoclet.50655240_96790">
         <title>Vector Save and Restore Functions</title>
@@ -6741,27 +7102,58 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         _restgpr1_M.</para>
         <para>A sample implementation of _savevr_M and _restvr_M
         follows:</para>
-        <programlisting>_savevr_20: addi r12,r0,-192 stvx v20,r12,r0 # save v20
-        _savevr_21: addi r12,r0,-176 stvx v21,r12,r0 # save v21 _savevr_22:
-        addi r12,r0,-160 stvx v22,r12,r0 # save v22 _savevr_23: addi
-        r12,r0,-144 stvx v23,r12,r0 # save v23 _savevr_24: addi r12,r0,-128
-        stvx v24,r12,r0 # save v24 _savevr_25: addi r12,r0,-112 stvx v25,r12,r0
-        # save v25 _savevr_26: addi r12,r0,-96 stvx v26,r12,r0 # save v26
-        _savevr_27: addi r12,r0,-80 stvx v27,r12,r0 # save v27 _savevr_28: addi
-        r12,r0,-64 stvx v28,r12,r0 # save v28 _savevr_29: addi r12,r0,-48 stvx
-        v29,r12,r0 # save v29 _savevr_30: addi r12,r0,-32 stvx v30,r12,r0 #
-        save v30 _savevr_31: addi r12,r0,-16 stvx v31,r12,r0 # save v31 blr #
-        return to epilogue _restvr_20: addi r12,r0,-192 lvx v20,r12,r0 #
-        restore v20 _restvr_21: addi r12,r0,-176 lvx v21,r12,r0 # restore v21
-        _restvr_22: addi r12,r0,-160 lvx v22,r12,r0 # restore v22 _restvr_23:
-        addi r12,r0,-144 lvx v23,r12,r0 # restore v23 _restvr_24: addi
-        r12,r0,-128 lvx v24,r12,r0 # restore v24 _restvr_25: addi r12,r0,-112
-        lvx v25,r12,r0 # restore v25 _restvr_26: addi r12,r0,-96 lvx v26,r12,r0
-        # restore v26 _restvr_27: addi r12,r0,-80 lvx v27,r12,r0 # restore v27
-        _restvr_28: addi r12,r0,-64 lvx v28,r12,r0 # restore v28 _restvr_29:
-        addi r12,r0,-48 lvx v29,r12,r0 # restore v29 _restvr_30: addi
-        r12,r0,-32 lvx v30,r12,r0 # restore v30 _restvr_31: addi r12,r0,-16 lvx
-        v31,r12,r0 # restore v31 blr #return to epilogue</programlisting>
+        <programlisting>
+_savevr_20:   addi  r12,r0,-192 
+              stvx  v20,r12,r0        # save v20
+_savevr_21:   addi  r12,r0,-176 
+              stvx  v21,r12,r0        # save v21 
+_savevr_22:   addi  r12,r0,-160 
+              stvx  v22,r12,r0        # save v22 
+_savevr_23:   addi  r12,r0,-144 
+              stvx  v23,r12,r0        # save v23 
+_savevr_24:   addi  r12,r0,-128
+              stvx  v24,r12,r0        # save v24 
+_savevr_25:   addi  r12,r0,-112 
+              stvx  v25,r12,r0        # save v25 
+_savevr_26:   addi  r12,r0,-96 
+              stvx  v26,r12,r0        # save v26
+_savevr_27:   addi  r12,r0,-80 
+              stvx  v27,r12,r0        # save v27 
+_savevr_28:   addi  r12,r0,-64 
+              stvx  v28,r12,r0        # save v28 
+_savevr_29:   addi  r12,r0,-48 
+              stvx  v29,r12,r0        # save v29 
+_savevr_30:   addi  r12,r0,-32 
+              stvx  v30,r12,r0        # save v30 
+_savevr_31:   addi  r12,r0,-16 
+              stvx  v31,r12,r0        # save v31 
+              blr                     # return to epilogue 
+              
+_restvr_20:   addi  r12,r0,-192 
+              lvx   v20,r12,r0        # restore v20 
+_restvr_21:   addi  r12,r0,-176 
+              lvx   v21,r12,r0        # restore v21
+_restvr_22:   addi  r12,r0,-160 
+              lvx   v22,r12,r0        # restore v22 
+_restvr_23:   addi  r12,r0,-144 
+              lvx   v23,r12,r0        # restore v23 
+_restvr_24:   addi  r12,r0,-128 
+              lvx   v24,r12,r0        # restore v24 
+_restvr_25:   addi  r12,r0,-112 
+              lvx   v25,r12,r0        # restore v25 
+_restvr_26:   addi  r12,r0,-96 
+              lvx   v26,r12,r0        # restore v26 
+_restvr_27:   addi  r12,r0,-80 
+              lvx   v27,r12,r0        # restore v27
+_restvr_28:   addi  r12,r0,-64 
+              lvx   v28,r12,r0        # restore v28 
+_restvr_29:   addi  r12,r0,-48 
+              lvx   v29,r12,r0        # restore v29 
+_restvr_30:   addi  r12,r0,-32 
+              lvx   v30,r12,r0        # restore v30 
+_restvr_31:   addi  r12,r0,-16 
+              lvx   v31,r12,r0        # restore v31 
+              blr                     #return to epilogue</programlisting>
       </section>
     </section>
     <section xml:id="dbdoclet.50655240_29249">
@@ -6850,7 +7242,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           </tbody>
         </tgroup>
       </informaltable>
-      <para></para>
+
       <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_12719">
         <title>Absolute Load and Store Example</title>
         <tgroup cols="2">
@@ -6873,21 +7265,48 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           <tbody>
             <row>
               <entry>
-                <programlisting>extern int src; extern int dst; extern int
-                *ptr; dst = src; ptr = &amp;dst; *ptr = src;</programlisting>
+                <programlisting>extern int src;
+extern int dst;
+extern int *ptr; 
+
+dst = src; 
+
+
+
+ptr = &amp;dst; 
+
+
+
+*ptr = src;
+
+
+
+</programlisting>
               </entry>
               <entry>
-                <programlisting>.extern src .extern dst .extern ptr .section
-                ".text" lis r9,src@ha lwz r9,src@l(r9) lis r11,dst@ha stw
-                r9,dst@l(r11) lis r11,ptr@ha lis r9,dst@ha la r9,dst@l(r9) std
-                r9,ptr@l(r11) lis r11,ptr@ha lwz r11,ptr@l(r11) lis r9,src@ha
-                lwz r9,src@l(r9) stw r9,0(r11)</programlisting>
+                <programlisting>.extern src
+.extern dst 
+.extern ptr 
+.section ".text" 
+lis r9,src@ha 
+lwz r9,src@l(r9) 
+lis r11,dst@ha 
+stw r9,dst@l(r11) 
+lis r11,ptr@ha 
+lis r9,dst@ha 
+la r9,dst@l(r9) 
+std r9,ptr@l(r11) 
+lis r11,ptr@ha 
+lwz r11,ptr@l(r11) 
+lis r9,src@ha
+lwz r9,src@l(r9) 
+stw r9,0(r11)</programlisting>
               </entry>
             </row>
           </tbody>
         </tgroup>
       </table>
-      <para></para>
+
       <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_page77">
         <title>Small Model Position-Independent Load and Store (DSO)</title>
         <tgroup cols="2">
@@ -6910,21 +7329,48 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           <tbody>
             <row>
               <entry>
-                <programlisting>extern int src; extern int dst; extern int
-                *ptr; dst = src; ptr = &amp;dst; *ptr = src;</programlisting>
+                <programlisting>extern int src;
+extern int dst; 
+extern int *ptr; 
+
+
+dst = src; 
+
+
+
+ptr = &amp;dst; 
+
+
+*ptr = src;
+
+
+
+</programlisting>
               </entry>
               <entry>
-                <programlisting>.extern src .extern dst .extern ptr .section
-                ".text" # TOC base in r2 ld r9,src@got(2) lwz r0,0(r9) ld
-                r9,dst@got(r2) stw r0,0(r9) ld r9,ptr@got(r2) ld r0,dst@got(r2)
-                std r0,0(r9) ld r9,ptr@got(r2) ld r11,0(r9) ld r9,src@got(r2)
-                lwz r0,0(r9) stw r0,0(r11)</programlisting>
+                <programlisting>.extern src 
+.extern dst 
+.extern ptr 
+.section ".text" 
+# TOC base in r2 
+ld r9,src@got(2) 
+lwz r0,0(r9) 
+ld r9,dst@got(r2) 
+stw r0,0(r9) 
+ld r9,ptr@got(r2) 
+ld r0,dst@got(r2)
+std r0,0(r9) 
+ld r9,ptr@got(r2) 
+ld r11,0(r9) 
+ld r9,src@got(r2)
+lwz r0,0(r9) 
+stw r0,0(r11)</programlisting>
               </entry>
             </row>
           </tbody>
         </tgroup>
       </table>
-      <para></para>
+
       <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_19926">
         <title>Medium or Large Model Position-Independent Load and Store
         (DSO)</title>
@@ -6948,18 +7394,54 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           <tbody>
             <row>
               <entry>
-                <programlisting>extern int src; extern int dst; int *ptr; dst =
-                src; ptr = &amp; dst; *ptr = src;</programlisting>
+                <programlisting>extern int src; 
+extern int dst; 
+int *ptr; 
+
+
+dst = src; 
+
+
+
+
+
+ptr = &amp;dst; 
+
+
+
+
+*ptr = src;
+
+
+
+
+
+</programlisting>
               </entry>
               <entry>
-                <programlisting>.extern src .extern dst .extern ptr .section
-                ".text" # AssumesTOC pointer in r2 addis r6,r2,src@got@ha ld
-                r6,src@got@l(r6) addis r7,r2,dst@got@ha ld r7,dst@got@l(r7) lwz
-                r0,0(r6) stw r0,0(r7) addis r6,r2,dst@got@ha ld
-                r6,dst@got@l(r6) addis r7,r2,ptr@got@ha ld r7,ptr@got@l(r7) stw
-                r6,0(r7) addis r6,r2,src@got@ha ld r6,src@got@l(r6) addis
-                r7,r2,ptr@got@ha ld r7,ptr@got@l(r7) ld r7,0(r7) lwz r0,0(r6)
-                stw r0,0,(r7)</programlisting>
+                <programlisting>.extern src 
+.extern dst 
+.extern ptr 
+.section".text" 
+# AssumesTOC pointer in r2 
+addis r6,r2,src@got@ha 
+ld r6,src@got@l(r6) 
+addis r7,r2,dst@got@ha 
+ld r7,dst@got@l(r7) 
+lwz r0,0(r6) 
+stw r0,0(r7) 
+addis r6,r2,dst@got@ha 
+ld r6,dst@got@l(r6) 
+addis r7,r2,ptr@got@ha 
+ld r7,ptr@got@l(r7) 
+stw r6,0(r7) 
+addis r6,r2,src@got@ha 
+ld r6,src@got@l(r6) 
+addis r7,r2,ptr@got@ha 
+ld r7,ptr@got@l(r7) 
+ld r7,0(r7) 
+lwz r0,0(r6)
+stw r0,0,(r7)</programlisting>
               </entry>
             </row>
           </tbody>
@@ -6989,66 +7471,66 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             Global Offset Table where the value of the symbol is stored is
             given by the assembly syntax symbol@got. This syntax represents the
             address of the variable named "symbol."</para>
+            <para>The offset for this assembly syntax cannot be any larger than 16
+            bits. In cases where the offset is greater than 16 bits, the following
+            assembly syntax is used for offsets up to 32 bits:</para>
+            <itemizedlist>
+              <listitem>
+                <para>High (32-bit) adjusted part of the offset:
+                symbol@got@ha</para>
+                <para>Causes a linker error if the offset is larger than 32
+                bits.</para>
+              </listitem>
+              <listitem>
+                <para>High (32-bit) part of the offset: symbol@got@h</para>
+                <para>Causes a linker error if the offset is larger than 32
+                bits.</para>
+              </listitem>
+              <listitem>
+                <para>Low part of the offset: symbol@got@l</para>
+              </listitem>
+            </itemizedlist>
+            <para>To obtain the multiple 16-bit segments of a 64-bit offset, the
+            following operators may be used:</para>
+            <itemizedlist spacing="compact">
+              <listitem>
+                <para>Highest (most-significant 16 bits) adjusted part of the
+                offset: symbol@highesta</para>
+              </listitem>
+              <listitem>
+                <para>Highest (most-significant 16 bits) part of the offset:
+                symbol@highest</para>
+              </listitem>
+              <listitem>
+                <para>Higher (next significant 16 bits) adjusted part of the
+                offset: symbol@highera</para>
+              </listitem>
+              <listitem>
+                <para>Higher (next significant 16 bits) part of the offset:
+                symbol@higher</para>
+              </listitem>
+              <listitem>
+                <para>High (next significant 16 bits) adjusted part of the offset:
+                symbol@higha</para>
+              </listitem>
+              <listitem>
+                <para>High (next significant 16 bits) part of the offset:
+                symbol@high</para>
+              </listitem>
+              <listitem>
+                <para>Low part of the offset: symbol@l</para>
+              </listitem>
+            </itemizedlist>
+            <para>If the instruction using symbol@got@
+            <emphasis>l</emphasis> has a signed immediate operand (for example,
+            addi), use symbol@got@
+            <emphasis role="bold">ha</emphasis>(high adjusted) for the high part of the offset.
+            If it has an unsigned immediate operand (for example, ori), use
+            symbol@got@
+            <emphasis role="bold">h</emphasis>. For a description of high-adjusted values, see 
+            <xref linkend="dbdoclet.50655241_51269" />.</para>
           </listitem>
         </itemizedlist>
-        <para>The offset for this assembly syntax cannot be any larger than 16
-        bits. In cases where the offset is greater than 16 bits, the following
-        assembly syntax is used for offsets up to 32 bits:</para>
-        <itemizedlist>
-          <listitem>
-            <para>High (32-bit) adjusted part of the offset:
-            symbol@got@ha</para>
-            <para>Causes a linker error if the offset is larger than 32
-            bits.</para>
-          </listitem>
-          <listitem>
-            <para>High (32-bit) part of the offset: symbol@got@h</para>
-            <para>Causes a linker error if the offset is larger than 32
-            bits.</para>
-          </listitem>
-          <listitem>
-            <para>Low part of the offset: symbol@got@l</para>
-          </listitem>
-        </itemizedlist>
-        <para>To obtain the multiple 16-bit segments of a 64-bit offset, the
-        following operators may be used:</para>
-        <itemizedlist spacing="compact">
-          <listitem>
-            <para>Highest (most-significant 16 bits) adjusted part of the
-            offset: symbol@highesta</para>
-          </listitem>
-          <listitem>
-            <para>Highest (most-significant 16 bits) part of the offset:
-            symbol@highest</para>
-          </listitem>
-          <listitem>
-            <para>Higher (next significant 16 bits) adjusted part of the
-            offset: symbol@highera</para>
-          </listitem>
-          <listitem>
-            <para>Higher (next significant 16 bits) part of the offset:
-            symbol@higher</para>
-          </listitem>
-          <listitem>
-            <para>High (next significant 16 bits) adjusted part of the offset:
-            symbol@higha</para>
-          </listitem>
-          <listitem>
-            <para>High (next significant 16 bits) part of the offset:
-            symbol@high</para>
-          </listitem>
-          <listitem>
-            <para>Low part of the offset: symbol@l</para>
-          </listitem>
-        </itemizedlist>
-        <para>If the instruction using symbol@got@
-        <emphasis>l</emphasis> has a signed immediate operand (for example,
-        addi), use symbol@got@
-        <emphasis>ha</emphasis>(high adjusted) for the high part of the offset.
-        If it has an unsigned immediate operand (for example, ori), use
-        symbol@got@
-        <emphasis>h</emphasis>. For a description of high-adjusted values, see 
-        <xref linkend="dbdoclet.50655241_51269" />.</para>
       </note>
     </section>
     <section xml:id="dbdoclet.50655240_88555">
@@ -7099,10 +7581,12 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             <row>
               <entry>
                 <programlisting>extern void function();
-                function();</programlisting>
+function();</programlisting>
               </entry>
               <entry>
-                <programlisting>bl function nop</programlisting>
+                <programlisting>
+bl function 
+nop</programlisting>
               </entry>
             </row>
           </tbody>
@@ -7125,7 +7609,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       <xref linkend="dbdoclet.50655240_95225" />. The ELF V2 ABI requires the
       address of the called function to be in r12 when a cross-module function
       call is made.</para>
-      <para></para>
+
       <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_95364">
         <title>Indirect Function Call (Absolute Medium Model)</title>
         <tgroup cols="2">
@@ -7148,14 +7632,30 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           <tbody>
             <row>
               <entry>
-                <programlisting>extern void function(); extern void (*ptrfunc)
-                (); (*ptrfunc)();</programlisting>
+                <programlisting>extern void function(); 
+extern void (*ptrfunc) ();
+
+ptrfunc = function;
+ 
+
+
+(*ptrfunc)();
+
+
+</programlisting>
               </entry>
               <entry>
-                <programlisting>.section .text lis r11,ptrfunc@ha lis
-                r9,function@ha ld r9,function@l(r9) std r9,ptrfunc@l(r11) lis
-                r12,ptrfunc@ha ld r12,ptrfunc@l(r12) mtctr r12
-                bctrl</programlisting>
+                <programlisting>
+
+.section .text 
+lis r11,ptrfunc@ha 
+lis r9,function@ha 
+ld r9,function@l(r9) 
+std r9,ptrfunc@l(r11) 
+lis r12,ptrfunc@ha 
+ld r12,ptrfunc@l(r12) 
+mtctr r12
+bctrl</programlisting>
               </entry>
             </row>
           </tbody>
@@ -7164,7 +7664,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       <para>
       <xref linkend="dbdoclet.50655240_16744" /> shows how to make an indirect
       function call using small-model position-independent code.</para>
-      <para></para>
+
       <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_16744">
         <title>Small-Model Position-Independent Indirect Function Call</title>
         <tgroup cols="2">
@@ -7187,14 +7687,36 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           <tbody>
             <row>
               <entry>
-                <programlisting>extern void function(); extern void (*ptrfunc)
-                (); ptrfunc = function; ... (*ptrfunc) ();</programlisting>
+                <programlisting>extern void function(); 
+extern void (*ptrfunc) (); 
+
+
+ptrfunc = function; 
+
+
+... 
+(*ptrfunc) ();
+
+
+
+
+</programlisting>
               </entry>
               <entry>
-                <programlisting>.section .text /* TOC pointer is in r2 */ ld
-                r9,ptrfunc@got(r2) ld r0,function@got(r2) std r0,0(r9) ... ld
-                r9,ptrfunc@got(r2) ld r12,0(r9) mtctr r12 std r2,24(r1) bctrl
-                ld r2,24(r1)</programlisting>
+                <programlisting>
+
+.section .text 
+/* TOC pointer is in r2 */ 
+ld r9,ptrfunc@got(r2) 
+ld r0,function@got(r2) 
+std r0,0(r9) 
+... 
+ld r9,ptrfunc@got(r2) 
+ld r12,0(r9) 
+mtctr r12 
+std r2,24(r1) 
+bctrl
+ld r2,24(r1)</programlisting>
               </entry>
             </row>
           </tbody>
@@ -7203,7 +7725,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       <para>
       <xref linkend="dbdoclet.50655240_95225" /> shows how to make an indirect
       function call using large-model position-independent code.</para>
-      <para></para>
+
       <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_95225">
         <title>Large-Model Position-Independent Indirect Function Call</title>
         <tgroup cols="2">
@@ -7226,15 +7748,38 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           <tbody>
             <row>
               <entry>
-                <programlisting>extern void function(); extern void (*ptrfunc)
-                (); ptrfunc=function; (*ptrfunc) ();</programlisting>
+                <programlisting>extern void function(); 
+extern void (*ptrfunc) (); 
+ptrfunc=function; 
+
+
+
+
+
+(*ptrfunc) ();
+
+
+
+
+
+</programlisting>
               </entry>
               <entry>
-                <programlisting>addis r9,r2,ptrfunc@got@ha ld
-                r9,ptrfunc@got@l(r9) addis r12,r2,function@got@ha ld
-                r12,function@got@l(r12) std r12,0(r9) addis
-                r9,r2,ptrfunc@got@ha ld r9,ptrfunc@got@l(r9) ld r12,0(r9) std
-                r2,24(r1) mtctr r12 bctrl ld r2,24(r1)</programlisting>
+                <programlisting>
+
+addis r9,r2,ptrfunc@got@ha 
+ld r9,ptrfunc@got@l(r9) 
+addis r12,r2,function@got@ha 
+ld r12,function@got@l(r12) 
+std r12,0(r9) 
+
+addis r9,r2,ptrfunc@got@ha 
+ld r9,ptrfunc@got@l(r9) 
+ld r12,0(r9) 
+std r2,24(r1) 
+mtctr r12 
+bctrl 
+ld r2,24(r1)</programlisting>
               </entry>
             </row>
           </tbody>
@@ -7256,8 +7801,12 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       with an R_PPC64_TOCSAVE relocation that points to a nop provided in the
       caller's prologue. In that case, the stub code can omit the r2 save.
       Instead, the linker replaces the prologue nop with an r2 save.</para>
-      <programlisting>tocsaveloc: nop ... bl target .reloc ., R_PPC64_TOCSAVE,
-      tocsaveloc nop</programlisting>
+      <programlisting>tocsaveloc: 
+   nop 
+ ... 
+bl target 
+   .reloc ., R_PPC64_TOCSAVE, tocsaveloc 
+   nop</programlisting>
       <para>The linker may assume that r2 is valid at the point of a call.
       Thus, stub code may use r2 to load an address from the PLT unless the
       call is marked with an R_PPC64_REL24_NOTOC relocation to indicate that r2
@@ -7279,7 +7828,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       <para>
       <xref linkend="dbdoclet.50655240_66111" /> shows the model for branch
       instructions.</para>
-      <para></para>
+
       <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_66111">
         <title>Branch Instruction Model</title>
         <tgroup cols="2">
@@ -7302,10 +7851,14 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           <tbody>
             <row>
               <entry>
-                <programlisting>label: ... goto label;</programlisting>
+                <programlisting>label: 
+... 
+goto label;</programlisting>
               </entry>
               <entry>
-                <programlisting>.L01: ... b .L01</programlisting>
+                <programlisting>.L01: 
+... 
+b .L01</programlisting>
               </entry>
             </row>
           </tbody>
@@ -7333,7 +7886,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       <para>For position-dependent code (for example, the main module of an
       application) loaded into the low or high address range, absolute
       addressing of a branch table yields the best performance.</para>
-      <para></para>
+
       <table frame="all" pgwide="1">
         <title>Absolute Switch Code (Within)for static modules located in low
         or high 2 GB of address space</title>
@@ -7357,14 +7910,36 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           <tbody>
             <row>
               <entry>
-                <programlisting>switch(j) { case 0: ... case 1: ... case 3: ...
-                default: ... }</programlisting>
+                <programlisting>switch(j) 
+{ 
+case 0: 
+... 
+case 1: 
+... 
+case 3: 
+...
+default: 
+... 
+}
+
+
+</programlisting>
               </entry>
               <entry>
-                <programlisting>cmplwi r12, 4 bge .Ldefault slwi r12, 2 addis
-                r12, r12, .Ltab@ha lwa r12, .Ltab@l(r12) mtctr r12 bctr .rodata
-                .Ltab: .long .Lcase0 .long .Lcase1 .long .Ldefault .long
-                .Lcase3 .text</programlisting>
+                <programlisting>cmplwi r12, 4 
+bge .Ldefault 
+slwi r12, 2 
+addis r12, r12, .Ltab@ha 
+lwa r12, .Ltab@l(r12) 
+mtctr r12 
+bctr 
+.rodata
+.Ltab: 
+.long .Lcase0 
+.long .Lcase1 
+.long .Ldefault 
+.long .Lcase3 
+.text</programlisting>
               </entry>
             </row>
           </tbody>
@@ -7398,14 +7973,36 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           <tbody>
             <row>
               <entry>
-                <programlisting>switch(j) { case 0: ... case 1: ... case 3: ...
-                default: ... }</programlisting>
+                <programlisting>switch(j) 
+{ 
+case 0: 
+... 
+case 1: 
+... 
+case 3: 
+...
+default: 
+... 
+}
+
+
+</programlisting>
               </entry>
               <entry>
-                <programlisting>cmplwi r12, 4 bge .Ldefault slwi r12, 2 addis
-                r12, r12, .Ltab@ha ld r12, .Ltab@l(r12) mtctr r12 bctr .rodata
-                .Ltab: .quad .Lcase0 .quad .Lcase1 .quad .Ldefault .quad
-                .Lcase3 .text</programlisting>
+                <programlisting>cmplwi r12, 4 
+bge .Ldefault 
+slwi r12, 2 
+addis r12, r12, .Ltab@ha 
+ld r12, .Ltab@l(r12) 
+mtctr r12 
+bctr 
+.rodata
+.Ltab: 
+.quad .Lcase0 
+.quad .Lcase1 
+.quad .Ldefault 
+.quad .Lcase3 
+.text</programlisting>
               </entry>
             </row>
           </tbody>
@@ -7417,7 +8014,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       pointer points to a fixed offset from the code segment. The use of
       relative offsets from the start address of the branch table ensures
       position-independence when code is loaded at different addresses.</para>
-      <para></para>
+
       <table frame="all" pgwide="1">
         <title>Position-Independent Switch Code for Small/Medium Models</title>
         <tgroup cols="2">
@@ -7440,15 +8037,36 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           <tbody>
             <row>
               <entry>
-                <programlisting>switch(j) { case 0: ... case 1: ... case 3: ...
-                default: ... }</programlisting>
+                <programlisting>switch(j) 
+{ 
+case 0: 
+... 
+case 1: 
+... 
+case 3: 
+...
+default: 
+...
+}
+
+
+</programlisting>
               </entry>
               <entry>
-                <programlisting>cmplwi r12, 4 bge .Ldefault addis
-                r10,r2,(.Ltab-.TOC.)@ha addi r10,r10,(.Ltab-.TOC.)@l slwi r12,2
-                lwax r8,r10,r12 add r10,r8,r10 mtctr r10 bctr .Ltab: .word
-                (.Lcase0-.Ltab) .word (.Lcase1-.Ltab) .word (.Ldefault-.Ltab)
-                .word (.Lcase3-.Ltab)</programlisting>
+                <programlisting>cmplwi r12, 4 
+bge .Ldefault 
+addis r10,r2,(.Ltab-.TOC.)@ha 
+addi r10,r10,(.Ltab-.TOC.)@l 
+slwi r12,2
+lwax r8,r10,r12 
+add r10,r8,r10 
+mtctr r10 
+bctr 
+.Ltab: 
+.word (.Lcase0-.Ltab) 
+.word (.Lcase1-.Ltab) 
+.word (.Ldefault-.Ltab)
+.word (.Lcase3-.Ltab)</programlisting>
               </entry>
             </row>
           </tbody>
@@ -7461,7 +8079,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       GB. The use of relative offsets from the start address of the branch
       table ensures position independence when code is loaded at different
       addresses.</para>
-      <para></para>
+
       <table frame="all" pgwide="1">
         <title>Position-Independent Switch Code for All Models (alternate, with
         GOT-indirect addressing)</title>
@@ -7485,15 +8103,36 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           <tbody>
             <row>
               <entry>
-                <programlisting>switch(j) { case 0: ... case 1: ... case 3: ...
-                default: ... }</programlisting>
+                <programlisting>switch(j) 
+{ 
+case 0: 
+... 
+case 1: 
+... 
+case 3: 
+...
+default: 
+... 
+}
+
+
+</programlisting>
               </entry>
               <entry>
-                <programlisting>cmplwi r12, 4 bge .Ldefault addis
-                r10,r2,.Ltab@got@ha ld r10,.Ltab@got@l(r10) slwi r12,2 lwax
-                r8,r10,r8 add r10,r8,r12 mtctr r10 bctr .Ltab: .word
-                (.Lcase0-.Ltab) .word (.Lcase1-.Ltab) .word (.Ldefault-.Ltab)
-                .word (.Lcase3-.Ltab)</programlisting>
+                <programlisting>cmplwi r12, 4 
+bge .Ldefault 
+addis r10,r2,.Ltab@got@ha 
+ld r10,.Ltab@got@l(r10) 
+slwi r12,2 
+lwax r8,r10,r8 
+add r10,r8,r12 
+mtctr r10 
+bctr 
+.Ltab: 
+.word (.Lcase0-.Ltab) 
+.word (.Lcase1-.Ltab) 
+.word (.Ldefault-.Ltab)
+.word (.Lcase3-.Ltab)</programlisting>
               </entry>
             </row>
           </tbody>
@@ -7506,10 +8145,20 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       implementations.</para>
       <figure xml:id="dbdoclet.50655240_11405">
         <title>PIC Code that Avoids the lwa Instruction</title>
-        <programlisting>.text f1: addis r9,r2,.Ltab@ha sldi r10,r3,2 addi
-        r9,r9,.Ltab@l lwzx r10,r10,r9 sub r10,r2,r10 mtctr r10 bctr .Ltab:
-        .long .TOC. - Lcase0 .long .TOC. - Lcase1 .long .TOC. - Ldefault .long
-        .TOC. - Lcase13</programlisting>
+        <programlisting>    .text 
+f1: 
+    addis r9,r2,.Ltab@ha 
+    sldi r10,r3,2 
+    addi r9,r9,.Ltab@l 
+    lwzx r10,r10,r9 
+    sub r10,r2,r10 
+    mtctr r10 
+    bctr 
+.Ltab:
+    .long .TOC. - Lcase0 
+    .long .TOC. - Lcase1 
+    .long .TOC. - Ldefault 
+    .long .TOC. - Lcase13</programlisting>
       </figure>
     </section>
     <section xml:id="dbdoclet.50655240_32686">
@@ -7553,7 +8202,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       <para>
       <xref linkend="dbdoclet.50655240_20151" /> shows the organization of a
       stack frame before a dynamic allocation.</para>
-      <para></para>
+
       <figure pgwide="1" xml:id="dbdoclet.50655240_20151">
         <title>Before Dynamic Stack Allocation</title>
         <mediaobject>
@@ -7565,12 +8214,14 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       </figure>
       <figure>
         <title>Example Code to Allocate n Bytes</title>
-        <programlisting>#define n 13 ; char *a = alloca(n); ; rnd(x) = round x
-        to be multiple of stack alignment ; psave = size of parameter save area
-        (may be zero). p = 32 + rnd(sizeof(psave)+15); Offset to the start of
-        the dynamic allocation ld r0,0(r1) ; Load stdu r0,-rnd(n+15)(r1) ;
-        Store new back chain, quadword-aligned. addi r3,r1,p ; R3 = new data
-        area following parameter save area.</programlisting>
+        <programlisting>#define n 13 
+; char *a = alloca(n); 
+; rnd(x) = round x to be multiple of stack alignment 
+; psave = size of parameter save area (may be zero). 
+p = 32 + rnd(sizeof(psave)+15); Offset to the start of the dynamic allocation 
+ld    r0,0(r1)          ; Load 
+stdu  r0,-rnd(n+15)(r1) ; Store new back chain, quadword-aligned. 
+addi  r3,r1,p           ; R3 = new data area following parameter save area.</programlisting>
       </figure>
       <para>Because it is allowed (and common) to return without first
       deallocating this dynamically allocated memory, all the linkage
@@ -7619,7 +8270,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
     DWARF. DWARF register numbers 32 - 63 and 77 - 108 are also used to
     indicate the location of variables in VSX registers vsr0 - vsr31 and vsr32
     - vsr63, respectively, in DWARF debug information.</para>
-    <para></para>
+
     <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_94513">
       <title>Mappings of Common Registers</title>
       <tgroup cols="4">
@@ -7901,7 +8552,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
     <para>DWARF for the OpenPOWER ABI defines the address class codes described
     in 
     <xref linkend="dbdoclet.50655240_47286" />.</para>
-    <para></para>
+
     <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_47286">
       <title>Address Class Codes</title>
       <tgroup cols="3">
@@ -7955,6 +8606,6 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
     in the Itanium C++ ABI, the normative text on the issue. For information
     about how to locate this material, see 
     <xref linkend="dbdoclet.50655239___RefHeading___Toc377640569" />.</para>
-    <para></para>
+
   </section>
 </chapter>

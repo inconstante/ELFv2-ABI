@@ -65,27 +65,23 @@ xml:id="dbdoclet.50655244_pgfId-1095944">
     access the n-th vector element from a vector pointer. The use of vector
     built-in functions such as vec_xl and vec_xst is discouraged except for
     languages where no dereference operators are available.</para>
-    <programlisting>
-    vector char vca;
-    vector char vcb;
-    vector int via;
-    int a[4];
-    void *vp;
-     
-    via = *(vector int *) &amp;a[0];
-    vca = (vector char) via;
-    vcb = vca;
-    vca = *(vector char *)vp;
-    *(vector char *)&amp;a[0] = vca;
-    </programlisting>
+    <programlisting>vector char vca;
+vector char vcb;
+vector int via;
+int a[4];
+void *vp;
+ 
+via = *(vector int *) &amp;a[0];
+vca = (vector char) via;
+vcb = vca;
+vca = *(vector char *)vp;
+*(vector char *)&amp;a[0] = vca;</programlisting>
     <para>Compilers are expected to recognize and optimize multiple operations
     that can be optimized into a single hardware instruction. For example, a
     load and splat hardware instruction might be generated for the following
     sequence:</para>
-    <programlisting>
-    double *double_ptr;
-    register vector double vd = vec_splats(*double_ptr);
-    </programlisting>
+    <programlisting>double *double_ptr;
+register vector double vd = vec_splats(*double_ptr);</programlisting>
   </section>
   <section xml:id="dbdoclet.50655244_83520">
     <title>Vector Operators</title>
@@ -231,7 +227,7 @@ xml:id="dbdoclet.50655244_pgfId-1095944">
           </row>
         </thead>
         <tbody>
-          <row>
+          <row revisionflag="added">
             <entry>
               <para>vec_bperm</para>
             </entry>
@@ -243,7 +239,7 @@ xml:id="dbdoclet.50655244_pgfId-1095944">
               the result.</para>
             </entry>
           </row>
-          <row>
+          <row revisionflag="added">
             <entry>
               <para>vec_cntlz_lsbb</para>
             </entry>
@@ -254,7 +250,7 @@ xml:id="dbdoclet.50655244_pgfId-1095944">
               <para>For LE, use vctzlsbb.</para>
             </entry>
           </row>
-          <row>
+          <row revisionflag="added">
             <entry>
               <para>vec_cnttz_lsbb</para>
             </entry>
@@ -276,7 +272,7 @@ xml:id="dbdoclet.50655244_pgfId-1095944">
               <para>vec_extract (v, 3) is equivalent to v[3].</para>
             </entry>
           </row>
-          <row>
+          <row revisionflag="added">
             <entry>
               <para>vec_extract_fp32_</para>
               <para>from_shorth</para>
@@ -288,7 +284,7 @@ xml:id="dbdoclet.50655244_pgfId-1095944">
               <para>For LE, extract the left four elements.</para>
             </entry>
           </row>
-          <row>
+          <row revisionflag="added">
             <entry>
               <para>vec_extract_fp32_</para>
               <para>from_shortl</para>
@@ -300,7 +296,7 @@ xml:id="dbdoclet.50655244_pgfId-1095944">
               <para>For LE, extract the right four elements.</para>
             </entry>
           </row>
-          <row>
+          <row revisionflag="added">
             <entry>
               <para>vec_extract4b</para>
             </entry>
@@ -312,7 +308,7 @@ xml:id="dbdoclet.50655244_pgfId-1095944">
               halves of the result.</para>
             </entry>
           </row>
-          <row>
+          <row revisionflag="added">
             <entry>
               <para>vec_first_match</para>
               <para>_index</para>
@@ -324,7 +320,7 @@ xml:id="dbdoclet.50655244_pgfId-1095944">
               <para>For LE, use vctz.</para>
             </entry>
           </row>
-          <row>
+          <row revisionflag="added">
             <entry>
               <para>vec_first_match</para>
               <para>_index_or_eos</para>
@@ -348,7 +344,7 @@ xml:id="dbdoclet.50655244_pgfId-1095944">
               <emphasis>third</emphasis> element modified to contain x.</para>
             </entry>
           </row>
-          <row>
+          <row revisionflag="added">
             <entry>
               <para>vec_insert4b</para>
             </entry>
@@ -546,7 +542,7 @@ xml:id="dbdoclet.50655244_pgfId-1095944">
               <para>Use vupkhsb, and so on, for LE.</para>
             </entry>
           </row>
-          <row>
+          <row revisionflag="added">
             <entry>
               <para>vec_xl_len_r</para>
             </entry>
@@ -559,7 +555,7 @@ xml:id="dbdoclet.50655244_pgfId-1095944">
               number of bytes specified to be loaded by vec_xl_len_r.</para>
             </entry>
           </row>
-          <row>
+          <row revisionflag="added">
             <entry>
               <para>vec_xst_len_r</para>
             </entry>
@@ -582,6 +578,7 @@ xml:id="dbdoclet.50655244_pgfId-1095944">
       another vector data type in accordance with the C and C++
       programming languages.</para>
     </note>
+    <para>&#160;</para>
     <bridgehead>Extended Data Movement Functions</bridgehead>
       <para>The built-in functions in 
       <xref linkend="dbdoclet.50655244_42521" /> map to Altivec/VMX load and
@@ -1176,7 +1173,7 @@ xml:id="dbdoclet.50655244_pgfId-1095944">
             </row>
             <row>
               <entry>
-                <para>vec_xlw4
+                <para>vec_xlw<phrase revisionflag="added">4</phrase>
                   <footnote xml:id="dbdoclet.50655244_78719">
                     <para>Deprecated. The use of vector data type
                       assignment and overloaded vec_xl and vec_xst vector
@@ -1298,54 +1295,6 @@ xml:id="dbdoclet.50655244_pgfId-1095944">
             </row>
           </thead>
           <tbody>
-            <row>
-              <entry>
-                <para>VEC_CONCAT (ARG1, ARG2)</para>
-                <para>(Fortran)</para>
-                <para>POWER ISA 3.0</para>
-              </entry>
-              <entry>
-                <para>Purpose:</para>
-                <para>Concatenates two elements to form a vector.</para>
-                <para>Result value:</para>
-                <para>The resulting vector consists of the two scalar elements,
-                ARG1 and ARG2, assigned to elements 0 and 1 (using the
-                environment’s native endian numbering), respectively.</para>
-                <itemizedlist>
-                  <listitem>
-                    <para><emphasis role="bold">Note:  </emphasis>This function corresponds to the C/C++ vector
-                    constructor (vector type){a,b}. It is provided only for
-                    languages without vector constructors.</para>
-                  </listitem>
-                </itemizedlist>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>POWER ISA 3.0</para>
-              </entry>
-              <entry>
-                <para>vector signed long long vec_concat (signed long long,
-                signed long long);</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>POWER ISA 3.0</para>
-              </entry>
-              <entry>
-                <para>vector unsigned long long vec_concat (unsigned long long,
-                unsigned long long);</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>POWER ISA 3.0</para>
-              </entry>
-              <entry>
-                <para>vector double vec_concat (double, double);</para>
-              </entry>
-            </row>
             <row>
               <entry>
                 <para>VEC_CONVERT(V, MOLD)</para>
