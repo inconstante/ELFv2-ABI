@@ -4219,7 +4219,7 @@ ld     r3,x@got@l(r3)</programlisting>
       <para> </para>
       <note>
         <para>
-        <emphasis>Note:</emphasis> If X is a variable stored in the TOC,
+        <emphasis role="bold">Note:</emphasis> If X is a variable stored in the TOC,
         then X@got is the offset within the TOC of a doubleword whose
         value is X@toc.</para>
       </note>
@@ -4230,7 +4230,7 @@ ld     r3,x@got@l(r3)</programlisting>
       <programlisting>addis  2,12,.TOC.-func@ha
 addi   2,2,.TOC.-func@l</programlisting>      
       <para>The syntax 
-      <emphasis>SYMBOL@localentry</emphasis> refers to the value of the local
+      <literal>SYMBOL@localentry</literal> refers to the value of the local
       entry point associated with a function symbol. It can be used to
       initialize a memory word with the address of the local entry point as
       follows:</para>
@@ -4345,7 +4345,7 @@ addi      r4, r4, lower</programlisting>
   <section xml:id="dbdoclet.50655241_90241">
     <title>Thread Local Storage ABI</title>
     <para>The 
-    <emphasis>ELF Handling for Thread-Local Storage</emphasis> document is the
+    <citetitle>ELF Handling for Thread-Local Storage</citetitle> document is the
     authoritative TLS ABI specification that defines the context in which
     information in the TLS section of this Power Architecture 64-bit ELF V2 ABI
     must be viewed. For information about how to access this document, see 
@@ -6754,11 +6754,11 @@ nop</programlisting>
     <section>
       <title>Traceback Tables</title>
       <para>To support debuggers and exception handlers, the 64-bit 
-      <emphasis>OpenPOWER ELF V2 ABI</emphasis> defines the use of descriptive
+      <citetitle>OpenPOWER ELF V2 ABI</citetitle> defines the use of descriptive
       debug and unwind information that enables flexible debugging and
       unwinding of optimized code (such as, for example, DWARF).</para>
       <para>To support legacy tooling, the 
-      <emphasis>OpenPOWER ELF V2 ABI</emphasis> also specifies the use of a
+      <citetitle>OpenPOWER ELF V2 ABI</citetitle> also specifies the use of a
       traceback table that may provide additional information about
       functions.</para>
       <para>

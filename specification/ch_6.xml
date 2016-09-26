@@ -131,7 +131,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
     <para>Consequently, the vector numbering schemes can be described as
     big-endian and little-endian vector layouts and vector element numberings.
     (The term “endian” comes from the endian debates presented in 
-    <emphasis>Gulliver's Travels</emphasis> by Jonathan Swift.)</para>
+    <citetitle>Gulliver's Travels</citetitle> by Jonathan Swift.)</para>
     <para>For internal consistency, in the ELF V2 ABI, the default vector
     layout and vector element ordering in big-endian environments shall be big
     endian, and the default vector layout and vector element ordering in
@@ -573,7 +573,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
       </tgroup>
     </table>
     <note>
-      <para><emphasis>Reminder</emphasis>: The assignment operator = is the
+      <para><emphasis role="bold">Reminder</emphasis>: The assignment operator = is the
       preferred way to assign values from one vector data type to
       another vector data type in accordance with the C and C++
       programming languages.</para>

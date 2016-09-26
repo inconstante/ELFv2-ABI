@@ -57,8 +57,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <para>A specific OpenPOWER-compliant processor implementation must
         state which type of byte ordering is to be used.</para>
         <note>
-          <para>MSR[LE
-          <emphasis>|</emphasis> SLE]: Although it may be possible to modify the
+          <para>MSR[LE|SLE]: Although it may be possible to modify the
           active byte ordering of an application process that uses
           application-accessible configuration controls or that uses system
           calls on some systems, applications that change active byte ordering
@@ -2547,7 +2546,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                 </entry>
                 <entry>
                   <para>Vector of 16 bytes with a value of either 0 or 2
-                  <emphasis>8</emphasis>- 1.</para>
+                  <superscript>8</superscript>- 1.</para>
                 </entry>
               </row>
               <row>
@@ -2599,7 +2598,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                 </entry>
                 <entry>
                   <para>Vector of 8 halfwords with a value of either 0 or 2
-                  <emphasis>16</emphasis>- 1.</para>
+                  <superscript>16</superscript>- 1.</para>
                 </entry>
               </row>
               <row>
@@ -2651,7 +2650,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                 </entry>
                 <entry>
                   <para>Vector of 4 words with a value of either 0 or 2
-                  <emphasis>32</emphasis>- 1.</para>
+                  <superscript>32</superscript>- 1.</para>
                 </entry>
               </row>
               <row>
@@ -2713,7 +2712,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                 </entry>
                 <entry>
                   <para>Vector of 2 doublewords with a value of either 0 or 2
-                  <emphasis>64</emphasis>- 1.</para>
+                  <superscript>64</superscript>- 1.</para>
                 </entry>
               </row>
               <row revisionflag="changed">
@@ -3141,8 +3140,8 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
               <listitem>
                 <para>IBM EXTENDED PRECISION form provides the same range as double
                 precision (about 10
-                <emphasis>-308</emphasis> to 10
-                <emphasis>308</emphasis>) but more precision (a variable amount,
+                <superscript>-308</superscript> to 10
+                <superscript>308</superscript>) but more precision (a variable amount,
                 about 31 decimal digits or more).</para>
               </listitem>
               <listitem>
@@ -3322,9 +3321,9 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         union where the number of bits in the bit field is specified.</para>
         <para>In 
         <xref linkend="dbdoclet.50655240_47126" />, a signed range goes from -2
-        <emphasis>w - 1</emphasis> to 2
-        <emphasis>w - 1</emphasis>- 1 and an unsigned range goes from 0 to 2
-        <emphasis>w</emphasis>- 1.</para>
+        <superscript>w - 1</superscript> to 2
+        <superscript>w - 1</superscript>- 1 and an unsigned range goes from 0 to 2
+        <superscript>w</superscript>- 1.</para>
 
         <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_47126">
           <title>Bit Field Types</title>
@@ -4060,7 +4059,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
     functions use these conventions, except as documented for the register save
     and restore functions.</para>
     <para>The conventions given in this section are adhered to by C programs.  
-    For more information about the implementation of C, See 
+    For more information about the implementation of C, See https://apps.na.collabserv.com/meetings/join?id=2897-3986
     <xref linkend="dbdoclet.50655240___RefHeading___Toc377640591" />.</para>
     <note>
       <para>While it is recommended that all functions use the standard
@@ -4479,7 +4478,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <para>This ABI requires OpenPOWER-compliant processors to implement 
         <emphasis role="bold">mfocr</emphasis> instructions in a manner that initializes
         undefined bits of the RT result register of 
-        <emphasis>mfocr</emphasis> instructions to one of the following
+        <emphasis role="bold">mfocr</emphasis> instructions to one of the following
         values:</para>
         <itemizedlist>
           <listitem>
@@ -4498,23 +4497,23 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <emphasis role="bold">mfocr</emphasis> instruction, the POWER8 processor does not
         implement the behavior described in the "Fixed-Point Invalid Forms
         and Undefined Conditions" section of 
-        <emphasis>POWER8 Processor User's Manual for the Single-Chip
-        Module</emphasis>. Instead, it replicates the selected condition
+        <citetitle>POWER8 Processor User's Manual for the Single-Chip
+        Module</citetitle>. Instead, it replicates the selected condition
         register field within the byte that contains it rather than
         initializing to 0 the bits corresponding to the nonselected bits of
         the byte that contains it. When generating code to save two condition
         register fields that are stored in the same byte, the compiler must
         mask the value received from 
-        <emphasis>mfocr</emphasis> to avoid corruption of the resulting
+        <emphasis role="bold">mfocr</emphasis> to avoid corruption of the resulting
         (partial) condition register word.</para>
         <para>This erratum does not apply to the POWER9 processor.</para>
 
         <para>
         <anchor xml:id="dbdoclet.50655240_Power-ISA-version-and-the-user-s-manual"
         xreflabel="" /> For more information, see 
-        <emphasis>Power ISA</emphasis>, version 3.0 and "Fixed-Point Invalid
+        <citetitle>Power ISA</citetitle>, version 3.0 and "Fixed-Point Invalid
         Forms and Undefined Conditions" in 
-        <emphasis>POWER9 Processor User's Manual.</emphasis></para>
+        <citetitle>POWER9 Processor User's Manual.</citetitle></para>
         <para>
         <anchor xml:id="dbdoclet.50655240_page33" xreflabel="" /> In
         OpenPOWER-compliant processors, floating-point and vector functions are
@@ -4574,10 +4573,10 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                 </entry>
                 <entry nameend="c3" namest="c2" align="center">
                   <para>
-                    <emphasis>...</emphasis>
+                    <emphasis role="bold">...</emphasis>
                   </para>
                   <para>
-                    <emphasis>...</emphasis>
+                    <emphasis role="bold">...</emphasis>
                   </para>
                 </entry>
                 <entry nameend="c5" namest="c4" colsep="1">
@@ -4646,10 +4645,10 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <?dbhtml bgcolor="#EEEEEE" ?>
                   <?dbfo bgcolor="#EEEEEE" ?>
                   <para>
-                    <emphasis>...</emphasis>
+                    <emphasis role="bold">...</emphasis>
                   </para>
                   <para>
-                    <emphasis>...</emphasis>
+                    <emphasis role="bold">...</emphasis>
                   </para>
                 </entry>
                 <entry rowsep="0"></entry>
@@ -4735,10 +4734,10 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                 </entry>
                 <entry nameend="c3" namest="c2" align="center">
                   <para>
-                    <emphasis>...</emphasis>
+                    <emphasis role="bold">...</emphasis>
                   </para>
                   <para>
-                    <emphasis>...</emphasis>
+                    <emphasis role="bold">...</emphasis>
                   </para>
                   <?dbhtml bgcolor="#EEEEEE" ?>
                   <?dbfo bgcolor="#EEEEEE" ?>
@@ -4792,10 +4791,10 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                 </entry>
                 <entry nameend="c3" namest="c2" align="center">
                   <para>
-                    <emphasis>...</emphasis>
+                    <emphasis role="bold">...</emphasis>
                   </para>
                   <para>
-                    <emphasis>...</emphasis>
+                    <emphasis role="bold">...</emphasis>
                   </para>
                 </entry>
                 <entry rowsep="0"></entry>
@@ -5552,7 +5551,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             caller to determine the called function's characteristics (for
             example, functions in C without a prototype in scope, in accordance
             with Brian Kernighan and Dennis Ritche,
-            <emphasis>The C Programming Language</emphasis>, 1st
+            <citetitle>The C Programming Language</citetitle>, 1st
             edition).</para>
           </listitem>
         </itemizedlist>
@@ -6727,10 +6726,10 @@ addi r2, r2, .TOC.@l</programlisting>
         </itemizedlist>
         <para>This ABI shall be used in conjunction with the Power Architecture
         that implements the 
-        <emphasis>mfocrf</emphasis> architecture level. Further,
+        <emphasis role="bold">mfocrf</emphasis> architecture level. Further,
         OpenPOWER-compliant processors shall implement implementation-defined
         bits in a manner to allow the combination of multiple 
-        <emphasis>mfocrf</emphasis> results with an OR instruction; for example,
+        <emphasis role="bold">mfocrf</emphasis> results with an OR instruction; for example,
         to yield a word in r0 including all three preserved CRs as
         follows:</para>
         <programlisting>mfocrf r0, crf2 
@@ -6741,7 +6740,7 @@ or r0, r0, r1</programlisting>
         <para>Specifically, this allows each OpenPOWER-compliant processor
         implementation to set each field to hold either 0 or the correct
         in-order value of the corresponding CR field at the point where the 
-        <emphasis>mfocrf</emphasis> instruction is performed.</para>
+        <emphasis role="bold">mfocrf</emphasis> instruction is performed.</para>
         <para>&#160;</para>
         <bridgehead>Assembly Language Syntax for Defining Entry
         Points</bridgehead>
@@ -7522,7 +7521,7 @@ stw r0,0,(r7)</programlisting>
               </listitem>
             </itemizedlist>
             <para>If the instruction using symbol@got@
-            <emphasis>l</emphasis> has a signed immediate operand (for example,
+            <emphasis role="bold">l</emphasis> has a signed immediate operand (for example,
             addi), use symbol@got@
             <emphasis role="bold">ha</emphasis>(high adjusted) for the high part of the offset.
             If it has an unsigned immediate operand (for example, ori), use

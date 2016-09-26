@@ -75,34 +75,45 @@
                             <!-- TODO: Rename the pdfFilenameBase field to the PDF name for new document -->
                             <pdfFilenameBase>leabi</pdfFilenameBase>
 
-                            <!-- TODO: If the document is not yet public, uncomment one of the following statements to create 
-                                       a vertical running ribbon on the internal margin of the security status in all CAPS.
-                                       Values and definitions are formally defined by the IPR policy.  A layman's definition follows:
-
-                                         working =	typically new document within a work group that has not yet been reviewed
-                                                   	and/or approved for internal or external use.
-                                         internal = 	document that has been previously approved by a workgroup for internal use.
-                                         review =       document that is under review
-                                         writeronly =	document that has been created solely for the purpose of the writer (not in IPR policy)
-
-                                       The appropriate starting security for a new document is "working".
-
-                                       Note, the value of "external" is the same as specifying no status. -->
-                            <!-- security>review</security -->
-                            <security>working</security>
-                            <!-- security>internal</security -->
-                            <!-- security>writeronly</security -->
-                            <!-- security>external</security -->
-
-                            <!-- TODO: Define the appropriate work product type.  These values are defined by the IPR Policy.
-                                       Consult with the Work Group Chair or a Technical Steering Committee member if you have
-                                       questions about which value to select.
-                                       
-                                       If no value is provided below, the document will default to "Work Group Notes".-->
-                            <!-- workProduct>workgroupNotes</workProduct -->
                             <workProduct>workgroupSpecification</workProduct>
-                            <!-- workProduct>candidateStandard</workProduct -->
-                            <!-- workProduct>openpowerStandard</workProduct -->
+
+                            <!-- TODO: Set the appropriate security policy for the document.  For documents
+                                       which are not "public" this will affect the document title page and
+                                       create a vertical running ribbon on the internal margin of the
+                                       security status in all CAPS.  Values and definitions are formally
+                                       defined by the IPR policy.  A layman's definition follows:
+
+                                       public =	                this document may be shared outside the
+                                                                foundation and thus this setting must be
+                                                                used only when completely sure it allowed
+                                       foundationConfidential = this document may be shared freely with
+                                                                OpenPOWER Foundation members but may not be
+                                                                shared publicly
+                                       workgroupConfidential =  this document may only be shared within the
+                                                                work group and should not be shared with
+                                                                other Foundation members or the public
+
+                                       The appropriate starting security for a new document is "workgroupConfidential". -->
+                            <!-- security>workgroupConfidential</security -->
+                            <security>foundationConfidential</security>
+                            <!-- security>public</security -->
+
+                            <!-- TODO: Set the appropriate work flow status for the document.  For documents
+                                       which are not "published" this will affect the document title page
+                                       and create a vertical running ribbon on the internal margin of the 
+                                       security status in all CAPS.  Values and definitions are formally
+                                       defined by the IPR policy.  A layman's definition follows:
+
+                                           published = this document has completed all reviews and has
+                                                       been published
+                                           draft =     this document is actively being updated and has
+                                                       not yet been reviewed
+                                           review =    this document is presently being reviewed
+
+                                       The appropriate starting security for a new document is "draft". -->
+                            <documentStatus>draft</documentStatus>
+                            <!-- documentStatus>review</documentStatus -->
+                            <!-- documentStatus>published</documentStatus -->                            
 
                         </configuration>
                     </execution>

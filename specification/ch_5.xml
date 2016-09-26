@@ -342,26 +342,12 @@ xml:id="dbdoclet.50655243_pgfId-1099317">
     handles data streams that are detected by the hardware and defined by the
     software. For more information, see “Data Stream Control Overview, ABI, and
     API” at the following link:</para>
-    <para>
-      <emphasis>
-        <link xl:href="https://github.com/paflib/paflib/wiki/Data-Stream-Control-Overview,-ABI,-and-API">
-
-          <citetitle>
-          https://github.com/paflib/paflib/wiki/Data-Stream-Control-Overview,-ABI,-and-API</citetitle>
-        </link>
-      </emphasis>
+    <para><link xl:href="https://github.com/paflib/paflib/wiki/Data-Stream-Control-Overview,-ABI,-and-API">https://github.com/paflib/paflib/wiki/Data-Stream-Control-Overview,-ABI,-and-API</link>
     </para>
     <para>The event-based branching facility generates exceptions when certain
     criteria are met. For more information, see the “Event Based Branching
     Overview, ABI, and API” section at the following link:</para>
-    <para>
-      <emphasis>
-        <link xl:href="https://github.com/paflib/paflib/wiki/Event-Based-Branching----Overview,-ABI,-and-API">
-
-          <citetitle>
-          https://github.com/paflib/paflib/wiki/Event-Based-Branching----Overview,-ABI,-and-API</citetitle>
-        </link>
-      </emphasis>
+    <para><link xl:href="https://github.com/paflib/paflib/wiki/Event-Based-Branching----Overview,-ABI,-and-API">https://github.com/paflib/paflib/wiki/Event-Based-Branching----Overview,-ABI,-and-API</link>
     </para>
   </section>
 </chapter>

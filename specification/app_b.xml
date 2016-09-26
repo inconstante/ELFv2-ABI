@@ -182,8 +182,7 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
             </entry>
             <entry>
               <para>int __ builtin_bcdsub_ofl (vector unsigned char, vector
-              unsigned char
-              <emphasis>)</emphasis>;</para>
+              unsigned char);</para>
             </entry>
           </row>
           <row>
@@ -315,7 +314,7 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
           <row>
             <entry>
               <para>
-                <emphasis>BCD Load and Store</emphasis>
+                <emphasis role="bold">BCD Load and Store</emphasis>
               </para>
             </entry>
             <entry>

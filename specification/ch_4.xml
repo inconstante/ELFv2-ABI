@@ -603,7 +603,7 @@ AT_SYSINFO_EHDR    33                    /* In many architectures, the kernel
       If the AT_PHDR entry is present, entries of types AT_PHENT, AT_PHNUM, and
       AT_ENTRY must also be present. See the Program Header section in Chapter
       5 of the 
-      <emphasis>System V ABI</emphasis> for more information about the program
+      <citetitle>System V ABI</citetitle> for more information about the program
       header table.</para>
       <para>AT_PHENT</para>
       <para>The a_val member of this entry holds the size, in bytes, of one
@@ -620,7 +620,7 @@ AT_SYSINFO_EHDR    33                    /* In many architectures, the kernel
       <para>The a_ptr member of this entry holds the base address at which the
       interpreter program was loaded into memory. See the Program Header
       section in Chapter 5 of the 
-      <emphasis>System V ABI</emphasis> for more information about the base
+      <citetitle>System V ABI</citetitle> for more information about the base
       address.</para>
       <para>AT_FLAGS</para>
       <para>If present, the a_val member of this entry holds 1-bit flags. Bits

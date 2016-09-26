@@ -6768,7 +6768,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>The value of each element is set to the value of an input
               element of the concatenated vectors ARG1 and ARG2, with the word
               offset to its right
-              <emphasis>1</emphasis> specified by ARG3, which should be in the
+              <superscript>1</superscript> specified by ARG3, which should be in the
               range 0 - 3.</para>
               <para>1. A shift left picks values from the right.</para>
             </entry>
@@ -6957,7 +6957,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>The result is the contents of ARG1, shifted left by the
               number of bytes specified by the most-significant nibble of the
               least-significant byte
-              <emphasis>1</emphasis> of ARG2. The bits that are shifted out are
+              <superscript>1</superscript> of ARG2. The bits that are shifted out are
               replaced by zeros.</para>
               <para>1. That is, by little-endian bits 7- 5 or big-endian bits
               121 - 124.</para>
@@ -16719,8 +16719,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
           </row>
           <row revisionflag="added">
             <entry>
-              <para>
-              <emphasis></emphasis> </para>
+              <para></para>
             </entry>
             <entry>
               <para>vector bool long long vec_sll (vector bool long long,
@@ -16729,8 +16728,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
           </row>
           <row revisionflag="added">
             <entry>
-              <para>
-              <emphasis></emphasis> </para>
+              <para> </para>
             </entry>
             <entry>
               <para>vector bool long long vec_sll (vector bool long long,
@@ -16739,8 +16737,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
           </row>
           <row revisionflag="added">
             <entry>
-              <para>
-              <emphasis></emphasis> </para>
+              <para> </para>
             </entry>
             <entry>
               <para>vector signed long long vec_sll (vector signed long long,
@@ -16749,8 +16746,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
           </row>
           <row revisionflag="added">
             <entry>
-              <para>
-              <emphasis></emphasis> </para>
+              <para> </para>
             </entry>
             <entry>
               <para>vector signed long long vec_sll (vector signed long long,
@@ -16759,8 +16755,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
           </row>
           <row revisionflag="added">
             <entry>
-              <para>
-              <emphasis></emphasis> </para>
+              <para> </para>
             </entry>
             <entry>
               <para>vector unsigned long long vec_sll (vector unsigned long
@@ -16769,8 +16764,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
           </row>
           <row revisionflag="added">
             <entry>
-              <para>
-              <emphasis></emphasis> </para>
+              <para> </para>
             </entry>
             <entry>
               <para>vector unsigned long long vec_sll (vector unsigned long
@@ -17002,8 +16996,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
           </row>
           <row revisionflag="added">
             <entry>
-              <para>
-              <emphasis></emphasis> </para>
+              <para> </para>
             </entry>
             <entry>
               <para>vector signed long long vec_srl (vector signed long long,
@@ -17012,8 +17005,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
           </row>
           <row revisionflag="added">
             <entry>
-              <para>
-              <emphasis></emphasis> </para>
+              <para> </para>
             </entry>
             <entry>
               <para>vector signed long long vec_srl (vector signed long long,
@@ -17022,8 +17014,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
           </row>
           <row revisionflag="added">
             <entry>
-              <para>
-              <emphasis></emphasis> </para>
+              <para> </para>
             </entry>
             <entry>
               <para>vector unsigned long long vec_srl (vector unsigned long
@@ -17032,8 +17023,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
           </row>
           <row revisionflag="added">
             <entry>
-              <para>
-              <emphasis></emphasis> </para>
+              <para> </para>
             </entry>
             <entry>
               <para>vector unsigned long long vec_srl (vector unsigned long
