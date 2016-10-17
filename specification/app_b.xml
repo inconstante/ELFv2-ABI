@@ -18,9 +18,8 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
     BCD values are stored in memory as contiguous arrays of 1 - 16
     bytes.</para>
       <note>
-        <para>BCD built-in functions are valid only when -
-        <emphasis role="bold">march</emphasis> or -
-        <emphasis role="bold">qarch</emphasis> is set to target POWER8 processors or
+        <para>BCD built-in functions are valid only when -<emphasis role="bold">march</emphasis> or 
+        -<emphasis role="bold">qarch</emphasis> is set to target POWER8 processors or
         later.</para>
       </note>
     <para>
@@ -424,8 +423,7 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
           <row>
             <entry align="center">
               <para>
-                <emphasis role="bold">Macro
-                <footnote xml:id="tabb2fna"><para>Or static inline function.</para></footnote></emphasis>
+                <emphasis role="bold">Macro<footnote xml:id="tabb2fna"><para>Or static inline function.</para></footnote></emphasis>
               </para>
             </entry>
             <entry>
@@ -529,8 +527,7 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
               <para>bcd_xl(a,b)</para>
             </entry>
             <entry>
-              <para>(bcd)vec_xl_len_r(a,b)
-              <footnote xml:id="tabb2fnb"><para>Optionaly, __builtin_ldrmb (a,b) for previous 
+              <para>(bcd)vec_xl_len_r(a,b)<footnote xml:id="tabb2fnb"><para>Optionaly, __builtin_ldrmb (a,b) for previous 
               generations of XL compilers.</para></footnote>
               </para>
             </entry>
@@ -540,8 +537,7 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
               <para>bcd_xst(a,b)</para>
             </entry>
             <entry>
-              <para>(bcd)vec_xst_len_r(a,b)
-              <footnote xml:id="tabb2fnc"><para>Optionaly, __builti_strmb (a,b) for previous 
+              <para>(bcd)vec_xst_len_r(a,b)<footnote xml:id="tabb2fnc"><para>Optionaly, __builti_strmb (a,b) for previous 
               generatoin f XL compilers.</para></footnote>
               </para>
             </entry>

@@ -1588,16 +1588,16 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para></para>
                 </entry>
                 <entry align="right" colsep="1">
-                  <para>3</para>
+                  <para></para>
                 </entry>
                 <entry align="left" colsep="0">
-                  <para></para>
+                  <para>3</para>
                 </entry>
                 <entry align="center" colsep="0">
                   <para></para>
                 </entry>
                 <entry align="right" colsep="1">
-                  <para>4</para>
+                  <para></para>
                 </entry>
               </row>
               <row>
@@ -2057,7 +2057,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         types, pointers to both aligned and unaligned data of each data type
         shall return the value corresponding to a data type starting at the
         specified address when accessed with either the pointer dereference
-        operator * or the array reference operator [].</para>
+        operator * or the array reference operator [ ].</para>
 
         <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_49259">
           <?dbfo keep-together="always" ?>
@@ -2378,7 +2378,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
               </row>
               <row>
                 <entry>
-                  <para>any (*) ()</para>
+                  <para>any (*) ( )</para>
                 </entry>
                 <entry>
                   <para>Function pointer</para>
@@ -2658,8 +2658,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para></para>
                 </entry>
                 <entry>
-                  <para>vector unsigned long
-                  <footnote xml:id="vlong">
+                  <para>vector unsigned long<footnote xml:id="vlong">
                     <para>The vector long types are deprecated due to their
                     ambiguity between 32-bit and 64-bit environments. The use
                     of the vector long long types is preferred.</para>
@@ -2681,8 +2680,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para></para>
                 </entry>
                 <entry>
-                  <para>vector signed long
-                  <footnoteref linkend="vlong" /></para>
+                  <para>vector signed long<footnoteref linkend="vlong" /></para>
                   <para>vector signed long long</para>
                 </entry>
                 <entry>
@@ -2700,8 +2698,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para></para>
                 </entry>
                 <entry>
-                  <para>vector bool long
-                  <footnoteref linkend="vlong" /></para>
+                  <para>vector bool long<footnoteref linkend="vlong" /></para>
                   <para>vector bool long long</para>
                 </entry>
                 <entry>
@@ -2807,8 +2804,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           <para>Elements of Boolean vector data types must have a value
           corresponding to all bits set to either 0 or 1. The result of
           computations on Boolean vectors, where at least one element is not
-          well formed
-          <footnote xml:id="pgfId-1172304">
+          well formed<footnote xml:id="pgfId-1172304">
             <para>An element is well formed if it has all bits set to 0 or all
             bits set to 1.</para>
           </footnote>, is undefined for all vector elements.</para>
@@ -3517,16 +3513,16 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para>6</para>
                 </entry>
                 <entry align="left" colsep="0">
-                  <para>15</para>
+                  <para></para>
                 </entry>
                 <entry align="center" colsep="0">
-                  <para></para>
+                  <para>5</para>
                 </entry>
                 <entry align="right" colsep="1">
                   <para></para>
                 </entry>
                 <entry align="left" colsep="0">
-                  <para>5</para>
+                  <para></para>
                 </entry>
                 <entry align="center" colsep="0">
                   <para></para>
@@ -3637,7 +3633,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para></para>
                 </entry>
                 <entry align="right" colsep="1">
-                  <para>2</para>
+                  <para>1</para>
                 </entry>
                 <entry align="left" colsep="0">
                   <para></para>
@@ -3646,7 +3642,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para></para>
                 </entry>
                 <entry align="right" colsep="1">
-                  <para>1</para>
+                  <para>0</para>
                 </entry>
               </row>
               <row>
@@ -4075,7 +4071,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       <para>Programs and compilers may freely use all registers except those
       reserved for system use. The system signal handlers are responsible for
       preserving the original values upon return to the original execution 
-      <anchor xml:id="dbdoclet.50655240_page30" xreflabel="" /> path. Signals
+      <anchor xml:id="dbdoclet.50655240_page30" xreflabel="" />path. Signals
       that can interrupt the original execution path are documented in the 
       <emphasis>System V Interface Definition (SVID)</emphasis>.</para>
       <para>The tables in 
@@ -4214,8 +4210,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para>r2</para>
                 </entry>
                 <entry>
-                  <para>Nonvolatile
-                  <footnote>
+                  <para>Nonvolatile<footnote>
                     <para>Register r2 is nonvolatile with respect to calls
                     between functions in the same compilation unit. It is saved
                     and restored by code inserted by the linker resolving a
@@ -4278,8 +4273,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
               </row>
               <row>
                 <entry>
-                  <para>r14 - r31
-                  <footnote>
+                  <para>r14 - r31<footnote>
                     <para>If a function needs a frame pointer, assigning r31 to
                     the role of the frame pointer is recommended.</para>
                   </footnote></para>
@@ -4491,31 +4485,30 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           </listitem>
         </itemizedlist>
 
-        <para>
-        <emphasis role="bold"><phrase revisionflag="added">Note</phrase><phrase revisionflag="deleted">Erratum</phrase>:</emphasis> 
-        When executing an 
-        <emphasis role="bold">mfocr</emphasis> instruction, the POWER8 processor does not
-        implement the behavior described in the "Fixed-Point Invalid Forms
-        and Undefined Conditions" section of 
-        <citetitle>POWER8 Processor User's Manual for the Single-Chip
-        Module</citetitle>. Instead, it replicates the selected condition
-        register field within the byte that contains it rather than
-        initializing to 0 the bits corresponding to the nonselected bits of
-        the byte that contains it. When generating code to save two condition
-        register fields that are stored in the same byte, the compiler must
-        mask the value received from 
-        <emphasis role="bold">mfocr</emphasis> to avoid corruption of the resulting
-        (partial) condition register word.</para>
-        <para>This erratum does not apply to the POWER9 processor.</para>
+        <note>
+          <para><emphasis role="bold"><phrase revisionflag="deleted">Erratum:</phrase></emphasis> 
+            When executing an 
+            <emphasis role="bold">mfocr</emphasis> instruction, the POWER8 processor does not
+            implement the behavior described in the "Fixed-Point Invalid Forms
+            and Undefined Conditions" section of 
+            <citetitle>POWER8 Processor User's Manual for the Single-Chip
+            Module</citetitle>. Instead, it replicates the selected condition
+            register field within the byte that contains it rather than
+            initializing to 0 the bits corresponding to the nonselected bits of
+            the byte that contains it. When generating code to save two condition
+            register fields that are stored in the same byte, the compiler must
+            mask the value received from 
+            <emphasis role="bold">mfocr</emphasis> to avoid corruption of the resulting
+            (partial) condition register word.</para>
+            <para>This erratum does not apply to the POWER9 processor.</para>
+        </note>
 
-        <para>
-        <anchor xml:id="dbdoclet.50655240_Power-ISA-version-and-the-user-s-manual"
-        xreflabel="" /> For more information, see 
+        <para><anchor xml:id="dbdoclet.50655240_Power-ISA-version-and-the-user-s-manual"
+        xreflabel="" />For more information, see 
         <citetitle>Power ISA</citetitle>, version 3.0 and "Fixed-Point Invalid
         Forms and Undefined Conditions" in 
         <citetitle>POWER9 Processor User's Manual.</citetitle></para>
-        <para>
-        <anchor xml:id="dbdoclet.50655240_page33" xreflabel="" /> In
+        <para><anchor xml:id="dbdoclet.50655240_page33" xreflabel="" />In
         OpenPOWER-compliant processors, floating-point and vector functions are
         implemented using a unified vector-scalar model. As shown in 
         <xref linkend="dbdoclet.50655240_97144" /> and 
@@ -4528,310 +4521,26 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         with VMX instructions to refer to a 32-register subset of 128-bit wide
         registers.</para>
 
-        <table frame="top" pgwide="1" colsep="1" rowsep="1"
-        xml:id="dbdoclet.50655240_97144">
-          <title>Floating-Point Registers as Part of VSRs</title>
-          <tgroup cols="6">
-            <colspec colname="c1" colwidth="10*" />
-            <colspec colname="c2" colwidth="22*" />
-            <colspec colname="c3" colwidth="22*" />
-            <colspec colname="c4" colwidth="22*" />
-            <colspec colname="c5" colwidth="22*" />
-            <colspec colname="c6" colwidth="0*" />
-            <tbody>
-              <row>
-                <entry align="right" rowsep="0">
-                  <para>VSR(0)</para>
-                </entry>
-                <entry nameend="c3" namest="c2" align="center">
-                  <para>FPR[0]</para>
-                </entry>
-                <entry nameend="c5" namest="c4" colsep="1">
-                  <para />
-                  <?dbhtml bgcolor="#EEEEEE" ?>
-                  <?dbfo bgcolor="#EEEEEE" ?>
-                </entry>
-                <entry rowsep="0"></entry>
-              </row>
-              <row>
-                <entry align="right" rowsep="0">
-                  <para>VSR(1)</para>
-                </entry>
-                <entry nameend="c3" namest="c2" align="center">
-                  <para>FPR1]</para>
-                </entry>
-                <entry nameend="c5" namest="c4" colsep="1">
-                  <para />
-                  <?dbhtml bgcolor="#EEEEEE" ?>
-                  <?dbfo bgcolor="#EEEEEE" ?>
-                </entry>
-                <entry rowsep="0"></entry>
-              </row>
-              <row>
-                <entry rowsep="0">
-                  <para></para>
-                </entry>
-                <entry nameend="c3" namest="c2" align="center">
-                  <para>
-                    <emphasis role="bold">...</emphasis>
-                  </para>
-                  <para>
-                    <emphasis role="bold">...</emphasis>
-                  </para>
-                </entry>
-                <entry nameend="c5" namest="c4" colsep="1">
-                  <para />
-                  <?dbhtml bgcolor="#EEEEEE" ?>
-                  <?dbfo bgcolor="#EEEEEE" ?>
-                </entry>
-                <entry rowsep="0"></entry>
-              </row>
-              <row>
-                <entry align="right" rowsep="0">
-                  <para>VSR(30)</para>
-                </entry>
-                <entry nameend="c3" namest="c2" align="center">
-                  <para>FPR[30]</para>
-                </entry>
-                <entry nameend="c5" namest="c4" colsep="1">
-                  <para />
-                  <?dbhtml bgcolor="#EEEEEE" ?>
-                  <?dbfo bgcolor="#EEEEEE" ?>
-                </entry>
-                <entry rowsep="0"></entry>
-              </row>
-              <row>
-                <entry align="right" rowsep="0">
-                  <para>VSR(31)</para>
-                </entry>
-                <entry nameend="c3" namest="c2" align="center">
-                  <para>FP[31]</para>
-                </entry>
-                <entry nameend="c5" namest="c4" colsep="1">
-                  <para />
-                  <?dbhtml bgcolor="#EEEEEE" ?>
-                  <?dbfo bgcolor="#EEEEEE" ?>
-                </entry>
-                <entry rowsep="0"></entry>
-              </row>
-              <row>
-                <entry align="right" rowsep="0">
-                  <para>VSR(32)</para>
-                </entry>
-                <entry nameend="c5" namest="c2" colsep="1">
-                  <para></para>
-                  <?dbhtml bgcolor="#EEEEEE" ?>
-                  <?dbfo bgcolor="#EEEEEE" ?>
-                </entry>
-                <entry rowsep="0"></entry>
-              </row>
-              <row>
-                <entry align="right" rowsep="0">
-                  <para>VSR(33)</para>
-                </entry>
-                <entry nameend="c5" namest="c2" colsep="1">
-                  <?dbhtml bgcolor="#EEEEEE" ?>
-                  <?dbfo bgcolor="#EEEEEE" ?>
-                  <para></para>
-                </entry>
-                <entry rowsep="0"></entry>
-              </row>
-              <row>
-                <entry align="right" rowsep="0">
-                  <para></para>
-                  <para></para>
-                </entry>
-                <entry nameend="c5" namest="c2" align="center" colsep="1">
-                  <?dbhtml bgcolor="#EEEEEE" ?>
-                  <?dbfo bgcolor="#EEEEEE" ?>
-                  <para>
-                    <emphasis role="bold">...</emphasis>
-                  </para>
-                  <para>
-                    <emphasis role="bold">...</emphasis>
-                  </para>
-                </entry>
-                <entry rowsep="0"></entry>
-              </row>
-              <row>
-                <entry align="right" rowsep="0">
-                  <para>VSR(62)</para>
-                </entry>
-                <entry nameend="c5" namest="c2" colsep="1">
-                  <?dbhtml bgcolor="#EEEEEE" ?>
-                  <?dbfo bgcolor="#EEEEEE" ?>
-                  <para></para>
-                </entry>
-                <entry rowsep="0"></entry>
-              </row>
-              <row>
-                <entry align="right">
-                  <para>VSR(63)</para>
-                </entry>
-                <entry nameend="c5" namest="c2" colsep="1">
-                  <?dbhtml bgcolor="#EEEEEE" ?>
-                  <?dbfo bgcolor="#EEEEEE" ?>
-                  <para />
-                </entry>
-                <entry></entry>
-              </row>
-              <row>
-                <entry rowsep="0">
-                  <para></para>
-                </entry>
-                <entry align="left" colsep="0">
-                  <para>0</para>
-                </entry>
-                <entry align="right">
-                  <para>63</para>
-                </entry>
-                <entry align="left" colsep="0">
-                  <para>127</para>
-                </entry>
-                <entry align="right" colsep="1">
-                  <para>255</para>
-                </entry>
-                <entry></entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </table>
+        <figure pgwide="1" xml:id="dbdoclet.50655240_97144">
+        <title>Floating-Point Registers as Part of VSRs</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/fig2-16.png" format="PNG"
+            scalefit="1" width="100%" />
+          </imageobject>
+        </mediaobject>
+        </figure>
 
-        <table frame="top" pgwide="1" xml:id="dbdoclet.50655240_56800" rowsep="1" colsep="1">
-          <title>Vector Registers as Part of VSRs</title>
-          <tgroup cols="4">
-            <colspec colname="c1" colwidth="10*" />
-            <colspec colname="c2" colwidth="44*" />
-            <colspec colname="c3" colwidth="44*" />
-            <colspec colname="c4" colwidth="0*" />
-            <tbody>
-              <row>
-                <entry align="right" rowsep="0">
-                  <para>VSR(0)</para>
-                </entry>
-                <entry nameend="c3" namest="c2">
-                  <para></para>
-                  <?dbhtml bgcolor="#EEEEEE" ?>
-                  <?dbfo bgcolor="#EEEEEE" ?>
-                </entry>
-                <entry rowsep="0"></entry>
-              </row>
-              <row>
-                <entry align="right" rowsep="0">
-                  <para>VSR(1)</para>
-                </entry>
-                <entry nameend="c3" namest="c2">
-                  <para></para>
-                  <?dbhtml bgcolor="#EEEEEE" ?>
-                  <?dbfo bgcolor="#EEEEEE" ?>
-                </entry>
-                <entry rowsep="0"></entry>
-              </row>
-              <row>
-                <entry align="right" rowsep="0">
-                  <para></para>
-                  <para></para>
-                </entry>
-                <entry nameend="c3" namest="c2" align="center">
-                  <para>
-                    <emphasis role="bold">...</emphasis>
-                  </para>
-                  <para>
-                    <emphasis role="bold">...</emphasis>
-                  </para>
-                  <?dbhtml bgcolor="#EEEEEE" ?>
-                  <?dbfo bgcolor="#EEEEEE" ?>
-                </entry>
-                <entry rowsep="0"></entry>
-              </row>
-              <row>
-                <entry align="right" rowsep="0">
-                  <para>VSR(30)</para>
-                </entry>
-                <entry nameend="c3" namest="c2">
-                  <para></para>
-                  <?dbhtml bgcolor="#EEEEEE" ?>
-                  <?dbfo bgcolor="#EEEEEE" ?>
-                </entry>
-                <entry rowsep="0"></entry>
-              </row>
-              <row>
-                <entry align="right" rowsep="0">
-                  <para>VSR(31)</para>
-                </entry>
-                <entry nameend="c3" namest="c2">
-                  <para></para>
-                  <?dbhtml bgcolor="#EEEEEE" ?>
-                  <?dbfo bgcolor="#EEEEEE" ?>
-                </entry>
-                <entry rowsep="0"></entry>
-              </row>
-              <row>
-                <entry align="right" rowsep="0">
-                  <para>VSR(32)</para>
-                </entry>
-                <entry nameend="c3" namest="c2" align="center">
-                  <para>VR[0]</para>
-                </entry>
-                <entry rowsep="0"></entry>
-              </row>
-              <row>
-                <entry align="right" rowsep="0">
-                  <para>VSR(33)</para>
-                </entry>
-                <entry nameend="c3" namest="c2" align="center">
-                  <para>VR[1]</para>
-                </entry>
-                <entry rowsep="0"></entry>
-              </row>
-              <row>
-                <entry align="right" rowsep="0">
-                  <para></para>
-                  <para></para>
-                </entry>
-                <entry nameend="c3" namest="c2" align="center">
-                  <para>
-                    <emphasis role="bold">...</emphasis>
-                  </para>
-                  <para>
-                    <emphasis role="bold">...</emphasis>
-                  </para>
-                </entry>
-                <entry rowsep="0"></entry>
-              </row>
-              <row>
-                <entry align="right" rowsep="0">
-                  <para>VSR(62)</para>
-                </entry>
-                <entry nameend="c3" namest="c2" align="center">
-                  <para>VR[30]</para>
-                </entry>
-                <entry rowsep="0"></entry>
-              </row>
-              <row>
-                <entry align="right">
-                  <para>VSR(63)</para>
-                </entry>
-                <entry nameend="c3" namest="c2" align="center">
-                  <para>VR[31]</para>
-                </entry>
-                <entry></entry>
-              </row>
-              <row>
-                <entry>
-                  <para></para>
-                </entry>
-                <entry align="left" colsep="0">
-                  <para>0</para>
-                </entry>
-                <entry align="right">
-                  <para>127</para>
-                </entry>
-                <entry></entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </table>
+        <figure pgwide="1" xml:id="dbdoclet.50655240_56800">
+        <title>Vector Registers as Part of VSRs</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/fig2-17.png" format="PNG"
+            scalefit="1" width="100%" />
+          </imageobject>
+        </mediaobject>
+        </figure>
+
         <para>The classic floating-point repertoire consists of 32
         floating-point registers, each 64 bits wide, and an associated
         special-purpose register to provide floating-point status and control.
@@ -5208,11 +4917,11 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <bridgehead>Limited-Access Conditions</bridgehead>
         <para>Standard library functions expressly defined to change the state
         of limited-access bits are not constrained by nonvolatile preservation
-        rules; for example, the fesetround() and feenableexcept() functions.
+        rules; for example, the fesetround( ) and feenableexcept( ) functions.
         All other standard library functions shall save the old value of these
         bits on entry, change the bits for their purpose, and restore the bits
         before returning.</para>
-        <para>Where a standard library function, such as qsort(), calls
+        <para>Where a standard library function, such as qsort( ), calls
         functions provided by an application, the following rules shall be
         observed:</para>
         <itemizedlist>
@@ -5238,19 +4947,19 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         into a signal handler because a library or user function can
         temporarily modify the limited-access bits when the signal is taken. 
         <anchor xml:id="dbdoclet.50655240_page39" xreflabel="" /></para>
-        <para>When setjmp() returns from its first call (also known as direct
+        <para>When setjmp( ) returns from its first call (also known as direct
         invocation), it does not change the limited access bits. The limited
-        access bits have the values they had on entry to the setjmp()
+        access bits have the values they had on entry to the setjmp( )
         function.</para>
-        <para>When longjmp() is performed, it appears to be returning from a
-        call to setjmp(). In this instance, the limited access bits are not
-        restored to the values they had on entry to the setjmp()
+        <para>When longjmp( ) is performed, it appears to be returning from a
+        call to setjmp( ). In this instance, the limited access bits are not
+        restored to the values they had on entry to the setjmp( )
         function.</para>
-        <para>C library functions, such as _FPU_SETCW() defined in
+        <para>C library functions, such as _FPU_SETCW( ) defined in
         &lt;fpu_control.h&gt;, may modify the limited-access bits of the FPSCR.
         Additional C99 functions that can modify the FPSCR are defined in
         &lt;fenv.h&gt;.</para>
-        <para>The vector vec_mtvscr() function may change the limited-access NJ
+        <para>The vector vec_mtvscr( ) function may change the limited-access NJ
         bit.</para>
         <para>The unwinder does not modify limited-access bits. To avoid the
         overhead of saving and restoring the FPSCR on every call, it is only
@@ -5312,7 +5021,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         </mediaobject>
       </figure>
       <para>In 
-      <xref linkend="dbdoclet.50655240_page39" /> the white areas indicate an
+      <xref linkend="dbdoclet.50655240_97610" xrefstyle="select: nopage"/> the white areas indicate an
       optional save area of the stack frame. For a description of the optional
       save areas described by this ABI, see 
       <xref linkend="dbdoclet.50655240_15141" />.</para>
@@ -5452,6 +5161,15 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <para>If a function changes the value in any nonvolatile floating-point
         register fN, it shall first save the value in fN in the Floating-Point
         Register Save Area and restore the register upon function exit.</para>
+        <para>If full unwind information such as 
+        <emphasis role="underline">DWARF</emphasis> is present, registers can be 
+        saved in arbitrary locations in the stack
+        frame. If the system floating-point register save and restore 
+        functions are to be used, the floating-point registers
+        shall be saved in a contiguous range. Floating-point register fN 
+        is saved in the doubleword located 8 × (32 – N) bytes before the back-chain 
+        word of the previous frame, as shown in 
+        <xref linkend="dbdoclet.50655240_97610" /></para>
         <para>The Floating-Point Register Save Area is always doubleword
         aligned. The size of the Floating-Point Register Save Area depends upon
         the number of floating-point registers that must be saved. If no
@@ -5464,15 +5182,14 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         general-purpose register rN, it shall first save the value in rN in the
         General-Purpose Register Save Area and restore the register upon
         function exit.</para>
-        <para>If full unwind information such as 
-        <emphasis role="underline">DWARF</emphasis> is present, registers can be
+        <para>If full unwind information such as DWARF is present, registers can be
         saved in arbitrary locations in the stack frame. If the system
         floating-point register save and restore functions are to be used, the
-        floading-point registers shall be saved in a contiguous range.
+        floating-point registers shall be saved in a contiguous range.
         Floating-point register fN is saved in the doubleword located 8 x
         (32-N) bytes before the back-chain word of the previous frame, as shown
         in 
-        <xref linkend="dbdoclet.50655240_97610" /></para>
+        <xref linkend="dbdoclet.50655240_97610" />.</para>
         <para>The General-Purpose Register Save Area is always doubleword
         aligned. The size of the General-Purpose Register Save Area depends
         upon the number of general registers that must be saved. If no
@@ -5483,15 +5200,14 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <para>If a function changes the value in any nonvolatile vector
         register vN, it shall first save the value in vN in the Vector Register
         Save Area and restore the register upon function exit.</para>
-        <para>If full unwind information such as 
-        <emphasis role="underline">DWARF</emphasis> is present, registers can be
+        <para>If full unwind information such as DWARF is present, registers can be
         saved in arbitrary locations in the stack frame. If the system vector
         register save and restore functions are to be used, the vector
         registers shall be saved in a contiguous range. Vector register vN is
         saved in the doubleword located 16 x (32-N) bytes before the
         General-Purpose Register Save Areas plus alignment padding, as shown in
         
-        <xref linkend="dbdoclet.50655240_97610" /></para>
+        <xref linkend="dbdoclet.50655240_97610" />.</para>
         <para>The Vector Register Save Area is always quadword aligned. If
         necessary to ensure suitable alignment of the vector save area, a
         padding doubleword may be introduced between the vector register and
@@ -5599,8 +5315,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           <listitem>
             <para>When 128-bit integer types are passed by value, map each to
             two consecutive GPRs, two consecutive doublewords, or a GPR and a
-            doubleword.
-            <footnote xml:id="pgfId-1151735">
+            doubleword.<footnote xml:id="pgfId-1151735">
               <para>In big-endian environments, the most-significant doubleword
               of the quadword (__int128) parameter is stored in the lower
               numbered GPR or parameter word. The least-significant doubleword
@@ -5610,7 +5325,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
               is stored in the lower numbered GPR or parameter word. The
               most-significant doubleword of the quadword (__int128) is stored
               in the higher numbered GPR or parameter word.</para>
-            </footnote>The required alignment of int128 data types is 16 bytes.
+            </footnote> The required alignment of int128 data types is 16 bytes.
             Therefore, by-value parameters must be copied to a new location in
             the local variable area of the callee's stack frame before the
             address of the type can be provided (for example, using the
@@ -5653,31 +5368,31 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           <listitem>
             <para>Map fixed-size aggregates and unions passed by value to as
             many doublewords of the Parameter Save Area as the value uses in
-            memory. Align aggregates and unions as follows:</para>
+            memory. Align aggregates and unions as follows:
+              <itemizedlist>
+                  <listitem>
+                    <para>Aggregates that contain qualified floating-point or vector
+                    arguments are normally aligned at the alignment of their base type.
+                    For more information about qualified arguments, see
+                    <xref linkend="dbdoclet.50655240_60588" />.</para>
+                  </listitem>
+                  <listitem>
+                    <para>Other aggregates are normally aligned in accordance with the
+                    aggregate's defined alignment.</para>
+                  </listitem>
+                  <listitem>
+                    <para>The alignment will never be larger than the stack frame
+                    alignment (16 bytes).</para>
+                  </listitem>
+              </itemizedlist></para>
+            <para>This might result in doublewords being skipped for alignment.
+            When a doubleword in the Parameter Save Area (or its GPR copy) contains
+            at least a portion of a structure, that doubleword must contain all
+            other portions mapping to the same doubleword. (That is, a doubleword
+            can either be completely valid, or completely invalid, but not
+            partially valid and invalid, except in the last doubleword where
+            invalid padding may be present.)</para>
           </listitem>
-          <listitem>
-            <para>Aggregates that contain qualified floating-point or vector
-            arguments are normally aligned at the alignment of their base type.
-            For more information about qualified arguments, see
-            <xref linkend="dbdoclet.50655240_60588" />.</para>
-          </listitem>
-          <listitem>
-            <para>Other aggregates are normally aligned in accordance with the
-            aggregate's defined alignment.</para>
-          </listitem>
-          <listitem>
-            <para>The alignment will never be larger than the stack frame
-            alignment (16 bytes).</para>
-          </listitem>
-        </itemizedlist>
-        <para>This might result in doublewords being skipped for alignment.
-        When a doubleword in the Parameter Save Area (or its GPR copy) contains
-        at least a portion of a structure, that doubleword must contain all
-        other portions mapping to the same doubleword. (That is, a doubleword
-        can either be completely valid, or completely invalid, but not
-        partially valid and invalid, except in the last doubleword where
-        invalid padding may be present.)</para>
-        <itemizedlist>
           <listitem>
             <para>Pad an aggregate or union smaller than one doubleword in
             size<phrase revisionflag="added">, but having a non-zero size,</phrase>
@@ -5773,24 +5488,24 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <listitem>
           <para>A member of a homogeneous aggregate of multiple like data types
           passed in up to eight floating-point registers</para>
+          <para>A homogeneous aggregate can consist of a variety of nested
+          constructs including structures, unions, and array members, which shall
+          be traversed to determine the types and number of members of the base
+          floating-point type. (A complex floating-point data type is treated as if
+          two separate scalar values of the base type were passed.)</para>
+          <para>Homogeneous floating-point aggregates can have up to four IBM
+          EXTENDED PRECISION members, four IEEE BINARY 128 EXTENDED precision
+          members, four _Decimal128 members, or eight members of other
+          floating-point types. (Unions are treated as their largest member. For
+          homogeneous unions, different union alternatives may have different
+          sizes, provided that all union members are homogeneous with respect to
+          each other.) They are passed in floating-point registers if parameters of
+          that type would be passed in floating-point registers. They are passed in
+          vector registers if parameters of that type would be passed in vector
+          registers. They are passed as if each member was specified as a separate
+          parameter.</para>
         </listitem>
       </itemizedlist>
-      <para>A homogeneous aggregate can consist of a variety of nested
-      constructs including structures, unions, and array members, which shall
-      be traversed to determine the types and number of members of the base
-      floating-point type. (A complex floating-point data type is treated as if
-      two separate scalar values of the base type were passed.)</para>
-      <para>Homogeneous floating-point aggregates can have up to four IBM
-      EXTENDED PRECISION members, four IEEE BINARY 128 EXTENDED precision
-      members, four _Decimal128 members, or eight members of other
-      floating-point types. (Unions are treated as their largest member. For
-      homogeneous unions, different union alternatives may have different
-      sizes, provided that all union members are homogeneous with respect to
-      each other.) They are passed in floating-point registers if parameters of
-      that type would be passed in floating-point registers. They are passed in
-      vector registers if parameters of that type would be passed in vector
-      registers. They are passed as if each member was specified as a separate
-      parameter.</para>
       <para>A qualified vector argument corresponds to:</para>
       <itemizedlist>
         <listitem>
@@ -5804,21 +5519,21 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           <para>Any future type requiring 16-byte alignment (see
           <xref linkend="dbdoclet.50655240_15141" />) or processed in vector
           registers</para>
+          <para>For the purpose of determining a qualified floating-point argument,
+          _Float128 shall be considered a vector data type. In addition, _Float128
+          is like a vector data type for determining if multiple aggregate members
+          are like.</para>
+          <para>A homogeneous aggregate can consist of a variety of nested
+          constructs including structures, unions, and array members, which shall
+          be traversed to determine the types and number of members of the base
+          vector type. Homogeneous vector aggregates with up to eight members are
+          passed in up to eight vector registers as if each member was specified as
+          a separate parameter. (Unions are treated as their largest member. For
+          homogeneous unions, different union alternatives may have different
+          sizes, provided that all union members are homogeneous with respect to
+          each other.)</para>
         </listitem>
       </itemizedlist>
-      <para>For the purpose of determining a qualified floating-point argument,
-      _Float128 shall be considered a vector data type. In addition, _Float128
-      is like a vector data type for determining if multiple aggregate members
-      are like.</para>
-      <para>A homogeneous aggregate can consist of a variety of nested
-      constructs including structures, unions, and array members, which shall
-      be traversed to determine the types and number of members of the base
-      vector type. Homogeneous vector aggregates with up to eight members are
-      passed in up to eight vector registers as if each member was specified as
-      a separate parameter. (Unions are treated as their largest member. For
-      homogeneous unions, different union alternatives may have different
-      sizes, provided that all union members are homogeneous with respect to
-      each other.)</para>
       <note>
           <para>Floating-point and vector aggregates that contain padding
           words and integer fields with a width of 0 should not be treated as
@@ -5851,8 +5566,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       size of the corresponding in-memory representation of the passed
       argument's type.</para>
       <para><phrase revisionflag="changed">The parameter size is always rounded up to the next multiple of a
-      doubleword.</phrase>
-      <footnote xml:id="pgfId-1184124" revisionflag="added">
+      doubleword.</phrase><footnote xml:id="pgfId-1184124" revisionflag="added">
         <para>Consequently, each parameter of a non-zero size is allocated to
         at least one doubleword.</para>
       </footnote></para>
@@ -6373,8 +6087,7 @@ s6            -           72 (stored)</programlisting>
       architectures that pass some of the arguments in registers. The Power
       Architecture is one of the architectures that passes some of the
       arguments in registers.</para>
-      <para>
-      <anchor xml:id="dbdoclet.50655240_page61" xreflabel="" /> The parameter
+      <para><anchor xml:id="dbdoclet.50655240_page61" xreflabel="" />The parameter
       list may be zero length and is only allocated when parameters are
       spilled, when a function has unnamed parameters, or when no prototype is
       provided. When the Parameter Save Area is allocated, the Parameter Save
@@ -6387,11 +6100,10 @@ s6            -           72 (stored)</programlisting>
       registers as if the return value was the first named input argument to a
       function unless the return value is a nonhomogeneous aggregate larger
       than 2 doublewords or a homogeneous aggregate with more than eight
-      registers.
-      <footnote xml:id="pgfId-1163117">
+      registers.<footnote xml:id="pgfId-1163117">
         <para>For a definition of homogeneous aggregates, see 
         <xref linkend="dbdoclet.50655240_60588" />.</para>
-      </footnote>(Homogeneous aggregates are arrays, structs, or unions of a
+      </footnote> (Homogeneous aggregates are arrays, structs, or unions of a
       homogeneous floating-point or vector type and of a known fixed size.)
       Therefore, IBM EXTENDED PRECISION functions are returned in f1:f2.</para>
       <para>Homogeneous floating-point or vector aggregate return values that
@@ -6572,9 +6284,13 @@ lvx     v1, 0, r12</programlisting>
             and branch instructions that use registers. In both cases, absolute
             addressing is not required.</para>
           </listitem>
-          <listitem xml:id="dbdoclet.50655240_page64">
-            <para>
-              <xref linkend="dbdoclet.50655242_page119" />
+          <listitem>
+            <para>Second, when absolute addressing is required, the value can be 
+              computed with a Global Offset Table (GOT), which holds the information 
+              for address computation. Static and const references can be
+              accessed using a TOC pointer relative addressing model, while (shared) 
+              extern references must be accessed using the GOT-indirect addressing 
+              scheme. Both addressing schemes require a TOC pointer to be initialized.
             </para>
           </listitem>
         </itemizedlist>
@@ -6892,23 +6608,20 @@ or r0, r0, r1</programlisting>
       <xref linkend="dbdoclet.50655243_49403" />.</para>
       <section xml:id="dbdoclet.50655240_41483">
         <title>GPR Save and Restore Functions</title>
-        <para>Each _savegpr0_
-        <emphasis>N</emphasis> routine saves the general registers from r
-        <emphasis>N</emphasis>- r31, inclusive. Each routine also saves the LR.
+        <para>Each _savegpr0_<emphasis>N</emphasis> routine saves the general registers from 
+        r<emphasis>N</emphasis>- r31, inclusive. Each routine also saves the LR.
         The stack frame must not have been allocated yet. When the routine is
         called, r1 contains the address of the word immediately beyond the end
         of the general register save area, and r0 must contain the value of the
         LR on function entry.</para>
-        <para>The _restgpr0_
-        <emphasis>N</emphasis> routines restore the general registers from r
-        <emphasis>N</emphasis>- r31, and then return to their caller's caller.
+        <para>The _restgpr0_<emphasis>N</emphasis> routines restore the general registers from 
+        r<emphasis>N</emphasis>- r31, and then return to their caller's caller.
         The caller's stack frame must already have been deallocated. When the
         routine is called, r1 contains the address of the word immediately
         beyond the end of the general register save area, and the LR must
         contain the return address.</para>
-        <para>A sample implementation of _savegpr0_
-        <emphasis>N</emphasis> and _restgpr0_
-        <emphasis>N</emphasis> follows:</para>
+        <para>A sample implementation of _savegpr0_<emphasis>N</emphasis> and 
+        _restgpr0_<emphasis>N</emphasis> follows:</para>
         <programlisting>  _savegpr0_14: std r14,-144(r1) 
   _savegpr0_15: std r15,-136(r1) 
   _savegpr0_16: std r16,-128(r1) 
@@ -7007,17 +6720,14 @@ or r0, r0, r1</programlisting>
       </section>
       <section xml:id="dbdoclet.50655240_56788">
         <title>FPR Save and Restore Functions</title>
-        <para>Each _savefpr_
-        <emphasis>N</emphasis> routine saves the floating-point registers from f
-        <emphasis>N</emphasis>- f31, inclusive. When the routine is called, r1
+        <para>Each _savefpr_<emphasis>N</emphasis> routine saves the floating-point registers from 
+        f<emphasis>N</emphasis>- f31, inclusive. When the routine is called, r1
         contains the address of the word immediately beyond the end of the
         Floating-Point Register Save Area, which means that the stack frame
         must not have been allocated yet. Register r0 must contain the value of
         the LR on function entry.</para>
-        <para>The _restfpr_
-        <emphasis>N</emphasis> routines restore the floating-point registers
-        from f
-        <emphasis>N</emphasis>- f31, inclusive. When the routine is called, r1
+        <para>The _restfpr_<emphasis>N</emphasis> routines restore the floating-point registers
+        from f<emphasis>N</emphasis>- f31, inclusive. When the routine is called, r1
         contains the address of the word immediately beyond the end of the
         Floating-Point Register Save Area, which means that the stack frame
         must not have been allocated yet.</para>
@@ -7025,9 +6735,8 @@ or r0, r0, r1</programlisting>
         same prologue, or _restfpr_M and _restgpr0_M in the same epilogue. It
         is correct to call _savegpr1_M and _savefpr_M in either order, and to
         call _restgpr1_M and then _restfpr_M.</para>
-        <para>A sample implementation of _savefpr_
-        <emphasis>N</emphasis> and _restfpr_
-        <emphasis>N</emphasis> follows:</para>
+        <para>A sample implementation of _savefpr_<emphasis>N</emphasis> and 
+        _restfpr_<emphasis>N</emphasis> follows:</para>
         <programlisting>  _savefpr_14: stfd f14,-144(r1) 
   _savefpr_15: stfd f15,-136(r1) 
   _savefpr_16: stfd f16,-128(r1) 
@@ -7450,15 +7159,14 @@ stw r0,0,(r7)</programlisting>
         <itemizedlist>
           <listitem>
             <para>Due to fusion hardware support, the preferred code forms are
-            destructive
-            <footnote xml:id="pgfId-1139524">
+            destructive<footnote xml:id="pgfId-1139524">
               <para>Destructive in this context refers to a code sequence where
               the first intermediate result computed by a first instruction is
               overwritten (that is, "destroyed") by the result of a second
               instruction so that only one result register is produced. Fusion
               can then give the same performance as a single load instruction
               with a 32-bit displacement.</para>
-            </footnote>addressing forms with an addis specifying a set of
+            </footnote> addressing forms with an addis specifying a set of
             high-order bits followed immediately by a destructive load using
             the same target register as the addis instruction to load data from
             a signed 32-bit offset from a base register.</para>
@@ -7520,13 +7228,10 @@ stw r0,0,(r7)</programlisting>
                 <para>Low part of the offset: symbol@l</para>
               </listitem>
             </itemizedlist>
-            <para>If the instruction using symbol@got@
-            <emphasis role="bold">l</emphasis> has a signed immediate operand (for example,
-            addi), use symbol@got@
-            <emphasis role="bold">ha</emphasis>(high adjusted) for the high part of the offset.
+            <para>If the instruction using symbol@got@<emphasis role="bold">l</emphasis> has a signed immediate operand (for example,
+            addi), use symbol@got@<emphasis role="bold">ha</emphasis>(high adjusted) for the high part of the offset.
             If it has an unsigned immediate operand (for example, ori), use
-            symbol@got@
-            <emphasis role="bold">h</emphasis>. For a description of high-adjusted values, see 
+            symbol@got@<emphasis role="bold">h</emphasis>. For a description of high-adjusted values, see 
             <xref linkend="dbdoclet.50655241_51269" />.</para>
           </listitem>
         </itemizedlist>
@@ -7557,7 +7262,16 @@ stw r0,0,(r7)</programlisting>
           <xref linkend="dbdoclet.50655240_85319" />.</para>
         </listitem>
       </orderedlist>
-      <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_85319">
+      <figure xml:id="dbdoclet.50655240_85319">
+        <title>Direct Function Call</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/fig2-32.png" format="PNG"
+            scalefit="1" width="100%" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <!--table frame="all" pgwide="1" xml:id="dbdoclet.50655240_85319">
         <title>Direct Function Call</title>
         <tgroup cols="2">
           <colspec colname="c1" colwidth="30*" />
@@ -7579,8 +7293,8 @@ stw r0,0,(r7)</programlisting>
           <tbody>
             <row>
               <entry>
-                <programlisting>extern void function();
-function();</programlisting>
+                <programlisting>extern void function( );
+function( );</programlisting>
               </entry>
               <entry>
                 <programlisting>
@@ -7590,7 +7304,7 @@ nop</programlisting>
             </row>
           </tbody>
         </tgroup>
-      </table>
+      </table -->
       <orderedlist continuation="continues">
         <listitem>
           <para>The called function is not in the same executable or shared
@@ -7603,13 +7317,22 @@ nop</programlisting>
       </orderedlist>
       <para>For indirect function calls, the address of the function to be
       called is placed in r12 and the CTR register. A bctrl instruction is used
-      to pereform the indirect branch as shown in 
+      to perform the indirect branch as shown in 
       <xref linkend="dbdoclet.50655240_16744" />, and 
       <xref linkend="dbdoclet.50655240_95225" />. The ELF V2 ABI requires the
       address of the called function to be in r12 when a cross-module function
       call is made.</para>
 
-      <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_95364">
+      <figure xml:id="dbdoclet.50655240_95364">
+        <title>Indirect Function Call (Absolute Medium Model)</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/fig2-33.png" format="PNG"
+            scalefit="1" width="100%" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <!-- table frame="all" pgwide="1" xml:id="dbdoclet.50655240_95364">
         <title>Indirect Function Call (Absolute Medium Model)</title>
         <tgroup cols="2">
           <colspec colname="c1" colwidth="30*" />
@@ -7631,14 +7354,14 @@ nop</programlisting>
           <tbody>
             <row>
               <entry>
-                <programlisting>extern void function(); 
-extern void (*ptrfunc) ();
+                <programlisting>extern void function( ); 
+extern void (*ptrfunc) ( );
 
 ptrfunc = function;
  
 
 
-(*ptrfunc)();
+(*ptrfunc)( );
 
 
 </programlisting>
@@ -7659,12 +7382,21 @@ bctrl</programlisting>
             </row>
           </tbody>
         </tgroup>
-      </table>
+      </table -->
       <para>
       <xref linkend="dbdoclet.50655240_16744" /> shows how to make an indirect
       function call using small-model position-independent code.</para>
 
-      <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_16744">
+      <figure xml:id="dbdoclet.50655240_16744">
+        <title>Small-Model Position-Independent Indirect Function Call</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/fig2-34.png" format="PNG"
+            scalefit="1" width="100%" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <!--table frame="all" pgwide="1" xml:id="dbdoclet.50655240_16744">
         <title>Small-Model Position-Independent Indirect Function Call</title>
         <tgroup cols="2">
           <colspec colname="c1" colwidth="30*" />
@@ -7686,15 +7418,15 @@ bctrl</programlisting>
           <tbody>
             <row>
               <entry>
-                <programlisting>extern void function(); 
-extern void (*ptrfunc) (); 
+                <programlisting>extern void function( ); 
+extern void (*ptrfunc) ( ); 
 
 
 ptrfunc = function; 
 
 
 ... 
-(*ptrfunc) ();
+(*ptrfunc) ( );
 
 
 
@@ -7720,12 +7452,21 @@ ld r2,24(r1)</programlisting>
             </row>
           </tbody>
         </tgroup>
-      </table>
+      </table -->
       <para>
       <xref linkend="dbdoclet.50655240_95225" /> shows how to make an indirect
       function call using large-model position-independent code.</para>
 
-      <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_95225">
+      <figure xml:id="dbdoclet.50655240_95225">
+        <title>Large-Model Position-Independent Indirect Function Call</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/fig2-35.png" format="PNG"
+            scalefit="1" width="100%" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <!--table frame="all" pgwide="1" xml:id="dbdoclet.50655240_95225">
         <title>Large-Model Position-Independent Indirect Function Call</title>
         <tgroup cols="2">
           <colspec colname="c1" colwidth="30*" />
@@ -7747,15 +7488,15 @@ ld r2,24(r1)</programlisting>
           <tbody>
             <row>
               <entry>
-                <programlisting>extern void function(); 
-extern void (*ptrfunc) (); 
+                <programlisting>extern void function( ); 
+extern void (*ptrfunc) ( ); 
 ptrfunc=function; 
 
 
 
 
 
-(*ptrfunc) ();
+(*ptrfunc) ( );
 
 
 
@@ -7783,7 +7524,7 @@ ld r2,24(r1)</programlisting>
             </row>
           </tbody>
         </tgroup>
-      </table>
+      </table -->
       <para>Function calls need to be performed in conjunction with
       establishing, maintaining, and restoring addressability through the TOC
       pointer register, r2. When a function is called, the TOC pointer register
@@ -7828,7 +7569,16 @@ bl target
       <xref linkend="dbdoclet.50655240_66111" /> shows the model for branch
       instructions.</para>
 
-      <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_66111">
+      <figure xml:id="dbdoclet.50655240_66111">
+        <title>Branch Instruction Model</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/fig2-36.png" format="PNG"
+            scalefit="1" width="100%" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <!--table frame="all" pgwide="1" xml:id="dbdoclet.50655240_66111">
         <title>Branch Instruction Model</title>
         <tgroup cols="2">
           <colspec colname="c1" colwidth="50*" />
@@ -7862,7 +7612,7 @@ b .L01</programlisting>
             </row>
           </tbody>
         </tgroup>
-      </table>
+      </table-->
       <para>Selecting one of multiple branches is accomplished in C with switch
       statements. An address table is used by the compiler to implement the
       switch statement selections in cases where the case labels satisfy
@@ -7886,8 +7636,18 @@ b .L01</programlisting>
       application) loaded into the low or high address range, absolute
       addressing of a branch table yields the best performance.</para>
 
-      <table frame="all" pgwide="1">
-        <title>Absolute Switch Code (Within)for static modules located in low
+      <figure>
+        <title>Absolute Switch Code (Within) for static modules located in low
+        or high 2 GB of address space</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/fig2-37.png" format="PNG"
+            scalefit="1" width="100%" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <!--table frame="all" pgwide="1">
+        <title>Absolute Switch Code (Within) for static modules located in low
         or high 2 GB of address space</title>
         <tgroup cols="2">
           <colspec colname="c1" colwidth="30*" />
@@ -7943,13 +7703,24 @@ bctr
             </row>
           </tbody>
         </tgroup>
-      </table>
+      </table-->
       <note>
         <para>A faster variant of this code may be used to locate branch
         targets in the bottom 2 GB of the address space in conjunction with the
         lwz instruction in place of the lwa instruction.</para>
       </note>
-      <table frame="all" pgwide="1">
+      
+      <figure>
+        <title>Absolute Switch Code (Beyond) for static modules beyond the top
+        or bottom 2 GB of the address space</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/fig2-38.png" format="PNG"
+            scalefit="1" width="100%" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <!--table frame="all" pgwide="1">
         <title>Absolute Switch Code (Beyond) for static modules beyond the top
         or bottom 2 GB of the address space</title>
         <tgroup cols="2">
@@ -8006,7 +7777,7 @@ bctr
             </row>
           </tbody>
         </tgroup>
-      </table>
+      </table -->
       <para>For position-independent code targeted at being dynamically loaded
       to different address ranges as DSO, the preferred code pattern uses
       TOC-relative addressing by taking advantage of the fact that the TOC
@@ -8014,7 +7785,18 @@ bctr
       relative offsets from the start address of the branch table ensures
       position-independence when code is loaded at different addresses.</para>
 
-      <table frame="all" pgwide="1">
+
+      <figure>
+        <title>Position-Independent Switch Code for Small/Medium Models
+        (preferred with TOC-relative addressing)</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/fig2-39.png" format="PNG"
+            scalefit="1" width="100%" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <!--table frame="all" pgwide="1">
         <title>Position-Independent Switch Code for Small/Medium Models</title>
         <tgroup cols="2">
           <colspec colname="c1" colwidth="30*" />
@@ -8070,7 +7852,7 @@ bctr
             </row>
           </tbody>
         </tgroup>
-      </table>
+      </table-->
       <para>For position-independent code targeted at being dynamically loaded
       to different address ranges as a DSO or a position-independent executable
       (PIE), the preferred code pattern uses TOC-indirect addresses for code
@@ -8079,7 +7861,17 @@ bctr
       table ensures position independence when code is loaded at different
       addresses.</para>
 
-      <table frame="all" pgwide="1">
+      <figure>
+        <title>Position-Independent Switch Code for All Models (alternate, with
+        GOT-indirect addressing)</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/fig2-40.png" format="PNG"
+            scalefit="1" width="100%" />
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <!--table frame="all" pgwide="1">
         <title>Position-Independent Switch Code for All Models (alternate, with
         GOT-indirect addressing)</title>
         <tgroup cols="2">
@@ -8136,7 +7928,7 @@ bctr
             </row>
           </tbody>
         </tgroup>
-      </table>
+      </table-->
       <para>
       <xref linkend="dbdoclet.50655240_11405" /> shows how, in the medium code
       model, PIC code can be used to avoid using the lwa instruction, which may
@@ -8194,7 +7986,7 @@ f1:
           <para>Using a frame pointer is the recognized method for
           maintaining addressability to arguments or local variables. (This may
           be a pointer to the top of the stack frame, typically in r31.) For
-          correct behavior in the cases of setjmp() and longjmp(), the frame
+          correct behavior in the cases of setjmp( ) and longjmp( ), the frame
           pointer shall be allocated in a nonvolatile general-purpose
           register.</para>
       </note>
@@ -8262,7 +8054,7 @@ addi  r3,r1,p           ; R3 = new data area following parameter save area.</pro
     <para>The DWARF specification is used by compilers and debuggers to aid 
     source-level or symbolic debugging. However, the format is not biased toward 
     any particular compiler or debugger.  Per the DWARF specification, a 
-    mapping from Power Archtecture regiters to register numbers is required as   
+    mapping from Power Archtecture registers to register numbers is required as   
     described in <xref linkend="dbdoclet.50655240_94513" />.</para>
     <para>All instances of the Power Architecture use the mapping shown in 
     <xref linkend="dbdoclet.50655240_94513" /> for encoding registers into
@@ -8397,8 +8189,7 @@ addi  r3,r1,p           ; R3 = new data area following parameter save area.</pro
               <para>cr0 - cr7</para>
             </entry>
             <entry>
-              <para>0.5
-              <footnote>
+              <para>0.5<footnote>
                 <para>The CRx registers correspond to 4-bit fields within a
                 word where the offset of the 4-bit group within a word is a
                 function of the CRFx number (x).</para>

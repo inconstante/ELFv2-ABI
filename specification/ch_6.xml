@@ -60,7 +60,7 @@ xml:id="dbdoclet.50655244_pgfId-1095944">
     alignment.</para>
     <para>The preferred way to access vectors at an application-defined address
     is by using vector pointers and the C/C++ dereference operator *. Similar
-    to other C /C++ data types, the array reference operator [] may be used to
+    to other C /C++ data types, the array reference operator [ ] may be used to
     access vector objects with a vector pointer with the usual definition to
     access the n-th vector element from a vector pointer. The use of vector
     built-in functions such as vec_xl and vec_xst is discouraged except for
@@ -136,7 +136,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
     layout and vector element ordering in big-endian environments shall be big
     endian, and the default vector layout and vector element ordering in
     little-endian environments shall be little endian.</para>
-    <para>This element numbering shall also be used by the [] accessor method
+    <para>This element numbering shall also be used by the [ ] accessor method
     to vector elements provided as an extension of the C/C++ languages by some
     compilers, as well as for other language extensions or library constructs
     that directly or indirectly refer to elements by their element
@@ -203,9 +203,9 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
     <table frame="all" pgwide="1" xml:id="dbdoclet.50655244_35023">
       <title>Endian-Sensitive Operations</title>
       <tgroup cols="3">
-        <colspec colname="c1" colwidth="15*" align="center" />
-        <colspec colname="c2" colwidth="35*" align="center" />
-        <colspec colname="c3" colwidth="50*" />
+        <colspec colname="c1" colwidth="25*" align="center" />
+        <colspec colname="c2" colwidth="30*" align="center" />
+        <colspec colname="c3" colwidth="45*" />
         <thead>
           <row>
             <entry>
@@ -274,8 +274,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
           </row>
           <row revisionflag="added">
             <entry>
-              <para>vec_extract_fp32_</para>
-              <para>from_shorth</para>
+              <para>vec_extract_fp32_from_shorth</para>
             </entry>
             <entry>
               <para> </para>
@@ -286,8 +285,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
           </row>
           <row revisionflag="added">
             <entry>
-              <para>vec_extract_fp32_</para>
-              <para>from_shortl</para>
+              <para>vec_extract_fp32_from_shortl</para>
             </entry>
             <entry>
               <para> </para>
@@ -310,8 +308,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
           </row>
           <row revisionflag="added">
             <entry>
-              <para>vec_first_match</para>
-              <para>_index</para>
+              <para>vec_first_match_index</para>
             </entry>
             <entry>
               <para> </para>
@@ -322,8 +319,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
           </row>
           <row revisionflag="added">
             <entry>
-              <para>vec_first_match</para>
-              <para>_index_or_eos</para>
+              <para>vec_first_match_index_or_eos</para>
             </entry>
             <entry>
               <para> </para>
@@ -364,8 +360,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
               <para>vmrgew</para>
             </entry>
             <entry>
-              <para>Swap inputs and use vmrgow for LE. Phased in.
-              <footnote xml:id="pgfId-1105723">
+              <para>Swap inputs and use vmrgow for LE. Phased in.<footnote xml:id="pgfId-1105723">
                 <para>This optional function is being phased in, and it may not
                 be available on all implementations.</para>
               </footnote></para>
@@ -401,8 +396,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
               <para>vmrgow</para>
             </entry>
             <entry>
-              <para>Swap inputs and use vmrgew for LE. Phased in.
-                <footnoteref linkend="pgfId-1105723" /> </para>
+              <para>Swap inputs and use vmrgew for LE. Phased in.<footnoteref linkend="pgfId-1105723" /> </para>
             </entry>
           </row>
           <row>
@@ -754,8 +748,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
             </row>
             <row>
               <entry>
-                <para>vec_xlw4
-                  <footnote xml:id="dbdoclet.50655244_73052"><para>
+                <para>vec_xlw4<footnote xml:id="dbdoclet.50655244_73052"><para>
                   Deprecated. The use of vector data type
                       assignment and overloaded vec_xl and vec_xst vector
                       built-in functions are preferred forms for assigning
@@ -774,8 +767,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
             </row>
             <row>
               <entry>
-                <para>vec_xld2
-                  <footnoteref linkend="dbdoclet.50655244_73052"/>
+                <para>vec_xld2<footnoteref linkend="dbdoclet.50655244_73052"/>
                 </para>
               </entry>
               <entry>
@@ -798,8 +790,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
             </row>
             <row>
               <entry>
-                <para>vec_xstw4
-                  <footnoteref linkend="dbdoclet.50655244_73052"/>
+                <para>vec_xstw4<footnoteref linkend="dbdoclet.50655244_73052"/>
                 </para>
               </entry>
               <entry>
@@ -811,8 +802,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
             </row>
             <row>
               <entry>
-                <para>vec_xstd2
-                  <footnoteref linkend="dbdoclet.50655244_73052"/>
+                <para>vec_xstd2<footnoteref linkend="dbdoclet.50655244_73052"/>
                 </para>
               </entry>
               <entry>
@@ -1173,8 +1163,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
             </row>
             <row>
               <entry>
-                <para>vec_xlw<phrase revisionflag="added">4</phrase>
-                  <footnote xml:id="dbdoclet.50655244_78719">
+                <para>vec_xlw<phrase revisionflag="added">4</phrase><footnote xml:id="dbdoclet.50655244_78719">
                     <para>Deprecated. The use of vector data type
                       assignment and overloaded vec_xl and vec_xst vector
                       built-in functions are preferred forms for assigning
@@ -1193,8 +1182,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
             </row>
             <row>
               <entry>
-                <para>vec_xld2
-                  <footnoteref linkend="dbdoclet.50655244_78719"/>
+                <para>vec_xld2<footnoteref linkend="dbdoclet.50655244_78719"/>
                 </para>
               </entry>
               <entry>
@@ -1219,8 +1207,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
             </row>
             <row>
               <entry>
-                <para>vec_xstw4
-                  <footnoteref linkend="dbdoclet.50655244_78719"/>
+                <para>vec_xstw4<footnoteref linkend="dbdoclet.50655244_78719"/>
                 </para>
               </entry>
               <entry>
@@ -1232,8 +1219,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
             </row>
             <row>
               <entry>
-                <para>vec_xstd2
-                  <footnoteref linkend="dbdoclet.50655244_78719"/>
+                <para>vec_xstd2<footnoteref linkend="dbdoclet.50655244_78719"/>
                 </para>
               </entry>
               <entry>
@@ -1295,6 +1281,53 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
             </row>
           </thead>
           <tbody>
+            <row revisionflag="added">
+              <entry>
+                <para>VEC_CONCAT (ARG1, ARG2)<?linebreak?>(Fortran)</para>
+                <para></para>
+              </entry>
+              <entry>
+                <para>Purpose:</para>
+                <para>Concatenates two elements to form a vector.</para>
+                <para>Result value:</para>
+                <para>The resulting vector consists of the two scalar elements,
+                ARG1 and ARG2, assigned to elements 0 and 1 (using the
+                environment’s native endian numbering), respectively.</para>
+                <itemizedlist>
+                  <listitem>
+                    <para><emphasis role="bold">Note:  </emphasis>This function corresponds to the C/C++ vector
+                    constructor (vector type){a,b}. It is provided only for
+                    languages without vector constructors.</para>
+                  </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para></para>
+              </entry>
+              <entry>
+                <para>vector signed long long vec_concat (signed long long,
+                signed long long);</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para></para>
+              </entry>
+              <entry>
+                <para>vector unsigned long long vec_concat (unsigned long long,
+                unsigned long long);</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para></para>
+              </entry>
+              <entry>
+                <para>vector double vec_concat (double, double);</para>
+              </entry>
+            </row>
             <row>
               <entry>
                 <para>VEC_CONVERT(V, MOLD)</para>

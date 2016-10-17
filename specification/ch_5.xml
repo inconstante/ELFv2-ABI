@@ -17,7 +17,7 @@ xml:id="dbdoclet.50655243_pgfId-1099317">
       <para />
       <section xml:id="dbdoclet.50655243___RefHeading___Toc377640667">
         <title>Malloc Routine Return Pointer Alignment</title>
-        <para>The malloc() routine must always return a pointer with the
+        <para>The malloc( ) routine must always return a pointer with the
         alignment of the largest alignment needed for loads and stores of the
         built-in data types. This is currently 16 bytes.</para>
       </section>
@@ -195,8 +195,7 @@ xml:id="dbdoclet.50655243_pgfId-1099317">
               <entry>
                 <para>__PPC64__</para>
                 <para>__powerpc64__</para>
-                <para>__64BIT__
-                <footnote xml:id="pgfId-1101811">
+                <para>__64BIT__<footnote xml:id="pgfId-1101811">
                   <para>Phased in.</para>
                 </footnote></para>
               </entry>

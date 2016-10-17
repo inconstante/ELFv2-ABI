@@ -116,8 +116,7 @@ e_ident[EI_DATA]     ELFDATA2LSB  For all little-endian implementations.</progra
           </row>
           <row>
             <entry>
-              <para>.plt
-              <footnote>
+              <para>.plt<footnote>
                  <para>The type of the OpenPOWER ABI .plt section is
                     SHT_NOBITS, not SHT_PROGBITS as on most other processors.</para>
               </footnote></para>
@@ -184,7 +183,7 @@ e_ident[EI_DATA]     ELFDATA2LSB  For all little-endian implementations.</progra
         is linker generated. The linker must ensure that .got is aligned to an
         8-byte boundary. In an executable or shared library, it may contain
         part or all of the TOC. For more information, see
-        <xref revisionflag='deleted' linkend="dbdoclet.50655240___RefHeading___Toc377640591" /> and 
+        <xref linkend="dbdoclet.50655240___RefHeading___Toc377640591" /> and 
         <xref linkend="dbdoclet.50655242_47739" />.</para>
       </listitem>
       <listitem>
@@ -319,7 +318,7 @@ e_ident[EI_DATA]     ELFDATA2LSB  For all little-endian implementations.</progra
                 pointer can use a common entry point for the local and global
                 entry points.</para>
                 <note>
-                  <para>Note: If the function is not a leaf function, it must
+                  <para>If the function is not a leaf function, it must
                   call subroutines using the R_PPC64_REL24_NOTOC relocation
                   to indicate that the TOC register is not initialized. In
                   turn, this may lead to more expensive procedure linkage
@@ -852,7 +851,7 @@ my_func:
               </entry>
             </row>
             <row>
-              <entry align="left">
+              <entry align="right">
                 <para>0</para>
               </entry>
               <entry>
@@ -2230,7 +2229,7 @@ my_func:
               </entry>
               <entry>
                 <para>Denotes the high adjusted value: bits 16 - 63 of the
-                indicated value, compensating for #lo() being treated as a
+                indicated value, compensating for #lo( ) being treated as a
                 signed number. That is:</para>
                 <para>#ha(x) = (x + 0x8000) &gt;&gt; 16</para>
               </entry>
@@ -2324,7 +2323,7 @@ my_func:
                 <para>If n is the offset computed:</para>
                 <para>GOT[n] = dtpmod</para>
                 <para>GOT[n + 1] = dtprel</para>
-                <para>The call to __tls_get_addr () happens as:</para>
+                <para>The call to __tls_get_addr ( ) happens as:</para>
                 <para>__tls_get_addr ((tls_index *) &amp;GOT[n])</para>
               </entry>
             </row>
@@ -2339,7 +2338,7 @@ my_func:
                 <para>If n is the offset computed:</para>
                 <para>GOT[n] = dtpmod</para>
                 <para>GOT[n + 1] = 0</para>
-                <para>The call to __tls_get_addr () happens as:</para>
+                <para>The call to __tls_get_addr ( ) happens as:</para>
                 <para>__tls_get_addr ((tls_index *) &amp;GOT[n])</para>
               </entry>
             </row>
@@ -2360,7 +2359,7 @@ my_func:
         </tgroup>
       </informaltable>
       <note>
-        <para>Note: Relocations flagged with an asterisk(*) will
+        <para>Relocations flagged with an asterisk(*) will
         trigger a relocation failure if the value computed does
         not fit in the field specified.</para>
       </note>
@@ -2426,11 +2425,12 @@ my_func:
           <tfoot>
             <row>
               <entry nameend="c4" namest="c1" align="left">
-                <para><emphasis role="bold">Note:</emphasis>Relocation values 8, 9, 12, 13, 18, 23, 32,
+                <note>
+                  <para>Relocation values 8, 9, 12, 13, 18, 23, 32,
                       and 247 are not used. This is to maintain a
                       correspondence to the relocation values used by the
                       32-bit PowerPC ELF ABI.
-                </para>
+                </para></note>
               </entry>
             </row>
           </tfoot>
@@ -3204,7 +3204,7 @@ my_func:
                 <para>half16ds*</para>
               </entry>
               <entry>
-                <para></para>
+                <para>(R + A) &gt;&gt; 2</para>
               </entry>
             </row>
             <row>
@@ -4119,9 +4119,7 @@ my_func:
       resolved through a call to the symbol’s procedure linkage table entry.
       Additionally, it instructs the link editor to build a procedure linkage
       table for the executable or shared object if one is not created.</para>
-      <para>
-      <anchor xml:id="dbdoclet.50655241_R_PPC_COPY"
-      xreflabel="" /> R_PPC64_COPY</para>
+      <para><anchor xml:id="dbdoclet.50655241_R_PPC_COPY" xreflabel="" />R_PPC64_COPY</para>
       <para>This relocation type is created by the link editor for dynamic
       linking. Its offset member refers to a location in a writable segment.
       The symbol table index specifies a symbol that should exist both in the
@@ -4219,7 +4217,7 @@ ld     r3,x@got@l(r3)</programlisting>
       <para> </para>
       <note>
         <para>
-        <emphasis role="bold">Note:</emphasis> If X is a variable stored in the TOC,
+        If X is a variable stored in the TOC,
         then X@got is the offset within the TOC of a doubleword whose
         value is X@toc.</para>
       </note>
@@ -4274,23 +4272,23 @@ lwz    rt, offset(r2)</programlisting>
       <para>Compilers and programmers 
       <emphasis>must</emphasis> ensure that r2 is live at the actual data access
       point associated with extended displacement addressing.</para>
-    </section>
-    <section xml:id="dbdoclet.50655241_19147">
-      <title>TOC Pointer Usage</title>
-      <para>To enable linker-based optimizations when global data is accessed,
-      the TOC pointer needs to be available for dereference at the point of all
-      uses of values derived from the TOC pointer in conjunction with the @l
-      operator. This property is used by the linker to optimize TOC pointer
-      accesses. In addition, all reaching definitions for a TOC-pointer-derived
-      access must compute the same definition.</para>
-      <para>In some implementations, non-ABI-compliant code may be processed by
-      providing additional linker options; for example, linker options
-      disabling linker optimization. However, this behavior in support of
-      non-ABI-compliant code is not guaranteed to be portable and supported in
-      all systems.</para>
-      <para>&#160;</para>
-      <bridgehead>Compliant example</bridgehead>
-      <programlisting>        addis  r4, r2, mysym@toc@ha
+
+      <section xml:id="dbdoclet.50655241_19147">
+        <title>TOC Pointer Usage</title>
+        <para>To enable linker-based optimizations when global data is accessed,
+        the TOC pointer needs to be available for dereference at the point of all
+        uses of values derived from the TOC pointer in conjunction with the @l
+        operator. This property is used by the linker to optimize TOC pointer
+        accesses. In addition, all reaching definitions for a TOC-pointer-derived
+        access must compute the same definition.</para>
+        <para>In some implementations, non-ABI-compliant code may be processed by
+        providing additional linker options; for example, linker options
+        disabling linker optimization. However, this behavior in support of
+        non-ABI-compliant code is not guaranteed to be portable and supported in
+        all systems.</para>
+        <para>&#160;</para>
+        <bridgehead>Compliant example</bridgehead>
+        <programlisting>        addis  r4, r2, mysym@toc@ha
         b      target
  
  
@@ -4301,9 +4299,9 @@ lwz    rt, offset(r2)</programlisting>
 target:
         addi   r4, r4, mysym@toc@l
         ...</programlisting>
-      <para>&#160;</para>
-      <bridgehead>Non-compliant example</bridgehead>
-      <programlisting>               li     r4, 0 ; #d1
+        <para>&#160;</para>
+        <bridgehead>Non-compliant example</bridgehead>
+        <programlisting>               li     r4, 0 ; #d1
         b      target
  
         ...
@@ -4312,14 +4310,16 @@ target:
 target:
         addi   r4, r4, mysym@toc@l ; incompatible definitions #d1 and #d2 reach this
         ...</programlisting>
+      </section>
+      <section>
+        <title>Table Jump Sequences</title>
+        <para>Some linkers may rewrite jump table sequences, as described in 
+        <xref linkend="dbdoclet.50655240_47036" />. For example, linkers may
+        rewrite address references created using GOT-indirect loads and bl+4
+        sequences to use TOC-relative address computation.</para>
+      </section>
     </section>
-    <section>
-      <title>Table Jump Sequences</title>
-      <para>Some linkers may rewrite jump table sequences, as described in 
-      <xref linkend="dbdoclet.50655240_47036" />. For example, linkers may
-      rewrite address references created using GOT-indirect loads and bl+4
-      sequences to use TOC-relative address computation.</para>
-    </section>
+      
     <section>
       <title>Fusion</title>
       <para>Code generation in compilers, linkers, and by programmers should
@@ -4426,14 +4426,14 @@ addi      r4, r4, lower</programlisting>
 tlsoffset(m + 1) = round(tlsoffset(m) + tlssize(m), align(m + 1))</programlisting>
       <itemizedlist>
         <listitem>
-          <para>The function round() returns its first argument rounded up to
+          <para>The function round( ) returns its first argument rounded up to
           the next multiple of its second argument:</para>
         </listitem>
       </itemizedlist>
       <programlisting>round(x, y) = y × ceiling(x / y)</programlisting>
       <itemizedlist>
         <listitem>
-          <para>The function ceiling() returns the smallest integer greater
+          <para>The function ceiling( ) returns the smallest integer greater
           than or equal to its argument, where n is an integer satisfying: n -
           1 &lt; x ≤ n:</para>
         </listitem>
@@ -4441,9 +4441,9 @@ tlsoffset(m + 1) = round(tlsoffset(m) + tlssize(m), align(m + 1))</programlistin
       <programlisting>ceiling(x) = n</programlisting>
       <para>In the case of dynamic shared objects (DSO), TLS blocks are
       allocated on an as-needed basis, with the details of allocation
-      abstracted away by the __tls_get_addr() function, which is used to
+      abstracted away by the __tls_get_addr( ) function, which is used to
       retrieve the address of any TLS variable.</para>
-      <para>The prototype for the __tls_get_addr() function, is defined as
+      <para>The prototype for the __tls_get_addr( ) function, is defined as
       follows.</para>
       <programlisting>typedef struct
 {
@@ -4514,7 +4514,7 @@ extern void *__tls_get_addr (tls_index *ti);</programlisting>
         code model, which is the default for the ELF V2 ABI.</para>
       </note>
       <para>Given the following code fragment, to determine the address of a
-      thread-local variable x, the __tls_get_addr() function is called with one
+      thread-local variable x, the __tls_get_addr( ) function is called with one
       parameter. That parameter is a pointer to a data object of type
       tls_index.</para>
       <programlisting>extern __thread unsigned int x;
@@ -5717,8 +5717,7 @@ static __thread unsigned int x3;
       the following code, which makes no reference to GOT entries. The GOT
       entries in 
       <xref linkend="dbdoclet.50655241_16273" /> can be removed from the GOT by
-      the linker when performing this code transformation.
-      <footnote xml:id="pgfId-1134055">
+      the linker when performing this code transformation.<footnote xml:id="pgfId-1134055">
         <para>To further optimize the code in 
         <xref linkend="dbdoclet.50655241_16273" />, a linker may reschedule the
         sequence to exploit fusion by generating a sequence that may be fused
@@ -6251,7 +6250,7 @@ nop</programlisting>
                 <para>
                   <orderedlist>
                     <listitem xml:id="dbdoclet.50655241_21152">
-                      <para>1. The linker may prefer to schedule the addis and
+                      <para>The linker may prefer to schedule the addis and
                       addi to be adjacent to take advantage of fusion as a
                       microarchitecture optimization opportunity.</para>
                     </listitem>
@@ -6703,7 +6702,7 @@ nop</programlisting>
       <para>The result of performing a relocation for a TLS symbol is the
       module ID and its offset within the TLS block. These are then stored in
       the GOT. Later, they are obtained by the dynamic linker at run-time and
-      passed to __tls_get_addr(), which returns the address for the variable
+      passed to __tls_get_addr( ), which returns the address for the variable
       for the current thread.</para>
       <para>For more information, see 
       <xref linkend="dbdoclet.50655241_18894" />. For TLS relocations, see 

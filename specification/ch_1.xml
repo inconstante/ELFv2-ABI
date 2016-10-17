@@ -27,7 +27,7 @@
   <xref linkend="dbdoclet.50655240___RefHeading___Toc377640574" />).
   OpenPOWER-compliant processors in the 64-bit Power Architecture can execute
   in either big-endian or little-endian mode. Executables and
-  executable-generated data (in general) that subscribes to either byte
+  executable-generated data (in general) that subscribe to either byte
   ordering is not portable to a system running in the other mode.</para>
   <itemizedlist>
     <listitem>
@@ -155,8 +155,7 @@
         </emphasis></para>
       </listitem>
       <listitem>
-        <para>ELF Assembly User’s Guide, Fourth edition, IBM, 2000.</para>
-        <para>
+        <para>ELF Assembly User’s Guide, Fourth edition, IBM, 2000.
           <emphasis>
             <link xl:href="https://www-03.ibm.com/technologyconnect/tgcm/TGCMFileServlet.wss/assem_um.pdf?id=109917A251EFD64C872569D900656D07&amp;linkid=1h3000&amp;c_t=md515o6ntgh671shz9ioar20oyfp1grs">
 

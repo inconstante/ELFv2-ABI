@@ -24,8 +24,8 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
   that compilers generate a warning or error for out-of-range
   literals.</para>
   <para revisionflag="added">Vectors may be constructed from scalar values with a vector
-  constructor. For example: (vector type){e1, e2, ..., e
-  <emphasis>n</emphasis>}. The values specified for each vector element can
+  constructor. For example: (vector type){e1, e2, ..., e<emphasis>n</emphasis>}. 
+  The values specified for each vector element can
   be either a compile-time constant or a runtime expression.</para>
   <para revisionflag="added">Floating-point vector built-in operators are controlled by the
   rounding mode set for floating-point operations unless otherwise
@@ -307,6 +307,46 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry>
               <para>vector float vec_abs (vector float);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_ABSD (ARG1, ARG2)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Computes the absolute difference.</para>
+              <para>Result value:</para>
+              <para>Each element of the result contains the absolute difference
+              of the corresponding input elements using modulo
+              arithmetic.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned char vec_absd (vector unsigned char, vector
+              unsigned char);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned int vec_absd (vector unsigned int, vector
+              unsigned int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned short vec_absd (vector unsigned short,
+              vector unsigned short);</para>
             </entry>
           </row>
           <row>
@@ -759,8 +799,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para><phrase revisionflag="added">Phased in.</phrase>
-              <footnote xml:id="dbdoclet.50655245_taba2fn">
+              <para><phrase revisionflag="added">Phased in.</phrase><footnote xml:id="dbdoclet.50655245_taba2fn">
                 <para>This optional function is being phased in, and it might not be 
                 available on all implementations.  
                 <phrase revisionflag="added">Phased-in interfaces are optional
@@ -774,8 +813,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -785,8 +823,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -907,8 +944,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -918,8 +954,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -929,8 +964,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -1102,6 +1136,15 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
                   <para>- All other bits are zeroed.</para>
                 </listitem>
               </itemizedlist>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned char vec_bperm (vector unsigned char,
+              vector unsigned char);</para>
             </entry>
           </row>
           <row>
@@ -1902,6 +1945,76 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               float);</para>
             </entry>
           </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_CMPNEZ (ARG1, ARG2)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Returns a vector containing the results of comparing each
+              set of corresponding elements of the given vectors for inequality
+              or for an element with a 0 value.</para>
+              <para>Result value:</para>
+              <para>For each element of the result, the value of each bit is 1
+              if the corresponding elements of ARG1 and</para>
+              <para>ARG2 are not equal, or if the ARG1 element or the ARG2
+              element is 0. Otherwise, the value of each bit is 0.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector bool char vec_cmpnez (vector signed char, vector
+              signed char);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector bool char vec_cmpnez (vector unsigned char, vector
+              unsigned char);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector bool int vec_cmpnez (vector signed int, vector
+              signed int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector bool int vec_cmpnez (vector unsigned int, vector
+              unsigned int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector bool short vec_cmpnez (vector signed short, vector
+              signed short);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector bool short vec_cmpnez (vector unsigned short, vector
+              unsigned short);</para>
+            </entry>
+          </row>
           <row>
             <entry>
               <para>VEC_CNTLZ (ARG1)</para>
@@ -1919,8 +2032,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -1929,8 +2041,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
              </para>
             </entry>
             <entry>
@@ -1940,8 +2051,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
 		</para>
             </entry>
             <entry>
@@ -1950,8 +2060,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
 		</para>
             </entry>
             <entry>
@@ -1960,8 +2069,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -1971,8 +2079,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -1982,8 +2089,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -1992,13 +2098,157 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
               <para>vector unsigned short vec_cntlz (vector unsigned
               short);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_CNTLZ_LSBB (ARG1)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Returns the number of leading byte elements (starting at
+              the lowest-numbered element) of a vector that have a
+              least-significant bit of 0.</para>
+              <para>Result value:</para>
+              <para>The number of leading byte elements (starting at the
+              lowest-numbered element) of a vector that have a
+              least-significant bit of 0.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>signed int vec_cntlz_lsbb (vector signed char);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>signed int vec_cntlz_lsbb (vector unsigned char);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_CNTTZ (ARG1)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Returns a vector containing the number of least-significant
+              bits equal to 0 of each corresponding element of the given
+              vector.</para>
+              <para>Result value:</para>
+              <para>The value of each element of the result is set to the
+              number of trailing zeros of the corresponding element of
+              ARG1.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector signed char vec_cnttz (vector signed char);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned char vec_cnttz (vector unsigned
+              char);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector signed int vec_cnttz (vector signed int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned int vec_cnttz (vector unsigned int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector signed long long vec_cnttz (vector signed long
+              long);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned long long vec_cnttz (vector unsigned long
+              long);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector signed short vec_cnttz (vector signed short);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned short vec_cnttz (vector unsigned
+              short);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_CNTTZ_LSBB (ARG1)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Returns the number of trailing byte elements (starting at
+              the highest-numbered element) of a vector that have a
+              least-significant bit of 0.</para>
+              <para>Result value:</para>
+              <para>The number of trailing byte elements (starting at the
+              highest-numbered element) of a vector that have a
+              least-significant bit of 0.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>signed int vec_cnttz_lsbb (vector signed char);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>signed int vec_cnttz_lsbb (vector unsigned char);</para>
             </entry>
           </row>
           <row>
@@ -2018,8 +2268,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -2028,8 +2277,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -2631,6 +2879,439 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>float vec_extract (vector float, signed int);</para>
             </entry>
           </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              </para>
+            </entry>
+            <entry>
+              <para>_Float16 vec_extract (vector _Float16, signed int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_EXTRACT_EXP (ARG1)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Extracts an exponent from a floating-point number.</para>
+              <para>Result value:</para>
+              <para>Each element of the returned integer vector is extracted
+              from the exponent field of the corresponding floating-point
+              vector element.</para>
+              <para>The extracted exponent of ARG1 is returned as a
+              right-justified unsigned integer containing a biased exponent, in
+              accordance with the exponent representation specified by IEEE
+              754, without further processing.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned long long vec_extract_exp (vector
+              double);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned int vec_extract_exp (vector float);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_EXTRACT_FP32_FROM_SHORTH (ARG1)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Extracts four single-precision floating-point numbers from
+              the high elements of a vector of eight 16-bit elements,
+              interpreting each element as a 16-bit floating-point number in
+              IEEE format.</para>
+              <para>Result value:</para>
+              <para>The first four elements are interpreted as 16-bit
+              floating-point numbers in IEEE format, and extended to
+              single-precision format, returning a vector with four
+              single-precision IEEE numbers.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector float vec_extract_fp32_from_shorth (vector unsigned
+              short);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_EXTRACT_FP32_FROM_SHORTL (ARG1)</para>
+            </entry>
+            <entry>
+              <para>Purpose</para>
+              <para>Extracts four single-precision floating-point numbers from
+              the low elements of a vector of eight 16-bit elements,
+              interpreting each element as a 16-bit floating-point number in
+              IEEE format.</para>
+              <para>Result value:</para>
+              <para>The last four elements are interpreted as 16-bit
+              floating-point numbers in IEEE format, and extended to
+              single-precision format, returning a vector with four
+              single-precision IEEE numbers.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector float vec_extract_fp32_from_shortl (vector unsigned
+              short);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_EXTRACT_SIG (ARG1)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Extracts a significand (mantissa) from a floating-point
+              number.</para>
+              <para>Result value:</para>
+              <para>Each element of the returned integer vector is extracted
+              from the significand (mantissa) field of the corresponding
+              floating-point vector element.</para>
+              <para>The significand is from the corresponding floating-point
+              number in accordance with the IEEE format. The returned result
+              includes the implicit leading digit. The value of that digit is
+              not encoded in the IEEE format, but is implied by the
+              exponent.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned long long vec_extract_sig (vector
+              double)</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned int vec_extract_sig (vector float)</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_EXTRACT4B (ARG1, ARG2)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Extracts a word from a vector at a byte position.</para>
+              <para>Result value:</para>
+              <para>The first doubleword element of the result contains the
+              zero-extended extracted word from ARG1. The second doubleword is
+              set to 0. ARG2 specifies the least-significant byte number (0 -
+              12) of the word to be extracted.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned long long vec_extract4b (vector unsigned
+              char, const int)</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_FIRST_MATCH_INDEX (ARG1, ARG2)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Performs a comparison of equality on each of the
+              corresponding elements of ARG1 and ARG2, and returns the first
+              position of equality.</para>
+              <para>Result value:</para>
+              <para>Returns the element index of the position of the first
+              character match. If no match, returns the number of characters as
+              an element count in the vector argument.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_match_index (vector signed char,
+              vector signed char);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_match_index (vector unsigned char,
+              vector unsigned char);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_match_index (vector signed int,
+              vector signed int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_match_index (vector unsigned int,
+              vector unsigned int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_match_index (vector signed short,
+              vector signed short);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_match_index (vector unsigned short,
+              vector unsigned short);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_FIRST_MATCH_OR_EOS_ INDEX (ARG1, ARG2)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Performs a comparison of equality on each of the
+              corresponding elements of ARG1 and ARG2. Returns the first
+              position of equality, or the zero string terminator.</para>
+              <para>Result value:</para>
+              <para>Returns the element index of the position of either the
+              first character match or an end-of-string (EOS) terminator. If no
+              match or terminator, returns the number of characters as an
+              element count in the vector argument.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_match_or_eos_index (vector signed
+              char, vector signed char);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_match_or_eos_index (vector unsigned
+              char, vector unsigned char);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_match_or_eos_index (vector signed
+              int, vector signed int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_match_or_eos_index (vector unsigned
+              int, vector unsigned int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_match_or_eos_index (vector signed
+              short, vector signed short);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_match_or_eos_index (vector unsigned
+              short, vector unsigned short);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_FIRST_MISMATCH_INDEX(ARG1, ARG2)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Performs a comparison of inequality on each of the
+              corresponding elements of ARG1 and ARG2, and returns the first
+              position of inequality.</para>
+              <para>Result value:</para>
+              <para>Returns the element index of the position of the first
+              character mismatch. If no mismatch, returns the number of
+              characters as an element count in the vector argument.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_mismatch_index (vector signed char,
+              vector signed char);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_mismatch_index (vector unsigned
+              char, vector unsigned char);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_mismatch_index (vector signed int,
+              vector signed int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_mismatch_index (vector unsigned int,
+              vector unsigned int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_mismatch_index (vector signed short,
+              vector signed short);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_mismatch_index (vector unsigned
+              short, vector unsigned short);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_FIRST_MISMATCH_OR_ EOS_INDEX (ARG1, ARG2)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Performs a comparison of inequality on each of the
+              corresponding elements of ARG1 and ARG2. Returns the first
+              position of inequality, or the zero string terminator.</para>
+              <para>Result value:</para>
+              <para>Returns the element index of the position of either the
+              first character mismatch or an end-of-string (EOS) terminator. If
+              no mismatch or terminator, returns the number of characters as an
+              element count in the vector argument.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_mismatch_or_eos_index (vector signed
+              char, vector signed char);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_mismatch_or_eos_index (vector
+              unsigned char, vector unsigned char);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_mismatch_or_eos_index (vector signed
+              int, vector signed int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_mismatch_or_eos_index (vector
+              unsigned int, vector unsigned int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_mismatch_or_eos_index (vector signed
+              short, vector signed short);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>unsigned int vec_first_mismatch_or_eos_index (vector
+              unsigned short, vector unsigned short);</para>
+            </entry>
+          </row>
           <row>
             <entry>
               <para>VEC_FLOAT (ARG1)</para>
@@ -2748,6 +3429,52 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry>
               <para>vector float vec_floate (vector double);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_FLOATH (ARG2)</para>
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              </para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Converts a vector to a vector of single-precision
+              floating-point numbers.</para>
+              <para>Result value:</para>
+              <para>Target elements 0 through 3 are set to the converted values
+              of source elements 0 through 3, respectively.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector float vec_floath (vector _Float16);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_FLOATL (ARG2)</para>
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              </para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Converts a vector to a vector of single-precision
+              floating-point numbers.</para>
+              <para>Result value:</para>
+              <para>Target elements 0 through 3 are set to the converted values
+              of source elements 4 through 7, respectively.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector float vec_floatl (vector _Float16);</para>
             </entry>
           </row>
           <row>
@@ -2947,6 +3674,103 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             <entry>
               <para>vector float vec_insert (float, vector float, signed
               int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              </para>
+            </entry>
+            <entry>
+              <para>vector _Float16 vec_insert (_Float16, vector _Float16,
+              signed int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_INSERT_EXP (ARG1, ARG2)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Inserts an exponent into a floating-point number.</para>
+              <para>Result value:</para>
+              <para>Each element of the returned floating-point vector is
+              generated by combining the exponent specified by the
+              corresponding element of ARG2 with the sign and significand of
+              the corresponding element of ARG1.</para>
+              <para>The inserted exponent of ARG2 is treated as a
+              right-justified unsigned integer containing a biased exponent, in
+              accordance with the exponent representation specified by IEEE
+              754. It is combined with the sign and significand of ARG1 without
+              further processing.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector double vec_insert_exp (vector double, vector
+              unsigned long long);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector double vec_insert_exp (vector unsigned long long,
+              vector unsigned long long);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector float vec_insert_exp (vector float, vector unsigned
+              int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector float vec_insert_exp (vector unsigned int, vector
+              unsigned int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_INSERT4B (ARG1, ARG2, ARG3)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Inserts a word into a vector at a byte position.</para>
+              <para>Result value:</para>
+              <para>The first doubleword element of the result contains the
+              zero-extended extracted word from ARG1. The second doubleword is
+              set to 0. ARG2 specifies the least-significant byte (0 - 12) of
+              the extracted word.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned char vec_insert4b (vector signed int,
+              vector unsigned char, const int)</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned char vec_insert4b (vector unsigned int,
+              vector unsigned char, const int)</para>
             </entry>
           </row>
           <row>
@@ -3186,8 +4010,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -3197,8 +4020,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -3208,8 +4030,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -3219,8 +4040,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -3230,8 +4050,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -3241,8 +4060,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -3252,8 +4070,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -3263,8 +4080,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -3362,8 +4178,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -3423,6 +4238,16 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             <entry>
               <para>vector float vec_mergeh (vector float, vector
               float);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              </para>
+            </entry>
+            <entry>
+              <para>vector _Float16 vec_mergeh (vector _Float16, vector
+              _Float16);</para>
             </entry>
           </row>
           <row>
@@ -3497,8 +4322,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -3517,8 +4341,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -3580,6 +4403,16 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               float);</para>
             </entry>
           </row>
+          <row revisionflag="added">
+            <entry>
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              </para>
+            </entry>
+            <entry>
+              <para>vector _Float16 vec_mergel (vector _Float16, vector
+              _Float16);</para>
+            </entry>
+          </row>
           <row>
             <entry>
               <para>VEC_MERGEO (ARG1, ARG2)</para>
@@ -3596,8 +4429,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -3607,8 +4439,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -3618,8 +4449,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -3629,8 +4459,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -3640,8 +4469,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -3651,8 +4479,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -3662,8 +4489,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -3673,8 +4499,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -3988,8 +4813,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -3999,8 +4823,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -4620,8 +5443,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -4631,8 +5453,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -4760,8 +5581,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -4771,8 +5591,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -5101,6 +5920,41 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               double);</para>
             </entry>
           </row>
+          <row revisionflag="added">
+            <entry>
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              </para>
+            </entry>
+            <entry>
+              <para>vector _Float16 vec_pack (vector float, vector
+              float);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_PACK_TO_SHORT_FP32 (ARG1, ARG2)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Packs eight single-precision 32-bit floating-point numbers
+              into a vector of eight 16-bit floating-point numbers.</para>
+              <para>Result value:</para>
+              <para>The value is a vector consisting of eight 16-bit elements,
+              each representing a 16-bit floating-point number that was created
+              by converting the corresponding single-precision value to
+              half-precision.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned short vec_pack_to_short_fp32 (vector float,
+              vector float);</para>
+              <para> </para>
+            </entry>
+          </row>
           <row>
             <entry>
               <para>VEC_PACKPX (ARG1, ARG2)</para>
@@ -5246,8 +6100,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -5271,6 +6124,73 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             <entry>
               <para>vector unsigned short vec_packsu (vector unsigned int,
               vector unsigned int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_PARITY_LSBB (ARG1)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Compute parity on the least-significant bit of each
+              byte.</para>
+              <para>Result value:</para>
+              <para>Returns a vector with each element containing the parity of
+              the low-order bit of each of the bytes in that element.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned int vec_parity_lsbb (vector signed
+              int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned int vec_parity_lsbb (vector unsigned
+              int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned __int128 vec_parity_lsbb (vector
+              signed__int128);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned __int128 vec_parity_lsbb (vector
+              unsigned__int128);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned long long vec_parity_lsbb (vector signed
+              long long);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned long long vec_parity_lsbb (vector unsigned
+              long long);</para>
             </entry>
           </row>
           <row>
@@ -5343,8 +6263,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -5363,8 +6282,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -5426,6 +6344,16 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               unsigned char);</para>
             </entry>
           </row>
+          <row revisionflag="added">
+            <entry>
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              </para>
+            </entry>
+            <entry>
+              <para>vector _Float16 vec_perm (vector _Float16, vector _Float16,
+              vector unsigned char);</para>
+            </entry>
+          </row>
           <row>
             <entry>
               <para>VEC_PERMXOR (ARG1, ARG2, ARG3)</para>
@@ -5443,8 +6371,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -5454,8 +6381,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -5465,8 +6391,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -5777,6 +6702,15 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector float vec_revb (vector float);</para>
             </entry>
           </row>
+          <row revisionflag="added">
+            <entry>
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              </para>
+            </entry>
+            <entry>
+              <para>vector _Float16 vec_revb (vector _Float16);</para>
+            </entry>
+          </row>
           <row>
             <entry>
               <para>VEC_REVE (ARG1)</para>
@@ -5906,6 +6840,15 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector float vec_reve (vector float);</para>
             </entry>
           </row>
+          <row revisionflag="added">
+            <entry>
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              </para>
+            </entry>
+            <entry>
+              <para>vector _Float16 vec_reve (vector _Float16);</para>
+            </entry>
+          </row>
           <row>
             <entry>
               <para>VEC_RINT (ARG1)</para>
@@ -6026,6 +6969,76 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               unsigned short);</para>
             </entry>
           </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_RLMI (ARG1, ARG2, ARG3)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Rotates each element of a vector left and inserts each
+              element under a mask.</para>
+              <para>Result value:</para>
+              <para>The result is obtained by rotating each element of vector
+              ARG1 left and inserting it under mask into ARG2. ARG3 bits 11:15
+              contain the mask beginning, bits 19:23 contain the mask end, and
+              bits 27:31 contain the shift count.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned int vec_rlmi (vector unsigned int, vector
+              unsigned int, vector unsigned int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned long long vec_rlmi (vector unsigned long
+              long, vector unsigned long long, vector unsigned long
+              long);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_RLNM (ARG1, ARG2, ARG3)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Rotates each element of a vector left; then intersects
+              (AND) it with a mask.</para>
+              <para>Result value:</para>
+              <para>Each element of vector ARG1 is rotated left; then
+              intersected (AND) with a mask specified by ARG3.</para>
+              <para>ARG3 contains the mask begin, mask end, and shift count for
+              each element. The shift count is in the low-order byte, the mask
+              end is in the next higher byte, and the mask begin is in the next
+              higher byte.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned int vec_rlnm (vector unsigned int, vector
+              unsigned int, vector unsigned int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned long long vec_rlnm (vector unsigned long
+              long, vector unsigned long long, vector unsigned long
+              long);</para>
+            </entry>
+          </row>
           <row>
             <entry>
               <para>VEC_ROUND (ARG1)</para>
@@ -6039,20 +7052,17 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               corresponding element of ARG1, rounded to the nearest
               representable floating-point integer, using IEEE round-to-nearest
               rounding.</para>
-              <itemizedlist>
-                <listitem>
-                  <para>Note: This function might not follow the strict
+              <note>
+                  <para>This function might not follow the strict
                   operation definition of the resolution of a tie during a
                   round if the -qstrict=nooperationprecision compiler option is
                   specified.</para>
-                </listitem>
-              </itemizedlist>
+              </note>
             </entry>
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -6282,8 +7292,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -6293,8 +7302,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -6304,8 +7312,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -6393,6 +7400,26 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             <entry>
               <para>vector float vec_sel (vector float, vector float, vector
               unsigned int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              </para>
+            </entry>
+            <entry>
+              <para>vector _Float16 vec_sel (vector _Float16, vector _Float16,
+              vector bool short);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              </para>
+            </entry>
+            <entry>
+              <para>vector _Float16 vec_sel (vector _Float16, vector _Float16,
+              vector unsigned short);</para>
             </entry>
           </row>
           <row>
@@ -6669,8 +7696,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -6680,8 +7706,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -6691,8 +7716,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -6738,8 +7762,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -6767,10 +7790,13 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>Result value:</para>
               <para>The value of each element is set to the value of an input
               element of the concatenated vectors ARG1 and ARG2, with the word
-              offset to its right
-              <superscript>1</superscript> specified by ARG3, which should be in the
+              offset to its right<superscript><xref linkend="vec_sldw_fn1" xrefstyle="select: labelnumber nopage"/></superscript> specified by ARG3, which should be in the
               range 0 - 3.</para>
-              <para>1. A shift left picks values from the right.</para>
+              <orderedlist>
+                <listitem xml:id="vec_sldw_fn1">
+                  <para>A shift left picks values from the right.</para>
+                </listitem>
+              </orderedlist>
             </entry>
           </row>
           <row>
@@ -6898,8 +7924,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="changed">
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -6909,8 +7934,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="changed">
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -6957,10 +7981,14 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>The result is the contents of ARG1, shifted left by the
               number of bytes specified by the most-significant nibble of the
               least-significant byte
-              <superscript>1</superscript> of ARG2. The bits that are shifted out are
+              <superscript><xref linkend="vec_slo_fn1" xrefstyle="select: labelnumber nopage" /></superscript> of ARG2. The bits that are shifted out are
               replaced by zeros.</para>
-              <para>1. That is, by little-endian bits 7- 5 or big-endian bits
-              121 - 124.</para>
+              <orderedlist>
+                <listitem xml:id="vec_slo_fn1">
+                  <para>That is, by little-endian bits 7 - 5 or big-endian bits
+                  121 - 124.</para>
+                </listitem>
+              </orderedlist>
             </entry>
           </row>
           <row>
@@ -7143,6 +8171,37 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               char);</para>
             </entry>
           </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_SLV (ARG1, ARG2)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Left-shifts a vector by a varying number of bits by
+              element.</para>
+              <para>Result value:</para>
+              <para>For each integer 0<emphasis>≤</emphasis>i<emphasis>≤</emphasis>14, let 
+              X<subscript>i</subscript> be the halfword formed by concatenating
+              elements i and i+1 of ARG1. Let 
+              X<subscript>15</subscript> be the halfword formed by concatenating
+              element 15 of ARG1 with a zero byte. 
+              Let S<subscript>i</subscript> be the value in the three least-significant
+              bits of element i of ARG2. Then, element i of the result vector
+              contains the value formed from bits 
+              S<subscript>i</subscript> through 
+              S<subscript>i</subscript> + 7 of 
+              X<subscript>i</subscript>.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned char vec_slv (vector unsigned char, vector
+              unsigned char);</para>
+            </entry>
+          </row>
           <row>
             <entry>
               <para>VEC_SPLAT (ARG1, ARG2)</para>
@@ -7214,8 +8273,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -7278,8 +8336,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -7292,6 +8349,16 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry>
               <para>vector float vec_splat (vector float, const int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              </para>
+            </entry>
+            <entry>
+              <para>vector _Float16 vec_splat (vector _Float16, const
+              int);</para>
             </entry>
           </row>
           <row>
@@ -7528,6 +8595,15 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry>
               <para>vector float vec_splats (float);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              </para>
+            </entry>
+            <entry>
+              <para>vector _Float16 vec_splats (_Float16);</para>
             </entry>
           </row>
           <row>
@@ -7790,8 +8866,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="changed">
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -7801,8 +8876,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="changed">
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -7925,8 +8999,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in. 
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -7936,8 +9009,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -7947,8 +9019,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -7958,8 +9029,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -8037,6 +9107,38 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             <entry>
               <para>vector float vec_sro (vector float, vector unsigned
               char);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_SRV (ARG1, ARG2)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Right-shifts a vector by a varying number of bits by
+              element.</para>
+              <para>Result value:</para>
+              <para>For each integer 1 
+              <emphasis>≤</emphasis> i 
+              <emphasis>≤</emphasis> 15, let X
+              <emphasis>i</emphasis> be the halfword formed by concatenating
+              elements i and i+1 of ARG1. Let X
+              <emphasis>0</emphasis> be the halfword formed by concatenating a
+              zero byte with element 0 of ARG1. Let S
+              <emphasis>i</emphasis> be the value in the three least-significant
+              bits of element i of ARG2. Then element i of the result vector
+              contains the value formed from bits 8 - S
+              <emphasis>i</emphasis> through 15 - S
+              <emphasis>i</emphasis>.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned char vec_srv (vector unsigned char, vector
+              unsigned char);</para>
             </entry>
           </row>
           <row>
@@ -8482,6 +9584,40 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               signed int);</para>
             </entry>
           </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_TEST_DATA_CLASS (ARG1, ARG2)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Determines the data class for each floating-point
+              element.</para>
+              <para>Result value:</para>
+              <para>Each element is set to all ones if the corresponding
+              element of ARG1 matches one of the possible data types selected
+              by ARG2. If not, each element is set to all zeros. ARG2 can
+              select one of the data types defined in 
+              <xref linkend="dbdoclet.50655245_81283" />.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector bool int vec_test_data_class (vector float, const
+              int);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector bool long long vec_test_data_class (vector double,
+              const int);</para>
+            </entry>
+          </row>
           <row>
             <entry>
               <para>VEC_TRUNC (ARG1)</para>
@@ -8615,12 +9751,20 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
               <para>vector double vec_unpackh (vector float);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              </para>
+            </entry>
+            <entry>
+              <para>vector float vec_unpackh (vector _Float16);</para>
             </entry>
           </row>
           <row>
@@ -8726,12 +9870,20 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
               <para>vector double vec_unpackl (vector float);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              </para>
+            </entry>
+            <entry>
+              <para>vector float vec_unpackl (vector _Float16);</para>
             </entry>
           </row>
           <row>
@@ -8859,15 +10011,13 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>Result value:</para>
               <para>This function adds the displacement and the pointer R-value
               to obtain the address for the load operation.</para>
-              <itemizedlist>
-                <listitem>
-                  <para>Important Note: For languages that support built-in
-                  methods for pointer dereferencing, such as the C/C++ pointer
-                  dereference * and array access [] operators, use of the
-                  native operators is encouraged and use of the vec_xl
-                  intrinsic is discouraged.</para>
-                </listitem>
-              </itemizedlist>
+              <important>
+                <para>For languages that support built-in
+                methods for pointer dereferencing, such as the C/C++ pointer
+                dereference * and array access [ ] operators, use of the
+                native operators is encouraged and use of the vec_xl
+                intrinsic is discouraged.</para>
+              </important>
             </entry>
           </row>
           <row>
@@ -8973,6 +10123,15 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry>
               <para>vector float vec_xl (long long, float *);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              </para>
+            </entry>
+            <entry>
+              <para>vector _Float16 vec_xl (long long, _Float16 *);</para>
             </entry>
           </row>
           <row>
@@ -9103,6 +10262,180 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector float vec_xl_be (long long, float *);</para>
             </entry>
           </row>
+          <row revisionflag="added">
+            <entry>
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              </para>
+            </entry>
+            <entry>
+              <para>vector _Float16 vec_xl_be (long long, _Float16 *);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_XL_LEN (ARG1, ARG2)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Loads a vector of a specified byte length.</para>
+              <para>Result value:</para>
+              <para>Loads the number of bytes specified by ARG2 from the
+              address specified in ARG1. Initializes elements in order from the
+              byte stream (as defined by the endianness of the operating
+              environment). Any bytes of elements that cannot be initialized
+              from the number of loaded bytes have a zero value.</para>
+              <para>At least 0 and at most 16 bytes will be loaded. The length
+              is specified by the least-significant byte of ARG2, as min (mod
+              (ARG2, 256), 16). The behavior is undefined if the length
+              argument is outside of the range 0 - 255, or if it is not a
+              multiple of the vector element size.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector signed char vec_xl_len (signed char *,
+              size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned char vec_xl_len (unsigned char *,
+              size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector signed int vec_xl_len (signed int *, size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned int vec_xl_len (unsigned int *,
+              size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector signed __int128 vec_xl_len (signed __int128 *,
+              size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned __int128 vec_xl_len (unsigned __int128 *,
+              size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector signed long long vec_xl_len (signed long long *,
+              size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned long long vec_xl_len (unsigned long long *,
+              size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector signed short vec_xl_len (signed short *,
+              size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned short vec_xl_len (unsigned short *,
+              size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector double vec_xl_len (double *, size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector float vec_xl_len (float *, size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector _Float16 vec_xl_len (_Float16 *, size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_XL_LEN_R (ARG1, ARG2)</para>
+            </entry>
+            <entry>
+              <para>Purpose</para>
+              <para>Loads a vector of a specified byte length,
+              right-justified.</para>
+              <para>Result value:</para>
+              <para>Loads the number of bytes specified by ARG2 from the
+              address specified in ARG1, right justified with the first byte to
+              the left and the last to the right. Initializes elements in order
+              from the byte stream (as defined by the endianness of the
+              operating environment). Any bytes of elements that cannot be
+              initialized from the number of loaded bytes have a zero
+              value.</para>
+              <para>At least 0 and at most 16 bytes will be loaded. The length
+              is specified by the least-significant byte of ARG2, as min (mod
+              (ARG2, 256), 16). The behavior is undefined if the length
+              argument is outside of the range 0 - 255, or if it is not a
+              multiple of the vector element size.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>vector unsigned char vec_xl_len_r (unsigned char *,
+              size_t);</para>
+            </entry>
+          </row>
           <row>
             <entry>
               <para>VEC_XOR (ARG1, ARG2)</para>
@@ -9179,8 +10512,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -9190,8 +10522,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-                 <footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
             <entry>
@@ -9254,15 +10585,13 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               address provided.</para>
               <para>Result value:</para>
               <para>Stores the provided vector in memory.</para>
-              <itemizedlist>
-                <listitem>
-                  <para>Important Note: For languages that support built-in
-                  methods for pointer dereferencing, such as the C/C++ pointer
-                  dereference * and array access [] operators, use of the
-                  native operators is encouraged and use of the vec_xl
-                  intrinsic is discouraged.</para>
-                </listitem>
-              </itemizedlist>
+              <important>
+                <para>For languages that support built-in
+                methods for pointer dereferencing, such as the C/C++ pointer
+                dereference * and array access [ ] operators, use of the
+                native operators is encouraged and use of the vec_xl
+                intrinsic is discouraged.</para>
+              </important>
             </entry>
           </row>
           <row>
@@ -9369,6 +10698,16 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry>
               <para>void vec_xst (vector float, long long, float *);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              </para>
+            </entry>
+            <entry>
+              <para>void vec_xst (vector _Float16, long long, _Float16
+              *);</para>
             </entry>
           </row>
           <row>
@@ -9498,6 +10837,180 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry>
               <para>void vec_xst_be (vector float, long long, float *);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              </para>
+            </entry>
+            <entry>
+              <para>void vec_xst_be (vector _Float16, long long, _Float16
+              *);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_XST_LEN (ARG1, ARG2, ARG3)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Stores a vector of a specified byte length.</para>
+              <para>Result value:</para>
+              <para>Stores the number of bytes specified by ARG3 of the vector
+              ARG1 to the address specified in ARG2. The bytes are obtained
+              starting from the lowest-numbered byte of the lowest-numbered
+              element (as defined by the endianness of the operating
+              environment). All bytes of an element are accessed before
+              proceeding to the next higher element.</para>
+              <para>At least 0 and at most 16 bytes will be stored. The length
+              is specified by the least-significant byte of ARG3, as min (mod
+              (ARG2, 256), 16). The behavior is undefined if the length
+              argument is outside of the range 0 - 255, or if it is not a
+              multiple of the vector element size.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>void vec_xst_len (vector signed char, signed char *,
+              size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>void vec_xst_len (vector unsigned char, unsigned char *,
+              size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>void vec_xst_len (vector signed int, signed int *,
+              size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>void vec_xst_len (vector unsigned int, unsigned int *,
+              size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>void vec_xst_len (vector signed __int128, signed __int128
+              *, size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>void vec_xst_len (vector unsigned __int128, unsigned
+              __int128 *, size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>void vec_xst_len (vector signed long long, signed long long
+              *, size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>void vec_xst_len (vector unsigned long long, unsigned long
+              long *, size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>void vec_xst_len (vector signed short, signed short *,
+              size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>void vec_xst_len (vector unsigned short, unsigned short *,
+              size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>void vec_xst_len (vector double, double *, size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>void vec_xst_len (vector float, float *, size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>void vec_xst_len (vector _Float16, _Float16 *,
+              size_t);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para>VEC_XST_LEN_R (ARG1, ARG2, ARG3)</para>
+            </entry>
+            <entry>
+              <para>Purpose:</para>
+              <para>Stores a right-justified vector of a specified byte
+              length.</para>
+              <para>Result value:</para>
+              <para>Stores the number of bytes specified by ARG3 of the
+              right-justified vector ARG1 to the address specified by
+              ARG2.</para>
+              <para>At least 0 and at most 16 bytes will be stored. The length
+              is specified by the least-significant byte of ARG3, as min (mod
+              (ARG2, 256), 16). The behavior is undefined if the length
+              argument is outside of the range 0 - 255, or if it is not a
+              multiple of the vector element size.</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>void vec_xst_len_r (vector unsigned char, unsigned char *,
+              size_t);</para>
             </entry>
           </row>
         </tbody>
@@ -10078,8 +11591,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para>Phased in.
-              <footnote xml:id="taba3fn"><para>This optional function is being 
+              <para>Phased in.<footnote xml:id="taba3fn"><para>This optional function is being 
               phased in, and it might not be available on all implementations.  
               <phrase revisionflag="added">Phased-in interfaces are optional for the current generation of 
               compliant systems.</phrase></para></footnote></para>
@@ -11363,9 +12875,9 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
     be used to access vectors with big-endian element ordering regardless of
     the data layout of the execution environment. Alternatively, in a
     little-endian environment, big-endian element ordering may be established
-    by using the vec_reve() vector operator. In a little-endian environment,
+    by using the vec_reve( ) vector operator. In a little-endian environment,
     big-endian byte order within each element may be established by using the
-    vec_revb() vector operator.</para>
+    vec_revb( ) vector operator.</para>
     <section>
       <title>Finite Field Arithmetic and Secure Hashing</title>
       <para>The vector operators listed in 
@@ -11420,8 +12932,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </row>
             <row>
               <entry>
-                <para>Phased in.
-                  <footnote xml:id="taba4fn"><para>
+                <para>Phased in.<footnote xml:id="taba4fn"><para>
                   This optional function is being phased in and it 
                   might not be available on all implementations.
                 </para></footnote></para>
@@ -11433,8 +12944,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </row>
             <row>
               <entry>
-                <para>Phased in.
-                  <footnoteref linkend="taba4fn"/>
+                <para>Phased in.<footnoteref linkend="taba4fn"/>
                 </para>
               </entry>
               <entry>
@@ -11444,8 +12954,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </row>
             <row>
               <entry>
-                <para>Phased in.
-                  <footnoteref linkend="taba4fn"/>
+                <para>Phased in.<footnoteref linkend="taba4fn"/>
                 </para>
               </entry>
               <entry>
@@ -11455,8 +12964,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </row>
             <row>
               <entry>
-                <para>Phased in.
-                  <footnoteref linkend="taba4fn"/>
+                <para>Phased in.<footnoteref linkend="taba4fn"/>
                 </para>
               </entry>
               <entry>
@@ -11517,8 +13025,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </row>
             <row>
               <entry>
-                <para>Phased in.
-                  <footnoteref linkend="taba4fn"/>
+                <para>Phased in.<footnoteref linkend="taba4fn"/>
                 </para>
               </entry>
               <entry>
@@ -11528,8 +13035,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </row>
             <row>
               <entry>
-                <para>Phased in.
-                  <footnoteref linkend="taba4fn"/>
+                <para>Phased in.<footnoteref linkend="taba4fn"/>
                 </para>
               </entry>
               <entry>
@@ -11597,8 +13103,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
             </row>
             <row>
               <entry>
-                <para>Phased in.
-                  <footnote xml:id="taba5fn"><para>This optional function is being 
+                <para>Phased in.<footnote xml:id="taba5fn"><para>This optional function is being 
                   phased in and it might not be available on all implementations</para></footnote>
                 </para>
               </entry>
@@ -11625,8 +13130,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
             </row>
             <row>
               <entry>
-                <para>Phased in.
-                  <footnoteref linkend="taba5fn" />
+                <para>Phased in.<footnoteref linkend="taba5fn" />
                 </para>
               </entry>
               <entry>
@@ -11652,8 +13156,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
             </row>
             <row>
               <entry>
-                <para>Phased in.
-                  <footnoteref linkend="taba5fn" />
+                <para>Phased in.<footnoteref linkend="taba5fn" />
                 </para>
               </entry>
               <entry>
@@ -11679,8 +13182,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
             </row>
             <row>
               <entry>
-                <para>Phased in.
-                  <footnoteref linkend="taba5fn" />
+                <para>Phased in.<footnoteref linkend="taba5fn" />
                 </para>
               </entry>
               <entry>
@@ -11706,8 +13208,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
             </row>
             <row>
               <entry>
-                <para>Phased in.
-                  <footnoteref linkend="taba5fn" />
+                <para>Phased in.<footnoteref linkend="taba5fn" />
                 </para>
               </entry>
               <entry>
@@ -11962,15 +13463,13 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
     (subject to being supported by all targeted implementations of the Power
     SIMD environment), the use of type-generic built-in names is
     recommended.</para>
-    <itemizedlist>
-      <listitem>
-        <para>Note: The type-specific vector built-in types are provided for
+    <note>
+        <para>The type-specific vector built-in types are provided for
         legacy code compatibility only. The functions are deprecated, and
         support may be discontinued in the future. It is recommended that
         programmers use the respective overloaded vector built-in functions in
         conjunction with the appropriate vector type.</para>
-      </listitem>
-    </itemizedlist>
+    </note>
     <para> </para>
     <table frame="all" pgwide="1" xml:id="dbdoclet.50655245_75081">
       <title>Functions Provided for Compatibility</title>
