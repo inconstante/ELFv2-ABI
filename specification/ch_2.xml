@@ -2545,8 +2545,8 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para>Quadword</para>
                 </entry>
                 <entry>
-                  <para>Vector of 16 bytes with a value of either 0 or 2
-                  <superscript>8</superscript>- 1.</para>
+                  <para>Vector of 16 bytes with a value of either 0 or 
+                  2<superscript>8</superscript>- 1.</para>
                 </entry>
               </row>
               <row>
@@ -2597,8 +2597,8 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para>Quadword</para>
                 </entry>
                 <entry>
-                  <para>Vector of 8 halfwords with a value of either 0 or 2
-                  <superscript>16</superscript>- 1.</para>
+                  <para>Vector of 8 halfwords with a value of either 0 or 
+                  2<superscript>16</superscript>- 1.</para>
                 </entry>
               </row>
               <row>
@@ -2649,8 +2649,8 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para>Quadword</para>
                 </entry>
                 <entry>
-                  <para>Vector of 4 words with a value of either 0 or 2
-                  <superscript>32</superscript>- 1.</para>
+                  <para>Vector of 4 words with a value of either 0 or 
+                  2<superscript>32</superscript>- 1.</para>
                 </entry>
               </row>
               <row>
@@ -2708,8 +2708,8 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para>Quadword</para>
                 </entry>
                 <entry>
-                  <para>Vector of 2 doublewords with a value of either 0 or 2
-                  <superscript>64</superscript>- 1.</para>
+                  <para>Vector of 2 doublewords with a value of either 0 or 
+                  2<superscript>64</superscript>- 1.</para>
                 </entry>
               </row>
               <row revisionflag="changed">
@@ -3135,9 +3135,8 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
               </listitem>
               <listitem>
                 <para>IBM EXTENDED PRECISION form provides the same range as double
-                precision (about 10
-                <superscript>-308</superscript> to 10
-                <superscript>308</superscript>) but more precision (a variable amount,
+                precision (about 10<superscript>-308</superscript> to 
+                10<superscript>308</superscript>) but more precision (a variable amount,
                 about 31 decimal digits or more).</para>
               </listitem>
               <listitem>
@@ -3316,10 +3315,10 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         unions. These bit fields define whole objects within the structure or
         union where the number of bits in the bit field is specified.</para>
         <para>In 
-        <xref linkend="dbdoclet.50655240_47126" />, a signed range goes from -2
-        <superscript>w - 1</superscript> to 2
-        <superscript>w - 1</superscript>- 1 and an unsigned range goes from 0 to 2
-        <superscript>w</superscript>- 1.</para>
+        <xref linkend="dbdoclet.50655240_47126" />, a signed range goes from 
+        -2<superscript>w - 1</superscript> to 
+        2<superscript>w - 1</superscript>- 1 and an unsigned range goes from 0 to 
+        2<superscript>w</superscript>- 1.</para>
 
         <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_47126">
           <title>Bit Field Types</title>
