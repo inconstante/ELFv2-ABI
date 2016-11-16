@@ -8065,7 +8065,7 @@ addi  r3,r1,p           ; R3 = new data area following parameter save area.</pro
     <para>The DWARF specification is used by compilers and debuggers to aid 
     source-level or symbolic debugging. However, the format is not biased toward 
     any particular compiler or debugger.  Per the DWARF specification, a 
-    mapping from Power Archtecture registers to register numbers is required as   
+    mapping from Power Architecture registers to register numbers is required as   
     described in <xref linkend="dbdoclet.50655240_94513" />.</para>
     <para>All instances of the Power Architecture use the mapping shown in 
     <xref linkend="dbdoclet.50655240_94513" /> for encoding registers into
