@@ -539,7 +539,7 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
               <para>bcd_xl(a,b)</para>
             </entry>
             <entry>
-              <para>(bcd)vec_xl_len_r(a,b)<footnote xml:id="tabb2fnb"><para>Optionaly, __builtin_ldrmb (a,b) for previous 
+              <para>(bcd)vec_xl_len_r(a,b)<footnote xml:id="tabb2fnb"><para>Optionally, __builtin_ldrmb (a,b) for previous 
               generations of XL compilers.</para></footnote>
               </para>
             </entry>
@@ -549,8 +549,8 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
               <para>bcd_xst(a,b)</para>
             </entry>
             <entry>
-              <para>(bcd)vec_xst_len_r(a,b)<footnote xml:id="tabb2fnc"><para>Optionaly, __builti_strmb (a,b) for previous 
-              generatoin f XL compilers.</para></footnote>
+              <para>(bcd)vec_xst_len_r(a,b)<footnote xml:id="tabb2fnc"><para>Optionally, __builtin_strmb (a,b) for previous 
+              generations of XL compilers.</para></footnote>
               </para>
             </entry>
           </row>
