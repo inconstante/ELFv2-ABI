@@ -7799,7 +7799,7 @@ bctr
 
       <figure>
         <title>Position-Independent Switch Code for Small/Medium Models
-        (preferred with TOC-relative addressing)</title>
+        (preferred, with TOC-relative addressing)</title>
         <mediaobject>
           <imageobject>
             <imagedata fileref="figures/fig2-39.png" format="PNG"
