@@ -3014,7 +3014,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry>
               <para>vector unsigned long long vec_extract_sig (vector
-              double)</para>
+              double);</para>
             </entry>
           </row>
           <row revisionflag="added">
@@ -3022,7 +3022,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para></para>
             </entry>
             <entry>
-              <para>vector unsigned int vec_extract_sig (vector float)</para>
+              <para>vector unsigned int vec_extract_sig (vector float);</para>
             </entry>
           </row>
           <row revisionflag="added">
@@ -3045,7 +3045,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry>
               <para>vector unsigned long long vec_extract4b (vector unsigned
-              char, const int)</para>
+              char, const int);</para>
             </entry>
           </row>
           <row revisionflag="added">
@@ -3775,7 +3775,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry>
               <para>vector unsigned char vec_insert4b (vector signed int,
-              vector unsigned char, const int)</para>
+              vector unsigned char, const int);</para>
             </entry>
           </row>
           <row revisionflag="added">
@@ -3784,7 +3784,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry>
               <para>vector unsigned char vec_insert4b (vector unsigned int,
-              vector unsigned char, const int)</para>
+              vector unsigned char, const int);</para>
             </entry>
           </row>
           <row>
@@ -6177,7 +6177,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry>
               <para>vector unsigned __int128 vec_parity_lsbb (vector
-              signed__int128);</para>
+              signed __int128);</para>
             </entry>
           </row>
           <row revisionflag="added">
@@ -6186,7 +6186,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry>
               <para>vector unsigned __int128 vec_parity_lsbb (vector
-              unsigned__int128);</para>
+              unsigned __int128);</para>
             </entry>
           </row>
           <row revisionflag="added">
