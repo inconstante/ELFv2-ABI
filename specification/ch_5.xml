@@ -234,11 +234,11 @@ xml:id="dbdoclet.50655243_pgfId-1099317">
             </row>
             <row>
               <entry>
-                <para>ARCH_PWRn</para>
+                <para>_ARCH_PWRn</para>
               </entry>
               <entry>
                 <para>Indicates that the target processor supports the Power
-                ISA level for POWERn or higher. For example, ARCH_PWR8 supports
+                ISA level for POWERn or higher. For example, _ARCH_PWR8 supports
                 the Power ISA for a POWER8 processor.</para>
               </entry>
             </row>
