@@ -1130,23 +1130,25 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
                   <para>For each doubleword element i (0 ≤ i &lt; 2) of ARG1,
                   regardless of the input operand type specified for
                   ARG1:</para>
-                </listitem>
-                <listitem>
-                  <para>- For each j (0 ≤ j &lt; 8), let bit index k denote the
-                  byte value of the j-th element of ARG2.</para>
-                </listitem>
-                <listitem>
-                  <para>- If bit index k is greater than or equal to 64, bit j
-                  of element i is set to 0.</para>
-                </listitem>
-                <listitem>
-                  <para>- If bit index k is less than 64, bit j of element i is
-                  set to the value of the k-th bit of element i of input
-                  ARG1.</para>
-                </listitem>
-                <listitem>
-                  <para>- All other bits are zeroed.</para>
-                </listitem>
+		  <itemizedlist>
+                    <listitem>
+                      <para>For each j (0 ≤ j &lt; 8), let bit index k denote the
+                      byte value of the j-th element of ARG2.</para>
+                    </listitem>
+                    <listitem>
+                      <para>If bit index k is greater than or equal to 64, bit j
+                      of element i is set to 0.</para>
+                    </listitem>
+                    <listitem>
+                      <para>If bit index k is less than 64, bit j of element i is
+                      set to the value of the k-th bit of element i of input
+                      ARG1.</para>
+                    </listitem>
+                    <listitem>
+                      <para>All other bits are zeroed.</para>
+                    </listitem>
+		  </itemizedlist>
+		</listitem>
               </itemizedlist>
             </entry>
           </row>
