@@ -10880,7 +10880,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               proceeding to the next higher element.</para>
               <para>At least 0 and at most 16 bytes will be stored. The length
               is specified by the least-significant byte of ARG3, as min (mod
-              (ARG2, 256), 16). The behavior is undefined if the length
+              (ARG3, 256), 16). The behavior is undefined if the length
               argument is outside of the range 0 - 255, or if it is not a
               multiple of the vector element size.</para>
             </entry>
