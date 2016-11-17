@@ -5032,7 +5032,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         </mediaobject>
       </figure>
       <para>In 
-      <xref linkend="dbdoclet.50655240_97610" xrefstyle="select: nopage"/> the white areas indicate an
+      <xref linkend="dbdoclet.50655240_97610"/> the white areas indicate an
       optional save area of the stack frame. For a description of the optional
       save areas described by this ABI, see 
       <xref linkend="dbdoclet.50655240_15141" />.</para>
