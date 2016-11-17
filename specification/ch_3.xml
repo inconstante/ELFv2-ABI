@@ -847,7 +847,7 @@ my_func:
               <entry>
                 <para> </para>
               </entry>
-              <entry>
+              <entry align="right" colsep="1">
                 <para>0</para>
               </entry>
             </row>
