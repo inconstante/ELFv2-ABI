@@ -3418,7 +3418,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>Result value:</para>
               <para>The even-numbered target elements are obtained by
               converting the source elements to single-precision
-              numbers.</para>
+              numbers, using the current floating-point rounding mode.</para>
             </entry>
           </row>
           <row>
@@ -3501,7 +3501,8 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               numbers.</para>
               <para>Result value:</para>
               <para>The odd-numbered target elements are obtained by converting
-              the source elements to single-precision numbers.</para>
+              the source elements to single-precision numbers, using the
+	      current floating-point rounding mode.</para>
             </entry>
           </row>
           <row>
