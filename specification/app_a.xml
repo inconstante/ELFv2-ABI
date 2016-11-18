@@ -7814,14 +7814,11 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>Result value:</para>
               <para>The value of each element is set to the value of an input
               element of the concatenated vectors ARG1 and ARG2, with the word
-              offset to its right<superscript><xref linkend="vec_sldw_fn1" xrefstyle="select: labelnumber nopage"/></superscript> 
+              offset to its right<superscript>1</superscript> 
               specified by ARG3, which should be in the
               range 0 - 3.</para>
-              <orderedlist>
-                <listitem xml:id="vec_sldw_fn1">
-                  <para>A shift left picks values from the right.</para>
-                </listitem>
-              </orderedlist>
+	      <para><superscript>1</superscript>A shift left picks values
+	      from the right.</para>
             </entry>
           </row>
           <row>
@@ -8006,14 +8003,10 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>The result is the contents of ARG1, shifted left by the
               number of bytes specified by the most-significant nibble of the
               least-significant 
-              byte<superscript><xref linkend="vec_slo_fn1" xrefstyle="select: labelnumber nopage" /></superscript> 
+              byte<superscript>1</superscript> 
               of ARG2. The bits that are shifted out are replaced by zeros.</para>
-              <orderedlist>
-                <listitem xml:id="vec_slo_fn1">
-                  <para>That is, by little-endian bits 7 - 5 or big-endian bits
-                  121 - 124.</para>
-                </listitem>
-              </orderedlist>
+	      <para><superscript>1</superscript>That is, by little-endian bits
+	      7&#8211;4 or big-endian bits 121&#8211;124.</para>
             </entry>
           </row>
           <row>
