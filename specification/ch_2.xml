@@ -5392,17 +5392,19 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                     aggregate's defined alignment.</para>
                   </listitem>
                   <listitem>
-                    <para>The alignment will never be larger than the stack frame
-                    alignment (16 bytes).</para>
+                    <para>The alignment will never be larger than the stack
+		    frame alignment (16 bytes).</para>
+		    <para>This might result in
+		    doublewords being skipped for alignment.  When a doubleword
+		    in the Parameter Save Area (or its GPR copy) contains at
+		    least a portion of a structure, that doubleword must
+		    contain all other portions mapping to the same doubleword.
+		    (That is, a	doubleword can either be completely valid, or
+		    completely invalid, but not partially valid and
+		    invalid, except in the last doubleword where invalid
+		    padding may be present.)</para>
                   </listitem>
               </itemizedlist></para>
-            <para>This might result in doublewords being skipped for alignment.
-            When a doubleword in the Parameter Save Area (or its GPR copy) contains
-            at least a portion of a structure, that doubleword must contain all
-            other portions mapping to the same doubleword. (That is, a doubleword
-            can either be completely valid, or completely invalid, but not
-            partially valid and invalid, except in the last doubleword where
-            invalid padding may be present.)</para>
           </listitem>
           <listitem>
             <para>Pad an aggregate or union smaller than one doubleword in
