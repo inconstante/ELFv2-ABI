@@ -7404,6 +7404,15 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
+              <para>vector double vec_sel (vector double, vector double, vector
+              unsigned long long);</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
               <para>vector float vec_sel (vector float, vector float, vector
               bool int);</para>
             </entry>
