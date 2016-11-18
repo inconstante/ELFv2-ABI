@@ -5195,9 +5195,9 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         function exit.</para>
         <para>If full unwind information such as DWARF is present, registers can be
         saved in arbitrary locations in the stack frame. If the system
-        floating-point register save and restore functions are to be used, the
-        floating-point registers shall be saved in a contiguous range.
-        Floating-point register fN is saved in the doubleword located 8 x
+        general-purpose register save and restore functions are to be used, the
+        general-purpose registers shall be saved in a contiguous range.
+        General-purpose register rN is saved in the doubleword located 8 x
         (32-N) bytes before the back-chain word of the previous frame, as shown
         in 
         <xref linkend="dbdoclet.50655240_97610" />.</para>
