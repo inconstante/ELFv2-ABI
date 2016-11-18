@@ -10043,7 +10043,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector signed char vec_xl (long long, signed char
+              <para>vector signed char vec_xl (signed long long, signed char
               *);</para>
             </entry>
           </row>
@@ -10052,7 +10052,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector unsigned char vec_xl (long long, unsigned char
+              <para>vector unsigned char vec_xl (signed long long, unsigned char
               *);</para>
             </entry>
           </row>
@@ -10061,7 +10061,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector signed int vec_xl (long long, signed int *);</para>
+              <para>vector signed int vec_xl (signed long long, signed int *);</para>
             </entry>
           </row>
           <row>
@@ -10069,7 +10069,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector unsigned int vec_xl (long long, unsigned int
+              <para>vector unsigned int vec_xl (signed long long, unsigned int
               *);</para>
             </entry>
           </row>
@@ -10078,7 +10078,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector signed __int128 vec_xl (long long, signed __int128
+              <para>vector signed __int128 vec_xl (signed long long, signed __int128
               *);</para>
             </entry>
           </row>
@@ -10087,7 +10087,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector unsigned __int128 vec_xl (long long, unsigned
+              <para>vector unsigned __int128 vec_xl (signed long long, unsigned
               __int128 *);</para>
             </entry>
           </row>
@@ -10096,7 +10096,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector signed long long vec_xl (long long, signed long long
+              <para>vector signed signed long long vec_xl (signed long long, signed long long
               *);</para>
             </entry>
           </row>
@@ -10105,7 +10105,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector unsigned long long vec_xl (long long, unsigned long
+              <para>vector unsigned long long vec_xl (signed long long, unsigned long
               long *);</para>
             </entry>
           </row>
@@ -10114,7 +10114,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector signed short vec_xl (long long, signed short
+              <para>vector signed short vec_xl (signed long long, signed short
               *);</para>
             </entry>
           </row>
@@ -10123,7 +10123,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector unsigned short vec_xl (long long, unsigned short
+              <para>vector unsigned short vec_xl (signed long long, unsigned short
               *);</para>
             </entry>
           </row>
@@ -10132,7 +10132,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector double vec_xl (long long, double *);</para>
+              <para>vector double vec_xl (signed long long, double *);</para>
             </entry>
           </row>
           <row>
@@ -10140,7 +10140,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector float vec_xl (long long, float *);</para>
+              <para>vector float vec_xl (signed long long, float *);</para>
             </entry>
           </row>
           <row revisionflag="added">
@@ -10149,7 +10149,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               </para>
             </entry>
             <entry>
-              <para>vector _Float16 vec_xl (long long, _Float16 *);</para>
+              <para>vector _Float16 vec_xl (signed long long, _Float16 *);</para>
             </entry>
           </row>
           <row>
@@ -10179,7 +10179,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector signed char vec_xl_be (long long, signed char
+              <para>vector signed char vec_xl_be (signed long long, signed char
               *);</para>
             </entry>
           </row>
@@ -10188,7 +10188,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector unsigned char vec_xl_be (long long, unsigned char
+              <para>vector unsigned char vec_xl_be (signed long long, unsigned char
               *);</para>
             </entry>
           </row>
@@ -10197,7 +10197,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector signed int vec_xl_be (long long, signed int
+              <para>vector signed int vec_xl_be (signed long long, signed int
               *);</para>
             </entry>
           </row>
@@ -10206,7 +10206,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector unsigned int vec_xl_be (long long, unsigned int
+              <para>vector unsigned int vec_xl_be (signed long long, unsigned int
               *);</para>
             </entry>
           </row>
@@ -10215,7 +10215,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector signed __int128 vec_xl_be (long long, signed
+              <para>vector signed __int128 vec_xl_be (signed long long, signed
               __int128 *);</para>
             </entry>
           </row>
@@ -10224,7 +10224,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector unsigned __int128 vec_xl_be (long long, unsigned
+              <para>vector unsigned __int128 vec_xl_be (signed long long, unsigned
               __int128 *);</para>
             </entry>
           </row>
@@ -10233,7 +10233,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector signed long long vec_xl_be (long long, signed long
+              <para>vector signed long long vec_xl_be (signed long long, signed long
               long *);</para>
             </entry>
           </row>
@@ -10242,7 +10242,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector unsigned long long vec_xl_be (long long, unsigned
+              <para>vector unsigned long long vec_xl_be (signed long long, unsigned
               long long *);</para>
             </entry>
           </row>
@@ -10251,7 +10251,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector signed short vec_xl_be (long long, signed short
+              <para>vector signed short vec_xl_be (signed long long, signed short
               *);</para>
             </entry>
           </row>
@@ -10260,7 +10260,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector unsigned short vec_xl_be (long long, unsigned short
+              <para>vector unsigned short vec_xl_be (signed long long, unsigned short
               *);</para>
             </entry>
           </row>
@@ -10269,7 +10269,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector double vec_xl_be (long long, double *);</para>
+              <para>vector double vec_xl_be (signed long long, double *);</para>
             </entry>
           </row>
           <row>
@@ -10277,7 +10277,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector float vec_xl_be (long long, float *);</para>
+              <para>vector float vec_xl_be (signed long long, float *);</para>
             </entry>
           </row>
           <row revisionflag="added">
@@ -10286,7 +10286,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               </para>
             </entry>
             <entry>
-              <para>vector _Float16 vec_xl_be (long long, _Float16 *);</para>
+              <para>vector _Float16 vec_xl_be (signed long long, _Float16 *);</para>
             </entry>
           </row>
           <row revisionflag="added">
@@ -10617,7 +10617,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst (vector signed char, long long, signed char
+              <para>void vec_xst (vector signed char, signed long long, signed char
               *);</para>
             </entry>
           </row>
@@ -10626,7 +10626,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst (vector unsigned char, long long, unsigned
+              <para>void vec_xst (vector unsigned char, signed long long, unsigned
               char *);</para>
             </entry>
           </row>
@@ -10635,7 +10635,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst (vector signed int, long long, signed int
+              <para>void vec_xst (vector signed int, signed long long, signed int
               *);</para>
             </entry>
           </row>
@@ -10644,7 +10644,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst (vector unsigned int, long long, unsigned int
+              <para>void vec_xst (vector unsigned int, signed long long, unsigned int
               *);</para>
             </entry>
           </row>
@@ -10653,7 +10653,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst (vector signed __int128, long long, signed
+              <para>void vec_xst (vector signed __int128, signed long long, signed
               __int128 *);</para>
             </entry>
           </row>
@@ -10662,7 +10662,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst (vector unsigned __int128, long long, unsigned
+              <para>void vec_xst (vector unsigned __int128, signed long long, unsigned
               __int128 *);</para>
             </entry>
           </row>
@@ -10671,7 +10671,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst (vector signed long long, long long, signed
+              <para>void vec_xst (vector signed long long, signed long long, signed
               long long *);</para>
             </entry>
           </row>
@@ -10680,7 +10680,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst (vector unsigned long long, long long,
+              <para>void vec_xst (vector unsigned long long, signed long long,
               unsigned long long *);</para>
             </entry>
           </row>
@@ -10689,7 +10689,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst (vector signed short, long long, signed short
+              <para>void vec_xst (vector signed short, signed long long, signed short
               *);</para>
             </entry>
           </row>
@@ -10698,7 +10698,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst (vector unsigned short, long long, unsigned
+              <para>void vec_xst (vector unsigned short, signed long long, unsigned
               short *);</para>
             </entry>
           </row>
@@ -10707,7 +10707,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst (vector double, long long, double *);</para>
+              <para>void vec_xst (vector double, signed long long, double *);</para>
             </entry>
           </row>
           <row>
@@ -10715,7 +10715,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst (vector float, long long, float *);</para>
+              <para>void vec_xst (vector float, signed long long, float *);</para>
             </entry>
           </row>
           <row revisionflag="added">
@@ -10724,7 +10724,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               </para>
             </entry>
             <entry>
-              <para>void vec_xst (vector _Float16, long long, _Float16
+              <para>void vec_xst (vector _Float16, signed long long, _Float16
               *);</para>
             </entry>
           </row>
@@ -10755,7 +10755,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst_be (vector signed char, long long, signed char
+              <para>void vec_xst_be (vector signed char, signed long long, signed char
               *);</para>
             </entry>
           </row>
@@ -10764,7 +10764,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst_be (vector unsigned char, long long, unsigned
+              <para>void vec_xst_be (vector unsigned char, signed long long, unsigned
               char *);</para>
             </entry>
           </row>
@@ -10773,7 +10773,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst_be (vector signed int, long long, signed int
+              <para>void vec_xst_be (vector signed int, signed long long, signed int
               *);</para>
             </entry>
           </row>
@@ -10782,7 +10782,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst_be (vector unsigned int, long long, unsigned
+              <para>void vec_xst_be (vector unsigned int, signed long long, unsigned
               int *);</para>
             </entry>
           </row>
@@ -10791,7 +10791,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst_be (vector signed __int128, long long, signed
+              <para>void vec_xst_be (vector signed __int128, signed long long, signed
               __int128 *);</para>
             </entry>
           </row>
@@ -10800,7 +10800,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst_be (vector unsigned __int128, long long,
+              <para>void vec_xst_be (vector unsigned __int128, signed long long,
               unsigned __int128 *);</para>
             </entry>
           </row>
@@ -10809,7 +10809,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst_be (vector signed long long, long long, signed
+              <para>void vec_xst_be (vector signed long long, signed long long, signed
               long long *);</para>
             </entry>
           </row>
@@ -10818,7 +10818,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst_be (vector unsigned long long, long long,
+              <para>void vec_xst_be (vector unsigned long long, signed long long,
               unsigned long long *);</para>
             </entry>
           </row>
@@ -10827,7 +10827,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst_be (vector signed short, long long, signed
+              <para>void vec_xst_be (vector signed short, signed long long, signed
               short *);</para>
             </entry>
           </row>
@@ -10836,7 +10836,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst_be (vector unsigned short, long long, unsigned
+              <para>void vec_xst_be (vector unsigned short, signed long long, unsigned
               short *);</para>
             </entry>
           </row>
@@ -10845,7 +10845,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst_be (vector double, long long, double
+              <para>void vec_xst_be (vector double, signed long long, double
               *);</para>
             </entry>
           </row>
@@ -10854,7 +10854,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>void vec_xst_be (vector float, long long, float *);</para>
+              <para>void vec_xst_be (vector float, signed long long, float *);</para>
             </entry>
           </row>
           <row revisionflag="added">
@@ -10863,7 +10863,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               </para>
             </entry>
             <entry>
-              <para>void vec_xst_be (vector _Float16, long long, _Float16
+              <para>void vec_xst_be (vector _Float16, signed long long, _Float16
               *);</para>
             </entry>
           </row>
