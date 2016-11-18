@@ -5593,16 +5593,25 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       may be present.)</para>
       <para>&#160;</para>
       <bridgehead>IEEE BINARY 128 EXTENDED PRECISION</bridgehead>
-      <para>Up to 12 quad-precision parameters can be passed in v2 - v13. For
-      the purpose of determining qualified floating-point and vector arguments,
-      an IEEE 128b type shall be considered a "like" vector type, and a complex
-      _Float128 shall be treated as two individual scalar elements.</para>
-      <para>&#160;</para>
+      <itemizedlist mark="none">
+	<listitem>
+	  <para>Up to 12 quad-precision parameters can be passed in v2 - v13.
+	  For the purpose of determining qualified floating-point and vector
+	  arguments, an IEEE 128b type shall be considered a "like" vector
+	  type, and a complex _Float128 shall be treated as two individual
+	  scalar elements.</para>
+	</listitem>
+      </itemizedlist>
       <bridgehead>IBM EXTENDED PRECISION</bridgehead>
-      <para>IBM EXTENDED PRECISION format parameters are passed as if they were
-      a struct consisting of separate double parameters.</para>
-      <para>IBM EXTENDED PRECISION format parameters shall be considered as a
-      distinct type for the determination of homogeneous aggregates.</para>
+      <itemizedlist mark="none">
+	<listitem>
+	  <para>IBM EXTENDED PRECISION format parameters are passed as if they
+	  were a struct consisting of separate double parameters.</para>
+	  <para>IBM EXTENDED PRECISION format parameters shall be considered as
+	  a distinct type for the determination of homogeneous aggregates.
+	  </para>
+	</listitem>
+      </itemizedlist>
       <para>If fewer arguments are needed, the unused registers defined
       previously will contain undefined values on entry to the called
       function.</para>
