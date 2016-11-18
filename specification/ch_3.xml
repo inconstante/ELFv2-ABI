@@ -6152,11 +6152,11 @@ nop</programlisting>
                 <para>R_PPC64_TPREL16_LO</para>
               </entry>
               <entry>
-                <para>link editor generated local symbol
-                <emphasis>
-                  <xref linkend="dbdoclet.50655241_21152"
-                  xrefstyle="select: nopage" />
-                </emphasis></para>
+                <para>link editor generated local symbol<footnote>
+		<para>The linker may prefer to schedule the addis and addi
+		to be adjacent to take advantage of fusion as a
+		microarchitecture optimization opportunity.</para></footnote>
+		</para>
               </entry>
             </row>
             <row>
@@ -6256,19 +6256,6 @@ nop</programlisting>
               </entry>
               <entry>
                 <para> </para>
-              </entry>
-            </row>
-            <row>
-              <entry nameend="c3" namest="c1">
-                <para>
-                  <orderedlist>
-                    <listitem xml:id="dbdoclet.50655241_21152">
-                      <para>The linker may prefer to schedule the addis and
-                      addi to be adjacent to take advantage of fusion as a
-                      microarchitecture optimization opportunity.</para>
-                    </listitem>
-                  </orderedlist>
-                </para>
               </entry>
             </row>
           </tbody>
