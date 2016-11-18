@@ -1105,7 +1105,8 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               doubleword element in the specified order, zeroing other
               bits.</para>
               <para>Result value:</para>
-              <para revisionflag="added">When the type of ARG1 is vector unsigned __int128:</para>
+              <para revisionflag="added">When the type of ARG1 is vector
+	      unsigned char or vector unsigned __int128:</para>
               <itemizedlist>
                 <listitem>
                   <para>For each i (0 ≤ i &lt; 16), let bit index j denote the
@@ -1123,7 +1124,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
                   <para>All other bits are zeroed.</para>
                 </listitem>
               </itemizedlist>
-              <para revisionflag="added">When the type of ARG1 is vector unsigned char or vector
+              <para revisionflag="added">When the type of ARG1 is vector
               unsigned long long:</para>
               <itemizedlist revisionflag="added">
                 <listitem>
@@ -1152,7 +1153,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               </itemizedlist>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para></para>
             </entry>
@@ -1161,7 +1162,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               vector unsigned char);</para>
             </entry>
           </row>
-          <row>
+          <row revisionflag="added">
             <entry>
               <para> </para>
             </entry>
