@@ -4504,7 +4504,7 @@ extern void *__tls_get_addr (tls_index *ti);</programlisting>
     <section>
       <title>TLS Access Models</title>
       <para>TLS data access is categorized into the following models:</para>
-      <itemizedlist>
+      <itemizedlist spacing="compact">
         <listitem>
           <para>General Dynamic TLS Model</para>
         </listitem>
@@ -5320,7 +5320,7 @@ static __thread unsigned int x3;
       described.</para>
       <para>The following TLS link editor transformations are provided as
       optimizations to convert between specific TLS access models:</para>
-      <itemizedlist>
+      <itemizedlist spacing="compact">
         <listitem>
           <para>General Dynamic to Initial Exec</para>
         </listitem>
