@@ -5718,12 +5718,12 @@ aggregate:
         if (homogeneous(argument,float) and regs_needed(members(argument)) &lt;=8) 
                 if (register_type_used (type (argument)) == vr)
                    goto use_vrs;
-                  n_fregs = n_fregs_for_type(member_type(argument,0)) 
-                  agg_size = members(argument) * n_fregs 
-                  reg_size = min(agg_size, 15-fr)
-                  pass(FPR,fr,first_n_DW(argument,reg_size) 
-                  fr += reg_size; 
-                  gr += size_in_DW (first_n_DW(argument,reg_size)) 
+                n_fregs = n_fregs_for_type(member_type(argument,0)) 
+                agg_size = members(argument) * n_fregs 
+                reg_size = min(agg_size, 15-fr)
+                pass(FPR,fr,first_n_DW(argument,reg_size) 
+                fr += reg_size; 
+                gr += size_in_DW (first_n_DW(argument,reg_size)) 
                   
                 if remaining_members
                     argument = after_n_DW(argument,reg_size)) 
