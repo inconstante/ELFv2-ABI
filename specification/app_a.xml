@@ -2939,7 +2939,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para>VEC_EXTRACT_FP32_FROM_SHORTH (ARG1)</para>
+              <para>VEC_EXTRACT_FP32-_FROM_SHORTH (ARG1)</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -2965,7 +2965,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para>VEC_EXTRACT_FP32_FROM_SHORTL (ARG1)</para>
+              <para>VEC_EXTRACT_FP32-_FROM_SHORTL (ARG1)</para>
             </entry>
             <entry>
               <para>Purpose</para>
