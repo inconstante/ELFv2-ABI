@@ -324,6 +324,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_ABSD (ARG1, ARG2)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -336,7 +337,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned char vec_absd (vector unsigned char, vector
@@ -345,7 +346,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned int vec_absd (vector unsigned int, vector
@@ -354,7 +355,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned short vec_absd (vector unsigned short,
@@ -1164,7 +1165,9 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para> </para>
+	      <para>POWER ISA 3.0</para>
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              </para>
             </entry>
             <entry>
               <para>vector unsigned long long vec_bperm (vector unsigned
@@ -1173,7 +1176,9 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para> </para>
+	      <para>POWER ISA 3.0</para>
+              <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
+              </para>
             </entry>
             <entry>
               <para>vector unsigned long long vec_bperm (vector unsigned long
@@ -1963,6 +1968,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_CMPNEZ (ARG1, ARG2)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -1978,7 +1984,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector bool char vec_cmpnez (vector signed char, vector
@@ -1987,7 +1993,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector bool char vec_cmpnez (vector unsigned char, vector
@@ -1996,7 +2002,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector bool int vec_cmpnez (vector signed int, vector
@@ -2005,7 +2011,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector bool int vec_cmpnez (vector unsigned int, vector
@@ -2014,7 +2020,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector bool short vec_cmpnez (vector signed short, vector
@@ -2023,7 +2029,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector bool short vec_cmpnez (vector unsigned short, vector
@@ -2124,6 +2130,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_CNTLZ_LSBB (ARG1)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -2138,7 +2145,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>signed int vec_cntlz_lsbb (vector signed char);</para>
@@ -2146,7 +2153,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>signed int vec_cntlz_lsbb (vector unsigned char);</para>
@@ -2155,6 +2162,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_CNTTZ (ARG1)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -2169,7 +2177,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector signed char vec_cnttz (vector signed char);</para>
@@ -2177,7 +2185,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned char vec_cnttz (vector unsigned
@@ -2186,7 +2194,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector signed int vec_cnttz (vector signed int);</para>
@@ -2194,7 +2202,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned int vec_cnttz (vector unsigned int);</para>
@@ -2202,7 +2210,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector signed long long vec_cnttz (vector signed long
@@ -2211,7 +2219,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned long long vec_cnttz (vector unsigned long
@@ -2220,7 +2228,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector signed short vec_cnttz (vector signed short);</para>
@@ -2228,7 +2236,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned short vec_cnttz (vector unsigned
@@ -2238,6 +2246,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_CNTTZ_LSBB (ARG1)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -2252,7 +2261,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>signed int vec_cnttz_lsbb (vector signed char);</para>
@@ -2260,7 +2269,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>signed int vec_cnttz_lsbb (vector unsigned char);</para>
@@ -2896,7 +2905,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
@@ -2907,6 +2916,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_EXTRACT_EXP (ARG1)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -2923,7 +2933,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned long long vec_extract_exp (vector
@@ -2932,7 +2942,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned int vec_extract_exp (vector float);</para>
@@ -2941,6 +2951,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_EXTRACT_FP32-_FROM_SHORTH (ARG1)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -2957,7 +2968,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector float vec_extract_fp32_from_shorth (vector unsigned
@@ -2967,6 +2978,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_EXTRACT_FP32-_FROM_SHORTL (ARG1)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose</para>
@@ -2983,7 +2995,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector float vec_extract_fp32_from_shortl (vector unsigned
@@ -2993,6 +3005,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_EXTRACT_SIG (ARG1)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -3011,7 +3024,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned long long vec_extract_sig (vector
@@ -3020,7 +3033,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned int vec_extract_sig (vector float);</para>
@@ -3029,6 +3042,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_EXTRACT4B (ARG1, ARG2)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -3042,7 +3056,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned long long vec_extract4b (vector unsigned
@@ -3052,6 +3066,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_FIRST_MATCH_INDEX (ARG1, ARG2)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -3066,7 +3081,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_match_index (vector signed char,
@@ -3075,7 +3090,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_match_index (vector unsigned char,
@@ -3084,7 +3099,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_match_index (vector signed int,
@@ -3093,7 +3108,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_match_index (vector unsigned int,
@@ -3102,7 +3117,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_match_index (vector signed short,
@@ -3111,7 +3126,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_match_index (vector unsigned short,
@@ -3121,6 +3136,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_FIRST_MATCH_OR_EOS_ INDEX (ARG1, ARG2)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -3136,7 +3152,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_match_or_eos_index (vector signed
@@ -3145,7 +3161,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_match_or_eos_index (vector unsigned
@@ -3154,7 +3170,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_match_or_eos_index (vector signed
@@ -3163,7 +3179,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_match_or_eos_index (vector unsigned
@@ -3172,7 +3188,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_match_or_eos_index (vector signed
@@ -3181,7 +3197,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_match_or_eos_index (vector unsigned
@@ -3191,6 +3207,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_FIRST_MISMATCH_INDEX(ARG1, ARG2)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -3205,7 +3222,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_mismatch_index (vector signed char,
@@ -3214,7 +3231,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_mismatch_index (vector unsigned
@@ -3223,7 +3240,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_mismatch_index (vector signed int,
@@ -3232,7 +3249,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_mismatch_index (vector unsigned int,
@@ -3241,7 +3258,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_mismatch_index (vector signed short,
@@ -3250,7 +3267,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_mismatch_index (vector unsigned
@@ -3260,6 +3277,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_FIRST_MISMATCH_OR_ EOS_INDEX (ARG1, ARG2)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -3275,7 +3293,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_mismatch_or_eos_index (vector signed
@@ -3284,7 +3302,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_mismatch_or_eos_index (vector
@@ -3293,7 +3311,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_mismatch_or_eos_index (vector signed
@@ -3302,7 +3320,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_mismatch_or_eos_index (vector
@@ -3311,7 +3329,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_mismatch_or_eos_index (vector signed
@@ -3320,7 +3338,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>unsigned int vec_first_mismatch_or_eos_index (vector
@@ -3449,6 +3467,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_FLOATH (ARG2)</para>
+	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
@@ -3463,7 +3482,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector float vec_floath (vector _Float16);</para>
@@ -3472,6 +3491,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_FLOATL (ARG2)</para>
+	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
@@ -3486,7 +3506,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector float vec_floatl (vector _Float16);</para>
@@ -3694,6 +3714,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
+	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
@@ -3705,6 +3726,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_INSERT_EXP (ARG1, ARG2)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -3723,7 +3745,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector double vec_insert_exp (vector double, vector
@@ -3732,7 +3754,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector double vec_insert_exp (vector unsigned long long,
@@ -3741,7 +3763,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector float vec_insert_exp (vector float, vector unsigned
@@ -3750,7 +3772,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector float vec_insert_exp (vector unsigned int, vector
@@ -3760,6 +3782,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_INSERT4B (ARG1, ARG2, ARG3)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -3773,7 +3796,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned char vec_insert4b (vector signed int,
@@ -3782,7 +3805,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned char vec_insert4b (vector unsigned int,
@@ -4258,6 +4281,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
+	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
@@ -4421,6 +4445,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
+	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
@@ -5938,6 +5963,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
+	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
@@ -5949,6 +5975,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_PACK_TO_SHORT_FP32 (ARG1, ARG2)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -5963,7 +5990,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned short vec_pack_to_short_fp32 (vector float,
@@ -6145,6 +6172,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_PARITY_LSBB (ARG1)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -6157,7 +6185,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned int vec_parity_lsbb (vector signed
@@ -6166,7 +6194,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned int vec_parity_lsbb (vector unsigned
@@ -6175,7 +6203,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned __int128 vec_parity_lsbb (vector
@@ -6184,7 +6212,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned __int128 vec_parity_lsbb (vector
@@ -6193,7 +6221,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned long long vec_parity_lsbb (vector signed
@@ -6202,7 +6230,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned long long vec_parity_lsbb (vector unsigned
@@ -6362,6 +6390,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
+	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
@@ -6720,6 +6749,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
+	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
@@ -6858,6 +6888,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
+	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
@@ -6988,6 +7019,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_RLMI (ARG1, ARG2, ARG3)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -7002,7 +7034,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned int vec_rlmi (vector unsigned int, vector
@@ -7011,7 +7043,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned long long vec_rlmi (vector unsigned long
@@ -7022,6 +7054,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_RLNM (ARG1, ARG2, ARG3)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -7038,7 +7071,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned int vec_rlnm (vector unsigned int, vector
@@ -7047,7 +7080,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned long long vec_rlnm (vector unsigned long
@@ -7429,6 +7462,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
+	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
@@ -7439,6 +7473,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
+	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
@@ -8193,6 +8228,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_SLV (ARG1, ARG2)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -8214,7 +8250,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned char vec_slv (vector unsigned char, vector
@@ -8372,6 +8408,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
+	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
@@ -8618,6 +8655,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
+	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
@@ -9131,6 +9169,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_SRV (ARG1, ARG2)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -9153,7 +9192,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned char vec_srv (vector unsigned char, vector
@@ -9606,6 +9645,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_TEST_DATA_CLASS (ARG1, ARG2)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -9621,7 +9661,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector bool int vec_test_data_class (vector float, const
@@ -9630,7 +9670,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector bool long long vec_test_data_class (vector double,
@@ -9779,6 +9819,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
+	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
@@ -9898,6 +9939,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
+	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
@@ -10146,6 +10188,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
+	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
@@ -10283,6 +10326,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
+	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
@@ -10293,6 +10337,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_XL_LEN (ARG1, ARG2)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -10312,7 +10357,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector signed char vec_xl_len (signed char *,
@@ -10321,7 +10366,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned char vec_xl_len (unsigned char *,
@@ -10330,7 +10375,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector signed int vec_xl_len (signed int *, size_t);</para>
@@ -10338,7 +10383,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned int vec_xl_len (unsigned int *,
@@ -10347,7 +10392,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector signed __int128 vec_xl_len (signed __int128 *,
@@ -10356,7 +10401,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned __int128 vec_xl_len (unsigned __int128 *,
@@ -10365,7 +10410,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector signed long long vec_xl_len (signed long long *,
@@ -10374,7 +10419,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned long long vec_xl_len (unsigned long long *,
@@ -10383,7 +10428,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector signed short vec_xl_len (signed short *,
@@ -10392,7 +10437,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned short vec_xl_len (unsigned short *,
@@ -10401,7 +10446,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector double vec_xl_len (double *, size_t);</para>
@@ -10409,7 +10454,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector float vec_xl_len (float *, size_t);</para>
@@ -10417,7 +10462,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector _Float16 vec_xl_len (_Float16 *, size_t);</para>
@@ -10426,6 +10471,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_XL_LEN_R (ARG1, ARG2)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose</para>
@@ -10448,7 +10494,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>vector unsigned char vec_xl_len_r (unsigned char *,
@@ -10721,6 +10767,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
+	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
@@ -10860,6 +10907,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
+	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
             </entry>
@@ -10871,6 +10919,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_XST_LEN (ARG1, ARG2, ARG3)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -10891,7 +10940,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>void vec_xst_len (vector signed char, signed char *,
@@ -10900,7 +10949,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>void vec_xst_len (vector unsigned char, unsigned char *,
@@ -10909,7 +10958,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>void vec_xst_len (vector signed int, signed int *,
@@ -10918,7 +10967,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>void vec_xst_len (vector unsigned int, unsigned int *,
@@ -10927,7 +10976,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>void vec_xst_len (vector signed __int128, signed __int128
@@ -10936,7 +10985,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>void vec_xst_len (vector unsigned __int128, unsigned
@@ -10945,7 +10994,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>void vec_xst_len (vector signed long long, signed long long
@@ -10954,7 +11003,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>void vec_xst_len (vector unsigned long long, unsigned long
@@ -10963,7 +11012,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>void vec_xst_len (vector signed short, signed short *,
@@ -10972,7 +11021,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>void vec_xst_len (vector unsigned short, unsigned short *,
@@ -10981,7 +11030,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>void vec_xst_len (vector double, double *, size_t);</para>
@@ -10989,7 +11038,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>void vec_xst_len (vector float, float *, size_t);</para>
@@ -10997,7 +11046,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>void vec_xst_len (vector _Float16, _Float16 *,
@@ -11007,6 +11056,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           <row revisionflag="added">
             <entry>
               <para>VEC_XST_LEN_R (ARG1, ARG2, ARG3)</para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -11025,7 +11075,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para></para>
+	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
               <para>void vec_xst_len_r (vector unsigned char, unsigned char *,
