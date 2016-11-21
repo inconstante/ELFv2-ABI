@@ -454,7 +454,7 @@ my_func:
       <para>Functions called via symbols with an st_other value of 0 may be
       called without a valid TOC pointer in r2. Symbols of functions that
       require a local entry with a valid TOC pointer should generate a symbol
-      with an st_other field value of 2 - 6 and both local and global entry
+      with an st_other field value of 2&#8211;6 and both local and global entry
       points, even if the global entry point will not be used. (In such a case,
       the instructions of the global entry setup sequence may optionally be
       initialized with TRAP instructions.)</para>
@@ -716,7 +716,7 @@ my_func:
         </tgroup>
       </informaltable>
       <para>In the following figure, word30 specifies a 30-bit field taking up
-      bits 0 - 29 of a word and maintaining 4-byte alignment unless otherwise
+      bits 0&#8211;29 of a word and maintaining 4-byte alignment unless otherwise
       indicated.</para>
       <para> </para>
       <informaltable frame="all" rowsep="0" colsep="0">
@@ -965,7 +965,7 @@ my_func:
         </tgroup>
       </informaltable>
       <para>In the following figure, low24 specifies a 24-bit field taking up
-      bits 6 - 29 of a word and maintaining 4-byte alignment. The other bits
+      bits 6&#8211;29 of a word and maintaining 4-byte alignment. The other bits
       remain unchanged. A call or unconditional branch instruction is an
       example of this field.</para>
       <para> </para>
@@ -1517,7 +1517,7 @@ my_func:
         </tgroup>
       </informaltable>
       <para>In the following figure, low14 specifies a 14-bit field taking up
-      bits 16 - 29 and possibly bit 10 (the branch prediction bit) of a word
+      bits 16&#8211;29 and possibly bit 10 (the branch prediction bit) of a word
       and maintaining 4-byte alignment. The other bits remain unchanged. A
       conditional branch instruction is an example usage.</para>
       <para> </para>
@@ -2202,7 +2202,7 @@ my_func:
             </row>
             <row>
               <entry>
-                <para>-</para>
+                <para>&#8211;</para>
               </entry>
               <entry>
                 <para>Denotes 64-bit modulus subtraction.</para>
@@ -2231,7 +2231,7 @@ my_func:
                 <para>#hi(value)</para>
               </entry>
               <entry>
-                <para>Denotes bits 16 - 63 of the indicated value. That
+                <para>Denotes bits 16&#8211;63 of the indicated value. That
                 is:</para>
                 <para>#hi(x) = x &gt;&gt; 16</para>
               </entry>
@@ -2241,7 +2241,7 @@ my_func:
                 <para>#ha(value)</para>
               </entry>
               <entry>
-                <para>Denotes the high adjusted value: bits 16 - 63 of the
+                <para>Denotes the high adjusted value: bits 16&#8211;63 of the
                 indicated value, compensating for #lo( ) being treated as a
                 signed number. That is:</para>
                 <para>#ha(x) = (x + 0x8000) &gt;&gt; 16</para>
@@ -2282,7 +2282,7 @@ my_func:
               </entry>
               <entry>
                 <para>Represents the base address of the TCB.</para>
-                <para>tcb = (tp - (TLS_TP_OFFSET + TCB_LENGTH))</para>
+                <para>tcb = (tp &#8211; (TLS_TP_OFFSET + TCB_LENGTH))</para>
               </entry>
             </row>
             <row>
@@ -2396,8 +2396,8 @@ my_func:
           fit in the allocated bits.</para>
         </listitem>
         <listitem>
-          <para>Relocations that refer to half16ds (56 - 66, 87 - 88, 91 - 92,
-          95 - 96, and 101 - 102) are to be used to direct the linker to look
+          <para>Relocations that refer to half16ds (56&#8211;66, 87&#8211;88, 91&#8211;92,
+          95&#8211;96, and 101&#8211;102) are to be used to direct the linker to look
           at the underlying instruction and treat the field as a DS or DQ
           field. ABI-compliant tools should give an error for attempts to
           relocate an address to a value that is not divisible by 4.</para>
@@ -2571,7 +2571,7 @@ my_func:
                 <para>low24*</para>
               </entry>
               <entry>
-                <para>(S + A - P) &gt;&gt; 2</para>
+                <para>(S + A &#8211; P) &gt;&gt; 2</para>
               </entry>
             </row>
             <row>
@@ -2585,7 +2585,7 @@ my_func:
                 <para>low14*</para>
               </entry>
               <entry>
-                <para>(S + A - P) &gt;&gt; 2</para>
+                <para>(S + A &#8211; P) &gt;&gt; 2</para>
               </entry>
             </row>
             <row>
@@ -2741,7 +2741,7 @@ my_func:
                 <para>word32*</para>
               </entry>
               <entry>
-                <para>S + A - P</para>
+                <para>S + A &#8211; P</para>
               </entry>
             </row>
             <row>
@@ -2769,7 +2769,7 @@ my_func:
                 <para>word32*</para>
               </entry>
               <entry>
-                <para>L - P</para>
+                <para>L &#8211; P</para>
               </entry>
             </row>
             <row>
@@ -2881,7 +2881,7 @@ my_func:
                 <para>word30</para>
               </entry>
               <entry>
-                <para>(S + A - P) &gt;&gt; 2</para>
+                <para>(S + A &#8211; P) &gt;&gt; 2</para>
               </entry>
             </row>
             <row>
@@ -2979,7 +2979,7 @@ my_func:
                 <para>doubleword64</para>
               </entry>
               <entry>
-                <para>S + A - P</para>
+                <para>S + A &#8211; P</para>
               </entry>
             </row>
             <row>
@@ -3007,7 +3007,7 @@ my_func:
                 <para>doubleword64</para>
               </entry>
               <entry>
-                <para>L - P</para>
+                <para>L &#8211; P</para>
               </entry>
             </row>
             <row>
@@ -3021,7 +3021,7 @@ my_func:
                 <para>half16*</para>
               </entry>
               <entry>
-                <para>S + A - .TOC.</para>
+                <para>S + A &#8211; .TOC.</para>
               </entry>
             </row>
             <row>
@@ -3035,7 +3035,7 @@ my_func:
                 <para>half16</para>
               </entry>
               <entry>
-                <para>#lo(S + A - .TOC.)</para>
+                <para>#lo(S + A &#8211; .TOC.)</para>
               </entry>
             </row>
             <row>
@@ -3049,7 +3049,7 @@ my_func:
                 <para>half16*</para>
               </entry>
               <entry>
-                <para>#hi(S + A - .TOC.)</para>
+                <para>#hi(S + A &#8211; .TOC.)</para>
               </entry>
             </row>
             <row>
@@ -3063,7 +3063,7 @@ my_func:
                 <para>half16*</para>
               </entry>
               <entry>
-                <para>#ha(S + A - .TOC.)</para>
+                <para>#ha(S + A &#8211; .TOC.)</para>
               </entry>
             </row>
             <row>
@@ -3245,7 +3245,7 @@ my_func:
                 <para>half16ds*</para>
               </entry>
               <entry>
-                <para>(S + A - .TOC.) &gt;&gt; 2</para>
+                <para>(S + A &#8211; .TOC.) &gt;&gt; 2</para>
               </entry>
             </row>
             <row>
@@ -3259,7 +3259,7 @@ my_func:
                 <para>half16ds</para>
               </entry>
               <entry>
-                <para>#lo(S + A - .TOC.) &gt;&gt; 2</para>
+                <para>#lo(S + A &#8211; .TOC.) &gt;&gt; 2</para>
               </entry>
             </row>
             <row>
@@ -3987,7 +3987,7 @@ my_func:
                 <para>low24*</para>
               </entry>
               <entry>
-                <para>(S + A - P) &gt;&gt; 2</para>
+                <para>(S + A &#8211; P) &gt;&gt; 2</para>
               </entry>
             </row>
             <row>
@@ -4031,7 +4031,7 @@ my_func:
                 <para>half16*</para>
               </entry>
               <entry>
-                <para>S + A - P</para>
+                <para>S + A &#8211; P</para>
               </entry>
             </row>
             <row>
@@ -4045,7 +4045,7 @@ my_func:
                 <para>half16</para>
               </entry>
               <entry>
-                <para>#lo(S + A - P)</para>
+                <para>#lo(S + A &#8211; P)</para>
               </entry>
             </row>
             <row>
@@ -4059,7 +4059,7 @@ my_func:
                 <para>half16*</para>
               </entry>
               <entry>
-                <para>#hi(S + A - P)</para>
+                <para>#hi(S + A &#8211; P)</para>
               </entry>
             </row>
             <row>
@@ -4073,7 +4073,7 @@ my_func:
                 <para>half16*</para>
               </entry>
               <entry>
-                <para>#ha(S + A - P)</para>
+                <para>#ha(S + A &#8211; P)</para>
               </entry>
             </row>
             <row>
@@ -4212,11 +4212,11 @@ ld     r3,x@got@l(r3)</programlisting>
       the high adjusted, high, and low parts of the GOT offset. (For an
       explanation of the meaning of “high adjusted,” see
       <xref linkend="dbdoclet.50655241_18894" />). SYMBOL@got@ha corresponds to
-      bits 32 - 63 of the offset within the global offset table with adjustment
+      bits 32&#8211;63 of the offset within the global offset table with adjustment
       for the sign extension of the low-order offset bits. SYMBOL@got@l
       corresponds to the 16 low-order bits of the offset within the global
       offset table.</para>
-      <para>The syntax SYMBOL@toc refers to the value (SYMBOL - .TOC.), where
+      <para>The syntax SYMBOL@toc refers to the value (SYMBOL &#8211; .TOC.), where
       .TOC. represents the TOC base for the current object file. This provides
       the address of the variable whose name is SYMBOL as an offset from the
       TOC base.</para>
@@ -4433,8 +4433,8 @@ addi      r4, r4, lower</programlisting>
       the TLS blocks for these are created consecutively and immediately follow
       the TCB. The offset of the TLS block of an initially available module
       from the TCB remains fixed after program start.</para>
-      <para>The tlsoffset(m) values for a module with index m, where m ranges 1
-      - M, M being the total number of modules, are computed as follows:</para>
+      <para>The tlsoffset(m) values for a module with index m, where m ranges
+      from 1&#8211;M, M being the total number of modules, are computed as follows:</para>
       <programlisting>tlsoffset(1) = round(16, align(1))
 tlsoffset(m + 1) = round(tlsoffset(m) + tlssize(m), align(m + 1))</programlisting>
       <itemizedlist>
@@ -4447,8 +4447,8 @@ tlsoffset(m + 1) = round(tlsoffset(m) + tlssize(m), align(m + 1))</programlistin
       <itemizedlist>
         <listitem>
           <para>The function ceiling( ) returns the smallest integer greater
-          than or equal to its argument, where n is an integer satisfying: n -
-          1 &lt; x ≤ n:</para>
+          than or equal to its argument, where n is an integer satisfying:
+	  n &#8211; 1 &lt; x ≤ n:</para>
         </listitem>
       </itemizedlist>
       <programlisting>ceiling(x) = n</programlisting>
@@ -4467,7 +4467,8 @@ tlsoffset(m + 1) = round(tlsoffset(m) + tlssize(m), align(m + 1))</programlistin
 extern void *__tls_get_addr (tls_index *ti);</programlisting>
       <para>The thread pointer (TP) is held in r13 and is used to access the
       TCB. The TP is initialized to point 0x7000 bytes past the end of the TCB.
-      The TP offset allows for efficient addressing of the TCB and up to 4 KB -
+      The TP offset allows for efficient addressing of the TCB and up to 4 KB
+      &#8211;
       8 B of other thread library information (placed before the TCB).</para>
       <para>
       <xref linkend="dbdoclet.50655241_11666" /> shows the region of memory
@@ -6861,8 +6862,8 @@ nop</programlisting>
                       </row>
                       <row>
                         <entry nameend="c2" namest="c1">
-                           <para>The codes 0xf - 0xfa are reserved. The codes 
-                              0xfb - 0xff are reserved for IBM.</para></entry>
+                           <para>The codes 0xf&#8211;0xfa are reserved. The codes 
+                              0xfb&#8211;0xff are reserved for IBM.</para></entry>
                       </row>
                     </tbody>
                   </tgroup>

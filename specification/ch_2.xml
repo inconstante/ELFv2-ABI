@@ -2042,7 +2042,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           <para>
           <emphasis role="bold">FPSCR Formats:</emphasis> As of Power ISA version 2.05, the
           FPSCR is extended from 32 bits to 64 bits. The fields of the original
-          32-bit FPSCR are now held in bits 32 - 63 of the 64-bit FPSCR. The
+          32-bit FPSCR are now held in bits 32&#8211;63 of the 64-bit FPSCR. The
           assembly instructions that operate upon the 64-bit FPSCR have either
           a W instruction field added to select the operative word for the
           instruction (for example, 
@@ -2558,7 +2558,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                 </entry>
                 <entry>
                   <para>Vector of 16 bytes with a value of either 0 or 
-                  2<superscript>8</superscript>- 1.</para>
+                  2<superscript>8</superscript> &#8211; 1.</para>
                 </entry>
               </row>
               <row>
@@ -2610,7 +2610,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                 </entry>
                 <entry>
                   <para>Vector of 8 halfwords with a value of either 0 or 
-                  2<superscript>16</superscript>- 1.</para>
+                  2<superscript>16</superscript> &#8211; 1.</para>
                 </entry>
               </row>
               <row>
@@ -2662,7 +2662,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                 </entry>
                 <entry>
                   <para>Vector of 4 words with a value of either 0 or 
-                  2<superscript>32</superscript>- 1.</para>
+                  2<superscript>32</superscript> &#8211; 1.</para>
                 </entry>
               </row>
               <row>
@@ -2721,7 +2721,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                 </entry>
                 <entry>
                   <para>Vector of 2 doublewords with a value of either 0 or 
-                  2<superscript>64</superscript>- 1.</para>
+                  2<superscript>64</superscript> &#8211; 1.</para>
                 </entry>
               </row>
               <row revisionflag="changed">
@@ -3147,7 +3147,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
               </listitem>
               <listitem>
                 <para>IBM EXTENDED PRECISION form provides the same range as double
-                precision (about 10<superscript>-308</superscript> to 
+                precision (about 10<superscript>&#8211;308</superscript> to 
                 10<superscript>308</superscript>) but more precision (a variable amount,
                 about 31 decimal digits or more).</para>
               </listitem>
@@ -3328,9 +3328,9 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         union where the number of bits in the bit field is specified.</para>
         <para>In 
         <xref linkend="dbdoclet.50655240_47126" />, a signed range goes from 
-        -2<superscript>w - 1</superscript> to 
-        2<superscript>w - 1</superscript>- 1 and an unsigned range goes from 0 to 
-        2<superscript>w</superscript>- 1.</para>
+        &#8211;2<superscript>w &#8211; 1</superscript> to 
+        2<superscript>w &#8211; 1</superscript> &#8211; 1 and an unsigned range goes from 0 to 
+        2<superscript>w</superscript> &#8211; 1.</para>
 
         <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_47126">
           <title>Bit Field Types</title>
@@ -3365,7 +3365,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para>signed char</para>
                 </entry>
                 <entry morerows="1">
-                  <para>1 - 8</para>
+                  <para>1&#8211;8</para>
                 </entry>
               </row>
               <row>
@@ -3378,7 +3378,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para>signed short</para>
                 </entry>
                 <entry morerows="1">
-                  <para>1 - 16</para>
+                  <para>1&#8211;16</para>
                 </entry>
               </row>
               <row>
@@ -3391,7 +3391,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para>signed int</para>
                 </entry>
                 <entry morerows="2">
-                  <para>1 - 32</para>
+                  <para>1&#8211;32</para>
                 </entry>
               </row>
               <row>
@@ -3409,7 +3409,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para>signed long</para>
                 </entry>
                 <entry morerows="3">
-                  <para>1 - 64</para>
+                  <para>1&#8211;64</para>
                 </entry>
               </row>
               <row>
@@ -3432,7 +3432,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para>signed __int128</para>
                 </entry>
                 <entry morerows="1">
-                  <para>1 - 128</para>
+                  <para>1&#8211;128</para>
                 </entry>
               </row>
               <row>
@@ -4235,7 +4235,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
               </row>
               <row>
                 <entry>
-                  <para>r3 - r10</para>
+                  <para>r3&#8211;r10</para>
                 </entry>
                 <entry>
                   <para>Volatile</para>
@@ -4284,7 +4284,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
               </row>
               <row>
                 <entry>
-                  <para>r14 - r31<footnote>
+                  <para>r14&#8211;r31<footnote>
                     <para>If a function needs a frame pointer, assigning r31 to
                     the role of the frame pointer is recommended.</para>
                   </footnote></para>
@@ -4343,7 +4343,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
               </row>
               <row>
                 <entry>
-                  <para>CR0 - CR1</para>
+                  <para>CR0&#8211;CR1</para>
                 </entry>
                 <entry>
                   <para>Volatile</para>
@@ -4354,7 +4354,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
               </row>
               <row>
                 <entry>
-                  <para>CR2 - CR4</para>
+                  <para>CR2&#8211;CR4</para>
                 </entry>
                 <entry>
                   <para>Nonvolatile</para>
@@ -4365,7 +4365,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
               </row>
               <row>
                 <entry>
-                  <para>CR5 - CR7</para>
+                  <para>CR5&#8211;CR7</para>
                 </entry>
                 <entry>
                   <para>Volatile</para>
@@ -4559,7 +4559,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         number, to refer to floating-point register N.</para>
         <para>For the purpose of function calls, the right half of VSX
         registers, corresponding to the classic floating-point registers (that
-        is, vsr0 - vsr31), is volatile.</para>
+        is, vsr0&#8211;vsr31), is volatile.</para>
 
         <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_83567">
           <title>Floating-Point Register Roles for Binary Floating-Point
@@ -4601,7 +4601,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
               </row>
               <row>
                 <entry>
-                  <para>f1 - f13</para>
+                  <para>f1&#8211;f13</para>
                 </entry>
                 <entry>
                   <para>Volatile</para>
@@ -4613,7 +4613,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
               </row>
               <row>
                 <entry>
-                  <para>f14 - f31</para>
+                  <para>f14&#8211;f31</para>
                 </entry>
                 <entry>
                   <para>Nonvolatile</para>
@@ -4755,7 +4755,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             <tbody>
               <row>
                 <entry>
-                  <para>v0 - v1</para>
+                  <para>v0&#8211;v1</para>
                 </entry>
                 <entry>
                   <para>Volatile</para>
@@ -4766,7 +4766,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
               </row>
               <row>
                 <entry>
-                  <para>v2 - v13</para>
+                  <para>v2&#8211;v13</para>
                 </entry>
                 <entry>
                   <para>Volatile</para>
@@ -4777,7 +4777,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
               </row>
               <row>
                 <entry>
-                  <para>v14 - v19</para>
+                  <para>v14&#8211;v19</para>
                 </entry>
                 <entry>
                   <para>Volatile</para>
@@ -4788,7 +4788,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
               </row>
               <row>
                 <entry>
-                  <para>v20 - v31</para>
+                  <para>v20&#8211;v31</para>
                 </entry>
                 <entry>
                   <para>Nonvolatile</para>
@@ -5198,7 +5198,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         general-purpose register save and restore functions are to be used, the
         general-purpose registers shall be saved in a contiguous range.
         General-purpose register rN is saved in the doubleword located 8 x
-        (32-N) bytes before the back-chain word of the previous frame, as shown
+        (32 &#8211; N) bytes before the back-chain word of the previous frame, as shown
         in 
         <xref linkend="dbdoclet.50655240_97610" />.</para>
         <para>The General-Purpose Register Save Area is always doubleword
@@ -5215,7 +5215,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         saved in arbitrary locations in the stack frame. If the system vector
         register save and restore functions are to be used, the vector
         registers shall be saved in a contiguous range. Vector register vN is
-        saved in the doubleword located 16 x (32-N) bytes before the
+        saved in the doubleword located 16 x (32 &#8211; N) bytes before the
         General-Purpose Register Save Areas plus alignment padding, as shown in
         
         <xref linkend="dbdoclet.50655240_97610" />.</para>
@@ -5299,7 +5299,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         to the memory location of the next parameter. Therefore, regardless of
         type, variable arguments must always be in the same location so that
         they can be found at runtime. The first 8 doublewords are located in
-        general registers r3 - r10. Any additional doublewords are located in
+        general registers r3&#8211;r10. Any additional doublewords are located in
         the stack Parameter Save Area. Alignment requirements such as those for
         vector types may require the va_list pointer to first be aligned before
         accessing a value.</para>
@@ -5469,25 +5469,24 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       <itemizedlist>
         <listitem>
           <para>Up to eight arguments can be passed in general-purpose
-          registers r3 - r10.</para>
+          registers r3&#8211;r10.</para>
         </listitem>
         <listitem>
           <para>Up to thirteen qualified floating-point arguments can be passed
-          in floating-point registers f1 - f13 or up to twelve in vector
-          registers v2 - v13.</para>
+          in floating-point registers f1&#8211;f13 or up to twelve in vector
+          registers v2&#8211;v13.</para>
         </listitem>
         <listitem>
           <para>Up to thirteen single-precision or double-precision decimal
-          floating-point arguments can be passed in floating-point registers f1
-          - f13.</para>
+          floating-point arguments can be passed in floating-point registers
+	  f1&#8211;f13.</para>
         </listitem>
         <listitem>
           <para>Up to six quad-precision decimal floating-point arguments can
-          be passed in even-odd floating-point register pairs f2 - f13.</para>
+          be passed in even-odd floating-point register pairs f2&#8211;f13.</para>
         </listitem>
         <listitem>
-          <para>Up to 12 qualified vector arguments can be passed in v2 -
-          v13.</para>
+          <para>Up to 12 qualified vector arguments can be passed in v2&#8211;v13.</para>
         </listitem>
       </itemizedlist>
       <para>A qualified floating-point argument corresponds to:</para>
@@ -5595,7 +5594,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       <bridgehead>IEEE BINARY 128 EXTENDED PRECISION</bridgehead>
       <itemizedlist mark="none">
 	<listitem>
-	  <para>Up to 12 quad-precision parameters can be passed in v2 - v13.
+	  <para>Up to 12 quad-precision parameters can be passed in v2&#8211;v13.
 	  For the purpose of determining qualified floating-point and vector
 	  arguments, an IEEE 128b type shall be considered a "like" vector
 	  type, and a complex _Float128 shall be treated as two individual
@@ -5620,7 +5619,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       frame. When this happens, only the minimum storage needed to contain all
       arguments (including allocating space for parameters passed in registers)
       needs to be allocated in the stack frame.</para>
-      <para>General-purpose registers r3 - r10 correspond to the allocation of
+      <para>General-purpose registers r3&#8211;r10 correspond to the allocation of
       parameters to the first 8 doublewords of the Parameter Save Areah.
       Specifically, this requires a suitable number of general-purpose
       registers to be skipped to correspond to parameters passed in
@@ -5695,7 +5694,7 @@ unnamed parameter:
                 goto mem_argument 
         
         size = size_in_DW(argument) 
-        reg_size = min(size, 11-gr) 
+        reg_size = min(size, 11 &#8211; gr) 
         pass (GPR, gr, first_n_DW (argument, reg_size)); 
         
         if remaining_members 
@@ -5720,7 +5719,7 @@ aggregate:
                    goto use_vrs;
                 n_fregs = n_fregs_for_type(member_type(argument,0)) 
                 agg_size = members(argument) * n_fregs 
-                reg_size = min(agg_size, 15-fr)
+                reg_size = min(agg_size, 15 &#8211; fr)
                 pass(FPR,fr,first_n_DW(argument,reg_size) 
                 fr += reg_size; 
                 gr += size_in_DW (first_n_DW(argument,reg_size)) 
@@ -5734,7 +5733,7 @@ aggregate:
         if (homogeneous(argument,vector) and members(argument) &lt;= 8) 
                 use_vrs:
                   agg_size = members(argument) 
-                  reg_size = min(agg_size, 14-vr) 
+                  reg_size = min(agg_size, 14 &#8211; vr) 
                   if (gr&amp;1 = 0) // align vector in memory 
                     gr++
                   pass(VR,vr,first_n_elements(argument,reg_size); 
@@ -5752,7 +5751,7 @@ aggregate:
         size = size_in_DW(argument) 
 
 gpr_struct:
-        reg_size = min(size, 11-gr) 
+        reg_size = min(size, 11 &#8211; gr) 
         pass (GPR, gr, first_n_DW (argument, reg_size)); 
         gr += size_in_DW (first_n_DW (argument, reg_size)) 
         
@@ -5855,15 +5854,15 @@ double ff, gg, hh;
 x = func(c, ff, d, ld, s, gg, t, e, hh); 
 
 Parameter    Register       Offset in parameter save area 
-c            r3             0-7 (not stored in parameter save area) 
-ff           f1             8-15 (not stored) 
-d            r5             16-23 (not stored)
-ld           f2,f3          24-39 (not stored) 
-s            r8,r9          40-55 (not stored) 
-gg           f4             56-63 (not stored) 
-t            (none)         64-79 (stored in parameter save area) 
-e            (none)         80-87 (stored) 
-hh           f5             88-95 (not stored)</programlisting>
+c            r3             0&#8211;7 (not stored in parameter save area) 
+ff           f1             8&#8211;15 (not stored) 
+d            r5             16&#8211;23 (not stored)
+ld           f2,f3          24&#8211;39 (not stored) 
+s            r8,r9          40&#8211;55 (not stored) 
+gg           f4             56&#8211;63 (not stored) 
+t            (none)         64&#8211;79 (stored in parameter save area) 
+e            (none)         80&#8211;87 (stored) 
+hh           f5             88&#8211;95 (not stored)</programlisting>
         </figure>
         <note>
           <para>If a prototype is not in scope:</para>
@@ -6505,7 +6504,7 @@ or r0, r0, r1</programlisting>
         functions:</para>
         <itemizedlist>
           <listitem>
-            <para>Restore all registers and liminted-acces bits that wee saved
+            <para>Restore all registers and limited-access bits that we saved
             by the function's prologue.</para>
           </listitem>
           <listitem>
@@ -6631,13 +6630,13 @@ or r0, r0, r1</programlisting>
       <section xml:id="dbdoclet.50655240_41483">
         <title>GPR Save and Restore Functions</title>
         <para>Each _savegpr0_<emphasis>N</emphasis> routine saves the general registers from 
-        r<emphasis>N</emphasis>- r31, inclusive. Each routine also saves the LR.
+        r<emphasis>N</emphasis>&#8211;r31, inclusive. Each routine also saves the LR.
         The stack frame must not have been allocated yet. When the routine is
         called, r1 contains the address of the word immediately beyond the end
         of the general register save area, and r0 must contain the value of the
         LR on function entry.</para>
         <para>The _restgpr0_<emphasis>N</emphasis> routines restore the general registers from 
-        r<emphasis>N</emphasis>- r31, and then return to their caller's caller.
+        r<emphasis>N</emphasis>&#8211;r31, and then return to their caller's caller.
         The caller's stack frame must already have been deallocated. When the
         routine is called, r1 contains the address of the word immediately
         beyond the end of the general register save area, and the LR must
@@ -6691,11 +6690,11 @@ or r0, r0, r1</programlisting>
                 ld r31,-8(r1)
                 mtlr r0 
                 blr</programlisting>
-        <para>Each _savegpr1_N routine saves the general registers from rN -
-        r31, inclusive. When the routine is called, r12 contains the address of
+	<para>Each _savegpr1_N routine saves the general registers from
+	rN&#8211;r31, inclusive. When the routine is called, r12 contains the address of
         the word just beyond the end of the general register save area.</para>
-        <para>The _restgpr1_N routines restore the general registers from rN -
-        r31. When the routine is called, r12 contains the address of the word
+        <para>The _restgpr1_N routines restore the general registers from
+	rN&#8211;r31. When the routine is called, r12 contains the address of the word
         just beyond the end of the general register save area, superseding the
         normal use of r12 on a call.</para>
         <para>A sample implementation of _savegpr1_N and _restgpr1_N
@@ -6743,13 +6742,13 @@ or r0, r0, r1</programlisting>
       <section xml:id="dbdoclet.50655240_56788">
         <title>FPR Save and Restore Functions</title>
         <para>Each _savefpr_<emphasis>N</emphasis> routine saves the floating-point registers from 
-        f<emphasis>N</emphasis>- f31, inclusive. When the routine is called, r1
+        f<emphasis>N</emphasis>&#8211;f31, inclusive. When the routine is called, r1
         contains the address of the word immediately beyond the end of the
         Floating-Point Register Save Area, which means that the stack frame
         must not have been allocated yet. Register r0 must contain the value of
         the LR on function entry.</para>
         <para>The _restfpr_<emphasis>N</emphasis> routines restore the floating-point registers
-        from f<emphasis>N</emphasis>- f31, inclusive. When the routine is called, r1
+        from f<emphasis>N</emphasis>&#8211;f31, inclusive. When the routine is called, r1
         contains the address of the word immediately beyond the end of the
         Floating-Point Register Save Area, which means that the stack frame
         must not have been allocated yet.</para>
@@ -6810,7 +6809,7 @@ or r0, r0, r1</programlisting>
       </section>
       <section xml:id="dbdoclet.50655240_96790">
         <title>Vector Save and Restore Functions</title>
-        <para>Each _savevr_M routine saves the vector registers from vM - v31
+        <para>Each _savevr_M routine saves the vector registers from vM&#8211;v31
         inclusive. 
         <anchor xml:id="dbdoclet.50655240_page74" xreflabel="" />
         <anchor xml:id="dbdoclet.50655240_page73" xreflabel="" />
@@ -6821,7 +6820,7 @@ or r0, r0, r1</programlisting>
         this function, r0 contains the address of the word just beyond the end
         of the Vector Register Save Area. The routines leave r0 undisturbed.
         They modify the value of r12.</para>
-        <para>The _restvr_M routines restore the vector registers from vM - v31
+        <para>The _restvr_M routines restore the vector registers from vM&#8211;v31
         inclusive. On entry to this function, r0 contains the address of the
         word just beyond the end of the Vector Register Save Area. The routines
         leave r0 undisturbed. They modify the value of r12. The following code
@@ -8080,9 +8079,9 @@ addi  r3,r1,p           ; R3 = new data area following parameter save area.</pro
     described in <xref linkend="dbdoclet.50655240_94513" />.</para>
     <para>All instances of the Power Architecture use the mapping shown in 
     <xref linkend="dbdoclet.50655240_94513" /> for encoding registers into
-    DWARF. DWARF register numbers 32 - 63 and 77 - 108 are also used to
-    indicate the location of variables in VSX registers vsr0 - vsr31 and vsr32
-    - vsr63, respectively, in DWARF debug information.</para>
+    DWARF. DWARF register numbers 32&#8211;63 and 77&#8211;108 are also used to
+    indicate the location of variables in VSX registers vsr0&#8211;vsr31 and
+    vsr32&#8211;vsr63, respectively, in DWARF debug information.</para>
 
     <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_94513">
       <title>Mappings of Common Registers</title>
@@ -8121,10 +8120,10 @@ addi  r3,r1,p           ; R3 = new data area following parameter save area.</pro
               <para>Reg</para>
             </entry>
             <entry>
-              <para>0 - 31</para>
+              <para>0&#8211;31</para>
             </entry>
             <entry>
-              <para>r0 - r31</para>
+              <para>r0&#8211;r31</para>
             </entry>
             <entry>
               <para>8</para>
@@ -8135,10 +8134,10 @@ addi  r3,r1,p           ; R3 = new data area following parameter save area.</pro
               <para>Reg</para>
             </entry>
             <entry>
-              <para>32 - 63</para>
+              <para>32&#8211;63</para>
             </entry>
             <entry>
-              <para>f0 - f31</para>
+              <para>f0&#8211;f31</para>
             </entry>
             <entry>
               <para>8</para>
@@ -8205,10 +8204,10 @@ addi  r3,r1,p           ; R3 = new data area following parameter save area.</pro
               <para>Reg</para>
             </entry>
             <entry>
-              <para>68 - 75</para>
+              <para>68&#8211;75</para>
             </entry>
             <entry>
-              <para>cr0 - cr7</para>
+              <para>cr0&#8211;cr7</para>
             </entry>
             <entry>
               <para>0.5<footnote>
@@ -8237,10 +8236,10 @@ addi  r3,r1,p           ; R3 = new data area following parameter save area.</pro
               <para>Reg</para>
             </entry>
             <entry>
-              <para>77 - 108</para>
+              <para>77&#8211;108</para>
             </entry>
             <entry>
-              <para>vr0 - vr31</para>
+              <para>vr0&#8211;vr31</para>
             </entry>
             <entry>
               <para>16</para>

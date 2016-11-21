@@ -2323,7 +2323,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <phrase  revisionflag="added">approximation</phrase><phrase  revisionflag="deleted">estimate</phrase> 
               of the value of the corresponding
               element of ARG1 divided by 2 to the power of ARG2, which should
-              be in the range 0 - 31.</para>
+              be in the range 0&#8211;31.</para>
             </entry>
           </row>
           <row>
@@ -2355,7 +2355,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <phrase revisionflag="added">signed-integer</phrase> value<phrase  revisionflag="added">, 
               truncated towards zero,</phrase> obtained by
               multiplying the corresponding element of ARG1 by 2 to the power
-              of ARG2, which should be in the range 0 - 31.</para>
+              of ARG2, which should be in the range 0&#8211;31.</para>
             </entry>
           </row>
           <row>
@@ -2378,7 +2378,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <phrase revisionflag="added">unsigned-integer</phrase> value<phrase revisionflag="added">, 
               truncated towards zero,</phrase> obtained by
               multiplying the corresponding element of ARG1 by 2 to the power
-              of ARG2, which should be in the range 0 - 31.</para>
+              of ARG2, which should be in the range 0&#8211;31.</para>
             </entry>
           </row>
           <row>
@@ -2950,7 +2950,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para>VEC_EXTRACT_FP32-_FROM_SHORTH (ARG1)</para>
+              <para>VEC_EXTRACT_FP32_ FROM_SHORTH (ARG1)</para>
 	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
@@ -2977,7 +2977,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para>VEC_EXTRACT_FP32-_FROM_SHORTL (ARG1)</para>
+              <para>VEC_EXTRACT_FP32_ FROM_SHORTL (ARG1)</para>
 	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
@@ -3050,8 +3050,8 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>Result value:</para>
               <para>The first doubleword element of the result contains the
               zero-extended extracted word from ARG1. The second doubleword is
-              set to 0. ARG2 specifies the least-significant byte number (0 -
-              12) of the word to be extracted.</para>
+              set to 0. ARG2 specifies the least-significant byte number
+	      (0&#8211;12) of the word to be extracted.</para>
             </entry>
           </row>
           <row revisionflag="added">
@@ -3790,7 +3790,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>Result value:</para>
               <para>The first doubleword element of the result contains the
               zero-extended extracted word from ARG1. The second doubleword is
-              set to 0. ARG2 specifies the least-significant byte (0 - 12) of
+              set to 0. ARG2 specifies the least-significant byte (0&#8211;12) of
               the extracted word.</para>
             </entry>
           </row>
@@ -4723,7 +4723,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               beginning with 0. If ARG1 is a vector signed char or a vector
               unsigned char vector, then let m be 4. Otherwise, let m be 2. For
               each element n of the result vector, the value is obtained in the
-              following way: For p = mn to mn+m-1, multiply element p of ARG1
+              following way: For p = mn to mn + m &#8211; 1, multiply element p of ARG1
               by element p of ARG2. Add the sum of these products to element n
               of ARG3. All additions are performed using 32-bit modular
               arithmetic.</para>
@@ -5353,8 +5353,8 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>Result value:</para>
               <para>The value of each element of the result is the product of
               the corresponding elements of ARG1 and ARG2, added to the
-              corresponding elements of ARG3, and then multiplied by
-              -1.0.</para>
+              corresponding elements of ARG3, then multiplied by
+              &#8211;1.0.</para>
             </entry>
           </row>
           <row>
@@ -5387,7 +5387,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>The value of each element of the result is the product of
               the corresponding elements of ARG1 and ARG2, subtracted from the
               corresponding element of ARG3, and then multiplied by
-              -1.0.</para>
+              &#8211;1.0.</para>
             </entry>
           </row>
           <row>
@@ -6408,8 +6408,8 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>Applies a permute and exclusive-OR operation on two vectors
               of byte elements.</para>
               <para>Result value:</para>
-              <para>For each i (0 ≤ i &lt; 16), let index1 be bits 0 - 3 and
-              index2 be bits 4 - 7 of byte element i of mask ARG3.</para>
+              <para>For each i (0 ≤ i &lt; 16), let index1 be bits 0&#8211;3 and
+              index2 be bits 4&#8211;7 of byte element i of mask ARG3.</para>
               <para>Byte element i of the result is set to the exclusive-OR of
               byte elements index1 of ARG1 and index2 of ARG2.</para>
             </entry>
@@ -7696,8 +7696,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>Result value:</para>
               <para>The result is the most-significant 16 bytes obtained by
               concatenating ARG1 and ARG2 and shifting left by the number of
-              bytes specified by ARG3, which should be in the range 0 -
-              15.</para>
+              bytes specified by ARG3, which should be in the range 0&#8211;15.</para>
             </entry>
           </row>
           <row>
@@ -7852,7 +7851,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               element of the concatenated vectors ARG1 and ARG2, with the word
               offset to its right<superscript>1</superscript> 
               specified by ARG3, which should be in the
-              range 0 - 3.</para>
+              range 0&#8211;3.</para>
 	      <para><superscript>1</superscript>A shift left picks values
 	      from the right.</para>
             </entry>
@@ -8978,7 +8977,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               (octets).</para>
               <para>Result value:</para>
               <para>The result is the contents of ARG1, shifted right by the
-              number of bytes specified by bits 121 - 124 of ARG2. The bits
+              number of bytes specified by bits 121&#8211;124 of ARG2. The bits
               that are shifted out are replaced by zeros.</para>
             </entry>
           </row>
@@ -9178,16 +9177,19 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>Result value:</para>
               <para>For each integer 1 
               <emphasis>≤</emphasis> i 
-              <emphasis>≤</emphasis> 15, let X
-              <emphasis>i</emphasis> be the halfword formed by concatenating
-              elements i and i+1 of ARG1. Let X
-              <emphasis>0</emphasis> be the halfword formed by concatenating a
-              zero byte with element 0 of ARG1. Let S
-              <emphasis>i</emphasis> be the value in the three least-significant
+              <emphasis>≤</emphasis> 15, let
+	      X<subscript>i</subscript>
+	      be the halfword formed by concatenating
+              elements i and i + 1 of ARG1. Let
+	      X<subscript>0</subscript>
+	      be the halfword formed by concatenating a
+              zero byte with element 0 of ARG1. Let
+	      S<subscript>i</subscript>
+	      be the value in the three least-significant
               bits of element i of ARG2. Then element i of the result vector
-              contains the value formed from bits 8 - S
-              <emphasis>i</emphasis> through 15 - S
-              <emphasis>i</emphasis>.</para>
+              contains the value formed from bits 8 &#8211;
+	      S<subscript>i</subscript> through 15 &#8211;
+	      S<subscript>i</subscript>.</para>
             </entry>
           </row>
           <row revisionflag="added">
@@ -9588,7 +9590,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               beginning with 0. If ARG1 is a vector signed char vector or a
               vector unsigned char vector, then let m be 4. Otherwise, let m be
               2. For each element n of the result vector, the value is obtained
-              by adding elements mn through mn+m-1 of ARG1 and element n of
+              by adding elements mn through mn + m &#8211; 1 of ARG1 and element n of
               ARG2 using saturated addition.</para>
             </entry>
           </row>
@@ -10351,7 +10353,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>At least 0 and at most 16 bytes will be loaded. The length
               is specified by the least-significant byte of ARG2, as min (mod
               (ARG2, 256), 16). The behavior is undefined if the length
-              argument is outside of the range 0 - 255, or if it is not a
+              argument is outside of the range 0&#8211;255, or if it is not a
               multiple of the vector element size.</para>
             </entry>
           </row>
@@ -10488,7 +10490,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>At least 0 and at most 16 bytes will be loaded. The length
               is specified by the least-significant byte of ARG2, as min (mod
               (ARG2, 256), 16). The behavior is undefined if the length
-              argument is outside of the range 0 - 255, or if it is not a
+              argument is outside of the range 0&#8211;255, or if it is not a
               multiple of the vector element size.</para>
             </entry>
           </row>
@@ -10934,7 +10936,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>At least 0 and at most 16 bytes will be stored. The length
               is specified by the least-significant byte of ARG3, as min (mod
               (ARG3, 256), 16). The behavior is undefined if the length
-              argument is outside of the range 0 - 255, or if it is not a
+              argument is outside of the range 0&#8211;255, or if it is not a
               multiple of the vector element size.</para>
             </entry>
           </row>
@@ -11069,7 +11071,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>At least 0 and at most 16 bytes will be stored. The length
               is specified by the least-significant byte of ARG3, as min (mod
               (ARG2, 256), 16). The behavior is undefined if the length
-              argument is outside of the range 0 - 255, or if it is not a
+              argument is outside of the range 0&#8211;255, or if it is not a
               multiple of the vector element size.</para>
             </entry>
           </row>

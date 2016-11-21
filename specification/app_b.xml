@@ -17,8 +17,8 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
     <para>Binary-coded decimal (BCD) values are compressed; each decimal digit
     and sign bit occupies 4 bits. Digits are ordered right-to-left in the order
     of significance. The final 4 bits encode the sign. A valid encoding must
-    have a value in the range 0 - 9 in each of its 31 digits, and a value in
-    the range 10 - 15 for the sign field.</para>
+    have a value in the range 0&#8211;9 in each of its 31 digits, and a value in
+    the range 10&#8211;15 for the sign field.</para>
     <para>Source operands with sign codes of 0b1010, 0b1100, 0b1110, or 0b1111
     are interpreted as positive values. Source operands with sign codes of
     0b1011 or 0b1101 are interpreted as negative values.</para>
@@ -27,7 +27,7 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
     indicate positive values or zero, depending on the value of the positive
     sign (PS) bit.</para>
     <para>These built-in functions can operate on values of at most 31 digits.
-    BCD values are stored in memory as contiguous arrays of 1 - 16
+    BCD values are stored in memory as contiguous arrays of 1&#8211;16
     bytes.</para>
       <note>
         <para>BCD built-in functions are valid only when -<emphasis role="bold">march</emphasis> or 

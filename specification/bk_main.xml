@@ -98,7 +98,7 @@
           <revdescription>
             <itemizedlist spacing="compact">
               <listitem>
-                <para>Revision 1.2b - initial conversion from framemaker</para>
+                <para>Revision 1.3b: initial conversion from framemaker</para>
               </listitem>
             </itemizedlist>
           </revdescription>
@@ -108,7 +108,18 @@
           <revdescription>
             <itemizedlist revisionflag="added" spacing="compact">
               <listitem>
-                <para>Version 1.2 - POWER8 erratum and POWER9 support.
+                <para>Version 1.3: POWER9 support.
+                </para>
+              </listitem>
+            </itemizedlist>
+          </revdescription>
+      </revision>
+      <revision>
+          <date revisionflag="added">2016-06-13</date>
+          <revdescription>
+            <itemizedlist revisionflag="added" spacing="compact">
+              <listitem>
+                <para>Version 1.2: POWER8 errata.
                 </para>
               </listitem>
             </itemizedlist>
@@ -119,7 +130,7 @@
           <revdescription>
             <itemizedlist spacing="compact">
               <listitem>
-                <para>Version 1.1 - initial conversion from framemaker</para>
+                <para>Version 1.1: Incorporate errata.</para>
               </listitem>
             </itemizedlist>
           </revdescription>

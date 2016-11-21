@@ -42,10 +42,10 @@ xml:id="dbdoclet.50655244_pgfId-1095944">
   vector elements at a time in 128-bit registers. On a big-endian POWER
   platform, vector elements are loaded from memory into a register so that
   the 0th element occupies the high-order bits of the register, and the
-  (N-1)th element occupies the low-order bits of the register. This is
+  (N &#8211; 1)th element occupies the low-order bits of the register. This is
   referred to as big-endian element order. On a little-endian POWER platform,
   vector elements are loaded from memory such that the 0th element occupies
-  the low-order bits of the register, and the (N-1)th element occupies the
+  the low-order bits of the register, and the (N &#8211; 1)th element occupies the
   high-order bits. This is referred to as little-endian element order.</para>
   <section xml:id="dbdoclet.50655244_39970">
     <title>Vector Data Types</title>
@@ -102,7 +102,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
     pointers; these operators are also valid for pointers to vector
     types.</para>
     <para>The traditional C/C++ operators are defined on vector types with “do
-    all” semantics for unary and binary +, unary and binary -, binary *, binary
+    all” semantics for unary and binary +, unary and binary &#8211;, binary *, binary
     %, and binary / as well as the unary and binary logical and comparison
     operators.</para>
     <para>For unary operators, the specified operation is performed on the
@@ -497,7 +497,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
               <para>vspltb, vsplth, vspltw</para>
             </entry>
             <entry>
-              <para>Subtract the element number from N-1 for LE.</para>
+              <para>Subtract the element number from N &#8211; 1 for LE.</para>
             </entry>
           </row>
           <row>
@@ -557,7 +557,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
             </entry>
             <entry>
               <para>For LE, the bytes are loaded left justified then shifted
-              right 16-cnt bytes or rotated left cnt bytes. Let “cnt” be the
+              right 16 &#8211; cnt bytes or rotated left cnt bytes. Let “cnt” be the
               number of bytes specified to be loaded by vec_xl_len_r.</para>
             </entry>
           </row>
@@ -569,7 +569,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
               <para> </para>
             </entry>
             <entry>
-              <para>For LE, the bytes are shifted left 16-cnt bytes or rotated
+              <para>For LE, the bytes are shifted left 16 &#8211; cnt bytes or rotated
               right cnt bytes so they are left justified to be stored. Let
               “cnt” be the number of bytes specified to be stored by
               vec_xst_len_r.</para>
