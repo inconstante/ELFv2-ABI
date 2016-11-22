@@ -2406,6 +2406,24 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               element of ARG2.</para>
             </entry>
           </row>
+          <row revisionflag="added">
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>vector signed long long vec_div (vector signed long long,
+	      vector signed long long);</para>
+            </entry>
+          </row>
+          <row revisionflag="added">
+            <entry>
+              <para> </para>
+            </entry>
+            <entry>
+              <para>vector unsigned long long vec_div (vector unsigned long long,
+	      vector unsigned long long);</para>
+            </entry>
+          </row>
           <row>
             <entry>
               <para> </para>
