@@ -442,7 +442,8 @@ e_ident[EI_DATA]     ELFDATA2LSB  For all little-endian implementations.</progra
         </tgroup>
       </informaltable>
       <para>The local-entry-point handling field of st_other is generated with
-      the .localentry pseudo op:</para>
+      the .localentry pseudo op.  The following is an example using the medium
+      code model:</para>
       <programlisting revisionflag="changed">    .globl my_func
     .type my_func, @function
 my_func:
@@ -458,6 +459,30 @@ my_func:
       points, even if the global entry point will not be used. (In such a case,
       the instructions of the global entry setup sequence may optionally be
       initialized with TRAP instructions.)</para>
+      <para revisionflag="added">For very large programs, a 32-bit offset from
+      the TOC base may not suffice to reach all function addresses.  In this
+      case, the large program model must be used, and the above sequence is
+      replaced by:</para>
+      <programlisting revisionflag="changed">    .globl my_func
+    .type  my_func, @function
+    .quad  .TOC.-my_func
+my_func:
+    .reloc ., R_PPC64_ENTRY  ; optional
+    ld r2,-8(r12)
+    add r2,r2,r12
+    .localentry my_func, .-my_func
+    ... ; function definition
+    blr</programlisting>
+      <para revisionflag="added">The linker will resolve .TOC.-my_func to a
+      64-bit offset stored 8 bytes prior to the global entry point.  The
+      prologue code then forms the absolute address of the TOC base.</para>
+      <para revisionflag="added">Optionally, the linker may optimize the
+      prologue sequence for functions that are within 2GB of the TOC base.
+      To faciliate this, the compiler may associate an R_PPC64_ENTRY
+      relocation with the global entry point.  Note that this relocation
+      simply provides a hint, and imposes no obligations on the linker to
+      optimize the prologue sequence.  Nor does the absence of this relocation
+      forbid the linker from optimizing the prologue sequence.</para>
     </section>
     <section xml:id="dbdoclet.50655241_81959">
       <title>Use of the Small Data Area</title>
@@ -4005,6 +4030,20 @@ my_func:
                 <xref linkend="dbdoclet.50655241_90220" />.)</para>
               </entry>
             </row>
+	    <row revisionflag="added">
+	      <entry>
+		<para>R_PPC64_ENTRY</para>
+	      </entry>
+	      <entry>
+		<para>118</para>
+	      </entry>
+	      <entry>
+		<para>none</para>
+	      </entry>
+	      <entry>
+		<para>none</para>
+	      </entry>
+	    </row>
             <row>
               <entry>
                 <para>R_PPC64_IRELATIVE</para>
@@ -4195,6 +4234,11 @@ my_func:
       inserting a call to a PLT stub code, the PLT stub code must not rely on
       the presence of a valid TOC base address in TOC register r2 to reference
       the PLT function table.</para>
+      <para revisionflag="added">R_PPC64_ENTRY</para>
+      <para revisionflag="added">This relocation type may optionally be
+      associated with a global entry point.  See
+      <xref linkend="dbdoclet.50655241_95185" /> for discussion of its
+      use.</para>
     </section>
     <section>
       <title>Assembler Syntax</title>
