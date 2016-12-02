@@ -361,7 +361,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
             </entry>
             <entry>
               <para>For LE, subtract the byte position from 12, and swap the
-              halves of ARG2.</para>
+              halves of ARG1.</para>
             </entry>
           </row>
           <row>

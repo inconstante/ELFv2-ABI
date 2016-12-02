@@ -3806,10 +3806,9 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>Purpose:</para>
               <para>Inserts a word into a vector at a byte position.</para>
               <para>Result value:</para>
-              <para>The first doubleword element of the result contains the
-              zero-extended extracted word from ARG1. The second doubleword is
-              set to 0. ARG2 specifies the least-significant byte (0&#8211;12) of
-              the extracted word.</para>
+              <para>Let W be the first doubleword element of ARG1, truncated
+	      to 32 bits.  The result vector is formed by inserting W into
+	      ARG2 at the byte position (0&#8211;12) specified by ARG3.</para>
             </entry>
           </row>
           <row revisionflag="added">
