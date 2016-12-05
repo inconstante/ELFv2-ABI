@@ -94,11 +94,12 @@
     <revhistory>
       <!-- TODO: Set the initial version information and clear any old information out -->
       <revision>
-          <date>2016-08-29</date>
+          <date>2016-12-05</date>
           <revdescription>
             <itemizedlist spacing="compact">
               <listitem>
-                <para>Revision 1.3b: initial conversion from framemaker</para>
+                <para>Revision 1.4: Conversion from FrameMaker to DocBook,
+		minor corrections.</para>
               </listitem>
             </itemizedlist>
           </revdescription>
