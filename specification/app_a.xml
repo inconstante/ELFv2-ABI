@@ -1152,6 +1152,11 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
 		  </itemizedlist>
 		</listitem>
               </itemizedlist>
+	      <note>
+		<para>In the above description, all bit and byte numberings
+		within each element denote big-endian (i.e., left-to-right)
+		order.</para>
+	      </note>
             </entry>
           </row>
           <row>
