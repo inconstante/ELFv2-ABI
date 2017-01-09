@@ -7084,11 +7084,12 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               (AND) it with a mask.</para>
               <para>Result value:</para>
               <para>Each element of vector ARG1 is rotated left; then
-              intersected (AND) with a mask specified by ARG3.</para>
-              <para>ARG3 contains the mask begin, mask end, and shift count for
-              each element. The shift count is in the low-order byte, the mask
-              end is in the next higher byte, and the mask begin is in the next
-              higher byte.</para>
+              intersected (AND) with a mask specified by ARG2 and ARG3.</para>
+              <para>ARG2 contains the shift count for each element in the
+	      low-order byte, with other bytes zero.  ARG3 contains the mask
+	      begin and mask end for each element, with the mask end in the
+	      low-order byte, the mask begin in the next higher byte, and
+	      other bytes zero.</para>
             </entry>
           </row>
           <row revisionflag="added">
