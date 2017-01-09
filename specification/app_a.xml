@@ -821,7 +821,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry revisionflag="added">
               <para>vector bool long long vec_and (vector bool long long,
-              vector bool long long)</para>
+              vector bool long long);</para>
             </entry>
           </row>
           <row>

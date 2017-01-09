@@ -2234,28 +2234,19 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                 <entry>
                   <para>long int</para>
                 </entry>
-                <entry>
+                <entry morerows="1">
                   <para>8</para>
                 </entry>
-                <entry>
+                <entry morerows="1">
                   <para>Doubleword</para>
                 </entry>
-                <entry>
+                <entry morerows="1">
                   <para>Signed doubleword</para>
                 </entry>
               </row>
               <row>
                 <entry>
                   <para>signed long int</para>
-                </entry>
-                <entry>
-                  <para>8</para>
-                </entry>
-                <entry>
-                  <para>Doubleword</para>
-                </entry>
-                <entry>
-                  <para>Signed doubleword</para>
                 </entry>
               </row>
               <row>
@@ -2806,7 +2797,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para>Quadword</para>
                 </entry>
                 <entry>
-                  <para>Vector of 2 double-precision doubles.</para>
+                  <para>Vector of 2 double-precision floats.</para>
                 </entry>
               </row>
             </tbody>
@@ -2981,10 +2972,10 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           </tgroup>
         </table>
         <para>&#160;</para>
-        <bridgehead xml:id="dbdoclet.50655240_66797">IEEE BINARY 128 EXTENDED
+        <bridgehead xml:id="dbdoclet.50655240_66797">IEEE BINARY 128 QUADRUPLE
         PRECISION</bridgehead>
         <table frame="all" pgwide="1">
-          <title>IEEE BINARY 128 EXTENDED PRECISION Type</title>
+          <title>IEEE BINARY 128 QUADRUPLE PRECISION Type</title>
           <tgroup cols="6">
             <colspec colname="c1" colwidth="15*" />
             <colspec colname="c2" colwidth="20*" />
@@ -3029,7 +3020,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             <tbody>
               <row>
                 <entry>
-                  <para>IEEE BINARY 128 EXTENDED PRECISION</para>
+                  <para>IEEE BINARY 128 QUADRUPLE PRECISION</para>
                 </entry>
                 <entry>
                   <para>long double</para>
@@ -3052,7 +3043,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
               </row>
               <row>
                 <entry>
-                  <para>IEEE BINARY 128 EXTENDED PRECISION</para>
+                  <para>IEEE BINARY 128 QUADRUPLE PRECISION</para>
                 </entry>
                 <entry>
                   <para>_Float128</para>
@@ -3095,14 +3086,14 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           </tgroup>
         </table>
         <para>&#160;</para>
-        <bridgehead>IBM EXTENDED PRECISION &amp;&amp; IEEE BINARY 128 EXTENDED
+        <bridgehead>IBM EXTENDED PRECISION &amp;&amp; IEEE BINARY 128 QUADRUPLE
         PRECISION</bridgehead>
         <para>Availability of the long double data type is subject to
         conformance to a long double standard where the IBM EXTENDED PRECISION
-        format and the IEEE BINARY 128 EXTENDED PRECISION format are mutually
+        format and the IEEE BINARY 128 QUADRUPLE PRECISION format are mutually
         exclusive.</para>
         <para>&#160;</para>
-        <bridgehead xml:id="dbdoclet.50655240_95080">IEEE BINARY 128 EXTENDED
+        <bridgehead xml:id="dbdoclet.50655240_95080">IEEE BINARY 128 QUADRUPLE
         PRECISION || IBM EXTENDED PRECISION</bridgehead>
         <para>This ABI provides the following choices for implementation of
         long double in compilers and systems. The preferred implementation for
@@ -3110,7 +3101,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         type.</para>
         <itemizedlist>
           <listitem>
-            <para>IEEE BINARY 128 EXTENDED PRECISION</para>
+            <para>IEEE BINARY 128 QUADRUPLE PRECISION</para>
             <itemizedlist>
               <listitem>
                 <para>Long double is implemented as an IEEE 128-bit quad-precision
@@ -3121,8 +3112,8 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                 <para>Support is provided for all IEEE standard features.</para>
               </listitem>
               <listitem>
-                <para>IEEE128 quad-precision values are passed in VMX parameter
-                registers.</para>
+                <para>IEEE128 quad-precision values are passed and returned in
+		VMX parameter registers.</para>
               </listitem>
               <listitem>
                 <para>With some compilers, _Float128 can be used to access IEEE128
@@ -3211,9 +3202,9 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             previous member, internal padding can be required.</para>
           </listitem>
           <listitem>
-            <para>The entire aggregate or union must have a size that is a
-            multiple of its alignment. Depending on the last member, tail
-            padding may be required.</para>
+            <para>Unless it is packed, the entire aggregate or union must have
+	    a size that is a multiple of its alignment. Depending on the last
+	    member, tail padding may be required.</para>
           </listitem>
         </itemizedlist>
         <para>For 
@@ -3459,9 +3450,9 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             least-significant (right) end.</para>
           </listitem>
           <listitem>
-            <para>A bit field cannot cross its unit boundary; it must occupy
-            part or all or the storage unit allocated for its declared
-            type.</para>
+            <para>Unless it appears in a packed struct, a bit field cannot
+	    cross its unit boundary; it must occupy part or all of the storage
+	    unit allocated for its declared type.</para>
           </listitem>
           <listitem>
             <para>If there is enough space within a storage unit, bit fields
@@ -4644,27 +4635,14 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <bridgehead xml:id="dbdoclet.50655240_12913">DFP Support</bridgehead>
         <para>The OpenPOWER ABI supports the decimal floating-point (DFP)
         format and DFP language extensions. The default implementation of DFP
-        types shall be a software implementation of the IEEE DFP standard (IEEE
-        Standard 754-2008).</para>
+        types shall be an implementation of the IEEE DFP standard (IEEE
+        Standard 754-2008).  The default may be either a hardware or a
+	software implementation.</para>
         <para>The Power ISA decimal floating-point category extends the Power
         Architecture by adding a decimal floating-point unit. It uses the
         existing 64-bit floating-point registers and extends the FPSCR register
         to 64 bits, where it defines a decimal rounding-control field in the
-        extended space. For OpenPOWER, DFP support is defined as an optional
-        category. When DFP is supported as a vendor-specific implementation
-        capability, compilers can be used to implement DFP support. The
-        compilers should provide an option to generate DFP instructions or to
-        issue calls to DFP emulation software. The DFP parameters are passed in
-        floating-point registers.</para>
-        <para>As with other implementation-specific features, all
-        OpenPOWER-compliant programs must be able to execute, functionally
-        indistinguishably, on hardware with and without vendor-specific
-        extensions. It is the application's responsibility to transparently
-        adapt to the absence of vendor-specific features by using a library
-        responsive to the presence of DFP hardware, or in conjunction with
-        operating-system dynamic library services, to select from among
-        multiple DFP libraries that contain either a first software
-        implementation or a second hardware implementation.</para>
+        extended space.</para>
         <para>Single-precision, double-precision, and quad-precision decimal
         floating-point parameters shall be passed in the floating-point
         registers. Single-precision decimal floating-point shall occupy the
@@ -4721,6 +4699,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </tbody>
           </tgroup>
         </table>
+	<bridgehead>Vector Registers</bridgehead>
         <para>The OpenPOWER vector-category instruction repertoire provides the
         ability to reference 32 vector registers, each 128 bits wide, of the
         vector-scalar register file, and a special-purpose register VSCR.
@@ -4815,17 +4794,17 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           </tgroup>
         </table>
         <para>&#160;</para>
-        <bridgehead xml:id="dbdoclet.50655240_89740">IEEE BINARY 128 EXTENDED
+        <bridgehead xml:id="dbdoclet.50655240_89740">IEEE BINARY 128 QUADRUPLE
         PRECISION</bridgehead>
-        <para>Parameters in IEEE BINARY 128 EXTENDED PRECISION format shall be
-        passed in a single 128-bit vector register as if they were vector
-        values.</para>
+        <para>Parameters and function results in IEEE BINARY 128 QUADRUPLE
+	PRECISION format shall be passed in a single 128-bit vector register
+	as if they were vector values.</para>
         <para>&#160;</para>
         <bridgehead xml:id="dbdoclet.50655240_40559">IBM EXTENDED
         PRECISION</bridgehead>
-        <para>Parameters in the IBM EXTENDED PRECISION format with a pair of
-        two double-precision floating-point values shall be passed in two
-        successive floating-point registers.</para>
+        <para>Parameters and function results in the IBM EXTENDED PRECISION
+	format with a pair of two double-precision floating-point values shall
+	be passed in two successive floating-point registers.</para>
         <para>If only one value can be passed in a floating-point register, the
         second parameter will be passed in a GPR or in memory in accordance
         with the parameter passing rules for structure aggregates.</para>
@@ -5081,7 +5060,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           </listitem>
           <listitem>
             <para>
-            <xref linkend="dbdoclet.50655240___RefHeading___Toc377640599" />.</para>
+            See <xref linkend="dbdoclet.50655240___RefHeading___Toc377640599" />.</para>
           </listitem>
           <listitem>
             <para>Before a function calls any other functions, it shall save
@@ -5250,8 +5229,8 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         Parameter Save Area to be created for functions where the number and
         type of parameters exceeds the registers available for parameter
         passing in registers, for those functions where the prototype contains
-        an ellipsis to indicate a variadic function, and functions are declared
-        without prototype.)</para>
+        an ellipsis to indicate a variadic function, and functions declared
+        without a prototype.)</para>
         <para>When the caller allocates the Parameter Save Area, it will always
         be automatically quadword aligned because it must always start at SP +
         32. It shall be at least 8 doublewords in length. If a function needs
@@ -5346,7 +5325,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           </listitem>
           <listitem>
             <para>If extended precision floating-point values in IEEE BINARY
-            128 EXTENDED PRECISION format are supported (see
+            128 QUADRUPLE PRECISION format are supported (see
             <xref linkend="dbdoclet.50655240_66797" />), map them to a single
             quadword, quadword aligned. This might result in skipped
             doublewords in the Parameter Save Area.</para>
@@ -5506,7 +5485,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           floating-point type. (A complex floating-point data type is treated as if
           two separate scalar values of the base type were passed.)</para>
           <para>Homogeneous floating-point aggregates can have up to four IBM
-          EXTENDED PRECISION members, four IEEE BINARY 128 EXTENDED precision
+          EXTENDED PRECISION members, four IEEE BINARY 128 QUADRUPLE PRECISION
           members, four _Decimal128 members, or eight members of other
           floating-point types. (Unions are treated as their largest member. For
           homogeneous unions, different union alternatives may have different
@@ -5554,7 +5533,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       <para>A homogeneous aggregate is either a homogeneous floating-point
       aggregate or a homogeneous vector aggregate. This ABI does not specify
       homogeneous aggregates for integer types.</para>
-      <para>Binary extended precision numbers in IEEE BINARY 128 EXTENDED
+      <para>Binary extended precision numbers in IEEE BINARY 128 QUADRUPLE
       PRECISION format (see 
       <xref linkend="dbdoclet.50655240_89740" />) are passed using a VMX
       register. Binary extended precision numbers in IBM EXTENDED PRECISION
@@ -5591,7 +5570,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       valid and invalid, except in the last doubleword where invalid padding
       may be present.)</para>
       <para>&#160;</para>
-      <bridgehead>IEEE BINARY 128 EXTENDED PRECISION</bridgehead>
+      <bridgehead>IEEE BINARY 128 QUADRUPLE PRECISION</bridgehead>
       <itemizedlist mark="none">
 	<listitem>
 	  <para>Up to 12 quad-precision parameters can be passed in v2&#8211;v13.
@@ -5766,13 +5745,13 @@ float:
 // float is passed in one FPR. 
 // double is passed in one FPR. 
 // IBM EXTENDED PRECISION is passed in the next two FPRs. 
-// IEEE BINARY 128 EXTENDED PRECISION is passed in one VR. 
+// IEEE BINARY 128 QUADRUPLE PRECISION is passed in one VR. 
 // _Decimal32 is passed in the lower half of one FPR. 
 // _Decimal64 is passed in one FPR. 
 // _Decimal128 is passed in an even-odd FPR pair, skipping an FPR if necessary. 
 
         if (register_type_used (type (argument)) == vr) 
-        // Assumes == vr is true for IEEE BINARY 128 EXTENDED PRECISION.
+        // Assumes == vr is true for IEEE BINARY 128 QUADRUPLE PRECISION.
                 goto use_vr; 
         
         fr += align_pad(fr,type(argument)) 

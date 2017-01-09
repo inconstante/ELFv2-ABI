@@ -314,7 +314,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>LSB</para>
               </entry>
               <entry>
-                <para>Least-significant byte</para>
+                <para>Least-significant byte, least-significant bit</para>
               </entry>
             </row>
             <row revisionflag="added">
@@ -330,7 +330,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>MSB</para>
               </entry>
               <entry>
-                <para>Most-significant byte</para>
+                <para>Most-significant byte, most-significant bit</para>
               </entry>
             </row>
             <row revisionflag="added">

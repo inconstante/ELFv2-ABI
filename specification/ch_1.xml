@@ -40,7 +40,7 @@
   OpenPOWER-compliant processors in the 64-bit Power Architecture can execute
   in either big-endian or little-endian mode. Executables and
   executable-generated data (in general) that subscribe to either byte
-  ordering is not portable to a system running in the other mode.</para>
+  ordering are not portable to a system running in the other mode.</para>
   <itemizedlist>
     <listitem>
       <para>Note: 

@@ -103,8 +103,8 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
     types.</para>
     <para>The traditional C/C++ operators are defined on vector types with “do
     all” semantics for unary and binary +, unary and binary &#8211;, binary *, binary
-    %, and binary / as well as the unary and binary logical and comparison
-    operators.</para>
+    %, and binary / as well as the unary and binary shift, logical and
+    comparison operators, and the ternary ?: operator.</para>
     <para>For unary operators, the specified operation is performed on the
     corresponding base element of the single operand to derive the result value
     for each vector element of the vector result. The result type of unary
@@ -871,8 +871,12 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
                 <para>lxvd2x</para>
               </entry>
               <entry>
-                <para>Use lxvd2x for vector long long; vector long, vector
-                double.</para>
+                <para>Use lxvd2x for vector long long; vector long,<footnote
+		xml:id="vlongbad">
+		  <para>The vector long types are deprecated due to their
+		  ambiguity between 32-bit and 64-bit environments.  The use
+		  of the vector long long types is preferred. </para>
+		</footnote> vector double.</para>
                 <para>Use lxvd2x followed by reversal of elements within each
                 doubleword for all other data types.</para>
               </entry>
@@ -885,8 +889,8 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
                 <para>stxvd2x</para>
               </entry>
               <entry>
-                <para>Use stxvd2x for vector long long; vector long, vector
-                double.</para>
+                <para>Use stxvd2x for vector long long; vector long,<footnoteref
+		linkend="vlongbad" /> vector double.</para>
                 <para>Use stxvd2x following a reversal of elements within each
                 doubleword for all other data types.</para>
               </entry>
@@ -1169,8 +1173,12 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
                 <para>lxvd2x</para>
               </entry>
               <entry>
-                <para>Use lxvd2x for vector long long; vector long, vector
-                double.</para>
+                <para>Use lxvd2x for vector long long; vector long,<footnote
+		xml:id="vlongawful">
+                  <para>The vector long types are deprecated due to their
+                  ambiguity between 32-bit and 64-bit environments. The use
+                  of the vector long long types is preferred.</para>
+                </footnote> vector double.</para>
               </entry>
             </row>
             <row>
@@ -1213,8 +1221,8 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
                 <para>stxvd2x</para>
               </entry>
               <entry>
-                <para>Use stxvd2x for vector long long; vector long, vector
-                double.</para>
+                <para>Use stxvd2x for vector long long; vector long,<footnoteref
+		linkend="vlongawful" /> vector double.</para>
               </entry>
             </row>
             <row>
@@ -1274,7 +1282,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
       bit-exact type conversions between vector types.</para>
       <para> </para>
       <table frame="all" pgwide="1" xml:id="dbdoclet.50655244_14722">
-        <title>Built-In Vector Conversion Function</title>
+        <title>Built-In Vector Conversion Functions</title>
         <tgroup cols="2">
           <colspec colname="c1" colwidth="30*" align="center" />
           <colspec colname="c2" colwidth="70*" />
@@ -1422,7 +1430,12 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
                 <para>VECTOR(INTEGER(8))</para>
               </entry>
               <entry>
-                <para>vector signed long long, vector signed long</para>
+                <para>vector signed long long, vector signed long<footnote
+		xml:id="vlongappalling">
+                  <para>The vector long types are deprecated due to their
+                  ambiguity between 32-bit and 64-bit environments. The use
+                  of the vector long long types is preferred.</para>
+		</footnote></para>
               </entry>
             </row>
             <row>
@@ -1462,7 +1475,8 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
                 <para>VECTOR(UNSIGNED(8))</para>
               </entry>
               <entry>
-                <para>vector unsigned long long, vector unsigned long</para>
+                <para>vector unsigned long long, vector unsigned long<footnoteref
+		linkend="vlongappalling" /></para>
               </entry>
             </row>
             <row>
