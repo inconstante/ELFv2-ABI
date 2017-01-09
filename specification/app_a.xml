@@ -9400,13 +9400,16 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry>
               <para>Purpose:</para>
-              <para>Returns a vector containing the result of adding each set
-              of corresponding elements of ARG1 and ARG2 with a carry (having
-              either values of 0 or 1) specified as the ARG3 vector.</para>
+	      <para>Returns a vector containing the result of first
+	      elementwise subtracting vector ARG2 from vector ARG1, and then
+	      elementwise adding vector ARG3 to the difference.  ARG3 is a
+	      carry vector, with each element having a value of 0 or 1.</para>
               <para>Result value:</para>
               <para>The value of each element of the result is produced by
-              adding the corresponding elements of ARG1 and ARG2 and a carry
-              specified in ARG3 (1 if there is a carry, 0 otherwise).</para>
+              subtracting the corresponding element of ARG2 from the
+	      corresponding element of ARG1, and then adding the carry
+              specified in the corresponding element of ARG3 (1 if there is a
+	      carry, 0 otherwise).</para>
             </entry>
           </row>
           <row>
@@ -9452,14 +9455,16 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry>
               <para>Purpose:</para>
-              <para>Returns a vector containing the carry produced by adding
-              each set of corresponding elements of ARG1 and ARG2 with a carry
-              (having either values of 0 or 1) specified in ARG3 vector.</para>
+	      <para>Returns a vector containing the carries produced by first
+	      elementwise subtracting vector ARG2 from vector ARG1, and then
+	      elementwise adding vector ARG3 to the difference.  ARG3 is a
+	      carry vector, with each element having a value of 0 or 1.</para>
               <para>Result value:</para>
               <para>The value of each element of the result is the carry
-              produced by adding the corresponding elements of ARG1 and ARG2
-              and a carry specified in ARG3 (1 if there is a carry, 0
-              otherwise).</para>
+	      produced by subtracting the corresponding element of ARG2 from
+	      the corresponding element of ARG1, and then adding the carry
+              specified in the corresponding element of ARG3 (1 if there is a
+	      carry, 0 otherwise).</para>
             </entry>
           </row>
           <row>
