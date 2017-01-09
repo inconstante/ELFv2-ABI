@@ -444,7 +444,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>RN</para>
               </entry>
               <entry>
-                <para>The Binary Floating-Point Rounding Control field [of the
+                <para>The Binary Floating-Point Rounding Control field of the
                 FPSCR register.</para>
               </entry>
             </row>
@@ -533,7 +533,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>UE</para>
               </entry>
               <entry>
-                <para>The Floating-Point Underflow Exception Enable bit [of the
+                <para>The Floating-Point Underflow Exception Enable bit of the
                 FPSCR register.</para>
               </entry>
             </row>

@@ -20,7 +20,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
     64-bit features to implement the ELF ABI version 2.</para>
     <section xml:id="dbdoclet.50655240___RefHeading___Toc377640572">
       <title>Processor Architecture</title>
-      <para>This ABI is predicated on, at a minimum, Power ISA version 3.0 and
+      <para>This ABI is predicated on, at a minimum, Power ISA version 2.7 and
       contains additional implementation characteristics.</para>
       <para>All OpenPOWER instructions that are defined by the Power
       Architecture can be assumed to be implemented and to work as specified.
@@ -354,16 +354,16 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para>6</para>
                 </entry>
                 <entry align="left" colsep="0">
-                  <para>15</para>
+                  <para></para>
                 </entry>
                 <entry align="center" colsep="0">
                   <para></para>
                 </entry>
                 <entry align="right" colsep="1">
-                  <para></para>
+                  <para>5</para>
                 </entry>
                 <entry align="left" colsep="0">
-                  <para>5</para>
+                  <para></para>
                 </entry>
                 <entry align="center" colsep="0">
                   <para></para>
@@ -474,7 +474,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para></para>
                 </entry>
                 <entry align="right" colsep="1">
-                  <para>2</para>
+                  <para>1</para>
                 </entry>
                 <entry align="left" colsep="0">
                   <para></para>
@@ -483,7 +483,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para></para>
                 </entry>
                 <entry align="right" colsep="1">
-                  <para>1</para>
+                  <para>0</para>
                 </entry>
               </row>
               <row>
@@ -2763,7 +2763,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para></para>
                 </entry>
                 <entry>
-                  <para>vector __Float16</para>
+                  <para>vector _Float16</para>
                 </entry>
                 <entry>
                   <para>16</para>

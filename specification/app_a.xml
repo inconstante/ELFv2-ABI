@@ -2943,8 +2943,8 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>Each element of the returned integer vector is extracted
               from the exponent field of the corresponding floating-point
               vector element.</para>
-              <para>The extracted exponent of ARG1 is returned as a
-              right-justified unsigned integer containing a biased exponent, in
+              <para>The extracted exponents of ARG1 are returned as 
+              right-justified unsigned integers containing biased exponents, in
               accordance with the exponent representation specified by IEEE
               754, without further processing.</para>
             </entry>
@@ -3224,7 +3224,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row revisionflag="added">
             <entry>
-              <para>VEC_FIRST_MISMATCH_INDEX(ARG1, ARG2)</para>
+              <para>VEC_FIRST_MISMATCH_INDEX (ARG1, ARG2)</para>
 	      <para>POWER ISA 3.0</para>
             </entry>
             <entry>
@@ -3373,7 +3373,8 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               single-precision floating-point numbers.</para>
               <para>Result value:</para>
               <para>Target elements are obtained by converting the respective
-              source elements to unsigned integers.</para>
+              source elements to single-precision floating-point
+	      numbers.</para>
             </entry>
           </row>
           <row>
@@ -3402,8 +3403,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>Purpose:</para>
               <para>Converts 
               <phrase revisionflag="added">an input vector</phrase><phrase revision="deleted">a vector of integers</phrase>
-              to a vector of single-precision
-              numbers floating-point numbers.</para>
+              to a vector of single-precision numbers.</para>
               <para>Result value:</para>
               <para>Target elements are obtained by converting the source
               elements to single-precision numbers as follows:</para>
@@ -7122,7 +7122,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
                   <para>This function might not follow the strict
                   operation definition of the resolution of a tie during a
                   round if the -qstrict=nooperationprecision compiler option is
-                  specified.</para>
+                  specified to the XLC compiler.</para>
               </note>
             </entry>
           </row>

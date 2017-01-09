@@ -69,7 +69,7 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
           </row>
           <row>
             <entry>
-              <para>___BUILTIN_BCDADD (a, b, ps)</para>
+              <para>__BUILTIN_BCDADD (a, b, ps)</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -148,7 +148,7 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
             </entry>
             <entry>
               <para>vector unsigned char __builtin_bcdsub (vector unsigned
-              char, vector unsigned char, long);</para>
+              char, vector unsigned char, const int);</para>
             </entry>
           </row>
           <row>
@@ -173,7 +173,7 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
               <para> </para>
             </entry>
             <entry>
-              <para>int __ builtin_bcdadd_ofl (vector unsigned char, vector
+              <para>int __builtin_bcdadd_ofl (vector unsigned char, vector
               unsigned char);</para>
             </entry>
           </row>
@@ -192,13 +192,13 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
               <para> </para>
             </entry>
             <entry>
-              <para>int __ builtin_bcdsub_ofl (vector unsigned char, vector
+              <para>int __builtin_bcdsub_ofl (vector unsigned char, vector
               unsigned char);</para>
             </entry>
           </row>
           <row>
             <entry>
-              <para>__ BUILTIN_BCD_INVALID (a)</para>
+              <para>__BUILTIN_BCD_INVALID (a)</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -212,7 +212,7 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
               <para> </para>
             </entry>
             <entry>
-              <para>int __ builtin_bcd_invalid (vector unsigned char);</para>
+              <para>int __builtin_bcd_invalid (vector unsigned char);</para>
             </entry>
           </row>
           <row>
@@ -224,7 +224,7 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
           </row>
           <row>
             <entry>
-              <para>__ BUILTIN_BCDCMPEQ (a, b)</para>
+              <para>__BUILTIN_BCDCMPEQ (a, b)</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -238,13 +238,13 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
               <para> </para>
             </entry>
             <entry>
-              <para>int __ builtin_bcdcmpeq (vector unsigned char, vector
+              <para>int __builtin_bcdcmpeq (vector unsigned char, vector
               unsigned char);</para>
             </entry>
           </row>
           <row>
             <entry>
-              <para>__ BUILTIN_BCDCMPGE (a, b)</para>
+              <para>__BUILTIN_BCDCMPGE (a, b)</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -258,7 +258,7 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
               <para> </para>
             </entry>
             <entry>
-              <para>int __ builtin_bcdcmpge (vector unsigned char, vector
+              <para>int __builtin_bcdcmpge (vector unsigned char, vector
               unsigned char);</para>
             </entry>
           </row>
@@ -278,7 +278,7 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
               <para> </para>
             </entry>
             <entry>
-              <para>int __ builtin_bcdcmpgt (vector unsigned char, vector
+              <para>int __builtin_bcdcmpgt (vector unsigned char, vector
               unsigned char);</para>
             </entry>
           </row>
@@ -298,13 +298,13 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
               <para> </para>
             </entry>
             <entry>
-              <para>int __ builtin_bcdcmple (vector unsigned char, vector
+              <para>int __builtin_bcdcmple (vector unsigned char, vector
               unsigned char);</para>
             </entry>
           </row>
           <row>
             <entry>
-              <para>__ BUILTIN_BCDCMPLT (a, b)</para>
+              <para>__BUILTIN_BCDCMPLT (a, b)</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -318,7 +318,7 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
               <para> </para>
             </entry>
             <entry>
-              <para>int __ builtin_bcdcmplt (vector unsigned char, vector
+              <para>int __builtin_bcdcmplt (vector unsigned char, vector
               unsigned char);</para>
             </entry>
           </row>
@@ -334,7 +334,7 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
           </row>
           <row>
             <entry>
-              <para>__ BUILTIN_BCD2DFP (a)</para>
+              <para>__BUILTIN_BCD2DFP (a)</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -357,13 +357,13 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
               <para> </para>
             </entry>
             <entry>
-              <para>_Decimal128 __ builtin_bcd2dfp (vector unsigned
+              <para>_Decimal128 __builtin_bcd2dfp (vector unsigned
               char);</para>
             </entry>
           </row>
           <row>
             <entry>
-              <para>__ BUILTIN_BCDMUL10 (ARG1)</para>
+              <para>__BUILTIN_BCDMUL10 (ARG1)</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -382,7 +382,7 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
           </row>
           <row>
             <entry>
-              <para>__ BUILTIN_BCDDIV10 (ARG1)</para>
+              <para>__BUILTIN_BCDDIV10 (ARG1)</para>
             </entry>
             <entry>
               <para>Purpose:</para>
@@ -424,7 +424,7 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
     <programlisting>typedef bcd vector unsigned char;</programlisting>
     <para>The header file also defines a bcd_default_format as follows:</para>
     <programlisting>#ifndef bcd_default_format
-#define bcd_default_format __BCD_SIGN_IBM
+#define bcd_default_format __BCD_FORMAT_IBM
 #endif</programlisting>
     <table frame="all" pgwide="1" xml:id="dbdoclet.50655245_12427">
       <title>BCD Functions Defined by bcd.h</title>
@@ -679,7 +679,7 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
               <para> </para>
             </entry>
             <entry>
-              <para>bcd __bcd_mul (bcd, bcd, long)</para>
+              <para>bcd __bcd_mul (bcd, bcd, const int)</para>
             </entry>
           </row>
           <row>
@@ -713,7 +713,7 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
               <para> </para>
             </entry>
             <entry>
-              <para>bcd __builtin_bcddiv (bcd, bcd, long);</para>
+              <para>bcd __builtin_bcddiv (bcd, bcd, const int);</para>
             </entry>
           </row>
           <row>
@@ -742,7 +742,7 @@ xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
               <para> </para>
             </entry>
             <entry>
-              <para>bcd __bcd_string2bcd (char *, long);</para>
+              <para>bcd __bcd_string2bcd (char *, const int);</para>
             </entry>
           </row>
         </tbody>
@@ -829,13 +829,13 @@ typedef bcd vector unsigned char;
 #define BCD_FORMAT_NCR 1
 
 #ifndef bcd_default_format
-#define bcd_default_format __BCD_SIGN_IBM
+#define bcd_default_format __BCD_FORMAT_IBM
 #endif
 
 #define bcd_add(a,b) ((bcd)__builtin_bcdadd (a,b,bcd_default_format))
 #define bcd_sub(A,b) ((bcd)__builtin_bcdsub (a,b,bcd_default_format))
 #define bcd_add_ofl(a,b) ((_Bool)__builtin_bcdadd_ofl (a,b))
-#define bcd_add_ofl(a,b) ((_Bool)__builtin_bcdsub_ofl (a,b))
+#define bcd_sub_ofl(a,b) ((_Bool)__builtin_bcdsub_ofl (a,b))
 #define bcd_invalid(a) ((_Bool)__builtin_bcd_invalid (a))
 #define bcd_cmpeq(a,b) ((_Bool)__builtin_bcdcmpeq (a,b))
 #define bcd_cmpge(a,b) ((_Bool)__builtin_bcdcmpge (a,b))
