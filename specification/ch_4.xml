@@ -565,42 +565,51 @@ int main(int argc, char *argv[ ], char *envp[ ], ElfW(auxv_t) *auxvec)</programl
       } a_un;
 } auxv_t;
  
-Name               Value   a_un field    Comment
-AT_NULL            0       ignored       /* End of vector */
-AT_PHDR            3       a_ptr         /* Program headers for program */
-AT_PHENT           4       a_val         /* Size of program header entry */
-AT_PHNUM           5       a_val         /* Number of program headers */
-AT_PAGESZ          6       a_val         /* System page size */
-AT_BASE            7       a_ptr         /* Base address of interpreter */
-AT_FLAGS           8       a_val         /* Flags */
-AT_ENTRY           9       a_ptr         /* Entry point of program */
-AT_UID             11                    /* Real user ID (uid) */
-AT_EUID            12                    /* Effective user ID (euid) */
-AT_GID             13                    /* Real group ID (gid) */
-AT_EGID            14                    /* Effective group ID (egid) */
-AT_PLATFORM        15      a_ptr         /* String identifying platform. */
-AT_HWCAP           16      a_val         /* Machine-dependent hints about 
+Name                  Value   a_un field    Comment
+AT_NULL               0       ignored       /* End of vector */
+AT_PHDR               3       a_ptr         /* Program headers for program */
+AT_PHENT              4       a_val         /* Size of program header entry */
+AT_PHNUM              5       a_val         /* Number of program headers */
+AT_PAGESZ             6       a_val         /* System page size */
+AT_BASE               7       a_ptr         /* Base address of interpreter */
+AT_FLAGS              8       a_val         /* Flags */
+AT_ENTRY              9       a_ptr         /* Entry point of program */
+AT_UID                11                    /* Real user ID (uid) */
+AT_EUID               12                    /* Effective user ID (euid) */
+AT_GID                13                    /* Real group ID (gid) */
+AT_EGID               14                    /* Effective group ID (egid) */
+AT_PLATFORM           15      a_ptr         /* String identifying platform. */
+AT_HWCAP              16      a_val         /* Machine-dependent hints about 
                                          processor capabilities. */
-AT_CLKTCK          17                    /* Frequency of times( ), always 100 */
-AT_DCACHEBSIZE     19      a_val         /* Data cache block size */
-AT_ICACHEBSIZE     20      a_val         /* Instruction cache block size */
-AT_UCACHEBSIZE     21      a_val         /* Unified cache block size */
-AT_IGNOREPPC       22                    /* Ignore this entry! */
-AT_SECURE          23                    /* Boolean, was exec authorized to use 
+AT_CLKTCK             17                    /* Frequency of times( ), always 100 */
+AT_DCACHEBSIZE        19      a_val         /* Data cache block size */
+AT_ICACHEBSIZE        20      a_val         /* Instruction cache block size */
+AT_UCACHEBSIZE        21      a_val         /* Unified cache block size */
+AT_IGNOREPPC          22                    /* Ignore this entry! */
+AT_SECURE             23                    /* Boolean, was exec authorized to use 
                                          setuid or setgid */
-AT_BASE_PLATFORM   24      a_ptr         /* String identifying real platforms */
-AT_RANDOM          25                    /* Address of 16 random bytes */
-AT_HWCAP2          26      a_val         /* More machine-dependent hints about 
+AT_BASE_PLATFORM      24      a_ptr         /* String identifying real platforms */
+AT_RANDOM             25                    /* Address of 16 random bytes */
+AT_HWCAP2             26      a_val         /* More machine-dependent hints about 
                                          processor capabilities. */
-AT_EXECFN          31                    /* File name of executable */
-AT_SYSINFO_EHDR    33                    /* In many architectures, the kernel 
-                                         provides a virtual dynamic shared 
-                                         object (VDSO) that contains a function 
-                                         callable from the user state.   
-                                         AT_SYSINFO_EHDR is the address of the
-                                         VDSO header that is used by the
-                                         dynamic linker to resolve function 
-                                         symbols with the VDSO. */</programlisting>
+AT_EXECFN             31                    /* File name of executable */
+AT_SYSINFO_EHDR       33                    /* In many architectures, the kernel 
+                                            provides a virtual dynamic shared 
+                                            object (VDSO) that contains a function 
+                                            callable from the user state.   
+                                            AT_SYSINFO_EHDR is the address of the
+                                            VDSO header that is used by the
+                                            dynamic linker to resolve function 
+                                            symbols with the VDSO. */
+AT_L1I_CACHESIZE      40                    /* Cache sizes and geometries. */
+AT_L1I_CACHEGEOMETRY  41
+AT_L1D_CACHESIZE      42
+AT_L1D_CACHEGEOMETRY  43
+AT_L2_CACHESIZE       44
+AT_L2_CACHEGEOMETRY   45
+AT_L3_CACHESIZE       46
+AT_L3_CACHEGEOMETRY   47
+	</programlisting>
         <para>AT_NULL</para>
         <para>The auxiliary vector has no fixed length; instead an entry of this
         type denotes the end of the vector. The corresponding value of a_un is
@@ -710,6 +719,31 @@ PPC_FEATURE2_HAS_IEEE128  0x00400000 /* VSX IEEE Binary Float 128-bit */</progra
         defined or predictable order. Further, the system may allocate memory
         after the null auxiliary vector entry and before the beginning of the
         information block.</para>
+	<para>AT_L1I_CACHESIZE</para>
+	<para>The size of the level-1 instruction cache, in bytes.</para>
+	<para>AT_L1I_CACHEGEOMETRY</para>
+	<para>The geometry of the level-1 instruction cache.  The low-order
+	sixteen bits contain the cache associativity as a value N, where
+	N = 1 represents a direct-mapped cache, N = 0xffff represents a
+	fully associative cache, and any other N represents an N-way
+	set-associative cache.  The next higher-order sixteen bits contain
+	the size of the cache line in bytes.  Note that the cache line
+	size is not necessarily the same as the cache block size.</para>
+	<para>AT_L1D_CACHESIZE</para>
+	<para>The size of the level-1 data cache, in bytes.</para>
+	<para>AT_L1D_CACHEGEOMETRY</para>
+	<para>The geometry of the level-1 data cache, defined in the same
+	manner as for AT_L1I_CACHEGEOMETRY.</para>
+	<para>AT_L2_CACHESIZE</para>
+	<para>The size of the level-2 cache, in bytes.</para>
+	<para>AT_L2_CACHEGEOMETRY</para>
+	<para>The geometry of the level-2 cache, defined in the same
+	manner as for AT_L1I_CACHEGEOMETRY.</para>
+	<para>AT_L3_CACHESIZE</para>
+	<para>The size of the level-3 cache, in bytes.</para>
+	<para>AT_L3_CACHEGEOMETRY</para>
+	<para>The geometry of the level-3 cache, defined in the same
+	manner as for AT_L1I_CACHEGEOMETRY.</para>
       </section>
     </section>
   </section>
