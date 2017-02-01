@@ -447,8 +447,8 @@ e_ident[EI_DATA]     ELFDATA2LSB  For all little-endian implementations.</progra
       <programlisting revisionflag="changed">    .globl my_func
     .type my_func, @function
 my_func:
-    addis r2, r12, my_sym@ha(.TOC.-my_func)
-    addi r2, r2, my_sym@l(.TOC.-my_func)
+    addis r2, r12, (.TOC.-my_func)@ha
+    addi r2, r2, (.TOC.-my_func)@l
     .localentry my_func, .-my_func
     ... ; function definition
     blr</programlisting>
