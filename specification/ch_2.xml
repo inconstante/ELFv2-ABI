@@ -4078,7 +4078,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       <emphasis>System V Interface Definition (SVID)</emphasis>.</para>
       <para>The tables in 
       <xref linkend="dbdoclet.50655240_68174" /> give an overview of the
-      registers that are global during program execution. The tables use three
+      registers that are global during program execution. The tables use four
       terms to describe register preservation rules:</para>
 
       <informaltable frame="none" colsep="0" rowsep="0">
