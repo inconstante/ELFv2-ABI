@@ -13556,7 +13556,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
     </section>
   </section>
   <section xml:id="dbdoclet.50655245_36964">
-    <title>Compatibility Functions</title>
+    <title>Deprecated Compatibility Functions</title>
     <para>The following functions should be provided for compatibility with
     previous versions of the Power SIMD vector environment. Where possible
     (subject to being supported by all targeted implementations of the Power
