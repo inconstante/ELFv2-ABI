@@ -12,7 +12,7 @@
 -->
 <appendix xmlns="http://docbook.org/ns/docbook"
 xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en"
-xml:id="dbdoclet.50655245_pgfId-1450875" revisionflag="added">
+xml:id="dbdoclet.50655245_pgfId-1450875">
   <title>Binary-Coded Decimal Built-In Functions</title>
     <para>Binary-coded decimal (BCD) values are compressed; each decimal digit
     and sign bit occupies 4 bits. Digits are ordered with the most significant

@@ -353,7 +353,7 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
       argument passing. For example, a C program might typically issue the
       following declaration to begin executing at the local entry point of a
       function named main:</para>
-      <programlisting revisionflag="changed">extern int main (int argc, char *argv[ ], char *envp[ ], void *auxv[ ]);
+      <programlisting>extern int main (int argc, char *argv[ ], char *envp[ ], void *auxv[ ]);
 int main(int argc, char *argv[ ], char *envp[ ], ElfW(auxv_t) *auxvec)</programlisting>
       <para>where:</para>
       <itemizedlist mark="none">

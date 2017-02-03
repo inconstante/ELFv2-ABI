@@ -239,7 +239,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
           </row>
         </thead>
         <tbody>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>vec_bperm</para>
             </entry>
@@ -251,7 +251,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
               the result.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>vec_cntlz_lsbb</para>
             </entry>
@@ -262,7 +262,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
               <para>For LE, use vctzlsbb.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>vec_cnttz_lsbb</para>
             </entry>
@@ -284,7 +284,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
               <para>vec_extract (v, 3) is equivalent to v[3].</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>vec_extract_fp32_from_shorth</para>
             </entry>
@@ -295,7 +295,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
               <para>For LE, extract the left four elements.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>vec_extract_fp32_from_shortl</para>
             </entry>
@@ -306,7 +306,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
               <para>For LE, extract the right four elements.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>vec_extract4b</para>
             </entry>
@@ -318,7 +318,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
               halves of the result.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>vec_first_match_index</para>
             </entry>
@@ -329,7 +329,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
               <para>For LE, use vctz.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>vec_first_match_index_or_eos</para>
             </entry>
@@ -352,7 +352,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
               <emphasis>third</emphasis> element modified to contain x.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>vec_insert4b</para>
             </entry>
@@ -548,7 +548,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
               <para>Use vupkhsb, and so on, for LE.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>vec_xl_len_r</para>
             </entry>
@@ -561,7 +561,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
               number of bytes specified to be loaded by vec_xl_len_r.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>vec_xst_len_r</para>
             </entry>
@@ -1183,7 +1183,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
             </row>
             <row>
               <entry>
-                <para>vec_xlw<phrase revisionflag="added">4</phrase><footnote xml:id="dbdoclet.50655244_78719">
+                <para>vec_xlw4<footnote xml:id="dbdoclet.50655244_78719">
                     <para>Deprecated. The use of vector data type
                       assignment and overloaded vec_xl and vec_xst vector
                       built-in functions are preferred forms for assigning
@@ -1301,7 +1301,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
             </row>
           </thead>
           <tbody>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>VEC_CONCAT (ARG1, ARG2)<?linebreak?>(Fortran)</para>
                 <para></para>
@@ -1322,7 +1322,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
                 </itemizedlist>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para></para>
               </entry>
@@ -1331,7 +1331,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
                 signed long long);</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para></para>
               </entry>
@@ -1340,7 +1340,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
                 unsigned long long);</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para></para>
               </entry>

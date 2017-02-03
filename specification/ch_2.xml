@@ -2715,7 +2715,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   2<superscript>64</superscript> &#8211; 1.</para>
                 </entry>
               </row>
-              <row revisionflag="changed">
+              <row>
                 <entry>
                   <para></para>
                 </entry>
@@ -2732,7 +2732,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para>Vector of 1 unsigned quadword.</para>
                 </entry>
               </row>
-              <row revisionflag="changed">
+              <row>
                 <entry>
                   <para></para>
                 </entry>
@@ -2749,7 +2749,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para>Vector of 1 signed quadword.</para>
                 </entry>
               </row>
-              <row revisionflag="added">
+              <row>
                 <entry>
                   <para></para>
                 </entry>
@@ -4488,7 +4488,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         </itemizedlist>
 
         <note>
-          <para><emphasis role="bold"><phrase revisionflag="deleted">Erratum:</phrase></emphasis> 
+          <para>
             When executing an 
             <emphasis role="bold">mfocr</emphasis> instruction, the POWER8 processor does not
             implement the behavior described in the "Fixed-Point Invalid Forms
@@ -5387,7 +5387,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           </listitem>
           <listitem>
             <para>Pad an aggregate or union smaller than one doubleword in
-            size<phrase revisionflag="added">, but having a non-zero size,</phrase>
+            size<phrase>, but having a non-zero size,</phrase>
             so that it is in the
             least-significant bits of the doubleword.
             Pad all others, if
@@ -5556,8 +5556,8 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       a number of GPRs are skipped, in allocation order, commensurate to the
       size of the corresponding in-memory representation of the passed
       argument's type.</para>
-      <para><phrase revisionflag="changed">The parameter size is always rounded up to the next multiple of a
-      doubleword.</phrase><footnote xml:id="pgfId-1184124" revisionflag="added">
+      <para><phrase>The parameter size is always rounded up to the next multiple of a
+      doubleword.</phrase><footnote xml:id="pgfId-1184124" >
         <para>Consequently, each parameter of a non-zero size is allocated to
         at least one doubleword.</para>
       </footnote></para>

@@ -35,11 +35,11 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
   supported range leads to implementation-defined behavior. It is recommended
   that compilers generate a warning or error for out-of-range
   literals.</para>
-  <para revisionflag="added">Vectors may be constructed from scalar values with a vector
+  <para>Vectors may be constructed from scalar values with a vector
   constructor. For example: (vector type){e1, e2, ..., e<emphasis>n</emphasis>}. 
   The values specified for each vector element can
   be either a compile-time constant or a runtime expression.</para>
-  <para revisionflag="added">Floating-point vector built-in operators are controlled by the
+  <para>Floating-point vector built-in operators are controlled by the
   rounding mode set for floating-point operations unless otherwise
   specified.</para>
   <section xml:id="dbdoclet.50655245_56497">
@@ -321,7 +321,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector float vec_abs (vector float);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_ABSD (ARG1, ARG2)</para>
 	      <para>POWER ISA 3.0</para>
@@ -335,7 +335,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               arithmetic.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -344,7 +344,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               unsigned char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -353,7 +353,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -812,14 +812,14 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para><phrase revisionflag="added">Phased in.</phrase><footnote xml:id="dbdoclet.50655245_taba2fn">
+              <para><phrase>Phased in.</phrase><footnote xml:id="dbdoclet.50655245_taba2fn">
                 <para>This optional function is being phased in, and it might not be 
                 available on all implementations.  
-                <phrase revisionflag="added">Phased-in interfaces are optional
+                <phrase>Phased-in interfaces are optional
                 for the current generation of compliant systems.</phrase></para>
               </footnote></para>
             </entry>
-            <entry revisionflag="added">
+            <entry>
               <para>vector bool long long vec_and (vector bool long long,
               vector bool long long);</para>
             </entry>
@@ -1102,11 +1102,11 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry>
               <para>Purpose:</para>
-              <para revisionflag="changed">Gathers up to 16 1-bit values from a quadword or from each
+              <para>Gathers up to 16 1-bit values from a quadword or from each
               doubleword element in the specified order, zeroing other
               bits.</para>
               <para>Result value:</para>
-              <para revisionflag="added">When the type of ARG1 is vector
+              <para>When the type of ARG1 is vector
 	      unsigned char or vector unsigned __int128:</para>
               <itemizedlist>
                 <listitem>
@@ -1125,9 +1125,9 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
                   <para>All other bits are zeroed.</para>
                 </listitem>
               </itemizedlist>
-              <para revisionflag="added">When the type of ARG1 is vector
+              <para>When the type of ARG1 is vector
               unsigned long long:</para>
-              <itemizedlist revisionflag="added">
+              <itemizedlist>
                 <listitem>
                   <para>For each doubleword element i (0 ≤ i &lt; 2) of ARG1,
                   regardless of the input operand type specified for
@@ -1168,7 +1168,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               vector unsigned char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
@@ -1178,7 +1178,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               __int128, vector unsigned char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
@@ -1278,7 +1278,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               Otherwise, the value of each bit is 0.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -1305,7 +1305,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               unsigned char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -1332,7 +1332,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -1359,7 +1359,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               vector unsigned long long);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -1843,7 +1843,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               Otherwise, the value of each bit is 0.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -1870,7 +1870,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               unsigned char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -1897,7 +1897,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -1924,7 +1924,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               vector unsigned long long);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -1969,7 +1969,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               float);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_CMPNEZ (ARG1, ARG2)</para>
 	      <para>POWER ISA 3.0</para>
@@ -1986,7 +1986,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               element is 0. Otherwise, the value of each bit is 0.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -1995,7 +1995,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               signed char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -2004,7 +2004,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               unsigned char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -2013,7 +2013,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               signed int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -2022,7 +2022,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -2031,7 +2031,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               signed short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -2131,7 +2131,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_CNTLZ_LSBB (ARG1)</para>
 	      <para>POWER ISA 3.0</para>
@@ -2147,7 +2147,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               least-significant bit of 0.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -2155,7 +2155,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>signed int vec_cntlz_lsbb (vector signed char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -2163,7 +2163,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>signed int vec_cntlz_lsbb (vector unsigned char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_CNTTZ (ARG1)</para>
 	      <para>POWER ISA 3.0</para>
@@ -2179,7 +2179,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               ARG1.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -2187,7 +2187,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector signed char vec_cnttz (vector signed char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -2196,7 +2196,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -2204,7 +2204,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector signed int vec_cnttz (vector signed int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -2212,7 +2212,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector unsigned int vec_cnttz (vector unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -2221,7 +2221,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               long);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -2230,7 +2230,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               long);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -2238,7 +2238,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector signed short vec_cnttz (vector signed short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -2247,7 +2247,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_CNTTZ_LSBB (ARG1)</para>
 	      <para>POWER ISA 3.0</para>
@@ -2263,7 +2263,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               least-significant bit of 0.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -2271,7 +2271,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>signed int vec_cnttz_lsbb (vector signed char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -2324,7 +2324,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>Result value:</para>
               <para>The value of each element of the result is the closest
               floating-point 
-              <phrase  revisionflag="added">approximation</phrase><phrase  revisionflag="deleted">estimate</phrase> 
+              <phrase>approximation</phrase>
               of the value of the corresponding
               element of ARG1 divided by 2 to the power of ARG2, which should
               be in the range 0&#8211;31.</para>
@@ -2356,7 +2356,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>Converts a real vector into a vector signed int.</para>
               <para>Result value:</para>
               <para>The value of each element of the result is the saturated
-              <phrase revisionflag="added">signed-integer</phrase> value<phrase  revisionflag="added">, 
+              <phrase>signed-integer</phrase> value<phrase>, 
               truncated towards zero,</phrase> obtained by
               multiplying the corresponding element of ARG1 by 2 to the power
               of ARG2, which should be in the range 0&#8211;31.</para>
@@ -2379,7 +2379,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>Converts a real vector into a vector unsigned int.</para>
               <para>Result value:</para>
               <para>The value of each element of the result is the saturated
-              <phrase revisionflag="added">unsigned-integer</phrase> value<phrase revisionflag="added">, 
+              <phrase>unsigned-integer</phrase> value<phrase>, 
               truncated towards zero,</phrase> obtained by
               multiplying the corresponding element of ARG1 by 2 to the power
               of ARG2, which should be in the range 0&#8211;31.</para>
@@ -2410,7 +2410,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               element of ARG2.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -2419,7 +2419,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
 	      vector signed long long);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -2450,10 +2450,10 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>VEC_DOUBLE (ARG1)</para>
             </entry>
             <entry>
-              <para revisionflag="added">Purpose:</para>
+              <para>Purpose:</para>
               <para>Converts a vector of long integers into a vector of
               double-precision numbers.</para>
-              <para revisionflag="added">Result value:</para>
+              <para>Result value:</para>
               <para>Target elements are computed by converting the respective
               input elements.</para>
             </entry>
@@ -2519,9 +2519,9 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             <entry>
               <para>Purpose:</para>
               <para>Converts 
-              <phrase revisionflag="added">an input vector</phrase><phrase revisionflag="deleted">a vector of integers</phrase> 
+              <phrase>an input vector</phrase>
               to a vector of double-precision
-              <phrase revisionflag="added">floating-point</phrase> numbers.</para>
+              <phrase>floating-point</phrase> numbers.</para>
               <para>Result value:</para>
               <para>Target elements 0 and 1 are set to the converted values of
               source elements 0 and 1.</para>
@@ -2558,9 +2558,9 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             <entry>
               <para>Purpose:</para>
               <para>Converts 
-              <phrase revisionflag="added">an input vector</phrase><phrase revisionflag="deleted">a vector of integers</phrase>
+              <phrase>an input vector</phrase>
               to a vector of double-precision
-              <phrase revisionflag="added">floating-point</phrase> numbers.</para>
+              <phrase>floating-point</phrase> numbers.</para>
               <para>Result value:</para>
               <para>Target elements 0 and 1 are set to the converted values of
               source elements 2 and 3.</para>
@@ -2680,7 +2680,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry>
               <para>vector signed int vec_eqv (vector signed int, vector 
-              <phrase revisionflag="added">signed</phrase>
+              <phrase>signed</phrase>
               int);</para>
             </entry>
           </row>
@@ -2735,7 +2735,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry>
               <para>vector signed short vec_eqv (vector signed short, vector
-              <phrase revisionflag="added">signed</phrase> short);</para>
+              <phrase>signed</phrase> short);</para>
             </entry>
           </row>
           <row>
@@ -2925,7 +2925,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>float vec_extract (vector float, signed int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
@@ -2935,7 +2935,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>_Float16 vec_extract (vector _Float16, signed int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_EXTRACT_EXP (ARG1)</para>
 	      <para>POWER ISA 3.0</para>
@@ -2953,7 +2953,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               754, without further processing.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -2962,7 +2962,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               double);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -2970,7 +2970,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector unsigned int vec_extract_exp (vector float);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_EXTRACT_FP32_ FROM_SHORTH (ARG1)</para>
 	      <para>POWER ISA 3.0</para>
@@ -2988,7 +2988,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               single-precision IEEE numbers.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -2997,7 +2997,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_EXTRACT_FP32_ FROM_SHORTL (ARG1)</para>
 	      <para>POWER ISA 3.0</para>
@@ -3015,7 +3015,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               single-precision IEEE numbers.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3024,7 +3024,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_EXTRACT_SIG (ARG1)</para>
 	      <para>POWER ISA 3.0</para>
@@ -3044,7 +3044,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               exponent.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3053,7 +3053,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               double);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3061,7 +3061,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector unsigned int vec_extract_sig (vector float);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_EXTRACT4B (ARG1, ARG2)</para>
 	      <para>POWER ISA 3.0</para>
@@ -3076,7 +3076,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
 	      (0&#8211;12) of the word to be extracted.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3085,7 +3085,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               char, const int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_FIRST_MATCH_INDEX (ARG1, ARG2)</para>
 	      <para>POWER ISA 3.0</para>
@@ -3101,7 +3101,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               an element count in the vector argument.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3110,7 +3110,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               vector signed char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3119,7 +3119,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               vector unsigned char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3128,7 +3128,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               vector signed int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3137,7 +3137,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               vector unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3146,7 +3146,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               vector signed short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3155,7 +3155,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               vector unsigned short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_FIRST_MATCH_OR_EOS_ INDEX (ARG1, ARG2)</para>
 	      <para>POWER ISA 3.0</para>
@@ -3172,7 +3172,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               element count in the vector argument.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3181,7 +3181,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               char, vector signed char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3190,7 +3190,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               char, vector unsigned char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3199,7 +3199,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               int, vector signed int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3208,7 +3208,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               int, vector unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3217,7 +3217,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               short, vector signed short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3226,7 +3226,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               short, vector unsigned short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_FIRST_MISMATCH_INDEX (ARG1, ARG2)</para>
 	      <para>POWER ISA 3.0</para>
@@ -3242,7 +3242,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               characters as an element count in the vector argument.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3251,7 +3251,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               vector signed char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3260,7 +3260,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               char, vector unsigned char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3269,7 +3269,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               vector signed int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3278,7 +3278,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               vector unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3287,7 +3287,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               vector signed short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3296,7 +3296,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               short, vector unsigned short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_FIRST_MISMATCH_OR_ EOS_INDEX (ARG1, ARG2)</para>
 	      <para>POWER ISA 3.0</para>
@@ -3313,7 +3313,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               element count in the vector argument.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3322,7 +3322,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               char, vector signed char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3331,7 +3331,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               unsigned char, vector unsigned char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3340,7 +3340,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               int, vector signed int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3349,7 +3349,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               unsigned int, vector unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3358,7 +3358,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               short, vector signed short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3386,7 +3386,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector <phrase revisionflag="added">float</phrase> 
+              <para>vector <phrase>float</phrase> 
               vec_float (vector signed int);</para>
             </entry>
           </row>
@@ -3395,7 +3395,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector <phrase revisionflag="added">float</phrase> 
+              <para>vector <phrase>float</phrase> 
               vec_float (vector unsigned int);</para>
             </entry>
           </row>
@@ -3406,7 +3406,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             <entry>
               <para>Purpose:</para>
               <para>Converts 
-              <phrase revisionflag="added">an input vector</phrase><phrase revision="deleted">a vector of integers</phrase>
+              <phrase>an input vector</phrase>
               to a vector of single-precision numbers.</para>
               <para>Result value:</para>
               <para>Target elements are obtained by converting the source
@@ -3486,7 +3486,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector float vec_floate (vector double);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_FLOATH (ARG2)</para>
 	      <para>POWER ISA 3.0</para>
@@ -3502,7 +3502,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               of source elements 0 through 3, respectively.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3510,7 +3510,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector float vec_floath (vector _Float16);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_FLOATL (ARG2)</para>
 	      <para>POWER ISA 3.0</para>
@@ -3526,7 +3526,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               of source elements 4 through 7, respectively.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3703,7 +3703,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry>
               <para>vector signed short vec_insert (signed short, vector signed
-              short<phrase revisionflag="added">,</phrase><phrase revisionflag="deleted">.</phrase> 
+              short<phrase>,</phrase>
               signed int);</para>
             </entry>
           </row>
@@ -3734,7 +3734,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
@@ -3745,7 +3745,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               signed int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_INSERT_EXP (ARG1, ARG2)</para>
 	      <para>POWER ISA 3.0</para>
@@ -3765,7 +3765,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               further processing.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3774,7 +3774,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               unsigned long long);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3783,7 +3783,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               vector unsigned long long);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3792,7 +3792,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3801,7 +3801,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_INSERT4B (ARG1, ARG2, ARG3)</para>
 	      <para>POWER ISA 3.0</para>
@@ -3815,7 +3815,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
 	      ARG2 at the byte position (0&#8211;12) specified by ARG3.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -3824,7 +3824,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               vector unsigned char, const int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -4300,7 +4300,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               float);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
@@ -4464,7 +4464,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               float);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
@@ -5688,44 +5688,12 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               unsigned short);</para>
             </entry>
           </row>
-          <row revisionflag="deleted">
-            <entry>
-              <para> </para>
-            </entry>
-            <entry>
-              <para>vector double vec_or (vector bool long long, vector double);</para>
-            </entry>
-          </row>
-          <row revisionflag="deleted">
-            <entry>
-              <para> </para>
-            </entry>
-            <entry>
-              <para>vector double vec_or (vector double, vector bool long long);</para>
-            </entry>
-          </row>
           <row>
             <entry>
               <para> </para>
             </entry>
             <entry>
               <para>vector double vec_or (vector double, vector double);</para>
-            </entry>
-          </row>
-          <row revisionflag="deleted">
-            <entry>
-              <para> </para>
-            </entry>
-            <entry>
-              <para>vector float vec_or (vector bool int, vector float);</para>
-            </entry>
-          </row>
-          <row revisionflag="deleted">
-            <entry>
-              <para> </para>
-            </entry>
-            <entry>
-              <para>vector float vec_or (vector float, vector bool int);</para>
             </entry>
           </row>
           <row>
@@ -5883,11 +5851,11 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>Packs information from each element of two vectors into the
               result vector.</para>
               <para>Result value:</para>
-              <para><phrase revisionflag="added">For integer types, the</phrase><phrase revisionflag="deleted">The</phrase>
+              <para><phrase>For integer types, the</phrase>
               value of each element of the result
               vector is taken from the low-order half of the corresponding
               element of the result of concatenating ARG1 and ARG2.</para>
-              <para revisionflag="added">For floating-point types, the value of each element of the
+              <para>For floating-point types, the value of each element of the
               result vector is the corresponding element of the result of
               concatenating ARG1 and ARG2, rounded to the result type.</para>
             </entry>
@@ -5982,7 +5950,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               double);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
@@ -5993,7 +5961,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               float);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_PACK_TO_SHORT_FP32 (ARG1, ARG2)</para>
 	      <para>POWER ISA 3.0</para>
@@ -6009,7 +5977,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               half-precision.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -6190,7 +6158,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               vector unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_PARITY_LSBB (ARG1)</para>
 	      <para>POWER ISA 3.0</para>
@@ -6204,7 +6172,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               the low-order bit of each of the bytes in that element.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -6213,7 +6181,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -6222,7 +6190,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -6231,7 +6199,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               signed __int128);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -6240,7 +6208,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               unsigned __int128);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -6249,7 +6217,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               long long);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -6409,7 +6377,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               unsigned char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
@@ -6768,7 +6736,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector float vec_revb (vector float);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
@@ -6907,7 +6875,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector float vec_reve (vector float);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
@@ -7037,7 +7005,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               unsigned short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_RLMI (ARG1, ARG2, ARG3)</para>
 	      <para>POWER ISA 3.0</para>
@@ -7053,7 +7021,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               bits 27:31 contain the shift count.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -7062,7 +7030,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               unsigned int, vector unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -7072,7 +7040,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               long);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_RLNM (ARG1, ARG2, ARG3)</para>
 	      <para>POWER ISA 3.0</para>
@@ -7091,7 +7059,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
 	      other bytes zero.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -7100,7 +7068,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               unsigned int, vector unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -7361,7 +7329,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               vector signed long long, vector bool long long);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
@@ -7381,7 +7349,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               long, vector unsigned long long, vector bool long long);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
@@ -7482,7 +7450,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
@@ -7493,7 +7461,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               vector bool short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
@@ -7514,7 +7482,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               signed integers.</para>
               <para>Result value:</para>
               <para>Target elements are obtained by 
-              <phrase revisionflag="added">truncating</phrase><phrase revisionflag="deleted">converting</phrase>
+              <phrase>truncating</phrase>
               the respective
               source elements to signed integers.</para>
             </entry>
@@ -7545,7 +7513,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               signed integers.</para>
               <para>Result value:</para>
               <para>Target elements are obtained by 
-              <phrase revisionflag="added">truncating</phrase><phrase revisionflag="deleted">converting</phrase>
+              <phrase>truncating</phrase>
               the source
               elements to the signed integers as follows:</para>
               <itemizedlist>
@@ -7577,7 +7545,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               integers.</para>
               <para>Result value:</para>
               <para>The even target elements are obtained by 
-              <phrase revisionflag="added">truncating</phrase><phrase revisionflag="deleted">converting</phrase>
+              <phrase>truncating</phrase>
               the
               source elements to signed integers as follows:</para>
               <para>Target elements 0 and 2 contain the converted values of the
@@ -7602,7 +7570,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               integers.</para>
               <para>Result value:</para>
               <para>The odd target elements are obtained by 
-              <phrase revisionflag="added">truncating</phrase><phrase revisionflag="deleted">converting</phrase>
+              <phrase>truncating</phrase>
               the
               source elements to signed integers as follows:</para>
               <para>Target elements 1 and 3 contain the converted values of the
@@ -7710,7 +7678,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry>
               <para>Purpose:</para>
-              <para revisionflag="changed">Left shifts a double vector (that is, two concatenated
+              <para>Left shifts a double vector (that is, two concatenated
               vectors) by a given number of bytes. For vec_sld being performed
               on the vector bool and floating-point types, the result is
               undefined, when the specified shift count is not a multiple of
@@ -7841,7 +7809,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               vector unsigned short, const int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
@@ -7958,7 +7926,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>Purpose:</para>
               <para>Left shifts a vector by a given number of bits.</para>
               <para>Result value:</para>
-              <para revisionflag="changed">The result is the contents of ARG1, shifted left by the
+              <para>The result is the contents of ARG1, shifted left by the
               number of bits specified by the three least-significant bits of
               ARG2. The bits that are shifted out are replaced by zeros. The
               shift count must have been replicated into all bytes of the shift
@@ -8001,7 +7969,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               unsigned char);</para>
             </entry>
           </row>
-          <row revisionflag="changed">
+          <row>
             <entry>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
@@ -8011,7 +7979,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               vector unsigned char);</para>
             </entry>
           </row>
-          <row revisionflag="changed">
+          <row>
             <entry>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
@@ -8246,7 +8214,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_SLV (ARG1, ARG2)</para>
 	      <para>POWER ISA 3.0</para>
@@ -8269,7 +8237,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               X<subscript>i</subscript>.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -8427,7 +8395,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector float vec_splat (vector float, const int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
@@ -8674,7 +8642,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector float vec_splats (float);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
@@ -8901,7 +8869,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>The result is the contents of ARG1, shifted right by the
               number of bits specified by the 3 least-significant bits of ARG2.
               The bits that are shifted out are replaced by zeros.
-              <phrase  revisionflag="added">The shift
+              <phrase>The shift
               count must have been replicated into all bytes of the shift count
               specification.</phrase></para>
             </entry>
@@ -8942,7 +8910,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               unsigned char);</para>
             </entry>
           </row>
-          <row revisionflag="changed">
+          <row>
             <entry>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
@@ -8952,7 +8920,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               vector unsigned char);</para>
             </entry>
           </row>
-          <row revisionflag="changed">
+          <row>
             <entry>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
               </para>
@@ -9187,7 +9155,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_SRV (ARG1, ARG2)</para>
 	      <para>POWER ISA 3.0</para>
@@ -9214,7 +9182,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
 	      S<subscript>i</subscript>.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -9671,7 +9639,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               signed int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_TEST_DATA_CLASS (ARG1, ARG2)</para>
 	      <para>POWER ISA 3.0</para>
@@ -9688,7 +9656,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <xref linkend="dbdoclet.50655245_81283" />.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -9697,7 +9665,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -9748,7 +9716,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>If ARG1 is an integer vector, the value of each element of
               the result is the value of the corresponding element of the
               most-significant half of ARG1.</para>
-              <para revisionflag="added">If ARG1 is a floating-point vector, the value of each
+              <para>If ARG1 is a floating-point vector, the value of each
               element of the result is the value of the corresponding element
               of the most-significant half of ARG1, widened to the result
               precision.</para>
@@ -9846,7 +9814,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector double vec_unpackh (vector float);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
@@ -9868,7 +9836,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>If ARG1 is an integer vector, the value of each element of
               the result is the value of the corresponding element of the
               least-significant half of ARG1.</para>
-              <para revisionflag="added">If ARG1 is a floating-point vector, the value of each
+              <para>If ARG1 is a floating-point vector, the value of each
               element of the result is the value of the corresponding element
               of the least-significant half of ARG, widened to the result
               precision.</para>
@@ -9923,7 +9891,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector unsigned int vec_unpackl (vector pixel);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -9966,7 +9934,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector double vec_unpackl (vector float);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
@@ -9986,7 +9954,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               of unsigned integers.</para>
               <para>Result value:</para>
               <para>Target elements are obtained by 
-              <phrase  revisionflag="added">truncating</phrase><phrase  revisionflag="deleted">converting</phrase>
+              <phrase>truncating</phrase>
               the respective
               source elements to unsigned integers.</para>
             </entry>
@@ -10018,7 +9986,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               of unsigned integers.</para>
               <para>Result value:</para>
               <para>Target elements are obtained by 
-              <phrase  revisionflag="added">truncating</phrase><phrase  revisionflag="deleted">converting</phrase>
+              <phrase>truncating</phrase>
               the source
               elements to the unsigned integers as follows:</para>
               <itemizedlist>
@@ -10050,7 +10018,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               integers.</para>
               <para>Result value:</para>
               <para>The even target elements are obtained by 
-              <phrase  revisionflag="added">truncating</phrase><phrase  revisionflag="deleted">converting</phrase>
+              <phrase>truncating</phrase>
               the
               source elements to unsigned integers as follows:</para>
               <para>Target elements 0 and 2 contain the converted values of the
@@ -10075,7 +10043,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               integers.</para>
               <para>Result value:</para>
               <para>The odd target elements are obtained by 
-              <phrase  revisionflag="added">truncating</phrase><phrase  revisionflag="deleted">converting</phrase>
+              <phrase>truncating</phrase>
               the
               source elements to unsigned integers as follows:</para>
               <para>Target elements 1 and 3 contain the converted values of the
@@ -10215,7 +10183,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector float vec_xl (signed long long, float *);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
@@ -10353,7 +10321,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector float vec_xl_be (signed long long, float *);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
@@ -10363,7 +10331,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector _Float16 vec_xl_be (signed long long, _Float16 *);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_XL_LEN (ARG1, ARG2)</para>
 	      <para>POWER ISA 3.0</para>
@@ -10384,7 +10352,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               multiple of the vector element size.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -10393,7 +10361,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -10402,7 +10370,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -10410,7 +10378,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector signed int vec_xl_len (signed int *, size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -10419,7 +10387,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -10428,7 +10396,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -10437,7 +10405,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -10446,7 +10414,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -10455,7 +10423,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -10464,7 +10432,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -10473,7 +10441,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -10481,7 +10449,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector double vec_xl_len (double *, size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -10489,7 +10457,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector float vec_xl_len (float *, size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -10497,7 +10465,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>vector _Float16 vec_xl_len (_Float16 *, size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_XL_LEN_R (ARG1, ARG2)</para>
 	      <para>POWER ISA 3.0</para>
@@ -10521,7 +10489,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               multiple of the vector element size.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -10794,7 +10762,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>void vec_xst (vector float, signed long long, float *);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
@@ -10934,7 +10902,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>void vec_xst_be (vector float, signed long long, float *);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
               <para>Phased in.<footnoteref linkend="dbdoclet.50655245_taba2fn" />
@@ -10945,7 +10913,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               *);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_XST_LEN (ARG1, ARG2, ARG3)</para>
 	      <para>POWER ISA 3.0</para>
@@ -10967,7 +10935,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               multiple of the vector element size.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -10976,7 +10944,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -10985,7 +10953,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -10994,7 +10962,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -11003,7 +10971,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -11012,7 +10980,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               *, size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -11021,7 +10989,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               __int128 *, size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -11030,7 +10998,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               *, size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -11039,7 +11007,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               long *, size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -11048,7 +11016,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -11057,7 +11025,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -11065,7 +11033,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>void vec_xst_len (vector double, double *, size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -11073,7 +11041,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>void vec_xst_len (vector float, float *, size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -11082,7 +11050,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               size_t);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_XST_LEN_R (ARG1, ARG2, ARG3)</para>
 	      <para>POWER ISA 3.0</para>
@@ -11102,7 +11070,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               multiple of the vector element size.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
 	      <para>POWER ISA 3.0</para>
             </entry>
@@ -11691,7 +11659,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             <entry>
               <para>Phased in.<footnote xml:id="taba3fn"><para>This optional function is being 
               phased in, and it might not be available on all implementations.  
-              <phrase revisionflag="added">Phased-in interfaces are optional for the current generation of 
+              <phrase>Phased-in interfaces are optional for the current generation of 
               compliant systems.</phrase></para></footnote></para>
             </entry>
             <entry>
@@ -13464,7 +13432,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
       </tgroup>
     </table>
   </section>
-  <section xml:id="dbdoclet.50655245_74680" revisionflag="added">
+  <section xml:id="dbdoclet.50655245_74680">
     <title>PowerSIMD API Named Constants</title>
     <para>This section defines constants for use by the PowerSIMD vector
     programming operators. They may be defined either as macros or as named
@@ -15279,7 +15247,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
             </entry>
             <entry>
               <para>vector unsigned int vec_vpopcntw (vector 
-              <phrase  revisionflag="added">unsigned</phrase>
+              <phrase>unsigned</phrase>
               int);</para>
             </entry>
           </row>
@@ -16186,7 +16154,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
             </entry>
             <entry>
               <para>vector signed long long vec_vupklsw (vector 
-              <phrase  revisionflag="added">signed</phrase>
+              <phrase>signed</phrase>
               int);</para>
             </entry>
           </row>
@@ -16196,7 +16164,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
             </entry>
             <entry>
               <para>vector unsigned long long vec_vupklsw (vector 
-              <phrase  revisionflag="added">unsigned</phrase>
+              <phrase>unsigned</phrase>
               int);</para>
             </entry>
           </row>
@@ -17033,7 +17001,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               vector bool short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_INSERT (ARG1, ARG2, ARG3)</para>
             </entry>
@@ -17049,7 +17017,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               the vector to determine the element position.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -17058,7 +17026,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               char, signed int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -17067,7 +17035,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               signed int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -17076,7 +17044,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               vector bool long long, signed int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -17503,7 +17471,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               vector bool short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_MLADD (ARG1, ARG2, ARG3)</para>
             </entry>
@@ -17520,7 +17488,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               using modular arithmetic.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -17529,7 +17497,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               signed short, vector signed short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -17538,7 +17506,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned short, vector unsigned short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -17547,7 +17515,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               vector signed short, vector signed short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -17913,7 +17881,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               bool short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -17922,7 +17890,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               double);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -17931,7 +17899,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               long);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -17939,7 +17907,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               <para>vector float vec_or (vector bool int, vector float);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18104,7 +18072,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               vector bool short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18113,7 +18081,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               double);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18122,7 +18090,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               long);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18131,7 +18099,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               float);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18140,7 +18108,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_SEL (ARG1, ARG2, ARG3)</para>
             </entry>
@@ -18155,7 +18123,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               corresponding bit of ARG2.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18164,7 +18132,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned long long);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para>VEC_SLL (ARG1, ARG2)</para>
             </entry>
@@ -18179,7 +18147,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               count specification.</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18188,7 +18156,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18197,7 +18165,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18206,7 +18174,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18215,7 +18183,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18224,7 +18192,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18233,7 +18201,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18242,7 +18210,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18251,7 +18219,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18260,7 +18228,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18269,7 +18237,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18278,7 +18246,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18287,7 +18255,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18296,7 +18264,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18305,7 +18273,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18314,7 +18282,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               vector unsigned char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para></para>
             </entry>
@@ -18323,7 +18291,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               vector unsigned long long);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18332,7 +18300,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               vector unsigned short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18341,7 +18309,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               vector unsigned long long);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18350,7 +18318,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               vector unsigned short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18359,7 +18327,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               long, vector unsigned long long);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18368,7 +18336,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               long, vector unsigned short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18377,7 +18345,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18386,7 +18354,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18395,7 +18363,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned char);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18404,7 +18372,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18413,7 +18381,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18422,7 +18390,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18431,7 +18399,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18440,7 +18408,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               vector unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18460,7 +18428,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               <para>The result is the contents of ARG1, shifted right by the
               number of bits specified by the 3 least-significant bits of ARG2.
               The bits that are shifted out are replaced by zeros.
-              <phrase revisionflag="added">The shift
+              <phrase>The shift
               count must have been replicated into all bytes of the shift count
               specification.</phrase></para>
             </entry>
@@ -18492,7 +18460,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18501,7 +18469,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18510,7 +18478,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18519,7 +18487,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18555,7 +18523,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18564,7 +18532,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18573,7 +18541,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18582,7 +18550,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18591,7 +18559,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18600,7 +18568,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               vector unsigned long long);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18609,7 +18577,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               vector unsigned short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18618,7 +18586,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               long, vector unsigned long long);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18627,7 +18595,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               long, vector unsigned short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18636,7 +18604,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18672,7 +18640,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18681,7 +18649,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18690,7 +18658,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               unsigned short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -18699,7 +18667,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               vector unsigned int);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -19231,7 +19199,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               vector bool short);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -19240,7 +19208,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               double);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -19249,7 +19217,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               long);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>
@@ -19258,7 +19226,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               float);</para>
             </entry>
           </row>
-          <row revisionflag="added">
+          <row>
             <entry>
               <para> </para>
             </entry>

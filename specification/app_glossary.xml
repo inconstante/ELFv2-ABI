@@ -28,7 +28,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Application binary interface</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>AES</para>
               </entry>
@@ -36,7 +36,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Advanced Encryption Standard</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>API</para>
               </entry>
@@ -44,7 +44,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Application programming interface</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>ASCII</para>
               </entry>
@@ -52,7 +52,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>American Standard Code for Information Interchange</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>BCD</para>
               </entry>
@@ -68,7 +68,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Big-endian</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>COBOL</para>
               </entry>
@@ -84,7 +84,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Condition Register</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>CTR</para>
               </entry>
@@ -92,7 +92,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Count Register</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>DFP</para>
               </entry>
@@ -108,7 +108,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Double precision</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>DRN</para>
               </entry>
@@ -117,7 +117,7 @@ xml:id="dbdoclet.50655246_33489">
                 register.</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>DSCR</para>
               </entry>
@@ -149,7 +149,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Debug with arbitrary record format</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>EA</para>
               </entry>
@@ -165,7 +165,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Executable and Linking Format</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>EOS</para>
               </entry>
@@ -189,7 +189,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Floating-Point Status and Control Register</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>GCC</para>
               </entry>
@@ -197,7 +197,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>GNU Compiler Collection</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>GEP</para>
               </entry>
@@ -221,7 +221,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>General Purpose Register</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>HTM</para>
               </entry>
@@ -293,7 +293,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Little-endian</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>LEP</para>
               </entry>
@@ -317,7 +317,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Least-significant byte, least-significant bit</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>MB</para>
               </entry>
@@ -325,7 +325,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Megabyte</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>MSB</para>
               </entry>
@@ -333,7 +333,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Most-significant byte, most-significant bit</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>MSR</para>
               </entry>
@@ -341,7 +341,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Machine State Register</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>N/A</para>
               </entry>
@@ -357,7 +357,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Not-a-Number</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>NOP</para>
               </entry>
@@ -366,7 +366,7 @@ xml:id="dbdoclet.50655246_33489">
                 affect registers or generate bus activity.</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>NOR</para>
               </entry>
@@ -374,7 +374,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>In Boolean logic, the negation of a logical OR.</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>OE</para>
               </entry>
@@ -399,7 +399,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Position-independent executable</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>PIM</para>
               </entry>
@@ -423,7 +423,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Performance Monitor Registers</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>POSIX</para>
               </entry>
@@ -431,7 +431,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Portable Operating System Interface</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>PS</para>
               </entry>
@@ -439,7 +439,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Positive sign</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>RN</para>
               </entry>
@@ -448,7 +448,7 @@ xml:id="dbdoclet.50655246_33489">
                 FPSCR register.</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>RPG</para>
               </entry>
@@ -456,7 +456,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Report Program Generator</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>SHA</para>
               </entry>
@@ -488,7 +488,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Special Purpose Register</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>SVID</para>
               </entry>
@@ -528,7 +528,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Thread pointer</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>UE</para>
               </entry>
@@ -545,7 +545,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Unit of least precision</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>VDSO</para>
               </entry>
@@ -553,7 +553,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Virtual dynamic shared object</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>VE</para>
               </entry>
@@ -586,7 +586,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Vector scalar extension</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>XE</para>
               </entry>
@@ -595,7 +595,7 @@ xml:id="dbdoclet.50655246_33489">
                 FPSCR register.</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>XER</para>
               </entry>
@@ -603,7 +603,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Fixed-Point Exception Register</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>XNOR</para>
               </entry>
@@ -611,7 +611,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Exclusive NOR</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>XOR</para>
               </entry>
@@ -619,7 +619,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Exclusive OR</para>
               </entry>
             </row>
-            <row revisionflag="added">
+            <row>
               <entry>
                 <para>ZE</para>
               </entry>
