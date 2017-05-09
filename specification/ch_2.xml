@@ -4510,6 +4510,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         <citetitle>Power ISA</citetitle>, version 3.0 and "Fixed-Point Invalid
         Forms and Undefined Conditions" in 
         <citetitle>POWER9 Processor User's Manual.</citetitle></para>
+        <bridgehead>Floating-Point Registers</bridgehead>
         <para><anchor xml:id="dbdoclet.50655240_page33" xreflabel="" />In
         OpenPOWER-compliant processors, floating-point and vector functions are
         implemented using a unified vector-scalar model. As shown in 
