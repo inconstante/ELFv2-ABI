@@ -27,7 +27,7 @@ This can be accomplished with the following steps:
   ```
 
 The online version of the document can be found in the OpenPOWER Foundation
-Document library at [64-Bit ELF V2 ABI Specification](https://openpowerfoundation.org/?resource_lib=64-bit-elf-v2-abi-specification-power-architecture)
+Document library at [64-Bit ELF V2 ABI Specification](https://openpowerfoundation.org/?resource_lib=64-bit-elf-v2-abi-specification-power-architecture).
 
 The project which control the look and feel of the document is the 
 [Docs-Maven-Plugin project](https://github.com/OpenPOWERFoundation/Docs-Maven-Plugin).
