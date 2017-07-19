@@ -27,7 +27,7 @@ This can be accomplished with the following steps:
   ```
 
 The online version of the document can be found in the OpenPOWER Foundation
-Document library at [TBD](http://openpowerfoundation.org/?resource_lib=tbd)
+Document library at [64-Bit ELF V2 ABI Specification](https://openpowerfoundation.org/?resource_lib=64-bit-elf-v2-abi-specification-power-architecture)
 
 The project which control the look and feel of the document is the 
 [Docs-Maven-Plugin project](https://github.com/OpenPOWERFoundation/Docs-Maven-Plugin).
@@ -45,8 +45,9 @@ in the [Project Issues](https://github.com/OpenPOWERFoundation/ELFv2-ABI/issues)
 the community mailing list \([syssw-elfv2abi@mailinglist.openpowerfoundation.org](mailto://syssw-elfv2abi@mailinglist.openpowerfoundation.org)\).
 
 ## Contributions
-To contribute to the OpenPOWER Foundation template document project, contact Jeff Scheel \([scheel@us.ibm.com](mailto://scheel@us.ibm.com)\) or 
-Jeff Brown \([jeffdb@us.ibm.com](mailto://jeffdb@us.ibm.com)\).
+To contribute to the project, post patches to the community mailing list 
+\([syssw-elfv2abi@mailinglist.openpowerfoundation.org](mailto://syssw-elfv2abi@mailinglist.openpowerfoundation.org)\)
+where they will be reviewed and approved when ready.
 
 Contributions to this project should conform to the `Developer Certificate
 of Origin` as defined at http://elinux.org/Developer_Certificate_Of_Origin.
