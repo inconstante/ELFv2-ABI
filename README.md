@@ -39,6 +39,11 @@ can be found in the LICENSE file or online at
 
   http://www.gnu.org/licenses/fdl-1.3.txt
 
+## Community
+To comment on, propose changes, and engage in community dialogue, you can open issues 
+in the [Project Issues](https://github.com/OpenPOWERFoundation/ELFv2-ABI/issues) or post to
+the community mailing list \([syssw-elfv2abi@mailinglist.openpowerfoundation.org](mailto://syssw-elfv2abi@mailinglist.openpowerfoundation.org)\).
+
 ## Contributions
 To contribute to the OpenPOWER Foundation template document project, contact Jeff Scheel \([scheel@us.ibm.com](mailto://scheel@us.ibm.com)\) or 
 Jeff Brown \([jeffdb@us.ibm.com](mailto://jeffdb@us.ibm.com)\).
