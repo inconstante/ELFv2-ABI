@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2016 OpenPOWER Foundation
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+
+        <groupId>org.openpowerfoundation.docs</groupId>
+        <artifactId>workgroup-pom</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>elfv2-1_4-errata</artifactId>
+
+    <packaging>jar</packaging>
+ 
+   <name>OpenPOWER ELFv2 ABI 1.4 Errata</name>
+
+    <properties>
+        <!-- This is set by Jenkins according to the branch. -->
+        <release.path.name></release.path.name>
+        <comments.enabled>0</comments.enabled>
+    </properties>
+    <!-- ################################################ -->
+    <!-- USE "mvn clean generate-sources" to run this POM -->
+    <!-- ################################################ -->
+    <build>
+        <plugins>
+            <plugin>
+
+                <groupId>org.openpowerfoundation.docs</groupId>
+
+                <artifactId>openpowerdocs-maven-plugin</artifactId>
+                <!-- version set in ../pom.xml -->
+                <executions>
+                    <execution>
+                        <id>generate-webhelp</id>
+                        <goals>
+                            <goal>generate-webhelp</goal>
+                        </goals>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <!-- These parameters only apply to webhelp -->
+                            <enableDisqus>${comments.enabled}</enableDisqus>
+                            <disqusShortname>openpower-template-guide</disqusShortname>
+                            <enableGoogleAnalytics>1</enableGoogleAnalytics>
+                            <googleAnalyticsId>UA-17511903-1</googleAnalyticsId>
+                            <generateToc>
+                                appendix		toc,title
+                                article/appendix	nop
+                                article   		toc,title
+                                book      		toc,title,figure,table,example,equation
+                				book/appendix		nop
+                                book/chapter		nop
+                                chapter   		toc,title
+                				chapter/section 	nop
+                                section   		toc
+                                part      		toc,title
+                                reference 		toc,title
+                                set       		toc,title
+                            </generateToc>
+                            <!-- The following elements sets the autonumbering of sections in output for chapter numbers but no numbered sections-->
+                            <sectionAutolabel>1</sectionAutolabel>
+                            <tocSectionDepth>3</tocSectionDepth>
+                            <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
+
+                            <webhelpDirname>elfv2-1_4-errata</webhelpDirname>
+
+                            <pdfFilenameBase>elfv2-1_4-errata</pdfFilenameBase>
+
+                            <!-- TODO: Define the appropriate work product type.  These values are defined by the IPR Policy.
+                                       Consult with the Work Group Chair or a Technical Steering Committee member if you have
+                                       questions about which value to select.
+                                       
+                                       If no value is provided below, the document will default to "Work Group Notes".-->
+                            <workProduct>workgroupNotes</workProduct>
+                            <!-- workProduct>workgroupSpecification</workProduct -->
+                            <!-- workProduct>candidateStandard</workProduct -->
+                            <!-- workProduct>openpowerStandard</workProduct -->
+
+                            <!-- TODO: Set the appropriate security policy for the document.  For documents
+                                       which are not "public" this will affect the document title page and
+                                       create a vertical running ribbon on the internal margin of the
+                                       security status in all CAPS.  Values and definitions are formally
+                                       defined by the IPR policy.  A layman's definition follows:
+
+                                       public =	                this document may be shared outside the
+                                                                foundation and thus this setting must be
+                                                                used only when completely sure it allowed
+                                       foundationConfidential = this document may be shared freely with
+                                                                OpenPOWER Foundation members but may not be
+                                                                shared publicly
+                                       workgroupConfidential =  this document may only be shared within the
+                                                                work group and should not be shared with
+                                                                other Foundation members or the public
+
+                                       The appropriate starting security for a new document is "workgroupConfidential". -->
+                            <security>workgroupConfidential</security>
+                            <!-- security>foundationConfidential</security -->
+                            <!-- security>public</security -->
+
+                            <!-- TODO: Set the appropriate work flow status for the document.  For documents
+                                       which are not "published" this will affect the document title page
+                                       and create a vertical running ribbon on the internal margin of the 
+                                       security status in all CAPS.  Values and definitions are formally
+                                       defined by the IPR policy.  A layman's definition follows:
+
+                                           published = this document has completed all reviews and has
+                                                       been published
+                                           draft =     this document is actively being updated and has
+                                                       not yet been reviewed
+                                           review =    this document is presently being reviewed
+
+                                       The appropriate starting security for a new document is "draft". -->
+                            <documentStatus>draft</documentStatus>
+                            <!-- documentStatus>review</documentStatus -->
+                            <!--documentStatus>published</documentStatus -->                            
+
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- These parameters apply to pdf and webhelp -->
+                    <xincludeSupported>true</xincludeSupported>
+                    <sourceDirectory>.</sourceDirectory>
+                    <includes>
+                       bk_main.xml
+                    </includes>
+
+                    <!-- **TODO: Set to the correct project URL.  This likely needs input from the TSC.  -->
+                    <!-- canonicalUrlBase>http://openpowerfoundation.org/docs/template-guide/content</canonicalUrlBase -->
+                    <glossaryCollection>${basedir}/../glossary/glossary-terms.xml</glossaryCollection>
+                    <includeCoverLogo>1</includeCoverLogo>
+                    <coverUrl>www.openpowerfoundation.org</coverUrl>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

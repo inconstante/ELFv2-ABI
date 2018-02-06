@@ -1,0 +1,224 @@
+<!--
+  Copyright (c) 2016 OpenPOWER Foundation
+  
+  Licensed under the GNU Free Documentation License, Version 1.3;
+  with no Invariants Sections, with no Front-Cover Texts,
+  and with no Back-Cover Texts (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.gnu.org/licenses/fdl-1.3.txt
+
+-->
+<chapter xmlns="http://docbook.org/ns/docbook"
+xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en"
+xml:id="dbdoclet.50655240_pgfId-1156194">
+  
+<title>Errata</title>
+<para>The following statements in version 1.4 of the 64-Bit ELF V2 ABI
+Specification for the Power Architecture are incorrect, and should be
+considered corrected as specified.</para>
+<section>
+  <title>Section 2.1.2.2, Fundamental Types</title>
+  <para>
+    <emphasis role="underline">Problem</emphasis>:  Paragraph 2 contains a
+    statement that makes use of undefined behavior according to the C standard.
+  </para>
+  <para>
+    <blockquote>
+      <para>
+	Regardless of the alignment rules for the allocation of data types,
+	pointers to both aligned and unaligned data of each data type shall
+	return the value corresponding to a data type starting at the specified
+	address when accessed with either the pointer dereference operator * or
+	the array reference operator [ ].
+      </para>
+    </blockquote>
+  </para>
+  <para>
+    <emphasis role="underline">Resolution</emphasis>: Paragraph 2 is stricken
+    from the ABI.
+  </para>
+</section>
+<section>
+  <title>Section 6.1, Vector Data Types</title>
+  <para>
+    <emphasis role="underline">Problem 1</emphasis>:  The following sentence
+    likewise makes use of undefined behavior according to the C standard.
+  </para>
+  <para>
+    <blockquote>
+      <para>
+	While the preferred alignment for vector data types is a multiple of 16
+	bytes, pointers may point to vector objects at an arbitrary alignment.
+      </para>
+    </blockquote>
+  </para>
+  <para>
+    As stated in Table 2.12, Vector Types, <emphasis>all</emphasis> vector
+    types have quadword alignment; there is no "preferred" alignment.
+  </para>
+  <para>
+    <emphasis role="underline">Resolution 1</emphasis>: The offending sentence
+    is stricken from the ABI.
+  </para>
+  <para>
+    <emphasis role="underline">Problem 2</emphasis>: This section contains
+    another sentence and an example that likewise make use of undefined
+    behavior according to the C standard.  The offending sentence reads:
+  </para>
+  <para>
+    <blockquote>
+      <para>
+	The use of vector built-in functions such as vec_xl and vec_xst is
+	discouraged except for languages where no dereference operators are
+	available.
+      </para>
+    </blockquote>
+  </para>
+  <para>
+    The offending example appears directly afterwards.
+  </para>
+  <para>
+    <emphasis role="underline">Resolution 2</emphasis>: The offending sentence
+    is replaced as follows:
+  </para>
+  <para>
+    <blockquote>
+      <para>
+	The dereference operator * may <emphasis>not</emphasis> be used to
+	access data that is not aligned at least to a quadword boundary.
+	Built-in functions such as vec_xl and vec_xst are provided for
+	unaligned data access.
+      </para>
+    </blockquote>
+  </para>
+  <para>
+    The offending example is stricken from the ABI.
+  </para>
+</section>
+<section>
+  <title>Section 6.4, Vector Built-In Functions</title>
+  <para>
+    <emphasis role="underline">Problem 1</emphasis>: The Note following
+    Table 6.1 likewise encourages undefined behavior (in this context):
+  </para>
+  <para>
+    <blockquote>
+      <para>
+	Reminder: The assignment operator = is the preferred way to assign
+	values from one vector data type to another vector data type in
+	accordance with the C and C++ programming languages.
+      </para>
+    </blockquote>
+  </para>
+  <para>
+    <emphasis role="underline">Resolution 1</emphasis>: The Note is
+    stricken from the ABI.
+  </para>
+  <para>
+    <emphasis role="underline">Problem 2</emphasis>: The paragraph following
+    Table 6.2 ends with the following sentence that likewise encourages
+    undefined behavior:
+  </para>
+  <para>
+    <blockquote>
+      <para>
+	It is recommended that programmers use the assignment operator =
+	or the vector vec_xl and vec_xst vector built-in functions to access
+	unaligned data streams.
+      </para>
+    </blockquote>
+  </para>
+  <para>
+    <emphasis role="underline">Resolution 2</emphasis>: This sentence is
+    replaced as follows:
+  </para>
+  <para>
+    <blockquote>
+      <para>
+	It is recommended that programmers use the vec_xl and vec_xst
+	vector built-in functions to access unaligned data streams.
+      </para>
+    </blockquote>
+  </para>
+  <para>
+    <emphasis role="underline">Problem 3</emphasis>: The first sentence of
+    the second paragraph following Table 6.2 wrongly identifies vec_xl and
+    vec_xst as optional built-ins:
+  </para>
+  <para>
+    <blockquote>
+      <para>
+	The set of extended mnemonics in Table 6.3, "Optional Built-In Memory
+	Access Functions" [127] may be provided by some compilers and are not
+	required by the Power SIMD programming interfaces.
+      </para>
+    </blockquote>
+  </para>
+  <para>
+    The title of Table 6.3 likewise calls these optional.
+  </para>
+  <para>
+    <emphasis role="underline">Resolution 3</emphasis>: The title of Table
+    6.3 is changed to "VSX Memory Access Built-In Functions", and this
+    sentence is replaced as follows:
+  </para>
+  <para>
+    <blockquote>
+      <para>
+	The built-in functions in Table 6.3, "VSX Memory Access Built-In
+	Functions" [127] provide unaligned access to data in memory that
+	is to be copied to or from a variable having vector data type.
+      </para>
+    </blockquote>
+  </para>
+  <para>
+    <emphasis role="underline">Problem 4</emphasis>: The second paragraph
+    following Table 6.2 contains one sentence that likewise encourages
+    undefined behavior, and another sentence that is simply incorrect:
+  </para>
+  <para>
+    <blockquote>
+      <para>
+	In particular, the assignment operator = will have the same effect
+	of copying values between vector data types and provides a preferable
+	method to assign values while giving the compiler more freedom to
+	optimize data allocation.  The only use for these functions is to
+	support some coding patterns enabling big-endian vector layout code
+	sequences in both big-endian and little-endian environments.
+      </para>
+    </blockquote>
+  </para>
+  <para>
+    The second sentence applies to functions in table 6.4, not 6.3.
+  </para>
+  <para>
+    <emphasis role="underline">Resolution 4</emphasis>: The offending
+    sentences are stricken from the ABI.
+  </para>
+</section>
+<section>
+  <title>
+    Section 6.4.1, Big-Endian Vector Layout in Little-Endian Environments
+  </title>
+  <para>
+    <emphasis role="underline">Problem</emphasis>: Table 6.8, and the
+    sentence preceding it, wrongly identify the vec_xl and vec_xst
+    built-in functions as optional.
+  </para>
+  <para>
+    <blockquote>
+      <para>
+	See Table 6.8, "Optional Built-In Memory Access Functions (BE Layout
+	in LE Mode)" [129].
+      </para>
+    </blockquote>
+  </para>
+  <para>
+    <emphasis role="underline">Resolution</emphasis>: Table 6.8 is renamed
+    "VSX Built-In Memory Access Functions (BE Layout in LE Mode)" and
+    referenced thus in the preceding sentence.
+  </para>
+</section>
+</chapter>
