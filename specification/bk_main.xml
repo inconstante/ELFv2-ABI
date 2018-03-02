@@ -37,7 +37,7 @@
     </author>
     <copyright>
       <!-- TODO: Keep second year accurate for latest publish -->
-      <year>2014-2017</year>
+      <year>2014-2018</year>
       <holder>OpenPOWER Foundation</holder>
     </copyright>
     <copyright>
@@ -57,7 +57,7 @@
       <holder>Freescale Semiconductor, Inc</holder>
     </copyright>
     <!-- TODO: Set the correct document releaseinfo -->
-    <releaseinfo>Revision 1.4</releaseinfo>
+    <releaseinfo>Revision 1.5 draft</releaseinfo>
     <productname>OpenPOWER</productname>
     <pubdate/>
 
@@ -93,6 +93,16 @@
 
     <revhistory>
       <!-- TODO: Set the initial version information and clear any old information out -->
+      <revision>
+          <date>2018-03-02</date>
+          <revdescription>
+            <itemizedlist spacing="compact">
+              <listitem>
+                <para>Revision 1.5: POWER10 support.</para>
+              </listitem>
+            </itemizedlist>
+          </revdescription>
+      </revision>
       <revision>
           <date>2017-05-10</date>
           <revdescription>

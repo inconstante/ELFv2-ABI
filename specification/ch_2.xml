@@ -2065,11 +2065,6 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         order encountered, to ensure consistent mapping. When using variables
         individually, more strict alignment may be imposed if it has
         optimization benefits.</para>
-        <para>Regardless of the alignment rules for the allocation of data
-        types, pointers to both aligned and unaligned data of each data type
-        shall return the value corresponding to a data type starting at the
-        specified address when accessed with either the pointer dereference
-        operator * or the array reference operator [ ].</para>
 
         <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_49259">
           <?dbfo keep-together="always" ?>

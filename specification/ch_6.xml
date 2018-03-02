@@ -67,27 +67,15 @@ xml:id="dbdoclet.50655244_pgfId-1095944">
     static, auto, and register storage.</para>
     <para>Pointers to vector types are defined like pointers of other C/C++
     types. Pointers to objects may be defined to have const and volatile
-    properties. While the preferred alignment for vector data types is a
-    multiple of 16 bytes, pointers may point to vector objects at an arbitrary
-    alignment.</para>
+    properties.</para>
     <para>The preferred way to access vectors at an application-defined address
     is by using vector pointers and the C/C++ dereference operator *. Similar
     to other C /C++ data types, the array reference operator [ ] may be used to
     access vector objects with a vector pointer with the usual definition to
-    access the n-th vector element from a vector pointer. The use of vector
-    built-in functions such as vec_xl and vec_xst is discouraged except for
-    languages where no dereference operators are available.</para>
-    <programlisting>vector char vca;
-vector char vcb;
-vector int via;
-int a[4];
-void *vp;
- 
-via = *(vector int *) &amp;a[0];
-vca = (vector char) via;
-vcb = vca;
-vca = *(vector char *)vp;
-*(vector char *)&amp;a[0] = vca;</programlisting>
+    access the n-th vector element from a vector pointer. The dereference
+    operator * may <emphasis>not</emphasis> be used to access data that is
+    not aligned at least to a quadword boundary.  Built-in functions such as
+    vec_xl and vec_xst are provided for unaligned data access.</para>
     <para>Compilers are expected to recognize and optimize multiple operations
     that can be optimized into a single hardware instruction. For example, a
     load and splat hardware instruction might be generated for the following
@@ -578,12 +566,6 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
         </tbody>
       </tgroup>
     </table>
-    <note>
-      <para><emphasis role="bold">Reminder</emphasis>: The assignment operator = is the
-      preferred way to assign values from one vector data type to
-      another vector data type in accordance with the C and C++
-      programming languages.</para>
-    </note>
     <para>&#160;</para>
     <bridgehead>Extended Data Movement Functions</bridgehead>
       <para>The built-in functions in 
@@ -702,25 +684,20 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
       of these sequences in new code is discouraged and usually results in
       worse performance. It is recommended (but not required) that compilers
       issue a warning when these functions are used in little-endian
-      environments. It is recommended that programmers use the assignment
-      operator = or the vector vec_xl and vec_xst vector built-in functions to
-      access unaligned data streams.</para>
-      <para>The set of extended mnemonics in 
-      <xref linkend="dbdoclet.50655244_62451" /> may be provided by some
-      compilers and are not required by the Power SIMD programming interfaces.
-      In particular, the assignment operator = will have the same effect of
-      copying values between vector data types and provides a preferable method
-      to assign values while giving the compiler more freedom to optimize data
-      allocation. The only use for these functions is to support some coding
-      patterns enabling big-endian vector layout code sequences in both
-      big-endian and little-endian environments. Memory access built-in
+      environments. It is recommended that programmers use the vec_xl and
+      vec_xst vector built-in functions to access unaligned data
+      streams.</para>
+      <para>The built-in functions in
+      <xref linkend="dbdoclet.50655244_62451" /> provide unaligned access to
+      data in memory that is to be copied to or from a variable having vector
+      data type.  Memory access built-in
       functions that specify a vector element format (that is, the w4 and d2
       forms) are deprecated. They will be phased out in future versions of this
       specification because vec_xl and vec_xst provide overloaded
       layout-specific memory access based on the specified vector data
       type.</para>
       <table frame="all" pgwide="1" xml:id="dbdoclet.50655244_62451">
-        <title>Optional Built-In Memory Access Functions</title>
+        <title>VSX Memory Access Built-In Functions</title>
         <tgroup cols="3">
           <colspec colname="c1" colwidth="15*" align="center" />
           <colspec colname="c2" colwidth="35*" align="center" />
@@ -1137,7 +1114,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
       <xref linkend="dbdoclet.50655244_21918" />.</para>
       <para> </para>
       <table frame="all" pgwide="1" xml:id="dbdoclet.50655244_21918">
-        <title>Optional Built-In Memory Access Functions (BE Layout in LE
+        <title>VSX Built-In Memory Access Functions (BE Layout in LE
         Mode)</title>
         <tgroup cols="3">
           <colspec colname="c1" colwidth="15*" align="center"/>
