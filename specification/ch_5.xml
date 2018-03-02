@@ -68,10 +68,10 @@ xml:id="dbdoclet.50655243_pgfId-1099317">
           <para>typedef long ptrdiff_t;</para>
         </listitem>
         <listitem>
-          <para>typedef unsigned <phrase>long</phrase> size_t;</para>
+          <para>typedef unsigned long size_t;</para>
         </listitem>
         <listitem>
-          <para>typedef <phrase>int</phrase> wchar_t;</para>
+          <para>typedef int wchar_t;</para>
         </listitem>
         <listitem>
           <para>typedef int sig_atomic_t;</para>

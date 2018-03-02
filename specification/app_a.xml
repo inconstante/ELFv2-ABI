@@ -812,11 +812,11 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
           </row>
           <row>
             <entry>
-              <para><phrase>Phased in.</phrase><footnote xml:id="dbdoclet.50655245_taba2fn">
+              <para>Phased in.<footnote xml:id="dbdoclet.50655245_taba2fn">
                 <para>This optional function is being phased in, and it might not be 
                 available on all implementations.  
-                <phrase>Phased-in interfaces are optional
-                for the current generation of compliant systems.</phrase></para>
+                Phased-in interfaces are optional
+                for the current generation of compliant systems.</para>
               </footnote></para>
             </entry>
             <entry>
@@ -2324,7 +2324,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>Result value:</para>
               <para>The value of each element of the result is the closest
               floating-point 
-              <phrase>approximation</phrase>
+              approximation
               of the value of the corresponding
               element of ARG1 divided by 2 to the power of ARG2, which should
               be in the range 0&#8211;31.</para>
@@ -2356,8 +2356,8 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>Converts a real vector into a vector signed int.</para>
               <para>Result value:</para>
               <para>The value of each element of the result is the saturated
-              <phrase>signed-integer</phrase> value<phrase>, 
-              truncated towards zero,</phrase> obtained by
+              signed-integer value, 
+              truncated towards zero, obtained by
               multiplying the corresponding element of ARG1 by 2 to the power
               of ARG2, which should be in the range 0&#8211;31.</para>
             </entry>
@@ -2379,8 +2379,8 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>Converts a real vector into a vector unsigned int.</para>
               <para>Result value:</para>
               <para>The value of each element of the result is the saturated
-              <phrase>unsigned-integer</phrase> value<phrase>, 
-              truncated towards zero,</phrase> obtained by
+              unsigned-integer value, 
+              truncated towards zero, obtained by
               multiplying the corresponding element of ARG1 by 2 to the power
               of ARG2, which should be in the range 0&#8211;31.</para>
             </entry>
@@ -2519,9 +2519,9 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             <entry>
               <para>Purpose:</para>
               <para>Converts 
-              <phrase>an input vector</phrase>
+              an input vector
               to a vector of double-precision
-              <phrase>floating-point</phrase> numbers.</para>
+              floating-point numbers.</para>
               <para>Result value:</para>
               <para>Target elements 0 and 1 are set to the converted values of
               source elements 0 and 1.</para>
@@ -2558,9 +2558,9 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             <entry>
               <para>Purpose:</para>
               <para>Converts 
-              <phrase>an input vector</phrase>
+              an input vector
               to a vector of double-precision
-              <phrase>floating-point</phrase> numbers.</para>
+              floating-point numbers.</para>
               <para>Result value:</para>
               <para>Target elements 0 and 1 are set to the converted values of
               source elements 2 and 3.</para>
@@ -2680,7 +2680,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry>
               <para>vector signed int vec_eqv (vector signed int, vector 
-              <phrase>signed</phrase>
+              signed
               int);</para>
             </entry>
           </row>
@@ -2735,7 +2735,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry>
               <para>vector signed short vec_eqv (vector signed short, vector
-              <phrase>signed</phrase> short);</para>
+              signed short);</para>
             </entry>
           </row>
           <row>
@@ -3386,7 +3386,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector <phrase>float</phrase> 
+              <para>vector float 
               vec_float (vector signed int);</para>
             </entry>
           </row>
@@ -3395,7 +3395,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para> </para>
             </entry>
             <entry>
-              <para>vector <phrase>float</phrase> 
+              <para>vector float
               vec_float (vector unsigned int);</para>
             </entry>
           </row>
@@ -3406,7 +3406,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             <entry>
               <para>Purpose:</para>
               <para>Converts 
-              <phrase>an input vector</phrase>
+              an input vector
               to a vector of single-precision numbers.</para>
               <para>Result value:</para>
               <para>Target elements are obtained by converting the source
@@ -3703,7 +3703,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             </entry>
             <entry>
               <para>vector signed short vec_insert (signed short, vector signed
-              short<phrase>,</phrase>
+              short,
               signed int);</para>
             </entry>
           </row>
@@ -5851,7 +5851,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>Packs information from each element of two vectors into the
               result vector.</para>
               <para>Result value:</para>
-              <para><phrase>For integer types, the</phrase>
+              <para>For integer types, the
               value of each element of the result
               vector is taken from the low-order half of the corresponding
               element of the result of concatenating ARG1 and ARG2.</para>
@@ -7482,7 +7482,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               signed integers.</para>
               <para>Result value:</para>
               <para>Target elements are obtained by 
-              <phrase>truncating</phrase>
+              truncating
               the respective
               source elements to signed integers.</para>
             </entry>
@@ -7513,7 +7513,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               signed integers.</para>
               <para>Result value:</para>
               <para>Target elements are obtained by 
-              <phrase>truncating</phrase>
+              truncating
               the source
               elements to the signed integers as follows:</para>
               <itemizedlist>
@@ -7545,7 +7545,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               integers.</para>
               <para>Result value:</para>
               <para>The even target elements are obtained by 
-              <phrase>truncating</phrase>
+              truncating
               the
               source elements to signed integers as follows:</para>
               <para>Target elements 0 and 2 contain the converted values of the
@@ -7570,7 +7570,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               integers.</para>
               <para>Result value:</para>
               <para>The odd target elements are obtained by 
-              <phrase>truncating</phrase>
+              truncating
               the
               source elements to signed integers as follows:</para>
               <para>Target elements 1 and 3 contain the converted values of the
@@ -8869,9 +8869,9 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               <para>The result is the contents of ARG1, shifted right by the
               number of bits specified by the 3 least-significant bits of ARG2.
               The bits that are shifted out are replaced by zeros.
-              <phrase>The shift
+              The shift
               count must have been replicated into all bytes of the shift count
-              specification.</phrase></para>
+              specification.</para>
             </entry>
           </row>
           <row>
@@ -9954,7 +9954,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               of unsigned integers.</para>
               <para>Result value:</para>
               <para>Target elements are obtained by 
-              <phrase>truncating</phrase>
+              truncating
               the respective
               source elements to unsigned integers.</para>
             </entry>
@@ -9986,7 +9986,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               of unsigned integers.</para>
               <para>Result value:</para>
               <para>Target elements are obtained by 
-              <phrase>truncating</phrase>
+              truncating
               the source
               elements to the unsigned integers as follows:</para>
               <itemizedlist>
@@ -10018,7 +10018,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               integers.</para>
               <para>Result value:</para>
               <para>The even target elements are obtained by 
-              <phrase>truncating</phrase>
+              truncating
               the
               source elements to unsigned integers as follows:</para>
               <para>Target elements 0 and 2 contain the converted values of the
@@ -10043,7 +10043,7 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
               integers.</para>
               <para>Result value:</para>
               <para>The odd target elements are obtained by 
-              <phrase>truncating</phrase>
+              truncating
               the
               source elements to unsigned integers as follows:</para>
               <para>Target elements 1 and 3 contain the converted values of the
@@ -11659,8 +11659,8 @@ xml:id="dbdoclet.50655245_pgfId-1138128">
             <entry>
               <para>Phased in.<footnote xml:id="taba3fn"><para>This optional function is being 
               phased in, and it might not be available on all implementations.  
-              <phrase>Phased-in interfaces are optional for the current generation of 
-              compliant systems.</phrase></para></footnote></para>
+              Phased-in interfaces are optional for the current generation of 
+              compliant systems.</para></footnote></para>
             </entry>
             <entry>
               <para>int vec_all_lt (vector unsigned long long, vector unsigned
@@ -15247,7 +15247,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
             </entry>
             <entry>
               <para>vector unsigned int vec_vpopcntw (vector 
-              <phrase>unsigned</phrase>
+              unsigned
               int);</para>
             </entry>
           </row>
@@ -16154,7 +16154,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
             </entry>
             <entry>
               <para>vector signed long long vec_vupklsw (vector 
-              <phrase>signed</phrase>
+              signed
               int);</para>
             </entry>
           </row>
@@ -16164,7 +16164,7 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
             </entry>
             <entry>
               <para>vector unsigned long long vec_vupklsw (vector 
-              <phrase>unsigned</phrase>
+              unsigned
               int);</para>
             </entry>
           </row>
@@ -18428,9 +18428,9 @@ vec_xst_be(result,0, &amp;le_result);</programlisting>
               <para>The result is the contents of ARG1, shifted right by the
               number of bits specified by the 3 least-significant bits of ARG2.
               The bits that are shifted out are replaced by zeros.
-              <phrase>The shift
+              The shift
               count must have been replicated into all bytes of the shift count
-              specification.</phrase></para>
+              specification.</para>
             </entry>
           </row>
           <row>

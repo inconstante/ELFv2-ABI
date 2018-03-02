@@ -5383,7 +5383,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           </listitem>
           <listitem>
             <para>Pad an aggregate or union smaller than one doubleword in
-            size<phrase>, but having a non-zero size,</phrase>
+            size, but having a non-zero size,
             so that it is in the
             least-significant bits of the doubleword.
             Pad all others, if
@@ -5552,8 +5552,8 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       a number of GPRs are skipped, in allocation order, commensurate to the
       size of the corresponding in-memory representation of the passed
       argument's type.</para>
-      <para><phrase>The parameter size is always rounded up to the next multiple of a
-      doubleword.</phrase><footnote xml:id="pgfId-1184124" >
+      <para>The parameter size is always rounded up to the next multiple of a
+      doubleword.<footnote xml:id="pgfId-1184124" >
         <para>Consequently, each parameter of a non-zero size is allocated to
         at least one doubleword.</para>
       </footnote></para>
