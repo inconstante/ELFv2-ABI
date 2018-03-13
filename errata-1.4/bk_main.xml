@@ -82,11 +82,11 @@
     <revhistory>
       <!-- TODO: Set the initial version information and clear any old information out -->
       <revision>
-        <date>2018-02-27</date>
+        <date>2018-03-13</date>
         <revdescription>
           <itemizedlist spacing="compact">
             <listitem>
-              <para>Initial document creation</para>
+              <para>Initial document publication</para>
             </listitem>
           </itemizedlist>
         </revdescription>

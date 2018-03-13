@@ -112,9 +112,9 @@
                                                                 other Foundation members or the public
 
                                        The appropriate starting security for a new document is "workgroupConfidential". -->
-                            <security>workgroupConfidential</security>
+                            <!-- security>workgroupConfidential</security -->
                             <!-- security>foundationConfidential</security -->
-                            <!-- security>public</security -->
+                            <security>public</security>
 
                             <!-- TODO: Set the appropriate work flow status for the document.  For documents
                                        which are not "published" this will affect the document title page
@@ -130,8 +130,8 @@
 
                                        The appropriate starting security for a new document is "draft". -->
                             <!-- documentStatus>draft</documentStatus -->
-                            <documentStatus>review</documentStatus>
-                            <!-- documentStatus>published</documentStatus -->
+                            <!-- documentStatus>review</documentStatus -->
+                            <documentStatus>published</documentStatus>
                         </configuration>
                     </execution>
                 </executions>
