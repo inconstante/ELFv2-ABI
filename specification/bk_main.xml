@@ -94,11 +94,11 @@
     <revhistory>
       <!-- TODO: Set the initial version information and clear any old information out -->
       <revision>
-          <date>2018-03-02</date>
+          <date>2018-03-14</date>
           <revdescription>
             <itemizedlist spacing="compact">
               <listitem>
-                <para>Revision 1.5: POWER10 support.</para>
+                <para>Revision 1.5a: PC-relative addressing first draft.</para>
               </listitem>
             </itemizedlist>
           </revdescription>

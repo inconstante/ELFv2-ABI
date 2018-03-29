@@ -796,14 +796,18 @@ PPC_FEATURE2_HAS_IEEE128  0x00400000 /* VSX IEEE Binary Float 128-bit */</progra
       code that contains any of the various R_PPC64_GOT* relocations or when
       linking code that references the .TOC. address. The GOT consists of an
       8-byte header that contains the TOC base (the first TOC base when
-      multiple TOCs are present), followed by an array of 8-byte addresses. The
-      link editor shall emit dynamic relocations as appropriate for each entry
-      in the GOT. At runtime, the dynamic linker will apply these relocations
-      after the addresses of all memory segments are known (and thus the
-      addresses of all symbols). While the GOT may be appear to be an array of
-      absolute addresses, this ABI does not preclude the GOT containing
-      nonaddress entries and specifies the presence of nonaddress tls_index
-      entries.</para>
+      multiple TOCs are present), followed by an array of 8-byte addresses.
+      <phrase revisionflag="added">
+	The 8-byte header value is undefined when all linked compilation units
+	are PC-relative.
+      </phrase>
+      The link editor shall emit dynamic relocations as appropriate for each
+      entry in the GOT. At runtime, the dynamic linker will apply these
+      relocations after the addresses of all memory segments are known (and
+      thus the addresses of all symbols). While the GOT may be appear to be an
+      array of absolute addresses, this ABI does not preclude the GOT
+      containing nonaddress entries and specifies the presence of nonaddress
+      tls_index entries.</para>
       <para>Absolute addresses are generated for all GOT relocations by the
       dynamic linker before giving control to general application code.
       (However, IFUNC resolution functions may be invoked before relocation is
@@ -812,7 +816,10 @@ PPC_FEATURE2_HAS_IEEE128  0x00400000 /* VSX IEEE Binary Float 128-bit */</progra
       the executable or shared objects in a different process image. After the
       initial mapping of the process image by the dynamic linker, memory
       segments reside at fixed addresses for the life of a process.</para>
-      <para>The symbol .TOC. may be used to access the GOT or in TOC-relative
+      <para><phrase revisionflag="added">When at least one TOC-based
+      compilation unit is to be linked,</phrase>
+      <phrase revisionflag="changed">the</phrase>
+      symbol .TOC. may be used to access the GOT or in TOC-relative
       addressing to other data constructs, such as the procedure linkage table.
       The symbol may be offset by 0x8000 bytes, or another offset, from the
       start of the .got section. This offset allows the use of the full (64 KB)
@@ -826,8 +833,13 @@ PPC_FEATURE2_HAS_IEEE128  0x00400000 /* VSX IEEE Binary Float 128-bit */</progra
       <para>In PIC code, the TOC pointer r2 points to the TOC base, enabling
       easy reference. For static nonrelocatable modules, the GOT address is
       fixed and can be directly used by code.</para>
-      <para>All functions except leaf routines must load the value of the TOC
-      base into the TOC register r2.</para>
+      <para>All functions <phrase revisionflag="added">in TOC-based
+      compilation units</phrase> except leaf routines must load the value of
+      the TOC base into the TOC register r2.</para>
+      <para revisionflag="added">
+	Functions in PC-relative compilation units access GOT entries directly
+	using PC-relative addressing.
+      </para>
     </section>
     <section>
       <title>Function Addresses</title>
@@ -980,12 +992,19 @@ PPC_FEATURE2_HAS_IEEE128  0x00400000 /* VSX IEEE Binary Float 128-bit */</progra
   bl target
      .reloc ., R_PPC64_TOCSAVE, tocsaveloc
      nop</programlisting>
-        <orderedlist>
+        <orderedlist continuation="continues">
           <listitem>
-            <para>3. The caller has not set up r2 to hold the TOC pointer. This
+            <para>The caller has not set up r2 to hold the TOC pointer. This
             is indicated by use of a R_PPC64_REL24_NOTOC relocation (instead of
             R_PPC64_REL24) on the call instruction.</para>
           </listitem>
+	  <listitem revisionflag="added">
+	    <para>
+	      The caller is PC-relative and does not need to save the TOC
+	      pointer.  [To discuss: Do we need a relocation, or will we have
+	      a module-level bit the linker can detect?]
+	    </para>
+	  </listitem>
         </orderedlist>
         <para>In any scenario, the PLT call stub must transfer control to the
         function whose address is provided in the associated PLT entry. This
@@ -1033,6 +1052,15 @@ PPC_FEATURE2_HAS_IEEE128  0x00400000 /* VSX IEEE Binary Float 128-bit */</progra
   ld     r12,func@plt@l(r12)
   mtctr  r12
   bctr</programlisting>
+        <para revisionflag="added">
+	  A possible implementation for case 4 looks as follows:
+	</para>
+	<programlisting>pld     r12, func@plt@got@pcrel(0), 1
+mtctr   r12
+bctr</programlisting>	  
+        <para revisionflag="added">
+	  [To discuss: Is that the right assembly syntax?]
+	</para>
         <para>To support lazy binding, the link editor also provides a set of
         symbol resolver stubs, one for each PLT entry. Each resolver stub
         consists of a single instruction, which is usually a branch to a common
@@ -1103,10 +1131,12 @@ PPC_FEATURE2_HAS_IEEE128  0x00400000 /* VSX IEEE Binary Float 128-bit */</progra
   res_1: b PLTresolve
     ...</programlisting>
         <para>After resolution, the value of a PLT entry in the PLT is the
-        address of the function’s global entry point, unless the resolver can
-        determine that a module-local call occurs with a shared TOC value wherein
-        the TOC is shared between the caller and the callee.</para>
-        <para> </para>
+        address of the function’s global entry point, unless the resolver
+	can determine that a module-local call occurs with a shared TOC value
+	wherein the TOC is shared between the caller and the
+	<phrase revisionflag="changed">callee,</phrase>
+	<phrase revisionflag="added">or a module-local call occurs in a
+	PC-relative compilation unit. [?]</phrase></para>
       </section>
     </section>
   </section>

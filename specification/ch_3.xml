@@ -245,7 +245,9 @@ e_ident[EI_DATA]     ELFDATA2LSB  For all little-endian implementations.</progra
   </section>
   <section xml:id="dbdoclet.50655241_66700">
     <title>TOC</title>
-    <para>The TOC is part of the data segment of an executable program.</para>
+    <para>The TOC is part of the data segment of an executable program
+    <phrase revisionflag="added">built from at least one TOC-based object
+    file</phrase>.</para>
     <para>This section describes a common layout of the TOC in an executable
     file or shared object. Particular tools are not required to follow the
     layout specified here.</para>
@@ -280,19 +282,21 @@ e_ident[EI_DATA]     ELFDATA2LSB  For all little-endian implementations.</progra
     instruction of the two instruction form with a nop and rewriting the second
     instruction. Consequently, the TOC pointer must be live during the first
     and second instruction of a two-instruction reference.)</para>
-    <para>&#160;</para>
-    <bridgehead>Modules Containing Multiple TOCs</bridgehead>
-    <para>The link editor may create multiple TOCs. In such a case, the
-    constituent .got, .toc, .sdata, and .sbss sections are conceptually
-    repeated as necessary, with each TOC typically using a TOC pointer value
-    of its base plus 0x8000. Any constituent section of type SHT_NOBITS in
-    any TOC but the last is converted to type SHT_PROGBITS filled with
-    zeros.</para>
-    <para>When multiple TOCs are present, linking must take care to save,
-    initialize, and restore TOC pointers within a single module when calling
-    from one function to a second function using a different TOC pointer
-    value. Many of the same issues associated with a cross-module call apply
-    also to calls within a module but using different TOC pointers.</para>
+    <para revisionflag="deleted">&#160;</para>
+    <section>
+      <title revisionflag="changed">Modules Containing Multiple TOCs</title>
+      <para>The link editor may create multiple TOCs. In such a case, the
+      constituent .got, .toc, .sdata, and .sbss sections are conceptually
+      repeated as necessary, with each TOC typically using a TOC pointer value
+      of its base plus 0x8000. Any constituent section of type SHT_NOBITS in
+      any TOC but the last is converted to type SHT_PROGBITS filled with
+      zeros.</para>
+      <para>When multiple TOCs are present, linking must take care to save,
+      initialize, and restore TOC pointers within a single module when calling
+      from one function to a second function using a different TOC pointer
+      value. Many of the same issues associated with a cross-module call apply
+      also to calls within a module but using different TOC pointers.</para>
+    </section>
   </section>
   <section xml:id="dbdoclet.50655241_73385">
     <title>Symbol Table</title>
@@ -302,7 +306,9 @@ e_ident[EI_DATA]     ELFDATA2LSB  For all little-endian implementations.</progra
       resolved dynamically by an associated shared object will have a symbol
       table entry for that symbol. This entry will identify the symbol as
       undefined by setting the st_shndx member to SHN_UNDEF.</para>
-      <para>The OpenPOWER ABI uses the three most-significant bits in the
+      <para><phrase revisionflag="added">For TOC-based compilation
+      units,</phrase> <phrase revisionflag="changed">the</phrase> OpenPOWER
+      ABI uses the three most-significant bits in the
       symbol st_other field to specify the number of instructions between a
       function's global entry point and local entry point. The global entry
       point is used when it is necessary to set up the TOC pointer (r2) for the
@@ -2115,10 +2121,273 @@ my_func:
           </tbody>
         </tgroup>
       </informaltable>
+      <para revisionflag="added">
+	In the following figure, prefix34 specifies a 34-bit field split
+	between bits 14-31 and 48-63 of a doubleword.  The other bits
+	remain unchanged.  This is used by PC-relative load and store
+	instructions.
+      </para>
+      <informaltable frame="all" rowsep="0" colsep="0" revisionflag="added">
+        <tgroup cols="5">
+          <colspec colname="c1" colwidth="7*" />
+          <colspec colname="c2" colwidth="7*" />
+          <colspec colname="c3" colwidth="2*" />
+          <colspec colname="c4" colwidth="8*" />
+          <colspec colname="c5" colwidth="8*" />
+          <tbody>
+            <row>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+            </row>
+            <row>
+	      <entry align="left">
+		<para> </para>
+	      </entry>
+	      <entry align="right" colsep="1">
+		<para> </para>
+	      </entry>
+              <entry nameend="c5" namest="c3" align="center">
+                <para>prefix34</para>
+              </entry>
+            </row>
+            <row rowsep="1">
+              <entry align="left">
+                <para>0</para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para>13</para>
+              </entry>
+              <entry align="left">
+                <para>14</para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry align="right">
+                <para>31</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+            </row>
+            <row>
+	      <entry>
+		<para> </para>
+	      </entry>
+	      <entry>
+		<para> </para>
+	      </entry>
+	      <entry align="right" colsep="1">
+		<para> </para>
+	      </entry>
+              <entry nameend="c5" namest="c4" align="center">
+                <para>prefix34 (continued)</para>
+              </entry>
+            </row>
+            <row>
+              <entry align="left">
+                <para>32</para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para>47</para>
+              </entry>
+              <entry align="left">
+                <para>48</para>
+              </entry>
+              <entry align="right">
+                <para>63</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+      <para revisionflag="added">
+	In the following figure, prefix34ds is similar to prefix34, but is
+	really just 32 bits because the two least-significant bits must be
+	zero and are not really part of the field.  This is used, for example,
+	by the pldu instruction.  In addition to the use of this relocation
+	field with the DS forms, prefix34ds relocations are also used in
+	conjunction with DQ forms, such as the plq instruction.  In those
+	instances, the linker and assembler collaborate to create valid DQ
+	forms.  They raise an error if the specified offset does not meet the
+	constraints of a valid DQ instruction form displacement.
+      </para>
+      <informaltable frame="all" rowsep="0" colsep="0" revisionflag="added">
+        <tgroup cols="7">
+          <colspec colname="c1" colwidth="7*" />
+          <colspec colname="c2" colwidth="7*" />
+          <colspec colname="c3" colwidth="2*" />
+          <colspec colname="c4" colwidth="7*" />
+          <colspec colname="c5" colwidth="7*" />
+          <colspec colname="c6" colwidth="1*" />
+          <colspec colname="c7" colwidth="1*" />
+          <tbody>
+            <row>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+            </row>
+            <row>
+	      <entry align="left">
+		<para> </para>
+	      </entry>
+	      <entry align="right" colsep="1">
+		<para> </para>
+	      </entry>
+              <entry nameend="c7" namest="c3" align="center">
+                <para>prefix34ds</para>
+              </entry>
+            </row>
+            <row rowsep="1">
+              <entry align="left">
+                <para>0</para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para>13</para>
+              </entry>
+              <entry align="left">
+                <para>14</para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry align="right">
+                <para>31</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+            </row>
+            <row>
+	      <entry>
+		<para> </para>
+	      </entry>
+	      <entry>
+		<para> </para>
+	      </entry>
+	      <entry align="right" colsep="1">
+		<para> </para>
+	      </entry>
+              <entry nameend="c5" namest="c4" align="center" colsep="1">
+                <para>prefix34ds (continued)</para>
+              </entry>
+	      <entry>
+		<para> </para>
+	      </entry>
+	      <entry>
+		<para> </para>
+	      </entry>
+            </row>
+            <row>
+              <entry align="left">
+                <para>32</para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para>47</para>
+              </entry>
+              <entry align="left">
+                <para>48</para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para>61</para>
+              </entry>
+              <entry align="left">
+                <para>62</para>
+              </entry>
+              <entry align="right">
+                <para>63</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
     </section>
     <section xml:id="dbdoclet.50655241_51269">
       <title>Relocation Notations</title>
       <para>The following notations are used in the relocation table.</para>
+      <para revisionflag="added">
+	[There seem to be a number of missing notations in this table.  We
+	have #higher[a], #highest[a], and got, and perhaps the @ notation
+	could use further description.  Also, there is some usage of #high and
+	#higha instead of #hi and #ha, which I assume is a mistake.]
+      </para>
       <para> </para>
       <informaltable frame="none" rowsep="0" colsep="0">
         <tgroup cols="2">
@@ -2348,6 +2617,15 @@ my_func:
                 <para>Represents the offset of the symbol being relocated
                 relative to the TP.</para>
                 <para>tp + tprel = (S + A)</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>pcrel</para>
+              </entry>
+              <entry>
+                <para>Represents the offset of the symbol being relocated
+                relative to the current instruction address.</para>
               </entry>
             </row>
             <row>
@@ -4143,9 +4421,84 @@ my_func:
                 <para> </para>
               </entry>
             </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_PCREL34</para>
+              </entry>
+              <entry>
+                <para>256?</para>
+              </entry>
+              <entry>
+                <para>prefix34</para>
+              </entry>
+              <entry>
+                <para>@pcrel</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_PCREL34_DS</para>
+              </entry>
+              <entry>
+                <para>257?</para>
+              </entry>
+              <entry>
+                <para>prefix34ds*</para>
+              </entry>
+              <entry>
+                <para>@pcrel >> 2</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_GOT_PCREL34</para>
+              </entry>
+              <entry>
+                <para>258?</para>
+              </entry>
+              <entry>
+                <para>prefix34</para>
+              </entry>
+              <entry>
+                <para>@got@pcrel</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_GOT_PCREL34_DS</para>
+              </entry>
+              <entry>
+                <para>259?</para>
+              </entry>
+              <entry>
+                <para>prefix34ds*</para>
+              </entry>
+              <entry>
+                <para>@got@pcrel >> 2</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_PCREL_OPT</para>
+              </entry>
+              <entry>
+                <para>260?</para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+            </row>
           </tbody>
         </tgroup>
       </table>
+      <para revisionflag="added">
+	[To discuss:  Assuming we build up 64-bit PC-relative offsets into a
+	register using shifts/adds, we'll need the #lo, #ha, #higher[a],
+	#highest[a] relocs to be defined also.]
+      </para>
     </section>
     <section xml:id="dbdoclet.50655241_90220">
       <title>Relocation Descriptions</title>
@@ -4239,6 +4592,13 @@ my_func:
       associated with a global entry point.  See
       <xref linkend="dbdoclet.50655241_95185" /> for discussion of its
       use.</para>
+      <para revisionflag="added">R_PPC64_PCREL_OPT</para>
+      <para revisionflag="added">
+	This relocation type requests that the annotated load or store
+	instruction and its immediately preceding instruction be optimized by
+	the linker when the referenced symbol can be statically resolved.
+	See <xref linkend="dbdoclet.50655241_OptPCRel" /> for details.
+      </para>
     </section>
     <section>
       <title>Assembler Syntax</title>
@@ -4301,10 +4661,14 @@ addi   2,2,.TOC.-func@l</programlisting>
     requirements as indicated in this section.</para>
     <section xml:id="dbdoclet.50655241_69294">
       <title>Function Call</title>
-      <para>The static linker must modify a nop instruction after a bl function
+      <para><phrase revisionflag="added">For TOC-based compilation
+      units,</phrase> <phrase revisionflag="changed">the</phrase>
+      static linker must modify a nop instruction after a bl function
       call to restore the TOC pointer in r2 from 24(r1) when an external symbol
       that may use the TOC may be called, as in 
-      <xref linkend="dbdoclet.50655240_88555" />. Object files must contain a
+      <xref linkend="dbdoclet.50655240_88555" />.
+      <phrase revisionflag="added">TOC-based</phrase>
+      <phrase revisionflag="changed">object</phrase> files must contain a
       nop slot after a bl instruction to an external symbol.</para>
     </section>
     <section>
@@ -4374,6 +4738,46 @@ target:
         <xref linkend="dbdoclet.50655240_47036" />. For example, linkers may
         rewrite address references created using GOT-indirect loads and bl+4
         sequences to use TOC-relative address computation.</para>
+      </section>
+      <section xml:id="dbdoclet.50655241_OptPCRel" revisionflag="added">
+	<title>Displacement Optimization for PC-Relative Accesses</title>
+	<para>
+	  Compilers and assembly programmers must assume that references to
+	  extern data having unrestricted visibility may be satisfied by a
+	  dynamically linked object, and must therefore use PC-relative
+	  GOT-indirect addressing for such references.  A linker may
+	  determine that such a reference is satisfied during static linking
+	  and replace the reference with direct PC-relative addressing.
+	  For example:
+	</para>
+	<programlisting>pld     r12, symbol@got@pcrel(0), 1
+lvx     v1, 0, r12</programlisting>
+        <para>The previous sequence may be replaced by:</para>
+	<programlisting>nop
+plvx    v1, symbol@pcrel(0), 1</programlisting>
+	<para>
+	  However, this optimization is not universally safe, since it
+	  changes the value of r12 following the data reference.  The
+	  compiler or programmer must ensure that the value of r12 is not
+	  subsequently used, and communicate a request for this optimization
+	  by placing a RELOC_PPC64_PCREL_OPT on the second instruction in
+	  the sequence.  The compiler or programmer must further ensure that
+	  the two instructions are not separated by intervening instructions.
+	</para>
+	<para>
+	  [To discuss: This optimization is crucial for making PC-relative
+	  performance good enough to replace TOC-relative addressing.  I
+	  thought about allowing the compiler to separate the two instructions,
+	  and place an instruction-distance value in the
+	  RELOC_PPC64_PCREL_OPT relocation field, but ultimately I think this
+	  becomes difficult to implement, and I hope that the load-from-DSO
+	  case is infrequent enough that the load-load dependency won't kill
+	  us.  Definitely need other opinions/ideas here.]
+	</para>
+	<para>
+	  [To discuss: Can we add optimizations for PC-relative offsets built
+	  for large code model?  Only applies if we use shift/add sequences.]
+	</para>
       </section>
     </section>
       
@@ -6979,7 +7383,9 @@ nop</programlisting>
               <entry>
                 <para>One-bit field. This field is set to 1 if this function
                 does not have a TOC. For example, a stackless leaf assembly
-                language routine with no references to external objects.</para>
+                language routine with no references to external objects.
+		<phrase revisionflag="added">[To discuss: What value should be
+		set for PC-relative functions?]</phrase></para>
               </entry>
             </row>
             <row>
@@ -7145,6 +7551,15 @@ nop</programlisting>
               <entry>
                 <para>One-bit field. This field is set to 1 if all of the
                 parameters are placed in the Parameter Save Area.</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>???</para>
+              </entry>
+              <entry>
+                <para>[To discuss: Can/should we add a flag for PC-relative?]
+		</para>
               </entry>
             </row>
           </tbody>
