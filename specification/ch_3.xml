@@ -8171,8 +8171,7 @@ nop</programlisting>
                 <para>One-bit field. This field is set to 1 if this function
                 does not have a TOC. For example, a stackless leaf assembly
                 language routine with no references to external objects.
-		<phrase revisionflag="added">[To discuss: What value should be
-		set for PC-relative functions?]</phrase></para>
+		</para>
               </entry>
             </row>
             <row>
@@ -8338,15 +8337,6 @@ nop</programlisting>
               <entry>
                 <para>One-bit field. This field is set to 1 if all of the
                 parameters are placed in the Parameter Save Area.</para>
-              </entry>
-            </row>
-            <row revisionflag="added">
-              <entry>
-                <para>???</para>
-              </entry>
-              <entry>
-                <para>[To discuss: Can/should we add a flag for PC-relative?]
-		</para>
               </entry>
             </row>
           </tbody>
