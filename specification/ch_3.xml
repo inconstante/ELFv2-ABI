@@ -245,9 +245,7 @@ e_ident[EI_DATA]     ELFDATA2LSB  For all little-endian implementations.</progra
   </section>
   <section xml:id="dbdoclet.50655241_66700">
     <title>TOC</title>
-    <para>The TOC is part of the data segment of an executable program
-    <phrase revisionflag="added">built from at least one TOC-based object
-    file</phrase>.</para>
+    <para>The TOC is part of the data segment of an executable program.</para>
     <para>This section describes a common layout of the TOC in an executable
     file or shared object. Particular tools are not required to follow the
     layout specified here.</para>
@@ -272,6 +270,11 @@ e_ident[EI_DATA]     ELFDATA2LSB  For all little-endian implementations.</progra
 .plt
 .bss1
 .bss</programlisting>
+    <para revisionflag="added">
+      [To discuss: Alan, is it appropriate to make any adjustments here
+      in the presence of PC-relative addressing, to get any sections closer
+      to .text, or are we as ideal as we can get already?]
+    </para>
     <para>The medium code model is expected to provide a sufficiently large TOC
     to provide all data addressing needs of a module with a single TOC.</para>
     <para>Compilers may generate two-instruction medium code model references
@@ -306,9 +309,7 @@ e_ident[EI_DATA]     ELFDATA2LSB  For all little-endian implementations.</progra
       resolved dynamically by an associated shared object will have a symbol
       table entry for that symbol. This entry will identify the symbol as
       undefined by setting the st_shndx member to SHN_UNDEF.</para>
-      <para><phrase revisionflag="added">For TOC-based compilation
-      units,</phrase> <phrase revisionflag="changed">the</phrase> OpenPOWER
-      ABI uses the three most-significant bits in the
+      <para>The OpenPOWER ABI uses the three most-significant bits in the
       symbol st_other field to specify the number of instructions between a
       function's global entry point and local entry point. The global entry
       point is used when it is necessary to set up the TOC pointer (r2) for the
@@ -489,6 +490,427 @@ my_func:
       simply provides a hint, and imposes no obligations on the linker to
       optimize the prologue sequence.  Nor does the absence of this relocation
       forbid the linker from optimizing the prologue sequence.</para>
+    </section>
+    <section xml:id="dbdoclet.50655241_FnLinkage" revisionflag="added">
+      <title>Function Call Linkage Protocols</title>
+      <para>
+	The compiler (or assembly programmer) and linker cooperate to make
+	function calls as efficient as possible.  Different protocols are
+	required depending on whether a call is local (caller and callee in
+	the same compilation unit), whether the caller requires r2 to be
+	preserved, and whether the callee promises to preserve r2.  The
+	"st_other bits" in the caller's and callee's symbol table entries,
+	described in <xref linkend="dbdoclet.50655241_95185" />, are used to
+	determine information about r2 preservation requirements.
+      </para>
+      <para>
+	A function that does not require a TOC pointer may have its
+	st_other bits set to 0 or 1, and its local and global entry points
+	are the same.  If its st_other bits are 0, it preserves r2; if
+	its st_other bits are 1, it does not promise to do so.  It is best
+	that a function with st_other bits set to 0 does not contain any
+	function calls; see the Note for st_other 0 in
+	<xref linkend="dbdoclet.50655241_95185" />.
+      </para>
+      <para>
+	<xref linkend="dbdoclet.50655241_ExternalProtocols" /> summarizes the
+	protocol requirements for external function calls, and
+	<xref linkend="dbdoclet.50655241_LocalProtocols" /> summarizes the
+	protocol requirements for local function calls.  Each entry in these
+	tables is further described in the referenced section.
+      </para>
+      <table frame="all" pgwide="1"
+	     xml:id="dbdoclet.50655241_ExternalProtocols">
+        <title>Protocols for External Function Calls</title>
+        <tgroup cols="6">
+          <colspec colname="c1" colwidth="8*" align="center" />
+          <colspec colname="c2" colwidth="8*" align="center" />
+          <colspec colname="c3" colwidth="8*" align="center" />
+          <colspec colname="c4" colwidth="8*" align="center" />
+          <colspec colname="c5" colwidth="13*" align="center" />
+          <colspec colname="c6" colwidth="15*" align="center" />
+          <thead valign="middle">
+            <row>
+              <entry align="center" nameend="c2" namest="c1" rowsep="1">
+                <para>
+		  st_other bits
+		</para>
+	      </entry>
+	      <entry align="center" morerows="1" rowsep="1">
+		<para>
+		  PLT stub
+		</para>
+	      </entry>
+	      <entry align="center" morerows="1" rowsep="1">
+		<para>
+		  nop needed?
+		</para>
+	      </entry>
+	      <entry align="center" morerows="1" rowsep="1">
+		<para>
+		  Relocation
+		</para>
+	      </entry>
+	      <entry align="center" morerows="1" rowsep="1">
+		<para>
+		  Section link
+		</para>
+	      </entry>
+	    </row>
+	    <row>
+	      <entry align="center" rowsep="1">
+		<para>
+		  Caller
+		</para>
+	      </entry>
+	      <entry align="center" rowsep="1">
+		<para>
+		  Callee
+		</para>
+	      </entry>
+	    </row>
+	  </thead>
+	  <tbody valign="middle">
+	    <row>
+	      <entry>
+		<para>
+		  1
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  0&#8211;6
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  No r2 save
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  No
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  R_PPC64_REL24_NOTOC
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  <xref linkend="dbdoclet.50655241_Ext1"
+			xrefstyle="select: nopage" />
+		</para>
+	      </entry>
+	    </row>
+	    <row>
+	      <entry>
+		<para>
+		  2&#8211;6
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  0&#8211;6
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  r2 save
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  Yes
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  N/A
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  <xref linkend="dbdoclet.50655241_Ext2"
+			xrefstyle="select: nopage" />
+		</para>
+	      </entry>
+	    </row>
+	  </tbody>
+	</tgroup>
+      </table>
+      <table frame="all" pgwide="1"
+	     xml:id="dbdoclet.50655241_LocalProtocols">
+	<title>Protocols for Local Function Calls</title>
+	<tgroup cols="6">
+          <colspec colname="c1" colwidth="8*" align="center" />
+          <colspec colname="c2" colwidth="8*" align="center" />
+          <colspec colname="c3" colwidth="8*" align="center" />
+          <colspec colname="c4" colwidth="8*" align="center" />
+          <colspec colname="c5" colwidth="13*" align="center" />
+          <colspec colname="c6" colwidth="15*" align="center" />
+          <thead valign="middle">
+            <row>
+              <entry align="center" nameend="c2" namest="c1" rowsep="1">
+		<para>
+		  st_other bits
+		</para>
+	      </entry>
+	      <entry align="center" morerows="1" rowsep="1">
+		<para>
+		  Call method
+		</para>
+	      </entry>
+	      <entry align="center" morerows="1" rowsep="1">
+		<para>
+		  nop needed?
+		</para>
+	      </entry>
+	      <entry align="center" morerows="1" rowsep="1">
+		<para>
+		  Relocation
+		</para>
+	      </entry>
+	      <entry align="center" morerows="1" rowsep="1">
+		<para>
+		  Section link
+		</para>
+	      </entry>
+	    </row>
+	    <row>
+	      <entry align="center" rowsep="1">
+		<para>
+		  Caller
+		</para>
+	      </entry>
+	      <entry align="center" rowsep="1">
+		<para>
+		  Callee
+		</para>
+	      </entry>
+	    </row>
+	  </thead>
+	  <tbody valign="middle">
+	    <row>
+	      <entry morerows="1">
+		<para>
+		  1
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  0&#8211;1
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  Local
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  No
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  R_PPC64_REL24_NOTOC
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  <xref linkend="dbdoclet.50655241_Local10"
+			xrefstyle="select: nopage" />
+		</para>
+	      </entry>
+	    </row>
+	    <row>
+	      <entry>
+		<para>
+		  2&#8211;6
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  r12 setup stub
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  No
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  R_PPC64_REL24_NOTOC
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  <xref linkend="dbdoclet.50655241_Local12"
+			xrefstyle="select: nopage" />
+		</para>
+	      </entry>
+	    </row>
+	    <row>
+	      <entry morerows="2">
+		<para>
+		  2&#8211;6
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  0
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  Local
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  No
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  R_PPC64_REL24_NOTOC
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  <xref linkend="dbdoclet.50655241_Local20"
+			xrefstyle="select: nopage" />
+		</para>
+	      </entry>
+	    </row>
+	    <row>
+	      <entry>
+		<para>
+		  1
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  r2 save stub
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  Yes
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  N/A
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  <xref linkend="dbdoclet.50655241_Local21"
+			xrefstyle="select: nopage" />
+		</para>
+	      </entry>
+	    </row>
+	    <row>
+	      <entry>
+		<para>
+		  2&#8211;6
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  Local
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  No
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  R_PPC64_REL24_NOTOC
+		</para>
+	      </entry>
+	      <entry>
+		<para>
+		  <xref linkend="dbdoclet.50655241_Local20"
+			xrefstyle="select: nopage" />
+		</para>
+	      </entry>
+	    </row>
+	  </tbody>
+	</tgroup>
+      </table>
+      <section xml:id="dbdoclet.50655241_Ext2">
+	<title>External Call, Preserving Caller</title>
+	<para>
+	  When a function that preserves r2 makes any call to an external
+	  function, the compiler generates a nop instruction after the bl
+	  instruction for the call.  The linker generates a procedure linkage
+	  table (PLT) stub that saves r2, and replaces the nop instruction with
+	  a restore of r2.  If the callee requires a TOC, the PLT stub also
+	  includes code to place the callee's global entry point into r12.
+	  See <xref linkend="dbdoclet.50655242_82622" /> for a full
+	  description of PLT stubs.
+	</para>
+      </section>
+      <section xml:id="dbdoclet.50655241_Ext1">
+	<title>External Call, Nonpreserving Caller</title>
+	<para>
+	  When a function that does not preserve r2 makes any call to an
+	  external function, the compiler does not generate a nop instruction
+	  after the bl instruction for the call.  Instead, the compiler
+	  annotates the bl instruction with an R_PPC64_REL24_NOTOC
+	  relocation.  The linker generates a PLT stub that does not include
+	  a save of r2.  If the callee requires a TOC, the PLT stub also
+	  includes code to place the callee's global entry point into r12.
+	</para>
+      </section>
+      <section xml:id="dbdoclet.50655241_Local10">
+	<title>Local Call, Nonpreserving Caller, Callee Needs No TOC</title>
+	<para>
+	  When a function that does not preserve r2 makes a local call to
+	  a function that does not require a TOC pointer, the compiler
+	  generates a direct call to the function's local entry point, and
+	  does not generate a nop instruction after the call.  The compiler
+	  annotates the bl instruction with an R_PPC64_REL24_NOTOC relocation.
+	</para>
+      </section>
+      <section xml:id="dbdoclet.50655241_Local12">
+	<title>Local Call, Nonpreserving Caller, Callee Requires TOC</title>
+	<para>
+	  When a function that does not preserve r2 makes a local call to
+	  a function that requires a TOC pointer, the compiler does not
+	  generate a nop instruction after the bl instruction for the call.
+	  The linker generates a PLT stub that does not include a save of r2,
+	  but does include code to place the callee's global entry point into
+	  r12.
+	</para>
+      </section>
+      <section xml:id="dbdoclet.50655241_Local20">
+	<title>Local Call, Preserving Caller, Preserving Callee</title>
+	<para>
+	  When a function that preserves r2 makes a local call to a function
+	  that also preserves r2, the compiler generates a direct call to the
+	  function's local entry point, and does not generate a nop
+	  instruction after the call.  The compiler annotates the bl
+	  instruction with an R_PPC64_REL24_NOTOC relocation.
+	</para>
+      </section>
+      <section xml:id="dbdoclet.50655241_Local21">
+	<title>Local Call, Preserving Caller, Nonpreserving Callee</title>
+	<para>
+	  When a function that preserves r2 makes a local call to a function
+	  that does not preserve r2, the compiler generates a nop instruction
+	  after the call.  The linker generates a PLT stub that saves r2, but
+	  does not include code to place the callee's global entry point into
+	  r12, and replaces the nop instruction with a restore of r2.
+	</para>
+      </section>
     </section>
     <section xml:id="dbdoclet.50655241_81959">
       <title>Use of the Small Data Area</title>
@@ -2124,7 +2546,7 @@ my_func:
       <para revisionflag="added">
 	In the following figure, prefix34 specifies a 34-bit field split
 	between bits 14-31 and 48-63 of a doubleword.  The other bits
-	remain unchanged.  This is used by PC-relative load and store
+	remain unchanged.  This is used by many PC-relative load and store
 	instructions.
       </para>
       <informaltable frame="all" rowsep="0" colsep="0" revisionflag="added">
@@ -2235,12 +2657,7 @@ my_func:
 	In the following figure, prefix34ds is similar to prefix34, but is
 	really just 32 bits because the two least-significant bits must be
 	zero and are not really part of the field.  This is used, for example,
-	by the pldu instruction.  In addition to the use of this relocation
-	field with the DS forms, prefix34ds relocations are also used in
-	conjunction with DQ forms, such as the plq instruction.  In those
-	instances, the linker and assembler collaborate to create valid DQ
-	forms.  They raise an error if the specified offset does not meet the
-	constraints of a valid DQ instruction form displacement.
+	by the pld instruction.
       </para>
       <informaltable frame="all" rowsep="0" colsep="0" revisionflag="added">
         <tgroup cols="7">
@@ -2378,16 +2795,282 @@ my_func:
           </tbody>
         </tgroup>
       </informaltable>
+      <para revisionflag="added">
+	In the following figure, prefix34dq is similar to prefix34, but is
+	really just 31 bits because the three least-significant bits must be
+	zero and are not really part of the field.  This is used, for example,
+	by the plxv instruction.
+      </para>
+      <informaltable frame="all" rowsep="0" colsep="0" revisionflag="added">
+        <tgroup cols="7">
+          <colspec colname="c1" colwidth="7*" />
+          <colspec colname="c2" colwidth="7*" />
+          <colspec colname="c3" colwidth="2*" />
+          <colspec colname="c4" colwidth="7*" />
+          <colspec colname="c5" colwidth="6*" />
+          <colspec colname="c6" colwidth="2*" />
+          <colspec colname="c7" colwidth="1*" />
+          <tbody>
+            <row>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+            </row>
+            <row>
+	      <entry align="left">
+		<para> </para>
+	      </entry>
+	      <entry align="right" colsep="1">
+		<para> </para>
+	      </entry>
+              <entry nameend="c7" namest="c3" align="center">
+                <para>prefix34dq</para>
+              </entry>
+            </row>
+            <row rowsep="1">
+              <entry align="left">
+                <para>0</para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para>13</para>
+              </entry>
+              <entry align="left">
+                <para>14</para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry align="right">
+                <para>31</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+            </row>
+            <row>
+	      <entry>
+		<para> </para>
+	      </entry>
+	      <entry>
+		<para> </para>
+	      </entry>
+	      <entry align="right" colsep="1">
+		<para> </para>
+	      </entry>
+              <entry nameend="c5" namest="c4" align="center" colsep="1">
+                <para>prefix34dq (continued)</para>
+              </entry>
+	      <entry>
+		<para> </para>
+	      </entry>
+	      <entry>
+		<para> </para>
+	      </entry>
+            </row>
+            <row>
+              <entry align="left">
+                <para>32</para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para>47</para>
+              </entry>
+              <entry align="left">
+                <para>48</para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para>60</para>
+              </entry>
+              <entry align="left">
+                <para>61</para>
+              </entry>
+              <entry align="right">
+                <para>63</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+      <para revisionflag="added">
+	In the following figure, prefix28dq specifies a 25-bit field split
+	between bits 20-31 and 48-60 of a doubleword.  The other bits
+	remain unchanged, and the 25-bit field is assumed to be concatenated
+	with three zero bits on the right to form a 28-bit offset.  This is
+	used, for example, by the pmlxv instruction.
+      </para>
+      <informaltable frame="all" rowsep="0" colsep="0" revisionflag="added">
+        <tgroup cols="6">
+          <colspec colname="c1" colwidth="8*" />
+          <colspec colname="c2" colwidth="8*" />
+          <colspec colname="c3" colwidth="4*" />
+          <colspec colname="c4" colwidth="9*" />
+          <colspec colname="c5" colwidth="2*" />
+          <colspec colname="c6" colwidth="1*" />
+          <tbody>
+            <row>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+            </row>
+            <row>
+	      <entry align="left">
+		<para> </para>
+	      </entry>
+              <entry>
+                <para> </para>
+              </entry>
+	      <entry align="right" colsep="1">
+		<para> </para>
+	      </entry>
+              <entry nameend="c6" namest="c4" align="center">
+                <para>prefix28dq</para>
+              </entry>
+            </row>
+            <row rowsep="1">
+              <entry align="left">
+                <para>0</para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para>19</para>
+              </entry>
+              <entry align="left">
+                <para>20</para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry align="right">
+                <para>31</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+            </row>
+            <row>
+	      <entry>
+		<para> </para>
+	      </entry>
+	      <entry align="right" colsep="1">
+		<para> </para>
+	      </entry>
+              <entry nameend="c4" namest="c3" align="center" colsep="1">
+                <para>prefix28dq (continued)</para>
+              </entry>
+	      <entry>
+		<para> </para>
+	      </entry>
+	      <entry>
+		<para> </para>
+	      </entry>
+            </row>
+            <row>
+              <entry align="left">
+                <para>32</para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para>47</para>
+              </entry>
+              <entry align="left">
+                <para>48</para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para>60</para>
+              </entry>
+              <entry align="left">
+                <para>61</para>
+              </entry>
+              <entry align="right">
+                <para>63</para>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
     </section>
     <section xml:id="dbdoclet.50655241_51269">
       <title>Relocation Notations</title>
       <para>The following notations are used in the relocation table.</para>
-      <para revisionflag="added">
-	[There seem to be a number of missing notations in this table.  We
-	have #higher[a], #highest[a], and got, and perhaps the @ notation
-	could use further description.  Also, there is some usage of #high and
-	#higha instead of #hi and #ha, which I assume is a mistake.]
-      </para>
       <para> </para>
       <informaltable frame="none" rowsep="0" colsep="0">
         <tgroup cols="2">
@@ -2525,7 +3208,8 @@ my_func:
                 <para>#hi(value)</para>
               </entry>
               <entry>
-                <para>Denotes bits 16&#8211;63 of the indicated value. That
+                <para>Denotes bits 16&#8211;<phrase
+		revisionflag="changed">31</phrase> of the indicated value. That
                 is:</para>
                 <para>#hi(x) = x &gt;&gt; 16</para>
               </entry>
@@ -2535,10 +3219,55 @@ my_func:
                 <para>#ha(value)</para>
               </entry>
               <entry>
-                <para>Denotes the high adjusted value: bits 16&#8211;63 of the
+                <para>Denotes the high adjusted value: bits
+		16&#8211;<phrase revisionflag="changed">31</phrase> of the
                 indicated value, compensating for #lo( ) being treated as a
                 signed number. That is:</para>
                 <para>#ha(x) = (x + 0x8000) &gt;&gt; 16</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>#higher(value)</para>
+              </entry>
+              <entry>
+                <para>Denotes bits 32&#8211;47 of the indicated value. That
+                is:</para>
+                <para>#higher(x) = x &gt;&gt; 32</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>#highera(value)</para>
+              </entry>
+              <entry>
+                <para>Denotes the higher adjusted value: bits 32&#8211;47
+		of the
+                indicated value, compensating for #hi( ) being treated as a
+                signed number. That is:</para>
+                <para>#highera(x) = (x + 0x80000000) &gt;&gt; 32</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>#highest(value)</para>
+              </entry>
+              <entry>
+                <para>Denotes bits 48&#8211;63 of the indicated value. That
+                is:</para>
+                <para>#higher(x) = x &gt;&gt; 48</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>#highesta(value)</para>
+              </entry>
+              <entry>
+                <para>Denotes the highest adjusted value: bits 48&#8211;63
+		of the
+                indicated value, compensating for #higher( ) being treated as a
+                signed number. That is:</para>
+                <para>#highesta(x) = (x + 0x800000000000) &gt;&gt; 48</para>
               </entry>
             </row>
             <row>
@@ -4206,7 +4935,7 @@ my_func:
                 <para>half16</para>
               </entry>
               <entry>
-                <para>#high(S + A)</para>
+                <para><phrase revisionflag="changed">#hi</phrase>(S + A)</para>
               </entry>
             </row>
             <row>
@@ -4220,7 +4949,7 @@ my_func:
                 <para>half16</para>
               </entry>
               <entry>
-                <para>#higha(S + A)</para>
+                <para><phrase revisionflag="changed">#ha</phrase>(S + A)</para>
               </entry>
             </row>
             <row>
@@ -4234,7 +4963,9 @@ my_func:
                 <para>half16</para>
               </entry>
               <entry>
-                <para>#high(@tprel)</para>
+                <para>
+		  <phrase revisionflag="changed">#hi</phrase>(@tprel)
+		</para>
               </entry>
             </row>
             <row>
@@ -4248,7 +4979,9 @@ my_func:
                 <para>half16</para>
               </entry>
               <entry>
-                <para>#higha(@tprel)</para>
+                <para>
+		  <phrase revisionflag="changed">#ha</phrase>(@tprel)
+		</para>
               </entry>
             </row>
             <row>
@@ -4262,7 +4995,9 @@ my_func:
                 <para>half16</para>
               </entry>
               <entry>
-                <para>#high(@dtprel)</para>
+                <para>
+		  <phrase revisionflag="changed">#hi</phrase>(@dtprel)
+		</para>
               </entry>
             </row>
             <row>
@@ -4276,7 +5011,9 @@ my_func:
                 <para>half16</para>
               </entry>
               <entry>
-                <para>#higha(@dtprel)</para>
+                <para>
+		  <phrase revisionflag="changed">#ha</phrase>(@dtprel)
+		</para>
               </entry>
             </row>
             <row>
@@ -4426,10 +5163,10 @@ my_func:
                 <para>R_PPC64_PCREL34</para>
               </entry>
               <entry>
-                <para>256?</para>
+                <para>256</para>
               </entry>
               <entry>
-                <para>prefix34</para>
+                <para>prefix34*</para>
               </entry>
               <entry>
                 <para>@pcrel</para>
@@ -4440,7 +5177,7 @@ my_func:
                 <para>R_PPC64_PCREL34_DS</para>
               </entry>
               <entry>
-                <para>257?</para>
+                <para>257</para>
               </entry>
               <entry>
                 <para>prefix34ds*</para>
@@ -4451,13 +5188,41 @@ my_func:
             </row>
             <row revisionflag="added">
               <entry>
+                <para>R_PPC64_PCREL34_DQ</para>
+              </entry>
+              <entry>
+                <para>258</para>
+              </entry>
+              <entry>
+                <para>prefix34dq*</para>
+              </entry>
+              <entry>
+                <para>@pcrel >> 3</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_PCREL28_DQ</para>
+              </entry>
+              <entry>
+                <para>259</para>
+              </entry>
+              <entry>
+                <para>prefix28dq*</para>
+              </entry>
+              <entry>
+                <para>@pcrel >> 3</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
                 <para>R_PPC64_GOT_PCREL34</para>
               </entry>
               <entry>
-                <para>258?</para>
+                <para>260</para>
               </entry>
               <entry>
-                <para>prefix34</para>
+                <para>prefix34*</para>
               </entry>
               <entry>
                 <para>@got@pcrel</para>
@@ -4468,7 +5233,7 @@ my_func:
                 <para>R_PPC64_GOT_PCREL34_DS</para>
               </entry>
               <entry>
-                <para>259?</para>
+                <para>261</para>
               </entry>
               <entry>
                 <para>prefix34ds*</para>
@@ -4479,10 +5244,38 @@ my_func:
             </row>
             <row revisionflag="added">
               <entry>
+                <para>R_PPC64_GOT_PCREL34_DQ</para>
+              </entry>
+              <entry>
+                <para>262</para>
+              </entry>
+              <entry>
+                <para>prefix34dq*</para>
+              </entry>
+              <entry>
+                <para>@got@pcrel >> 3</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_GOT_PCREL28_DQ</para>
+              </entry>
+              <entry>
+                <para>263</para>
+              </entry>
+              <entry>
+                <para>prefix28dq*</para>
+              </entry>
+              <entry>
+                <para>@got@pcrel >> 3</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
                 <para>R_PPC64_PCREL_OPT</para>
               </entry>
               <entry>
-                <para>260?</para>
+                <para>264</para>
               </entry>
               <entry>
                 <para> </para>
@@ -4494,11 +5287,6 @@ my_func:
           </tbody>
         </tgroup>
       </table>
-      <para revisionflag="added">
-	[To discuss:  Assuming we build up 64-bit PC-relative offsets into a
-	register using shifts/adds, we'll need the #lo, #ha, #higher[a],
-	#highest[a] relocs to be defined also.]
-      </para>
     </section>
     <section xml:id="dbdoclet.50655241_90220">
       <title>Relocation Descriptions</title>
@@ -4583,10 +5371,16 @@ my_func:
       <para>R_PPC64_REL24_NOTOC</para>
       <para>This relocation type is used to specify a function call where the
       TOC pointer is not initialized. It is similar to R_PPC64_REL24 in that it
-      specifies a symbol to be resolved. However, if the symbol is resolved by
-      inserting a call to a PLT stub code, the PLT stub code must not rely on
-      the presence of a valid TOC base address in TOC register r2 to reference
-      the PLT function table.</para>
+      specifies a symbol to be resolved. <phrase revisionflag="added">If the
+      symbol resolves to a function that requires a TOC pointer (as
+      determined by st_other bits) then a link editor must arrange for the
+      call to be via the entry point of the called function.  Any</phrase>
+      <phrase revisionflag="deleted">However, if the symbol is resolved by
+      inserting a call to a PLT stub code, the PLT</phrase> stub code must
+      not rely on <phrase revisionflag="deleted">the presence of</phrase>
+      a valid TOC base address in <phrase revisionflag="deleted">TOC
+      register</phrase> r2<phrase revisionflag="deleted"> to reference
+      the PLT function table</phrase>.</para>
       <para>R_PPC64_ENTRY</para>
       <para>This relocation type may optionally be
       associated with a global entry point.  See
@@ -4595,7 +5389,7 @@ my_func:
       <para revisionflag="added">R_PPC64_PCREL_OPT</para>
       <para revisionflag="added">
 	This relocation type requests that the annotated load or store
-	instruction and its immediately preceding instruction be optimized by
+	instruction and its immediately following instruction be optimized by
 	the linker when the referenced symbol can be statically resolved.
 	See <xref linkend="dbdoclet.50655241_OptPCRel" /> for details.
       </para>
@@ -4661,15 +5455,16 @@ addi   2,2,.TOC.-func@l</programlisting>
     requirements as indicated in this section.</para>
     <section xml:id="dbdoclet.50655241_69294">
       <title>Function Call</title>
-      <para><phrase revisionflag="added">For TOC-based compilation
-      units,</phrase> <phrase revisionflag="changed">the</phrase>
+      <para><phrase revisionflag="added">When present,</phrase>
+      <phrase revisionflag="changed">the</phrase>
       static linker must modify a nop instruction after a bl function
       call to restore the TOC pointer in r2 from 24(r1) when an external symbol
       that may use the TOC may be called, as in 
       <xref linkend="dbdoclet.50655240_88555" />.
-      <phrase revisionflag="added">TOC-based</phrase>
-      <phrase revisionflag="changed">object</phrase> files must contain a
-      nop slot after a bl instruction to an external symbol.</para>
+      <phrase revisionflag="changed">A function</phrase> must contain a
+      nop slot after a bl instruction to an external symbol
+      <phrase revisionflag="added">unless the bl instruction is annotated with
+      an R_PPC64_REL24_NOTOC relocation</phrase>.</para>
     </section>
     <section>
       <title>Reference Optimization</title>
@@ -4750,33 +5545,25 @@ target:
 	  and replace the reference with direct PC-relative addressing.
 	  For example:
 	</para>
-	<programlisting>pld     r12, symbol@got@pcrel(0), 1
+	<programlisting>pld     r12, symbol@got@pcrel
 lvx     v1, 0, r12</programlisting>
         <para>The previous sequence may be replaced by:</para>
-	<programlisting>nop
-plvx    v1, symbol@pcrel(0), 1</programlisting>
+	<programlisting>plxv    v1, symbol@pcrel
+nop</programlisting>
 	<para>
 	  However, this optimization is not universally safe, since it
 	  changes the value of r12 following the data reference.  The
 	  compiler or programmer must ensure that the value of r12 is not
 	  subsequently used, and communicate a request for this optimization
-	  by placing a RELOC_PPC64_PCREL_OPT on the second instruction in
-	  the sequence.  The compiler or programmer must further ensure that
+	  by placing an R_PPC64_PCREL_OPT relocation on the first instruction
+	  in the sequence.  The compiler or programmer must further ensure that
 	  the two instructions are not separated by intervening instructions.
 	</para>
 	<para>
-	  [To discuss: This optimization is crucial for making PC-relative
-	  performance good enough to replace TOC-relative addressing.  I
-	  thought about allowing the compiler to separate the two instructions,
-	  and place an instruction-distance value in the
-	  RELOC_PPC64_PCREL_OPT relocation field, but ultimately I think this
-	  becomes difficult to implement, and I hope that the load-from-DSO
-	  case is infrequent enough that the load-load dependency won't kill
-	  us.  Definitely need other opinions/ideas here.]
-	</para>
-	<para>
-	  [To discuss: Can we add optimizations for PC-relative offsets built
-	  for large code model?  Only applies if we use shift/add sequences.]
+	  [To discuss: A possible alternative, due to Alan, is to allow the
+	  code to separate but emit "pld".."lvx;nop" and optimize to
+	  "dnop".."plxv".  In this case the PCREL_OPT should be placed on
+	  both groups of insns.  Should we pursue?]
 	</para>
       </section>
     </section>

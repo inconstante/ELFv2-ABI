@@ -698,20 +698,25 @@ PPC_FEATURE_HAS_VSX       0x00000080 /* P7 Vector Extension. */
 PPC_FEATURE_PSERIES_PERFMON_COMPAT 0x00000040
 PPC_FEATURE_TRUE_LE       0x00000002
 PPC_FEATURE_PPC_LE        0x00000001</programlisting>
+      <para revisionflag="added">Bit 0x00000004 is reserved for kernel use.
+      </para>
       <para>AT_HWCAP2</para>
       <para>The a_val member of this entry is a bit map of hardware
       capabilities. Some bit mask values include:</para>
-      <programlisting>PPC_FEATURE2_ARCH_2_07    0x80000000 /* ISA 2.07 */
-PPC_FEATURE2_HAS_HTM      0x40000000 /* Hardware Transactional Memory */
-PPC_FEATURE2_HAS_DSCR     0x20000000 /* Data Stream Control Register */
-PPC_FEATURE2_HAS_EBB      0x10000000 /* Event Base Branching */
-PPC_FEATURE2_HAS_ISEL     0x08000000 /* Integer Select */
-PPC_FEATURE2_HAS_TAR      0x04000000 /* Target Address Register */
-PPC_FEATURE2_HAS_VCRYPTO  0x02000000 /* The processor implements the
-                                        Vector.AES category */
-PPC_FEATURE2_HTM_NOSC     0x01000000
-PPC_FEATURE2_ARCH_3_00    0x00800000 /* ISA 3.0 */
-PPC_FEATURE2_HAS_IEEE128  0x00400000 /* VSX IEEE Binary Float 128-bit */</programlisting>
+      <programlisting revisionflag="changed">PPC_FEATURE2_ARCH_2_07      0x80000000 /* ISA 2.07 */
+PPC_FEATURE2_HAS_HTM        0x40000000 /* Hardware Transactional Memory */
+PPC_FEATURE2_HAS_DSCR       0x20000000 /* Data Stream Control Register */
+PPC_FEATURE2_HAS_EBB        0x10000000 /* Event Base Branching */
+PPC_FEATURE2_HAS_ISEL       0x08000000 /* Integer Select */
+PPC_FEATURE2_HAS_TAR        0x04000000 /* Target Address Register */
+PPC_FEATURE2_HAS_VCRYPTO    0x02000000 /* The processor implements the
+                                          Vector.AES category */
+PPC_FEATURE2_HTM_NOSC       0x01000000
+PPC_FEATURE2_ARCH_3_00      0x00800000 /* ISA 3.0 */
+PPC_FEATURE2_HAS_IEEE128    0x00400000 /* VSX IEEE Binary Float 128-bit */
+PPC_FEATURE2_DARN           0x00200000 /* darn instruction */
+PPC_FEATURE2_SCV            0x00100000 /* scv syscall */
+PPC_FEATURE2_HTM_NO_SUSPEND 0x00080000 /* TM without suspended state */</programlisting>
         <para>When a process starts to execute, its stack holds the arguments,
         environment, and auxiliary vector received from the exec call. The system
         makes no guarantees about the relative arrangement of argument strings,
@@ -797,10 +802,6 @@ PPC_FEATURE2_HAS_IEEE128  0x00400000 /* VSX IEEE Binary Float 128-bit */</progra
       linking code that references the .TOC. address. The GOT consists of an
       8-byte header that contains the TOC base (the first TOC base when
       multiple TOCs are present), followed by an array of 8-byte addresses.
-      <phrase revisionflag="added">
-	The 8-byte header value is undefined when all linked compilation units
-	are PC-relative.
-      </phrase>
       The link editor shall emit dynamic relocations as appropriate for each
       entry in the GOT. At runtime, the dynamic linker will apply these
       relocations after the addresses of all memory segments are known (and
@@ -816,10 +817,7 @@ PPC_FEATURE2_HAS_IEEE128  0x00400000 /* VSX IEEE Binary Float 128-bit */</progra
       the executable or shared objects in a different process image. After the
       initial mapping of the process image by the dynamic linker, memory
       segments reside at fixed addresses for the life of a process.</para>
-      <para><phrase revisionflag="added">When at least one TOC-based
-      compilation unit is to be linked,</phrase>
-      <phrase revisionflag="changed">the</phrase>
-      symbol .TOC. may be used to access the GOT or in TOC-relative
+      <para>The symbol .TOC. may be used to access the GOT or in TOC-relative
       addressing to other data constructs, such as the procedure linkage table.
       The symbol may be offset by 0x8000 bytes, or another offset, from the
       start of the .got section. This offset allows the use of the full (64 KB)
@@ -830,15 +828,15 @@ PPC_FEATURE2_HAS_IEEE128  0x00400000 /* VSX IEEE Binary Float 128-bit */</progra
       addis instruction to provide a first high-order 16-bit portion of a
       32-bit displacement in conjunction with an instruction to supply a
       low-order 16-bit portion of a 32-bit displacement.</para>
-      <para>In PIC code, the TOC pointer r2 points to the TOC base, enabling
+      <para>In PIC code<phrase revisionflag="added"> that uses the
+      TOC</phrase>, the TOC pointer r2 points to the TOC base, enabling
       easy reference. For static nonrelocatable modules, the GOT address is
       fixed and can be directly used by code.</para>
-      <para>All functions <phrase revisionflag="added">in TOC-based
-      compilation units</phrase> except leaf routines must load the value of
-      the TOC base into the TOC register r2.</para>
+      <para revisionflag="deleted">All functions except leaf routines must
+      load the value of the TOC base into the TOC register r2.</para>
       <para revisionflag="added">
-	Functions in PC-relative compilation units access GOT entries directly
-	using PC-relative addressing.
+	Code may access GOT entries directly using PC-relative addressing,
+	where available.
       </para>
     </section>
     <section>
@@ -998,13 +996,6 @@ PPC_FEATURE2_HAS_IEEE128  0x00400000 /* VSX IEEE Binary Float 128-bit */</progra
             is indicated by use of a R_PPC64_REL24_NOTOC relocation (instead of
             R_PPC64_REL24) on the call instruction.</para>
           </listitem>
-	  <listitem revisionflag="added">
-	    <para>
-	      The caller is PC-relative and does not need to save the TOC
-	      pointer.  [To discuss: Do we need a relocation, or will we have
-	      a module-level bit the linker can detect?]
-	    </para>
-	  </listitem>
         </orderedlist>
         <para>In any scenario, the PLT call stub must transfer control to the
         function whose address is provided in the associated PLT entry. This
@@ -1053,14 +1044,12 @@ PPC_FEATURE2_HAS_IEEE128  0x00400000 /* VSX IEEE Binary Float 128-bit */</progra
   mtctr  r12
   bctr</programlisting>
         <para revisionflag="added">
-	  A possible implementation for case 4 looks as follows:
+	  When PC-relative addressing is available, another simpler variant
+	  may alternatively be used for cases 2 or 3:
 	</para>
-	<programlisting>pld     r12, func@plt@got@pcrel(0), 1
+	<programlisting revisionflag="added">pld     r12, func@plt@pcrel
 mtctr   r12
 bctr</programlisting>	  
-        <para revisionflag="added">
-	  [To discuss: Is that the right assembly syntax?]
-	</para>
         <para>To support lazy binding, the link editor also provides a set of
         symbol resolver stubs, one for each PLT entry. Each resolver stub
         consists of a single instruction, which is usually a branch to a common
@@ -1133,10 +1122,7 @@ bctr</programlisting>
         <para>After resolution, the value of a PLT entry in the PLT is the
         address of the function’s global entry point, unless the resolver
 	can determine that a module-local call occurs with a shared TOC value
-	wherein the TOC is shared between the caller and the
-	<phrase revisionflag="changed">callee,</phrase>
-	<phrase revisionflag="added">or a module-local call occurs in a
-	PC-relative compilation unit. [?]</phrase></para>
+	wherein the TOC is shared between the caller and the callee.</para>
       </section>
     </section>
   </section>

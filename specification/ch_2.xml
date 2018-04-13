@@ -4045,70 +4045,6 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
       </section>
     </section>
   </section>
-  <section revisionflag="added" xml:id="dbdoclet.50655240_AddrModel">
-    <title revisionflag="added">Global Data Addressing Models</title>
-    <para revisionflag="added">This specification provides for two global data
-    addressing models.  The traditional addressing model, which we will call
-    "TOC-based," relies on a dedicated table-of-contents (TOC) pointer to
-    obtain the addresses of global data.  PowerISA version 3.1 introduces new
-    "PC-relative" instructions that can be used to obtain the addresses of
-    global data relative to the current instruction address (CIA).  Code that
-    is targeted to run on hardware compliant with PowerISA 3.1 may make use of
-    this capability with a "PC-relative" addressing model.</para>
-    <para revisionflag="added">Each compilation unit must adhere entirely to
-    one addressing model or the other.  However, it is expressly possible to
-    link TOC-based and PC-relative compilation units into a single
-    executable, or to dynamically link from a compilation unit with one
-    addressing model to a compilation unit with the other addressing model.
-    In particular, a PC-relative compilation unit may be linked with an
-    existing TOC-based library.  Note that a "compilation unit" may consist of
-    hand-written assembly code as well as high-level source code.</para>
-    <para revisionflag="added">Compilers and other tools performing
-    link-time optimizations that repackage functions into different
-    compilation units must not mix PC-relative and TOC-based functions in
-    the same compilation unit.  [To discuss: This could be permitted, but
-    the value is unclear and it would be likely to spawn occasional
-    linker bugs.]  Similarly, programmers should not be allowed to
-    specify a single function in a TOC-based compilation unit to use the
-    PC-relative addressing model or vice versa; for example, using GCC's
-    "#pragma target" syntax.  [To discuss: How should this be recorded and
-    communicated?  Perhaps add to e_flags in the ELF header for module
-    objects only?  We can communicate the need for PC-relative PLT stubs
-    to the linker on calls with a reloc, so the linker may not need this,
-    but perhaps other tools will?]</para>
-    <para revisionflag="added">Details of the two addressing models will be
-    provided throughout this specification.  However, a brief description
-    of each is in order.</para>
-    <section revisionflag="added" xml:id="dbdoclet.50655240_TOCBased">
-      <title revisionflag="added">TOC-Based Addressing Model</title>
-      <para revisionflag="added">In the traditional TOC-based addressing model,
-      each function uses register r2 (see <xref
-      linkend="dbdoclet.50655240_68174" />) to access global memory.  A variety
-      of techniques, known as TOC-relative, TOC-indirect, GOT-relative, etc.,
-      may be used to address the global data, but all these techniques use the
-      TOC pointer r2 as part of the data reference.</para>
-      <para revisionflag="added">With the cooperation of the linker, each
-      function in a TOC-based compilation unit is responsible for the
-      establishment and maintenance of its own TOC pointer.  All functions
-      within a compilation unit have the same TOC pointer, so local function
-      calls may assume it does not change.  An external function call may be
-      resolved to a function in a shared object having a different TOC
-      pointer, so a caller in a TOC-based compilation unit must save its TOC
-      pointer prior to making a call outside the compilation unit, and restore
-      its value upon return before the TOC pointer may be used to access global
-      data.</para>
-    </section>
-    <section revisionflag="added" xml:id="dbdoclet.50655240_PCRel">
-      <title revisionflag="added">PC-Relative Addressing Model</title>
-      <para revisionflag="added">A function in a PC-relative compilation unit
-      has no TOC pointer.  All accesses to global data are made relative to
-      the current instruction address.  Since functions in TOC-based
-      compilation units are responsible for establishment and maintenance
-      of their own TOC pointers, register r2 may be used freely within a
-      PC-relative compilation unit, with no need to save or restore the
-      register when modifying it.</para>
-    </section>
-  </section>
   <section xml:id="dbdoclet.50655240_85672">
     <title>Function Calling Sequence</title>
     <para>The standard sequence for function calls is outlined in this section.
@@ -4273,22 +4209,25 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                 </entry>
                 <entry>
                   <para>Nonvolatile<footnote>
-                  <para><phrase revisionflag="changed">In a TOC-based
-		  compilation unit, register</phrase> r2 is nonvolatile with
-		  respect to calls between functions in the same compilation
-		  unit. It is saved and restored by code inserted by the linker
-		  resolving a call to an external function. For more
-		  information, see <xref linkend="dbdoclet.50655240_51083"
-		  />.</para>
+                  <para>Register r2 is nonvolatile with respect to calls
+		  between functions in the same compilation unit <phrase
+		  revisionflag="added">when the caller requires a TOC
+		  pointer</phrase>. It is saved and restored by code inserted
+		  by the linker resolving a call to an external function. For
+		  more information, see <xref linkend="dbdoclet.50655240_51083"
+		  /> <phrase revisionflag="added"> and <xref
+		  linkend="dbdoclet.50655241_FnLinkage" /></phrase>.</para>
                   </footnote><phrase revisionflag="added"> or
 		  Volatile<footnote>
-		  <para>Register r2 is volatile and available for use in
-		  PC-relative compilation units.</para>
+		  <para>Register r2 is volatile and available for use in a
+		  function whose symbol table entry contains an st_other
+		  field wherein the three most-significant bits have a value
+		  of 001. See
+		  <xref linkend="dbdoclet.50655241_FnLinkage" />.</para>
 		  </footnote></phrase></para>
                 </entry>
                 <entry>
-                  <para>TOC pointer <phrase revisionflag="added"> for
-		  TOC-based compilation units</phrase>.</para>
+                  <para>TOC pointer.</para>
                 </entry>
               </row>
               <row>
@@ -4460,8 +4399,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         </table>
         <para>&#160;</para>
         <bridgehead xml:id="dbdoclet.50655240_51083">TOC Pointer
-        Usage <phrase revisionflag="added">(TOC-Based Compilation Units
-	Only)</phrase></bridgehead>
+	Usage</bridgehead>
         <para>As described in 
         <xref linkend="dbdoclet.50655241_73385" />, the TOC pointer, r2, is
         commonly initialized by the global function entry point when a function
@@ -4476,14 +4414,19 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         dynamic linker. For references through function pointers, it is the
         compiler's or assembler programmer's responsibility to insert
         appropriate TOC save and restore code. If the function is called from
-        the same module as the callee, the callee must preserve the value of
-        r2. (See 
-        <xref linkend="dbdoclet.50655241_69294" /> for a description of function
-        entry conventions.)</para>
-        <para>When a function calls another function, the TOC pointer must have
-        a legal value pointing to the TOC base, which may be initialized as
-        described in 
-        <xref linkend="dbdoclet.50655242_47739" />.</para>
+        the same module as the callee, the callee must <phrase
+	revisionflag="added">normally</phrase> preserve the value of r2.
+	<phrase revisionflag="added">However, if the callee's symbol table
+	entry is flagged to indicate the callee does not preserve r2, the
+	caller is responsible for saving and restoring the TOC pointer if it
+	needs it.</phrase>  (See <phrase revisionflag="changed"><xref
+	linkend="dbdoclet.50655241_FnLinkage" />
+	for more information.</phrase>)</para>
+        <para>When a function calls another function <phrase
+	revisionflag="added">that requires a TOC pointer</phrase>, the TOC
+	pointer must have a legal value pointing to the TOC base, which may be
+	initialized as described in <xref
+	linkend="dbdoclet.50655242_47739" />.</para>
         <para>When global data is accessed, the TOC pointer must be available
         for dereference at the point of all uses of values derived from the TOC
         pointer in conjunction with the @l operator. This property is used by
@@ -4513,12 +4456,12 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             context.</para>
           </listitem>
           <listitem>
-            <para>When a function is entered through its global entry point,
+            <para>When a function <phrase revisionflag="added">that requires a
+	    TOC pointer</phrase> is entered through its global entry point,
             register r12 contains the entry-point address. For more
             information, see the description of dual entry points in
-            <xref linkend="dbdoclet.50655240___RefHeading___Toc377640597" /> and
-            
-            <xref linkend="dbdoclet.50655240_13754" />.</para>
+            <xref linkend="dbdoclet.50655240___RefHeading___Toc377640597" />
+	    and <xref linkend="dbdoclet.50655240_13754" />.</para>
           </listitem>
         </itemizedlist>
         <para>&#160;</para>
@@ -5200,16 +5143,8 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         is volatile over a function call.</para>
         <para>&#160;</para>
         <bridgehead>TOC Pointer Doubleword</bridgehead>
-        <para>If a function <phrase revisionflag="added">in a TOC-based
-	compilation unit</phrase> changes the value of the TOC pointer
-	register, it shall first save it in the TOC pointer doubleword.
-	<phrase revisionflag="added">The TOC pointer doubleword is reserved
-	for future use for functions in a PC-relative compilation
-	unit.  [To discuss: This has implications for alloca, as if we
-	reserve it for future use, then the TOC pointer doubleword must be
-	copied during a dynamic allocation operation.  I suspect it is
-	better to suffer that slight penalty rarely in order to have the
-	flexibility to use this for another future purpose.]</phrase></para>
+        <para>If a function changes the value of the TOC pointer register,
+	it shall first save it in the TOC pointer doubleword.</para>
       </section>
       <section xml:id="dbdoclet.50655240_15141">
         <title>Optional Save Areas</title>
@@ -6250,6 +6185,20 @@ s6            -           72 (stored)</programlisting>
     <para>When instructions hold relative addresses, a program library can be
     loaded at various positions in virtual memory and is referred to as a
     position-independent code model.</para>
+    <para revisionflag="added">When generating code for PowerISA version 3.1
+    or above, this specification provides two ways to address non-local data
+    and text.  The historical method relies on a dedicated table-of-contents
+    (TOC) pointer to obtain such addresses.  PowerISA version 3.1 introduces
+    new "PC-relative" instructions that can be used to obtain such
+    addresses relative to the current instruction address (CIA).  Both
+    methods may be used in the same executable, dynamically shared
+    object (DSO), object file, or even in the same function.  If a
+    function does not require a TOC pointer for addressing, it is not required
+    to establish this pointer in register r2, and may choose not to preserve
+    register r2's value provided that the function's symbol table entry is
+    appropriately annotated.  Full details of function call linkage
+    requirements are provided in <xref linkend="dbdoclet.50655241_FnLinkage"
+    />.</para>
     <section xml:id="dbdoclet.50655240___RefHeading___Toc377640592">
       <title>Code Model Overview</title>
       <para>Executable modules can be built to use either position-dependent or
@@ -6312,9 +6261,9 @@ lvx     v1, 0, r12</programlisting>
 	    </para>
 	  </listitem>
 	</itemizedlist>
-	<programlisting revisionflag="added">pld     r12, symbol@pcrel(0), 1
+	<programlisting revisionflag="added">pld     r12, symbol@pcrel
 
-plvx    v1, symbol@pcrel(0), 1</programlisting>
+plxv    v1, symbol@pcrel</programlisting>
         <para>In the OpenPOWER ELF V2 ABI, position-dependent code built with
         this addressing scheme may have a Global Offset Table (GOT) in the data
         segment that holds addresses. (For more information, see 
@@ -6355,7 +6304,7 @@ plvx    v1, symbol@pcrel(0), 1</programlisting>
         references and TOC-pointer initializations can be performed using a
         two-instruction sequence.</para>
 	<para revisionflag="added">
-	  PC-relative offsets are always 34 bits for all code models, with
+	  PC-relative offsets are usually 34 bits for all code models, with
 	  a maximum addressing reach of 16GB.  The effective addressing reach
 	  for global data is 8GB, since data sections are always located at
 	  higher virtual addresses than text sections.
@@ -6425,9 +6374,9 @@ lvx     v1, 0, r12</programlisting>
 	    private data).</para>
 	  </listitem>
 	</itemizedlist>
-	<programlisting revisionflag="added">pld     r12, symbol@pcrel(0), 1
+	<programlisting revisionflag="added">pld     r12, symbol@pcrel
 
-plvx    v1, symbol@pcrel(0), 1</programlisting>
+plxv    v1, symbol@pcrel</programlisting>
         <itemizedlist>
 	  <listitem>
 	    <para revisionflag="added">By using PC-relative GOT-indirect
@@ -6435,10 +6384,10 @@ plvx    v1, symbol@pcrel(0), 1</programlisting>
 	    </para>
 	  </listitem>
 	</itemizedlist>
-	<programlisting revisionflag="added">pld     r12, symbol@got@pcrel(0), 1
+	<programlisting revisionflag="added">pld     r12, symbol@got@pcrel
 ld      r12, 0(r12)
 
-pld     r12, symbol@got@pcrel(0), 1
+pld     r12, symbol@got@pcrel
 lvx     v1, 0, r12</programlisting>
         <para revisionflag="added">
 	  A compiler may generate a PC-relative addressing sequence to access
@@ -6450,16 +6399,6 @@ lvx     v1, 0, r12</programlisting>
 	  the data reference is satisfied at static link time.  See
 	  <xref linkend="dbdoclet.50655241_OptPCRel" />.
         </para>
-        <para revisionflag="added">[To discuss: I'd like to see the assembler
-	support "pld r12, symbol@pcrel" as an alternative to "pld r12,
-	symbol@pcrel(0), 1", and "pld r12, symbol@got@pcrel" as an
-	alternative to "pld r12, symbol@got@pcrel(0), 1".  In general, any
-	prefix load/store with only two arguments is PC-relative; the
-	second argument is either a 34-bit offset or a GPR.  Is this
-	reasonable or too confusing?  Another alternative would be "pld r12,
-	symbol@pcrel(cia)" for an offset, and "pld r12, r5, cia" for the
-	GPR case.  I guess we want something readable that isn't too
-	complex for the assembler to sort out.]</para>
         <para>Position-independent executables or shared objects have a GOT in
         the data segment that holds addresses. When the system creates a memory
         image from the file, the GOT entries are updated to reflect the
@@ -6477,11 +6416,11 @@ lvx     v1, 0, r12</programlisting>
       </section>
       <section xml:id="dbdoclet.50655240_19143">
         <title>Code Models</title>
-	<bridgehead revisionflag="added">TOC-Based Compilation
-	Units</bridgehead>
         <para>Compilers may provide different code models depending on the
         expected size of the TOC and the size of the entire executable or
-        shared library.</para>
+        shared library.  <phrase revisionflag="added">Assuming that the
+	TOC pointer is used to address data and/or text, the following
+	considerations apply:</phrase></para>
         <itemizedlist>
           <listitem>
             <para>Small code model: The TOC is accessed using 16-bit offsets
@@ -6524,52 +6463,26 @@ lvx     v1, 0, r12</programlisting>
         TOCs, or by some other method. The suggested allocation order of
         sections is provided in 
         <xref linkend="dbdoclet.50655241_66700" />.</para>
-	<bridgehead revisionflag="added">PC-Relative Compilation
-	Units</bridgehead>
 	<para revisionflag="added">
-	  Compilers may provide different code models depending on the size of
-	  the entire executable or shared library.  There is no small code
-	  model for PC-relative compilation units.
-	</para>
-	<itemizedlist revisionflag="added">
-	  <listitem>
-	    <para>
-	      Medium code model: Accesses to module-local code and data objects
-	      use PC-relative addressing with 34-bit offsets.
-	      Position-independent code uses PC-relative GOT-indirect
-	      addressing to access other objects in the binary.
-	    </para>
-	  </listitem>
-	  <listitem>
-	    <para>
-	      Large code model: Used when 34-bit offsets are insufficient to
-	      reach global data or the GOT from at least one text section,
-	      this is similar to the medium code model, except that up to
-	      64-bit PC-relative offsets are used by generating them into a
-	      register. [To discuss:  None of the options for this seem ideal.
-	      It takes about 5 instructions to generate a 64-bit constant into
-	      a register, though we can perhaps use linker optimizations to
-	      replace with a smaller sequence when available.  A second choice
-	      is to place the offset in a .quad in the text section to reach
-	      the .got entry, but this would incur a load-load dependency.
-	      (Are there cases where this requires a text relocation resolution
-	      during dynamic linking?)  A third choice is to fail the compile
-	      and require TOC addressing with large code model when 34-bit
-	      offsets aren't enough, though that doesn't initially seem
-	      reasonable.  Whatever we choose, we should document the sequence
-	      and any associated linker optimizations.]
-	    </para>
-	  </listitem>
-	</itemizedlist>
-	<para revisionflag="added">
-	  As with TOC-based compilation units, the medium code model is the
-	  default for compilers, and is applicable to most programs and
-	  libraries.  The code examples in this document generally use the
-	  medium code model.
+	  PC-relative addressing may be used in either the small or the
+	  medium code model, and is identical for both.  Accesses to
+	  module-local code and data objects use PC-relative addressing with
+	  up to 34-bit offsets.  Position-independent code uses PC-relative
+	  GOT-indirect addressing to access other objects in the binary.
+	  If PC-relative addressing span is insufficient to reach any data
+	  item, that access must either be made relative to the TOC
+	  pointer, or a PC-relative indexed form instruction must be used
+	  for the access.  PC-relative indexed form instructions provide
+	  up to 64 bits of offset from the current instruction address.
+	  [To discuss: I'm deliberately leaving this flexible for now.
+	  Any concerns? It appears we will probably not see a
+	  load-high-immediate-32 sort of instruction in P10, so we won't
+	  be able to define those kinds of relocs yet.]
 	</para>
 	<para revisionflag="added">
-	  When linking PC-relative relocatable objects, the linker should
-	  attempt to place the .got section near the text sections.
+	  When linking objects that contain PC-relative relocations, the
+	  linker should attempt to place the .got section near the text
+	  sections.
 	</para>
       </section>
     </section>
@@ -6579,50 +6492,13 @@ lvx     v1, 0, r12</programlisting>
       section.</para>
       <section xml:id="dbdoclet.50655240___RefHeading___Toc377640597">
         <title>Function Prologue</title>
-        <para revisionflag="added">The function prologue is responsible for
-	the following functions:</para>
-        <itemizedlist revisionflag="added">
-	  <listitem>
-	    <para>Establishing addressability to global data</para>
-	  </listitem>
-          <listitem>
-            <para>Creating a stack frame when required</para>
-          </listitem>
-          <listitem>
-            <para>Saving any nonvolatile registers that are used by the
-            function</para>
-          </listitem>
-          <listitem>
-            <para>Saving any limited-access bits that are used by the function,
-            per the rules described in <xref
-	    linkend="dbdoclet.50655240___RefHeading___Toc377640581" /></para>
-          </listitem>
-        </itemizedlist>
-        <para revisionflag="added">This ABI shall be used in conjunction with
-	the Power Architecture that implements the 
-        <emphasis role="bold">mfocrf</emphasis> architecture level. Further,
-        OpenPOWER-compliant processors shall implement implementation-defined
-        bits in a manner to allow the combination of multiple 
-        <emphasis role="bold">mfocrf</emphasis> results with an OR instruction;
-	for example, to yield a word in r0 including all three preserved CRs as
-        follows:</para>
-        <programlisting revisionflag="added">mfocrf r0, crf2 
-mfocrf r1, crf3 
-or r0, r0, r1 
-mfocrf r1, crf4 
-or r0, r0, r1</programlisting>
-        <para revisionflag="added">Specifically, this allows each
-	OpenPOWER-compliant processor implementation to set each field to hold
-	either 0 or the correct in-order value of the corresponding CR field at
-	the point where the <emphasis role="bold">mfocrf</emphasis>
-	instruction is performed.</para>
-	<bridgehead revisionflag="added">TOC-Based Compilation
-	Units</bridgehead>
-        <para><phrase revisionflag="changed">In a TOC-based compilation unit,
-	a</phrase> function's prologue establishes addressability by
+        <para>A	function's prologue establishes addressability by
 	initializing a TOC pointer in register r2, if necessary, and a stack
 	frame, if necessary, and may save any nonvolatile registers it
-	uses.</para>
+	uses. <phrase revisionflag="added">Not all functions must initialize
+	a TOC pointer, and not all functions must preserve the existing value
+	of r2.  See <xref linkend="dbdoclet.50655241_FnLinkage" /> for more
+	information.</phrase></para>
         <para>All functions have a global entry point (GEP) available to any
         caller and pointing to the beginning of the prologue. Some functions
         may have a secondary entry point to optimize the cost of TOC pointer
@@ -6636,7 +6512,9 @@ or r0, r0, r1</programlisting>
         entry point when the r2 register is known to hold a valid TOC base
         value. Function pointers shared between modules shall always use the
         global entry point to specify the address of a function.</para>
-        <para>When a linker causes control to transfer to a global entry point,
+        <para>When a linker causes control to transfer to a global entry point
+	<phrase revisionflag="added">of a function that requires a TOC
+	pointer</phrase>,
         it must insert a glue code sequence that loads r12 with the global
         entry-point address. Code at the global entry point can assume that
         register r12 points to the GEP.</para>
@@ -6653,10 +6531,9 @@ addi r2, r2, .TOC.-func@l</programlisting>
         form that is faster due to instruction fusion, such as:</para>
         <programlisting>lis r2, .TOC.@ha 
 addi r2, r2, .TOC.@l</programlisting>
-        <para revisionflag="deleted">In addition to establishing
-	addressability, the function prologue
+        <para>In addition to establishing addressability, the function prologue
         is responsible for the following functions:</para>
-        <itemizedlist revisionflag="deleted">
+        <itemizedlist>
           <listitem>
             <para>Creating a stack frame when required</para>
           </listitem>
@@ -6670,7 +6547,7 @@ addi r2, r2, .TOC.@l</programlisting>
             <xref linkend="dbdoclet.50655240___RefHeading___Toc377640581" /></para>
           </listitem>
         </itemizedlist>
-        <para revisionflag="deleted">This ABI shall be used in conjunction with
+        <para>This ABI shall be used in conjunction with
 	the Power Architecture that implements the 
         <emphasis role="bold">mfocrf</emphasis> architecture level. Further,
         OpenPOWER-compliant processors shall implement implementation-defined
@@ -6678,12 +6555,12 @@ addi r2, r2, .TOC.@l</programlisting>
         <emphasis role="bold">mfocrf</emphasis> results with an OR instruction; for example,
         to yield a word in r0 including all three preserved CRs as
         follows:</para>
-        <programlisting revisionflag="deleted">mfocrf r0, crf2 
+        <programlisting>mfocrf r0, crf2 
 mfocrf r1, crf3 
 or r0, r0, r1 
 mfocrf r1, crf4 
 or r0, r0, r1</programlisting>
-        <para revisionflag="deleted">Specifically, this allows each
+        <para>Specifically, this allows each
 	OpenPOWER-compliant processor implementation to set each field to hold
 	either 0 or the correct in-order value of the corresponding CR field at
 	the point where the <emphasis role="bold">mfocrf</emphasis>
@@ -6707,14 +6584,6 @@ or r0, r0, r1</programlisting>
         the meaning of the second parameter, which is put in the three
         most-significant bits of the st_other field in the ELF Symbol Table
         entry.</para>
-	<bridgehead revisionflag="added">PC-Relative Compilation
-	Units</bridgehead>
-	<para revisionflag="added">
-	  In a PC-relative compilation unit, the function prologue does not
-	  require any setup code to establish addressability to global data.
-	  Therefore there is also no need for a function to have a separate
-	  local entry point.
-	</para>
       </section>
       <section xml:id="dbdoclet.50655240_13754">
         <title>Function Epilogue</title>
@@ -7438,12 +7307,12 @@ ptr = &amp;dst;
 .extern dst 
 .extern ptr 
 .section ".text" 
-plwz   r9, src@pcrel(0), 1
-pstw   r9, dst@pcrel(0), 1
-paddi  r11, 0, dst@pcrel, 1
-pstd   r11, ptr@pcrel(0), 1
-pld    r11, ptr@pcrel(0), 1
-plwz   r9, src@pcrel(0), 1
+plwz   r9, src@pcrel
+pstw   r9, dst@pcrel
+paddi  r11, dst@pcrel
+pstd   r11, ptr@pcrel
+pld    r11, ptr@pcrel
+plwz   r9, src@pcrel
 stw    r9, 0(r11)</programlisting>
               </entry>
             </row>
@@ -7467,8 +7336,8 @@ stw    r9, 0(r11)</programlisting>
             a signed 32-bit offset from a base register.</para>
           </listitem>
           <listitem>
-            <para>For a PIC code (see
-            <xref linkend="dbdoclet.50655240_page77" /> and 
+            <para>For <phrase revisionflag="changed">TOC-based</phrase> PIC
+	    code (see <xref linkend="dbdoclet.50655240_page77" /> and 
             <xref linkend="dbdoclet.50655240_19926" />), the offset in the
             Global Offset Table where the value of the symbol is stored is
             given by the assembly syntax symbol@got. This syntax represents the
@@ -7611,8 +7480,8 @@ nop</programlisting>
         </listitem>
       </orderedlist>
       <para revisionflag="added">
-	For a function call in a PC-relative compilation unit, the nop in
-	<xref linkend="dbdoclet.50655240_85319" /> should not be generated.
+	For a function call in a function that does not preserve r2, the nop in
+	<xref linkend="dbdoclet.50655240_85319" /> need not be generated.
       </para>
       <para>For indirect function calls, the address of the function to be
       called is placed in r12 and the CTR register. A bctrl instruction is used
@@ -7688,9 +7557,6 @@ bctrl</programlisting>
       <para>
       <xref linkend="dbdoclet.50655240_16744" /> shows how to make an indirect
       function call using small-model position-independent code.
-      <phrase revisionflag="added">Note that the store and reload of the
-      TOC pointer r2 is not required in a PC-relative compilation
-      unit.</phrase>
       </para>
 
       <figure xml:id="dbdoclet.50655240_16744">
@@ -7762,9 +7628,6 @@ ld r2,24(r1)</programlisting>
       <para>
       <xref linkend="dbdoclet.50655240_95225" /> shows how to make an indirect
       function call using large-model position-independent code.
-      <phrase revisionflag="added">Note that the store and reload of the
-      TOC pointer r2 is not required in a PC-relative compilation
-      unit.</phrase>
       </para>
 
       <figure xml:id="dbdoclet.50655240_95225">
@@ -7776,8 +7639,14 @@ ld r2,24(r1)</programlisting>
           </imageobject>
         </mediaobject>
       </figure>
-      <!--table frame="all" pgwide="1" xml:id="dbdoclet.50655240_95225">
-        <title>Large-Model Position-Independent Indirect Function Call</title>
+      <para>
+	<xref linkend="dbdoclet.50655240_PCRelPICIndirect" /> shows how to
+	make an indirect function call using PC-relative addressing in a
+	function that does not preserve r2. [TBD: Formatting]
+      </para>
+      <table frame="all" pgwide="1"
+	     xml:id="dbdoclet.50655240_PCRelPICIndirect">
+        <title>PC-Relative Position-Independent Indirect Function Call</title>
         <tgroup cols="2">
           <colspec colname="c1" colwidth="30*" />
           <colspec colname="c2" colwidth="70*" />
@@ -7799,59 +7668,69 @@ ld r2,24(r1)</programlisting>
             <row>
               <entry>
                 <programlisting>extern void function( ); 
+
 extern void (*ptrfunc) ( ); 
 ptrfunc=function; 
-
-
-
 
 
 (*ptrfunc) ( );
 
 
 
-
-
 </programlisting>
               </entry>
               <entry>
-                <programlisting>
+                <programlisting>.section .text
 
-addis r9,r2,ptrfunc@got@ha 
-ld r9,ptrfunc@got@l(r9) 
-addis r12,r2,function@got@ha 
-ld r12,function@got@l(r12) 
-std r12,0(r9) 
+pld    r9,ptrfunc@got@pcrel
+pld    r0,function@got@pcrel
+std    r0,0(r9)
 
-addis r9,r2,ptrfunc@got@ha 
-ld r9,ptrfunc@got@l(r9) 
-ld r12,0(r9) 
-std r2,24(r1) 
-mtctr r12 
-bctrl 
-ld r2,24(r1)</programlisting>
+pld    r9, ptrfunc@got@pcrel
+ld     r12,0(r9)
+mtctr  r12
+bctrl</programlisting>
               </entry>
             </row>
           </tbody>
         </tgroup>
-      </table -->
-      <bridgehead revisionflag="added">TOC-Based Compilation Units</bridgehead>
-      <para>Function calls need to be performed in conjunction with
+      </table>
+      <para>Function calls <phrase revisionflag="added">often</phrase>
+      need to be performed in conjunction with
       establishing, maintaining, and restoring addressability through the TOC
       pointer register, r2. When a function is called, the TOC pointer register
-      may be modified. The caller must provide a nop after the bl instruction
-      performing a call, if r2 is not known to have the same value in the
-      callee. This is generally true for external calls. The linker will
-      replace the nop with an r2 restoring instruction if the caller and callee
-      use different r2 values, The linker leaves it unchanged if they use the
-      same r2 value. This scheme avoids having a compiler generate an
+      may be modified. <phrase revisionflag="added">In many cases,</phrase>
+      <phrase revisionflag="changed">the</phrase> caller must provide a nop
+      after the bl instruction performing a call, if r2 is not known to have
+      the same value in the callee. This is generally true for external calls.
+      The linker will replace the nop with an r2 restoring instruction if the
+      caller and callee use different r2 values<phrase
+      revisionflag="changed">.</phrase> The linker leaves it unchanged if they
+      use the same r2 value. This scheme avoids having a compiler generate an
       overconservative r2 save and restore around every external call.</para>
+      <para revisionflag="added">
+	There are two cases where the caller should not provide a nop after
+	the bl instruction performing a call:
+	<itemizedlist spacing="compact">
+	  <listitem><para>When the caller is not guaranteed to preserve r2 (see
+	  <xref linkend="dbdoclet.50655241_95185" />); or</para></listitem>
+	  <listitem><para>When the callee is in the same compilation unit and
+	  is guaranteed to preserve r2.</para></listitem>
+	</itemizedlist>
+	In both cases, the bl instruction must be marked with an
+	R_PPC64_REL24_NOTOC relocation.
+      </para>
       <para>For calls to functions resolved at runtime, the linker must
       generate stub code to load the function address from the PLT.</para>
-      <para>The stub code also must save r2 to 24(r1) unless the call is marked
+      <para>The stub code also must save r2 to 24(r1) unless
+      <phrase revisionflag="added">either the call is marked with an
+      R_PPC64_REL24_NOTOC relocation as above, or</phrase>
+      the call is marked
       with an R_PPC64_TOCSAVE relocation that points to a nop provided in the
-      caller's prologue. In that case, the stub code can omit the r2 save.
-      Instead, the linker replaces the prologue nop with an r2 save.</para>
+      caller's prologue. In <phrase revisionflag="changed">either</phrase>
+      case, the stub code can omit the r2 save.
+      <phrase revisionflag="changed">In the latter case,</phrase>
+      the linker replaces the prologue nop with an r2 save.</para>
       <programlisting>tocsaveloc: 
    nop 
  ... 
@@ -7868,19 +7747,6 @@ bl target
       <xref linkend="dbdoclet.50655240___RefHeading___Toc377640597" />, 
       <xref linkend="dbdoclet.50655241_95185" />, and 
       <xref linkend="dbdoclet.50655241_47572" />.</para>
-      <bridgehead revisionflag="added">PC-Relative Compilation
-      Units</bridgehead>
-      <para revisionflag="added">
-	As with TOC-based compilation units, for calls to functions resolved at
-	runtime, the linker must generate stub code to load the function
-	address from the PLT.  When the stub code is generated on behalf of
-	an indirect call in a PC-relative compilation unit, the linker may
-	omit the save and restore of r2 from the stub code.  This behavior
-	is optional but recommended.  Calls in PC-relative code should not
-	be marked with the R_PPC64_TOCSAVE or R_PPC64_REL24_NOTOC relocations.
-	[To discuss: Do we need a relocation to identify this as a PC-relative
-	call?]
-      </para>
     </section>
     <section xml:id="dbdoclet.50655240_47036">
       <title>Branching</title>
@@ -8277,12 +8143,7 @@ f1:
       </figure>
       <para revisionflag="added">
 	<xref linkend="dbdoclet.50655240_PCRelSwitch" /> shows a switch
-	implementation for PC-relative compilation units.  [TBD: This needs to
-	be a figure, not a table, which may require working with Annette and
-	FrameMaker to get something that looks similar to the other figures.
-	All we have in the document for the other figures is .png files from
-	the old FrameMaker version.  Or maybe we should just convert all the
-	other figures to tables.]
+	implementation for PC-relative compilation units.  [TBD: Formatting]
       </para>
       <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_PCRelSwitch"
 	     revisionflag="added">
@@ -8328,7 +8189,7 @@ default:
                 <programlisting>  cmplwi r12, 4 
   bge    .Ldefault 
   slwi   r12, 2
-  paddi  r10, r0, .Ltab@pcrel, 1
+  paddi  r10, .Ltab@pcrel
   lwax   r8, r10, r12 
   add    r10, r8, r10 
   mtctr  r10 
@@ -8416,11 +8277,6 @@ addi  r3,r1,p           ; R3 = new data area following parameter save area.</pro
       a value that needs to be preserved. In the future, if it is defined and
       if the function uses the Reserved word, the LR save doubleword must also
       be copied.</para>
-      <para revisionflag="added">
-	It is unnecessary to copy the TOC pointer doubleword for a
-	PC-relative compilation unit. [To discuss: Should we, for future
-	use of this slot for another purpose?]
-      </para>
       <note>
         <para>Additional instructions will be necessary for an allocation of
         variable size. If a dynamic deallocation will occur, the r1 stack
@@ -8794,6 +8650,10 @@ addi  r3,r1,p           ; R3 = new data area following parameter save area.</pro
     in the Itanium C++ ABI, the normative text on the issue. For information
     about how to locate this material, see 
     <xref linkend="dbdoclet.50655239___RefHeading___Toc377640569" />.</para>
+    <para revisionflag="added">
+      [Ignorant question to discuss: Are there any impacts to unwinding from
+      new r2 preservation rules?]
+    </para>
 
   </section>
 </chapter>
