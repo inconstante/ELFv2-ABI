@@ -7639,12 +7639,12 @@ ld r2,24(r1)</programlisting>
           </imageobject>
         </mediaobject>
       </figure>
-      <para>
+      <para revisionflag="added">
 	<xref linkend="dbdoclet.50655240_PCRelPICIndirect" /> shows how to
 	make an indirect function call using PC-relative addressing in a
 	function that does not preserve r2. [TBD: Formatting]
       </para>
-      <table frame="all" pgwide="1"
+      <table frame="all" pgwide="1" revisionflag="added"
 	     xml:id="dbdoclet.50655240_PCRelPICIndirect">
         <title>PC-Relative Position-Independent Indirect Function Call</title>
         <tgroup cols="2">
