@@ -270,11 +270,6 @@ e_ident[EI_DATA]     ELFDATA2LSB  For all little-endian implementations.</progra
 .plt
 .bss1
 .bss</programlisting>
-    <para revisionflag="added">
-      [To discuss: Alan, is it appropriate to make any adjustments here
-      in the presence of PC-relative addressing, to get any sections closer
-      to .text, or are we as ideal as we can get already?]
-    </para>
     <para>The medium code model is expected to provide a sufficiently large TOC
     to provide all data addressing needs of a module with a single TOC.</para>
     <para>Compilers may generate two-instruction medium code model references
@@ -490,427 +485,6 @@ my_func:
       simply provides a hint, and imposes no obligations on the linker to
       optimize the prologue sequence.  Nor does the absence of this relocation
       forbid the linker from optimizing the prologue sequence.</para>
-    </section>
-    <section xml:id="dbdoclet.50655241_FnLinkage" revisionflag="added">
-      <title>Function Call Linkage Protocols</title>
-      <para>
-	The compiler (or assembly programmer) and linker cooperate to make
-	function calls as efficient as possible.  Different protocols are
-	required depending on whether a call is local (caller and callee in
-	the same compilation unit), whether the caller requires r2 to be
-	preserved, and whether the callee promises to preserve r2.  The
-	"st_other bits" in the caller's and callee's symbol table entries,
-	described in <xref linkend="dbdoclet.50655241_95185" />, are used to
-	determine information about r2 preservation requirements.
-      </para>
-      <para>
-	A function that does not require a TOC pointer may have its
-	st_other bits set to 0 or 1, and its local and global entry points
-	are the same.  If its st_other bits are 0, it preserves r2; if
-	its st_other bits are 1, it does not promise to do so.  It is best
-	that a function with st_other bits set to 0 does not contain any
-	function calls; see the Note for st_other 0 in
-	<xref linkend="dbdoclet.50655241_95185" />.
-      </para>
-      <para>
-	<xref linkend="dbdoclet.50655241_ExternalProtocols" /> summarizes the
-	protocol requirements for external function calls, and
-	<xref linkend="dbdoclet.50655241_LocalProtocols" /> summarizes the
-	protocol requirements for local function calls.  Each entry in these
-	tables is further described in the referenced section.
-      </para>
-      <table frame="all" pgwide="1"
-	     xml:id="dbdoclet.50655241_ExternalProtocols">
-        <title>Protocols for External Function Calls</title>
-        <tgroup cols="6">
-          <colspec colname="c1" colwidth="8*" align="center" />
-          <colspec colname="c2" colwidth="8*" align="center" />
-          <colspec colname="c3" colwidth="8*" align="center" />
-          <colspec colname="c4" colwidth="8*" align="center" />
-          <colspec colname="c5" colwidth="13*" align="center" />
-          <colspec colname="c6" colwidth="15*" align="center" />
-          <thead valign="middle">
-            <row>
-              <entry align="center" nameend="c2" namest="c1" rowsep="1">
-                <para>
-		  st_other bits
-		</para>
-	      </entry>
-	      <entry align="center" morerows="1" rowsep="1">
-		<para>
-		  PLT stub
-		</para>
-	      </entry>
-	      <entry align="center" morerows="1" rowsep="1">
-		<para>
-		  nop needed?
-		</para>
-	      </entry>
-	      <entry align="center" morerows="1" rowsep="1">
-		<para>
-		  Relocation
-		</para>
-	      </entry>
-	      <entry align="center" morerows="1" rowsep="1">
-		<para>
-		  Section link
-		</para>
-	      </entry>
-	    </row>
-	    <row>
-	      <entry align="center" rowsep="1">
-		<para>
-		  Caller
-		</para>
-	      </entry>
-	      <entry align="center" rowsep="1">
-		<para>
-		  Callee
-		</para>
-	      </entry>
-	    </row>
-	  </thead>
-	  <tbody valign="middle">
-	    <row>
-	      <entry>
-		<para>
-		  1
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  0&#8211;6
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  No r2 save
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  No
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  R_PPC64_REL24_NOTOC
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  <xref linkend="dbdoclet.50655241_Ext1"
-			xrefstyle="select: nopage" />
-		</para>
-	      </entry>
-	    </row>
-	    <row>
-	      <entry>
-		<para>
-		  2&#8211;6
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  0&#8211;6
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  r2 save
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  Yes
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  N/A
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  <xref linkend="dbdoclet.50655241_Ext2"
-			xrefstyle="select: nopage" />
-		</para>
-	      </entry>
-	    </row>
-	  </tbody>
-	</tgroup>
-      </table>
-      <table frame="all" pgwide="1"
-	     xml:id="dbdoclet.50655241_LocalProtocols">
-	<title>Protocols for Local Function Calls</title>
-	<tgroup cols="6">
-          <colspec colname="c1" colwidth="8*" align="center" />
-          <colspec colname="c2" colwidth="8*" align="center" />
-          <colspec colname="c3" colwidth="8*" align="center" />
-          <colspec colname="c4" colwidth="8*" align="center" />
-          <colspec colname="c5" colwidth="13*" align="center" />
-          <colspec colname="c6" colwidth="15*" align="center" />
-          <thead valign="middle">
-            <row>
-              <entry align="center" nameend="c2" namest="c1" rowsep="1">
-		<para>
-		  st_other bits
-		</para>
-	      </entry>
-	      <entry align="center" morerows="1" rowsep="1">
-		<para>
-		  Call method
-		</para>
-	      </entry>
-	      <entry align="center" morerows="1" rowsep="1">
-		<para>
-		  nop needed?
-		</para>
-	      </entry>
-	      <entry align="center" morerows="1" rowsep="1">
-		<para>
-		  Relocation
-		</para>
-	      </entry>
-	      <entry align="center" morerows="1" rowsep="1">
-		<para>
-		  Section link
-		</para>
-	      </entry>
-	    </row>
-	    <row>
-	      <entry align="center" rowsep="1">
-		<para>
-		  Caller
-		</para>
-	      </entry>
-	      <entry align="center" rowsep="1">
-		<para>
-		  Callee
-		</para>
-	      </entry>
-	    </row>
-	  </thead>
-	  <tbody valign="middle">
-	    <row>
-	      <entry morerows="1">
-		<para>
-		  1
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  0&#8211;1
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  Local
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  No
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  R_PPC64_REL24_NOTOC
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  <xref linkend="dbdoclet.50655241_Local10"
-			xrefstyle="select: nopage" />
-		</para>
-	      </entry>
-	    </row>
-	    <row>
-	      <entry>
-		<para>
-		  2&#8211;6
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  r12 setup stub
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  No
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  R_PPC64_REL24_NOTOC
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  <xref linkend="dbdoclet.50655241_Local12"
-			xrefstyle="select: nopage" />
-		</para>
-	      </entry>
-	    </row>
-	    <row>
-	      <entry morerows="2">
-		<para>
-		  2&#8211;6
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  0
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  Local
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  No
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  R_PPC64_REL24_NOTOC
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  <xref linkend="dbdoclet.50655241_Local20"
-			xrefstyle="select: nopage" />
-		</para>
-	      </entry>
-	    </row>
-	    <row>
-	      <entry>
-		<para>
-		  1
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  r2 save stub
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  Yes
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  N/A
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  <xref linkend="dbdoclet.50655241_Local21"
-			xrefstyle="select: nopage" />
-		</para>
-	      </entry>
-	    </row>
-	    <row>
-	      <entry>
-		<para>
-		  2&#8211;6
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  Local
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  No
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  R_PPC64_REL24_NOTOC
-		</para>
-	      </entry>
-	      <entry>
-		<para>
-		  <xref linkend="dbdoclet.50655241_Local20"
-			xrefstyle="select: nopage" />
-		</para>
-	      </entry>
-	    </row>
-	  </tbody>
-	</tgroup>
-      </table>
-      <section xml:id="dbdoclet.50655241_Ext2">
-	<title>External Call, Preserving Caller</title>
-	<para>
-	  When a function that preserves r2 makes any call to an external
-	  function, the compiler generates a nop instruction after the bl
-	  instruction for the call.  The linker generates a procedure linkage
-	  table (PLT) stub that saves r2, and replaces the nop instruction with
-	  a restore of r2.  If the callee requires a TOC, the PLT stub also
-	  includes code to place the callee's global entry point into r12.
-	  See <xref linkend="dbdoclet.50655242_82622" /> for a full
-	  description of PLT stubs.
-	</para>
-      </section>
-      <section xml:id="dbdoclet.50655241_Ext1">
-	<title>External Call, Nonpreserving Caller</title>
-	<para>
-	  When a function that does not preserve r2 makes any call to an
-	  external function, the compiler does not generate a nop instruction
-	  after the bl instruction for the call.  Instead, the compiler
-	  annotates the bl instruction with an R_PPC64_REL24_NOTOC
-	  relocation.  The linker generates a PLT stub that does not include
-	  a save of r2.  If the callee requires a TOC, the PLT stub also
-	  includes code to place the callee's global entry point into r12.
-	</para>
-      </section>
-      <section xml:id="dbdoclet.50655241_Local10">
-	<title>Local Call, Nonpreserving Caller, Callee Needs No TOC</title>
-	<para>
-	  When a function that does not preserve r2 makes a local call to
-	  a function that does not require a TOC pointer, the compiler
-	  generates a direct call to the function's local entry point, and
-	  does not generate a nop instruction after the call.  The compiler
-	  annotates the bl instruction with an R_PPC64_REL24_NOTOC relocation.
-	</para>
-      </section>
-      <section xml:id="dbdoclet.50655241_Local12">
-	<title>Local Call, Nonpreserving Caller, Callee Requires TOC</title>
-	<para>
-	  When a function that does not preserve r2 makes a local call to
-	  a function that requires a TOC pointer, the compiler does not
-	  generate a nop instruction after the bl instruction for the call.
-	  The linker generates a PLT stub that does not include a save of r2,
-	  but does include code to place the callee's global entry point into
-	  r12.
-	</para>
-      </section>
-      <section xml:id="dbdoclet.50655241_Local20">
-	<title>Local Call, Preserving Caller, Preserving Callee</title>
-	<para>
-	  When a function that preserves r2 makes a local call to a function
-	  that also preserves r2, the compiler generates a direct call to the
-	  function's local entry point, and does not generate a nop
-	  instruction after the call.  The compiler annotates the bl
-	  instruction with an R_PPC64_REL24_NOTOC relocation.
-	</para>
-      </section>
-      <section xml:id="dbdoclet.50655241_Local21">
-	<title>Local Call, Preserving Caller, Nonpreserving Callee</title>
-	<para>
-	  When a function that preserves r2 makes a local call to a function
-	  that does not preserve r2, the compiler generates a nop instruction
-	  after the call.  The linker generates a PLT stub that saves r2, but
-	  does not include code to place the callee's global entry point into
-	  r12, and replaces the nop instruction with a restore of r2.
-	</para>
-      </section>
     </section>
     <section xml:id="dbdoclet.50655241_81959">
       <title>Use of the Small Data Area</title>
@@ -5374,7 +4948,8 @@ my_func:
       specifies a symbol to be resolved. <phrase revisionflag="added">If the
       symbol resolves to a function that requires a TOC pointer (as
       determined by st_other bits) then a link editor must arrange for the
-      call to be via the entry point of the called function.  Any</phrase>
+      call to be via the global entry point of the called function.
+      Any</phrase>
       <phrase revisionflag="deleted">However, if the symbol is resolved by
       inserting a call to a PLT stub code, the PLT</phrase> stub code must
       not rely on <phrase revisionflag="deleted">the presence of</phrase>
@@ -5388,10 +4963,12 @@ my_func:
       use.</para>
       <para revisionflag="added">R_PPC64_PCREL_OPT</para>
       <para revisionflag="added">
-	This relocation type requests that the annotated load or store
+	This relocation type requests that the annotated 
 	instruction and its immediately following instruction be optimized by
-	the linker when the referenced symbol can be statically resolved.
-	See <xref linkend="dbdoclet.50655241_OptPCRel" /> for details.
+	the linker when the referenced symbol can be statically resolved,
+	or when a more efficient PC-relative sequence can be chosen.
+	See <xref linkend="dbdoclet.50655241_OptPCRel" /> and
+	<xref linkend="dbdoclet.50655241_OptMask" /> for details.
       </para>
     </section>
     <section>
@@ -5455,16 +5032,15 @@ addi   2,2,.TOC.-func@l</programlisting>
     requirements as indicated in this section.</para>
     <section xml:id="dbdoclet.50655241_69294">
       <title>Function Call</title>
-      <para><phrase revisionflag="added">When present,</phrase>
+      <para><phrase revisionflag="added">Unless the bl instruction is
+      annotated with an R_PPC64_REL24_NOTOC relocation,</phrase>
       <phrase revisionflag="changed">the</phrase>
       static linker must modify a nop instruction after a bl function
       call to restore the TOC pointer in r2 from 24(r1) when an external symbol
       that may use the TOC may be called, as in 
       <xref linkend="dbdoclet.50655240_88555" />.
-      <phrase revisionflag="changed">A function</phrase> must contain a
-      nop slot after a bl instruction to an external symbol
-      <phrase revisionflag="added">unless the bl instruction is annotated with
-      an R_PPC64_REL24_NOTOC relocation</phrase>.</para>
+      <phrase revisionflag="deleted">A function must contain a
+      nop slot after a bl instruction to an external symbol.</phrase></para>
     </section>
     <section>
       <title>Reference Optimization</title>
@@ -5559,11 +5135,34 @@ nop</programlisting>
 	  in the sequence.  The compiler or programmer must further ensure that
 	  the two instructions are not separated by intervening instructions.
 	</para>
+      </section>
+      <section xml:id="dbdoclet.50655241_OptMask" revisionflag="added">
+	<title>Optimization of Masked Load/Store Sequences</title>
 	<para>
-	  [To discuss: A possible alternative, due to Alan, is to allow the
-	  code to separate but emit "pld".."lvx;nop" and optimize to
-	  "dnop".."plxv".  In this case the PCREL_OPT should be placed on
-	  both groups of insns.  Should we pursue?]
+	  PC-relative forms of the pmlxv and pmstxv instructions have a
+	  28-bit offset, which is too small to guarantee that the offset
+	  will not overflow when relocated within a medium code model
+	  binary.  Compilers should not directly generate PC-relative forms
+	  of these instructions, but may instead generate a short sequence
+	  that can be optimized by a linker.  For example:
+	</para>
+	<programlisting>paddi   r12,symbol@pcrel
+pmlxvx  v1,r10,r12,VRM,MC,P,0</programlisting>
+        <para>The previous sequence may be replaced by:</para>
+	<programlisting>dnop
+pmlxv   v1,symbol@pcrel(r10),VRM,MC,P,1</programlisting>
+        <para>
+	  when the linker determines that the offset from the current
+	  instruction address to symbol's address will fit in 28 bits.
+	</para>
+	<para>
+	  Again, this optimization is not universally safe, since it changes
+	  the value of r12 following the data reference.  The compiler or
+	  programmer must ensure that the value of r12 is not subsequently
+	  used, and communicate a request for this optimization by placing
+	  an R_PPC64_PCREL_OPT relocation on the first instruction in the
+	  sequence.  The compiler or programmer must further ensure that the
+	  two instructions are not separated by intervening instructions.
 	</para>
       </section>
     </section>
