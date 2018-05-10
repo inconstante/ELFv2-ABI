@@ -181,6 +181,28 @@
   </section>
   <section revisionflag="added">
     <title>Changes from Revision 1.4</title>
-    <para>TBD</para>
+    <itemizedlist>
+      <listitem>
+	<para>
+	  Errata recorded at <link xl:href="https://openpowerfoundation.org/?resource_lib=openpower-elfv2-errata-elfv2-abi-version-1-4">https://openpowerfoundation.org/?resource_lib=openpower-elfv2-errata-elfv2-abi-version-1-4</link>
+	  have been incorporated into this document.
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  PowerISA version 3.1 introduces PC-relative instructions for
+	  accessing code and data.  Thus compilers and assembly programmers
+	  that target version 3.1 or later can, if desired, avoid usage of
+	  a TOC pointer for such accesses.  The ABI has been updated to
+	  describe the implications of this new capability.  For specifics,
+	  see <xref linkend="dbdoclet.50655241_FnLinkage" />, <xref
+	  linkend="dbdoclet.50655240___RefHeading___Toc377640591" />, <xref
+	  linkend="dbdoclet.50655241_18894" />, <xref
+	  linkend="dbdoclet.50655241_LinkerOpts" />, <xref
+	  linkend="dbdoclet.50655242_47739" />, and <xref
+	  linkend="dbdoclet.50655242_82622" />.
+	</para>
+      </listitem>
+    </itemizedlist>
   </section>
 </chapter>

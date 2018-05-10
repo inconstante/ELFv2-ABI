@@ -992,7 +992,8 @@ my_func:
         </tgroup>
       </informaltable>
       <para>In the following figure, low24 specifies a 24-bit field taking up
-      bits 6&#8211;29 of a word and maintaining 4-byte alignment. The other bits
+      bits 6&#8211;29 of a <phrase revisionflag="changed">word.  The 32-bit
+      word is 4-byte aligned.</phrase> The other bits
       remain unchanged. A call or unconditional branch instruction is an
       example of this field.</para>
       <para> </para>
@@ -2228,10 +2229,9 @@ my_func:
         </tgroup>
       </informaltable>
       <para revisionflag="added">
-	In the following figure, prefix34ds is similar to prefix34, but is
-	really just 32 bits because the two least-significant bits must be
-	zero and are not really part of the field.  This is used, for example,
-	by the pld instruction.
+	In the following figure, prefix32 specifies a 32-bit field taking up
+	bits 14-31 and 48-61 of a doubleword.  The doubleword is 8-byte
+	aligned.  This is used, for example, by the pld instruction.
       </para>
       <informaltable frame="all" rowsep="0" colsep="0" revisionflag="added">
         <tgroup cols="7">
@@ -2274,7 +2274,7 @@ my_func:
 		<para> </para>
 	      </entry>
               <entry nameend="c7" namest="c3" align="center">
-                <para>prefix34ds</para>
+                <para>prefix32</para>
               </entry>
             </row>
             <row rowsep="1">
@@ -2334,7 +2334,7 @@ my_func:
 		<para> </para>
 	      </entry>
               <entry nameend="c5" namest="c4" align="center" colsep="1">
-                <para>prefix34ds (continued)</para>
+                <para>prefix32 (continued)</para>
               </entry>
 	      <entry>
 		<para> </para>
@@ -2370,10 +2370,9 @@ my_func:
         </tgroup>
       </informaltable>
       <para revisionflag="added">
-	In the following figure, prefix34dq is similar to prefix34, but is
-	really just 31 bits because the three least-significant bits must be
-	zero and are not really part of the field.  This is used, for example,
-	by the plxv instruction.
+	In the following figure, prefix31 specifies a 31-bit field taking up
+	bits 14-31 and 48-60 of a doubleword.  The doubleword is 8-byte
+	aligned.  This is used, for example, by the plxv instruction.
       </para>
       <informaltable frame="all" rowsep="0" colsep="0" revisionflag="added">
         <tgroup cols="7">
@@ -2416,7 +2415,7 @@ my_func:
 		<para> </para>
 	      </entry>
               <entry nameend="c7" namest="c3" align="center">
-                <para>prefix34dq</para>
+                <para>prefix31</para>
               </entry>
             </row>
             <row rowsep="1">
@@ -2476,7 +2475,7 @@ my_func:
 		<para> </para>
 	      </entry>
               <entry nameend="c5" namest="c4" align="center" colsep="1">
-                <para>prefix34dq (continued)</para>
+                <para>prefix31 (continued)</para>
               </entry>
 	      <entry>
 		<para> </para>
@@ -2512,11 +2511,9 @@ my_func:
         </tgroup>
       </informaltable>
       <para revisionflag="added">
-	In the following figure, prefix28dq specifies a 25-bit field split
-	between bits 20-31 and 48-60 of a doubleword.  The other bits
-	remain unchanged, and the 25-bit field is assumed to be concatenated
-	with three zero bits on the right to form a 28-bit offset.  This is
-	used, for example, by the pmlxv instruction.
+	In the following figure, prefix25 specifies a 25-bit field taking up
+	bits 20-31 and 48-60 of a doubleword.  The doubleword is 8-byte
+	aligned.  This is used, for example, by the pmlxv instruction.
       </para>
       <informaltable frame="all" rowsep="0" colsep="0" revisionflag="added">
         <tgroup cols="6">
@@ -2558,7 +2555,7 @@ my_func:
 		<para> </para>
 	      </entry>
               <entry nameend="c6" namest="c4" align="center">
-                <para>prefix28dq</para>
+                <para>prefix25</para>
               </entry>
             </row>
             <row rowsep="1">
@@ -2609,7 +2606,7 @@ my_func:
 		<para> </para>
 	      </entry>
               <entry nameend="c4" namest="c3" align="center" colsep="1">
-                <para>prefix28dq (continued)</para>
+                <para>prefix25 (continued)</para>
               </entry>
 	      <entry>
 		<para> </para>
@@ -2678,7 +2675,8 @@ my_func:
                 <para>G</para>
               </entry>
               <entry>
-                <para>Represents the offset from .TOC. at which the address of
+                <para>Represents the <phrase revisionflag="changed">address in
+		the</phrase> .TOC. at which the address of
                 the relocation entry’s symbol resides during execution. This
                 implies the creation of a .got section. For more information,
                 see 
@@ -2694,7 +2692,8 @@ my_func:
                 <para>L</para>
               </entry>
               <entry>
-                <para>Represents the section offset or address of the procedure
+                <para>Represents the <phrase revisionflag="deleted">section
+		offset or</phrase> address of the procedure
                 linkage table entry for the symbol. This implies the creation
                 of a .plt section if one does not already exist. It also
                 implies the creation of a procedure linkage table (PLT) entry
@@ -2920,15 +2919,6 @@ my_func:
                 <para>Represents the offset of the symbol being relocated
                 relative to the TP.</para>
                 <para>tp + tprel = (S + A)</para>
-              </entry>
-            </row>
-            <row revisionflag="added">
-              <entry>
-                <para>pcrel</para>
-              </entry>
-              <entry>
-                <para>Represents the offset of the symbol being relocated
-                relative to the current instruction address.</para>
               </entry>
             </row>
             <row>
@@ -3205,7 +3195,9 @@ my_func:
                 <para>half16*</para>
               </entry>
               <entry>
-                <para>G</para>
+                <para>
+		  <phrase revisionflag="changed">G &#8211; .TOC.</phrase>
+		</para>
               </entry>
             </row>
             <row>
@@ -3219,7 +3211,9 @@ my_func:
                 <para>half16</para>
               </entry>
               <entry>
-                <para>#lo(G)</para>
+                <para>
+		  <phrase revisionflag="changed">#lo(G &#8211; .TOC.)</phrase>
+		</para>
               </entry>
             </row>
             <row>
@@ -3233,7 +3227,9 @@ my_func:
                 <para>half16*</para>
               </entry>
               <entry>
-                <para>#hi(G)</para>
+                <para>
+		  <phrase revisionflag="changed">#hi(G &#8211; .TOC.)</phrase>
+		</para>
               </entry>
             </row>
             <row>
@@ -3247,7 +3243,9 @@ my_func:
                 <para>half16*</para>
               </entry>
               <entry>
-                <para>#ha(G)</para>
+                <para>
+		  <phrase revisionflag="changed">#ha(G &#8211; .TOC.)</phrase>
+		</para>
               </entry>
             </row>
             <row>
@@ -3389,7 +3387,9 @@ my_func:
                 <para>half16</para>
               </entry>
               <entry>
-                <para>#lo(L)</para>
+                <para>
+		  <phrase revisionflag="changed">#lo(L &#8211; .TOC.)</phrase>
+		</para>
               </entry>
             </row>
             <row>
@@ -3403,7 +3403,9 @@ my_func:
                 <para>half16*</para>
               </entry>
               <entry>
-                <para>#hi(L)</para>
+                <para>
+		  <phrase revisionflag="changed">#hi(L &#8211; .TOC.)</phrase>
+		</para>
               </entry>
             </row>
             <row>
@@ -3417,7 +3419,9 @@ my_func:
                 <para>half16*</para>
               </entry>
               <entry>
-                <para>#ha(L)</para>
+                <para>
+		  <phrase revisionflag="changed">#ha(L &#8211; .TOC.)</phrase>
+		</para>
               </entry>
             </row>
             <row>
@@ -3781,7 +3785,10 @@ my_func:
                 <para>half16ds*</para>
               </entry>
               <entry>
-                <para>G &gt;&gt; 2</para>
+                <para>
+		  <phrase revisionflag="changed">(G &#8211; .TOC.) &gt;&gt;
+		  2</phrase>
+		</para>
               </entry>
             </row>
             <row>
@@ -3795,7 +3802,10 @@ my_func:
                 <para>half16ds</para>
               </entry>
               <entry>
-                <para>#lo(G) &gt;&gt; 2</para>
+                <para>
+		  <phrase revisionflag="changed">#lo(G &#8211; .TOC.) &gt;&gt;
+		  2</phrase>
+		</para>
               </entry>
             </row>
             <row>
@@ -3809,7 +3819,10 @@ my_func:
                 <para>half16ds</para>
               </entry>
               <entry>
-                <para>#lo(L) &gt;&gt; 2</para>
+                <para>
+		  <phrase revisionflag="changed">#lo(L &#8211; .TOC.) &gt;&gt;
+		  2</phrase>
+		</para>
               </entry>
             </row>
             <row>
@@ -4633,6 +4646,356 @@ my_func:
 		<para>none</para>
 	      </entry>
 	    </row>
+	    <row revisionflag="added">
+	      <entry>
+		<para>R_PPC64_PLTSEQ</para>
+	      </entry>
+	      <entry>
+		<para>119</para>
+	      </entry>
+	      <entry>
+		<para>none</para>
+	      </entry>
+	      <entry>
+		<para>none</para>
+	      </entry>
+	    </row>
+	    <row revisionflag="added">
+	      <entry>
+		<para>R_PPC64_PLTCALL</para>
+	      </entry>
+	      <entry>
+		<para>120</para>
+	      </entry>
+	      <entry>
+		<para>none</para>
+	      </entry>
+	      <entry>
+		<para>none</para>
+	      </entry>
+	    </row>
+	    <row revisionflag="added">
+	      <entry>
+		<para>R_PPC64_PLTSEQ_NOTOC</para>
+	      </entry>
+	      <entry>
+		<para>121</para>
+	      </entry>
+	      <entry>
+		<para>none</para>
+	      </entry>
+	      <entry>
+		<para>none</para>
+	      </entry>
+	    </row>
+	    <row revisionflag="added">
+	      <entry>
+		<para>R_PPC64_PLTCALL_NOTOC</para>
+	      </entry>
+	      <entry>
+		<para>122</para>
+	      </entry>
+	      <entry>
+		<para>none</para>
+	      </entry>
+	      <entry>
+		<para>none</para>
+	      </entry>
+	    </row>
+	    <row revisionflag="added">
+	      <entry>
+		<para>R_PPC64_PLT16_LO_NOTOC</para>
+	      </entry>
+	      <entry>
+		<para>123</para>
+	      </entry>
+	      <entry>
+		<para>half16</para>
+	      </entry>
+	      <entry>
+		<para>#lo(L &#8211; .TOC.)</para>
+	      </entry>
+	    </row>
+	    <row revisionflag="added">
+	      <entry>
+		<para>R_PPC64_PLT16_HI_NOTOC</para>
+	      </entry>
+	      <entry>
+		<para>124</para>
+	      </entry>
+	      <entry>
+		<para>half16*</para>
+	      </entry>
+	      <entry>
+		<para>#hi(L &#8211; .TOC.)</para>
+	      </entry>
+	    </row>
+	    <row revisionflag="added">
+	      <entry>
+		<para>R_PPC64_PLT16_HA_NOTOC</para>
+	      </entry>
+	      <entry>
+		<para>125</para>
+	      </entry>
+	      <entry>
+		<para>half16*</para>
+	      </entry>
+	      <entry>
+		<para>#ha(L &#8211; .TOC.)</para>
+	      </entry>
+	    </row>
+	    <row revisionflag="added">
+	      <entry>
+		<para>R_PPC64_PLT16_LO_DS_NOTOC</para>
+	      </entry>
+	      <entry>
+		<para>126</para>
+	      </entry>
+	      <entry>
+		<para>half16ds</para>
+	      </entry>
+	      <entry>
+		<para>#lo(L &#8211; .TOC.) &gt;&gt; 2</para>
+	      </entry>
+	    </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_PCREL34</para>
+              </entry>
+              <entry>
+                <para>127</para>
+              </entry>
+              <entry>
+                <para>prefix34*</para>
+              </entry>
+              <entry>
+                <para>S + A &#8211; P</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_PCREL32</para>
+              </entry>
+              <entry>
+                <para>128</para>
+              </entry>
+              <entry>
+                <para>prefix32*</para>
+              </entry>
+              <entry>
+                <para>(S + A &#8211; P) >> 2</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_PCREL31</para>
+              </entry>
+              <entry>
+                <para>129</para>
+              </entry>
+              <entry>
+                <para>prefix31*</para>
+              </entry>
+              <entry>
+                <para>(S + A &#8211; P) >> 3</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_PCREL25</para>
+              </entry>
+              <entry>
+                <para>130</para>
+              </entry>
+              <entry>
+                <para>prefix25*</para>
+              </entry>
+              <entry>
+                <para>(S + A &#8211; P) >> 3</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_GOT_PCREL34</para>
+              </entry>
+              <entry>
+                <para>131</para>
+              </entry>
+              <entry>
+                <para>prefix34*</para>
+              </entry>
+              <entry>
+                <para>G &#8211; P</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_GOT_PCREL32</para>
+              </entry>
+              <entry>
+                <para>132</para>
+              </entry>
+              <entry>
+                <para>prefix32*</para>
+              </entry>
+              <entry>
+                <para>(G &#8211; P) >> 2</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_GOT_PCREL31</para>
+              </entry>
+              <entry>
+                <para>133</para>
+              </entry>
+              <entry>
+                <para>prefix31*</para>
+              </entry>
+              <entry>
+                <para>(G &#8211; P) >> 3</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_GOT_PCREL25</para>
+              </entry>
+              <entry>
+                <para>134</para>
+              </entry>
+              <entry>
+                <para>prefix25*</para>
+              </entry>
+              <entry>
+                <para>(G &#8211; P) >> 3</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_PCREL_OPT</para>
+              </entry>
+              <entry>
+                <para>135</para>
+              </entry>
+              <entry>
+                <para>none</para>
+              </entry>
+              <entry>
+                <para>none</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_PLT_PCREL34</para>
+              </entry>
+              <entry>
+                <para>136</para>
+              </entry>
+              <entry>
+                <para>prefix34*</para>
+              </entry>
+              <entry>
+                <para>S + A &#8211; P</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_PLT_PCREL32</para>
+              </entry>
+              <entry>
+                <para>137</para>
+              </entry>
+              <entry>
+                <para>prefix32*</para>
+              </entry>
+              <entry>
+                <para>(S + A &#8211; P) &gt;&gt; 2</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_PLT_PCREL31</para>
+              </entry>
+              <entry>
+                <para>138</para>
+              </entry>
+              <entry>
+                <para>prefix31*</para>
+              </entry>
+              <entry>
+                <para>(S + A &#8211; P) &gt;&gt; 3</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_PLT_PCREL25</para>
+              </entry>
+              <entry>
+                <para>139</para>
+              </entry>
+              <entry>
+                <para>prefix25*</para>
+              </entry>
+              <entry>
+                <para>(S + A &#8211; P) &gt;&gt; 3</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_PLT_PCREL34_NOTOC</para>
+              </entry>
+              <entry>
+                <para>140</para>
+              </entry>
+              <entry>
+                <para>prefix34*</para>
+              </entry>
+              <entry>
+                <para>S + A &#8211; P</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_PLT_PCREL32_NOTOC</para>
+              </entry>
+              <entry>
+                <para>141</para>
+              </entry>
+              <entry>
+                <para>prefix32*</para>
+              </entry>
+              <entry>
+                <para>(S + A &#8211; P) &gt;&gt; 2</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_PLT_PCREL31_NOTOC</para>
+              </entry>
+              <entry>
+                <para>142</para>
+              </entry>
+              <entry>
+                <para>prefix31*</para>
+              </entry>
+              <entry>
+                <para>(S + A &#8211; P) &gt;&gt; 3</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_PLT_PCREL25_NOTOC</para>
+              </entry>
+              <entry>
+                <para>143</para>
+              </entry>
+              <entry>
+                <para>prefix25*</para>
+              </entry>
+              <entry>
+                <para>(S + A &#8211; P) &gt;&gt; 3</para>
+              </entry>
+            </row>
             <row>
               <entry>
                 <para>R_PPC64_IRELATIVE</para>
@@ -4724,132 +5087,6 @@ my_func:
               </entry>
               <entry>
                 <para>254</para>
-              </entry>
-              <entry>
-                <para> </para>
-              </entry>
-              <entry>
-                <para> </para>
-              </entry>
-            </row>
-            <row revisionflag="added">
-              <entry>
-                <para>R_PPC64_PCREL34</para>
-              </entry>
-              <entry>
-                <para>256</para>
-              </entry>
-              <entry>
-                <para>prefix34*</para>
-              </entry>
-              <entry>
-                <para>@pcrel</para>
-              </entry>
-            </row>
-            <row revisionflag="added">
-              <entry>
-                <para>R_PPC64_PCREL34_DS</para>
-              </entry>
-              <entry>
-                <para>257</para>
-              </entry>
-              <entry>
-                <para>prefix34ds*</para>
-              </entry>
-              <entry>
-                <para>@pcrel >> 2</para>
-              </entry>
-            </row>
-            <row revisionflag="added">
-              <entry>
-                <para>R_PPC64_PCREL34_DQ</para>
-              </entry>
-              <entry>
-                <para>258</para>
-              </entry>
-              <entry>
-                <para>prefix34dq*</para>
-              </entry>
-              <entry>
-                <para>@pcrel >> 3</para>
-              </entry>
-            </row>
-            <row revisionflag="added">
-              <entry>
-                <para>R_PPC64_PCREL28_DQ</para>
-              </entry>
-              <entry>
-                <para>259</para>
-              </entry>
-              <entry>
-                <para>prefix28dq*</para>
-              </entry>
-              <entry>
-                <para>@pcrel >> 3</para>
-              </entry>
-            </row>
-            <row revisionflag="added">
-              <entry>
-                <para>R_PPC64_GOT_PCREL34</para>
-              </entry>
-              <entry>
-                <para>260</para>
-              </entry>
-              <entry>
-                <para>prefix34*</para>
-              </entry>
-              <entry>
-                <para>@got@pcrel</para>
-              </entry>
-            </row>
-            <row revisionflag="added">
-              <entry>
-                <para>R_PPC64_GOT_PCREL34_DS</para>
-              </entry>
-              <entry>
-                <para>261</para>
-              </entry>
-              <entry>
-                <para>prefix34ds*</para>
-              </entry>
-              <entry>
-                <para>@got@pcrel >> 2</para>
-              </entry>
-            </row>
-            <row revisionflag="added">
-              <entry>
-                <para>R_PPC64_GOT_PCREL34_DQ</para>
-              </entry>
-              <entry>
-                <para>262</para>
-              </entry>
-              <entry>
-                <para>prefix34dq*</para>
-              </entry>
-              <entry>
-                <para>@got@pcrel >> 3</para>
-              </entry>
-            </row>
-            <row revisionflag="added">
-              <entry>
-                <para>R_PPC64_GOT_PCREL28_DQ</para>
-              </entry>
-              <entry>
-                <para>263</para>
-              </entry>
-              <entry>
-                <para>prefix28dq*</para>
-              </entry>
-              <entry>
-                <para>@got@pcrel >> 3</para>
-              </entry>
-            </row>
-            <row revisionflag="added">
-              <entry>
-                <para>R_PPC64_PCREL_OPT</para>
-              </entry>
-              <entry>
-                <para>264</para>
               </entry>
               <entry>
                 <para> </para>
@@ -4961,6 +5198,25 @@ my_func:
       associated with a global entry point.  See
       <xref linkend="dbdoclet.50655241_95185" /> for discussion of its
       use.</para>
+      <para revisionflag="added">R_PPC64_PLTSEQ, R_PPC64_PLTCALL</para>
+      <para revisionflag="added">
+	These relocations mark the instruction as being part of an inline
+	PLT call sequence in a function where r2 is a valid TOC pointer.
+	R_PPC64_PLTCALL is used to mark the call instruction, while
+	R_PPC64_PLTSEQ is used on other instructions in the sequence that
+	don't have PLT relocations.  All instructions in a given sequence
+	shall have relocations with the same symbol and addend.  Note that
+	R_PPC64_PLTCALL also implicitly marks the nop or TOC-restoring
+	instruction immediately following the call instruction.
+      </para>
+      <para revisionflag="added">R_PPC64_PLTSEQ_NOTOC,
+      R_PPC64_PLTCALL_NOTOC</para>
+      <para revisionflag="added">
+	These relocations are like the corresponding R_PPC64_PLTSEQ and
+	R_PPC64_PLTCALL relocations, but are used in functions where r2 is
+	not a valid TOC pointer.  All instructions in the sequence shall use
+	_NOTOC variant relocations.
+      </para>
       <para revisionflag="added">R_PPC64_PCREL_OPT</para>
       <para revisionflag="added">
 	This relocation type requests that the annotated 
@@ -5023,7 +5279,7 @@ addi   2,2,.TOC.-func@l</programlisting>
       <programlisting>.quad  func@localentry</programlisting>      
     </section>
   </section>
-  <section>
+  <section xml:id="dbdoclet.50655241_LinkerOpts">
     <title>Assembler- and Linker-Mediated Executable Optimization</title>
     <para>To optimize object code, the assembler and linker may rewrite object
     code to implement the function call and return conventions and access to

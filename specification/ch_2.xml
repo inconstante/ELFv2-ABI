@@ -4086,7 +4086,9 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
 	protocol requirements for external function calls, and
 	<xref linkend="dbdoclet.50655241_LocalProtocols" /> summarizes the
 	protocol requirements for local function calls.  Each entry in these
-	tables is further described in the referenced section.
+	tables is further described in the referenced section.  A program may
+	contain any combination of the function call protocols in these
+	tables.
 	<note><para>Note that
 	this ABI does not define protocols where the caller does not use
 	a TOC pointer, but does preserve r2.  It is most efficient when
@@ -7899,16 +7901,8 @@ nop</programlisting>
       address of the called function to be in r12 when a cross-module function
       call is made.</para>
 
-      <figure xml:id="dbdoclet.50655240_95364">
-        <title>Indirect Function Call (Absolute Medium Model)</title>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="figures/fig2-33.png" format="PNG"
-            scalefit="1" width="100%" />
-          </imageobject>
-        </mediaobject>
-      </figure>
-      <!-- table frame="all" pgwide="1" xml:id="dbdoclet.50655240_95364">
+      <table frame="all" pgwide="1" revisionflag="changed"
+	     xml:id="dbdoclet.50655240_95364">
         <title>Indirect Function Call (Absolute Medium Model)</title>
         <tgroup cols="2">
           <colspec colname="c1" colwidth="30*" />
@@ -7931,13 +7925,15 @@ nop</programlisting>
             <row>
               <entry>
                 <programlisting>extern void function( ); 
-extern void (*ptrfunc) ( );
+extern void (*ptrfunc) ( ); 
 
-ptrfunc = function;
- 
+ptrfunc = function; 
 
 
-(*ptrfunc)( );
+
+
+(*ptrfunc) ( );
+
 
 
 </programlisting>
@@ -7945,35 +7941,28 @@ ptrfunc = function;
               <entry>
                 <programlisting>
 
-.section .text 
-lis r11,ptrfunc@ha 
-lis r9,function@ha 
-ld r9,function@l(r9) 
-std r9,ptrfunc@l(r11) 
-lis r12,ptrfunc@ha 
-ld r12,ptrfunc@l(r12) 
-mtctr r12
+.section .text
+lis    r11,ptrfunc@ha
+lis    r9,function@ha
+ld     r9,function@l(r9)
+std    r9,ptrfunc@l(r11)
+
+lis    r12,ptrfunc@ha
+ld     r12,ptrfunc@l(r12)
+mtctr  r12
 bctrl</programlisting>
               </entry>
             </row>
           </tbody>
         </tgroup>
-      </table -->
+      </table>
       <para>
       <xref linkend="dbdoclet.50655240_16744" /> shows how to make an indirect
       function call using small-model position-independent code.
       </para>
 
-      <figure xml:id="dbdoclet.50655240_16744">
-        <title>Small-Model Position-Independent Indirect Function Call</title>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="figures/fig2-34.png" format="PNG"
-            scalefit="1" width="100%" />
-          </imageobject>
-        </mediaobject>
-      </figure>
-      <!--table frame="all" pgwide="1" xml:id="dbdoclet.50655240_16744">
+      <table frame="all" pgwide="1" revisionflag="changed"
+	     xml:id="dbdoclet.50655240_16744">
         <title>Small-Model Position-Independent Indirect Function Call</title>
         <tgroup cols="2">
           <colspec colname="c1" colwidth="30*" />
@@ -8002,8 +7991,74 @@ extern void (*ptrfunc) ( );
 ptrfunc = function; 
 
 
-... 
+
 (*ptrfunc) ( );
+
+
+
+</programlisting>
+              </entry>
+              <entry>
+                <programlisting>
+
+.section .text
+/* TOC pointer is in r2 */
+ld     r9,ptrfunc@got(r2)
+ld     r0,function@got(r2)
+std    r0,0(r9)
+
+ld     r9,ptrfunc@got(r2)
+ld     r12,0(r9)
+mtctr  r12
+std    r2,24(r1)
+bctrl
+ld     r2,24(r1)</programlisting>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para>
+      <xref linkend="dbdoclet.50655240_95225" /> shows how to make an indirect
+      function call using large-model position-independent code.
+      </para>
+
+      <table frame="all" pgwide="1" revisionflag="changed"
+	     xml:id="dbdoclet.50655240_95225">
+        <title>Large-Model Position-Independent Indirect Function Call</title>
+        <tgroup cols="2">
+          <colspec colname="c1" colwidth="30*" />
+          <colspec colname="c2" colwidth="70*" />
+          <thead>
+            <row>
+              <entry>
+                <para>
+                  <emphasis role="bold">C Code</emphasis>
+                </para>
+              </entry>
+              <entry>
+                <para>
+                  <emphasis role="bold">Assembly Code</emphasis>
+                </para>
+              </entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <programlisting>extern void function( ); 
+extern void (*ptrfunc) ( ); 
+
+
+ptrfunc = function; 
+
+
+
+
+
+(*ptrfunc) ( );
+
+
 
 
 
@@ -8013,41 +8068,30 @@ ptrfunc = function;
               <entry>
                 <programlisting>
 
-.section .text 
-/* TOC pointer is in r2 */ 
-ld r9,ptrfunc@got(r2) 
-ld r0,function@got(r2) 
-std r0,0(r9) 
-... 
-ld r9,ptrfunc@got(r2) 
-ld r12,0(r9) 
-mtctr r12 
-std r2,24(r1) 
+.section .text
+/* TOC pointer is in r2 */
+addis  r9,r2,ptrfunc@got@ha
+ld     r9,ptrfunc@got@l(r9)
+addis  r12,r2,function@got@ha
+ld     r12,function@got@l(r12)
+std    r12,0(r9)
+
+addis  r9,r2,ptrfunc@got@ha
+ld     r9,ptrfunc@got@l(r9)
+ld     r12,0(r9)
+std    r2,24(r1)
+mtctr  r12
 bctrl
-ld r2,24(r1)</programlisting>
+ld     r2,24(r1)</programlisting>
               </entry>
             </row>
           </tbody>
         </tgroup>
-      </table -->
-      <para>
-      <xref linkend="dbdoclet.50655240_95225" /> shows how to make an indirect
-      function call using large-model position-independent code.
-      </para>
-
-      <figure xml:id="dbdoclet.50655240_95225">
-        <title>Large-Model Position-Independent Indirect Function Call</title>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="figures/fig2-35.png" format="PNG"
-            scalefit="1" width="100%" />
-          </imageobject>
-        </mediaobject>
-      </figure>
+      </table>
       <para revisionflag="added">
 	<xref linkend="dbdoclet.50655240_PCRelPICIndirect" /> shows how to
 	make an indirect function call using PC-relative addressing in a
-	function that does not preserve r2. [TBD: Formatting]
+	function that does not preserve r2.
       </para>
       <table frame="all" pgwide="1" revisionflag="added"
 	     xml:id="dbdoclet.50655240_PCRelPICIndirect">
@@ -8114,24 +8158,21 @@ bctrl</programlisting>
       use the same r2 value. This scheme avoids having a compiler generate an
       overconservative r2 save and restore around every external call.</para>
       <para revisionflag="added">
-	There are two cases where the caller should not provide a nop after
+	There are two cases where the caller need not provide a nop after
 	the bl instruction performing a call:
 	<itemizedlist spacing="compact">
-	  <listitem><para>When the caller is not guaranteed to preserve r2 (see
-	  <xref linkend="dbdoclet.50655241_95185" />); or</para></listitem>
+	  <listitem><para>When the bl instruction is marked with an
+	  R_PPC64_REL24_NOTOC relocation (see
+	  <xref linkend="dbdoclet.50655241_90220" />); or</para></listitem>
 	  <listitem><para>When the callee is in the same compilation unit and
 	  is guaranteed to preserve r2.</para></listitem>
 	</itemizedlist>
-	In the first case, the bl instruction must be marked with an
-	R_PPC64_REL24_NOTOC relocation.  See <xref
-	linkend="dbdoclet.50655241_90220" />.
       </para>
       <para>For calls to functions resolved at runtime, the linker must
       generate stub code to load the function address from the PLT.</para>
       <para>The stub code also must save r2 to 24(r1) unless
       <phrase revisionflag="added">either the call is marked with an
-      R_PPC64_REL24_NOTOC relocation as above, or</phrase>
-      the call is marked
+      R_PPC64_REL24_NOTOC relocation, or</phrase> the call is marked
       with an R_PPC64_TOCSAVE relocation that points to a nop provided in the
       caller's prologue. In <phrase revisionflag="changed">either</phrase>
       case, the stub code can omit the r2 save.
@@ -8165,20 +8206,12 @@ bl target
       <xref linkend="dbdoclet.50655240_66111" /> shows the model for branch
       instructions.</para>
 
-      <figure xml:id="dbdoclet.50655240_66111">
-        <title>Branch Instruction Model</title>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="figures/fig2-36.png" format="PNG"
-            scalefit="1" width="100%" />
-          </imageobject>
-        </mediaobject>
-      </figure>
-      <!--table frame="all" pgwide="1" xml:id="dbdoclet.50655240_66111">
+      <table frame="all" pgwide="1" revisionflag="changed"
+	     xml:id="dbdoclet.50655240_66111">
         <title>Branch Instruction Model</title>
         <tgroup cols="2">
-          <colspec colname="c1" colwidth="50*" />
-          <colspec colname="c2" colwidth="50*" />
+          <colspec colname="c1" colwidth="30*" />
+          <colspec colname="c2" colwidth="70*" />
           <thead>
             <row>
               <entry>
@@ -8196,19 +8229,19 @@ bl target
           <tbody>
             <row>
               <entry>
-                <programlisting>label: 
-... 
+                <programlisting>label:
+...
 goto label;</programlisting>
               </entry>
               <entry>
-                <programlisting>.L01: 
-... 
-b .L01</programlisting>
+                <programlisting>.L01:
+...
+b      .L01</programlisting>
               </entry>
             </row>
           </tbody>
         </tgroup>
-      </table-->
+      </table>
       <para>Selecting one of multiple branches is accomplished in C with switch
       statements. An address table is used by the compiler to implement the
       switch statement selections in cases where the case labels satisfy
@@ -8232,17 +8265,8 @@ b .L01</programlisting>
       application) loaded into the low or high address range, absolute
       addressing of a branch table yields the best performance.</para>
 
-      <figure>
-        <title>Absolute Switch Code (Within) for static modules located in low
-        or high 2 GB of address space</title>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="figures/fig2-37.png" format="PNG"
-            scalefit="1" width="100%" />
-          </imageobject>
-        </mediaobject>
-      </figure>
-      <!--table frame="all" pgwide="1">
+      <table frame="all" pgwide="1" revisionflag="changed"
+	     xml:id="dbdoclet.50655240_AbsSwitch">
         <title>Absolute Switch Code (Within) for static modules located in low
         or high 2 GB of address space</title>
         <tgroup cols="2">
@@ -8265,58 +8289,50 @@ b .L01</programlisting>
           <tbody>
             <row>
               <entry>
-                <programlisting>switch(j) 
-{ 
-case 0: 
-... 
-case 1: 
-... 
-case 3: 
+                <programlisting>switch (j)
+{
+case 0:
 ...
-default: 
-... 
+case 1:
+...
+case 3:
+...
+default:
+...
 }
+
 
 
 </programlisting>
               </entry>
               <entry>
-                <programlisting>cmplwi r12, 4 
-bge .Ldefault 
-slwi r12, 2 
-addis r12, r12, .Ltab@ha 
-lwa r12, .Ltab@l(r12) 
-mtctr r12 
-bctr 
+                <programlisting>cmplwi  r12,4
+bge     .Ldefault
+slwi    r12,2
+addis   r12,r12,.Ltab@ha
+lwa     r12,.Ltab@l(r12)
+mtctr   r12
+bctr
 .rodata
-.Ltab: 
-.long .Lcase0 
-.long .Lcase1 
-.long .Ldefault 
-.long .Lcase3 
+.Ltab:
+.long   .Lcase0
+.long   .Lcase1
+.long   .Ldefault
+.long   .Lcase3
 .text</programlisting>
               </entry>
             </row>
           </tbody>
         </tgroup>
-      </table-->
+      </table>
       <note>
         <para>A faster variant of this code may be used to locate branch
         targets in the bottom 2 GB of the address space in conjunction with the
         lwz instruction in place of the lwa instruction.</para>
       </note>
       
-      <figure>
-        <title>Absolute Switch Code (Beyond) for static modules beyond the top
-        or bottom 2 GB of the address space</title>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="figures/fig2-38.png" format="PNG"
-            scalefit="1" width="100%" />
-          </imageobject>
-        </mediaobject>
-      </figure>
-      <!--table frame="all" pgwide="1">
+      <table frame="all" pgwide="1" revisionflag="changed"
+	     xml:id="dbdoclet.50655240_AbsSwitchBeyond">
         <title>Absolute Switch Code (Beyond) for static modules beyond the top
         or bottom 2 GB of the address space</title>
         <tgroup cols="2">
@@ -8339,41 +8355,42 @@ bctr
           <tbody>
             <row>
               <entry>
-                <programlisting>switch(j) 
-{ 
-case 0: 
-... 
-case 1: 
-... 
-case 3: 
+                <programlisting>switch (j)
+{
+case 0:
 ...
-default: 
-... 
+case 1:
+...
+case 3:
+...
+default:
+...
 }
+
 
 
 </programlisting>
               </entry>
               <entry>
-                <programlisting>cmplwi r12, 4 
-bge .Ldefault 
-slwi r12, 2 
-addis r12, r12, .Ltab@ha 
-ld r12, .Ltab@l(r12) 
-mtctr r12 
-bctr 
+                <programlisting>cmplwi  r12,4
+bge     .Ldefault
+slwi    r12,2
+addis   r12,r12,.Ltab@ha
+ld      r12,.Ltab@l(r12)
+mtctr   r12
+bctr
 .rodata
-.Ltab: 
-.quad .Lcase0 
-.quad .Lcase1 
-.quad .Ldefault 
-.quad .Lcase3 
+.Ltab:
+.long   .Lcase0
+.long   .Lcase1
+.long   .Ldefault
+.long   .Lcase3
 .text</programlisting>
               </entry>
             </row>
           </tbody>
         </tgroup>
-      </table -->
+      </table>
       <para>For position-independent code targeted at being dynamically loaded
       to different address ranges as DSO, the preferred code pattern uses
       TOC-relative addressing by taking advantage of the fact that the TOC
@@ -8381,19 +8398,10 @@ bctr
       relative offsets from the start address of the branch table ensures
       position-independence when code is loaded at different addresses.</para>
 
-
-      <figure>
+      <table frame="all" pgwide="1" revisionflag="changed"
+	     xml:id="dbdoclet.50655240_SwitchPicMed">
         <title>Position-Independent Switch Code for Small/Medium Models
         (preferred, with TOC-relative addressing)</title>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="figures/fig2-39.png" format="PNG"
-            scalefit="1" width="100%" />
-          </imageobject>
-        </mediaobject>
-      </figure>
-      <!--table frame="all" pgwide="1">
-        <title>Position-Independent Switch Code for Small/Medium Models</title>
         <tgroup cols="2">
           <colspec colname="c1" colwidth="30*" />
           <colspec colname="c2" colwidth="70*" />
@@ -8414,41 +8422,42 @@ bctr
           <tbody>
             <row>
               <entry>
-                <programlisting>switch(j) 
-{ 
-case 0: 
-... 
-case 1: 
-... 
-case 3: 
+                <programlisting>switch (j)
+{
+case 0:
 ...
-default: 
+case 1:
+...
+case 3:
+...
+default:
 ...
 }
+
 
 
 </programlisting>
               </entry>
               <entry>
-                <programlisting>cmplwi r12, 4 
-bge .Ldefault 
-addis r10,r2,(.Ltab-.TOC.)@ha 
-addi r10,r10,(.Ltab-.TOC.)@l 
-slwi r12,2
-lwax r8,r10,r12 
-add r10,r8,r10 
-mtctr r10 
-bctr 
-.Ltab: 
-.word (.Lcase0-.Ltab) 
-.word (.Lcase1-.Ltab) 
-.word (.Ldefault-.Ltab)
-.word (.Lcase3-.Ltab)</programlisting>
+                <programlisting>cmplwi  r12,4
+bge     .Ldefault
+addis   r10,r2,(.Ltab-.TOC.)@ha
+addi    r10,r10,(.Ltab-.TOC.)@l
+slwi    r12,2
+lwax    r8,r10,r12
+add     r10,r8,r10
+mtctr   r10
+bctr
+.Ltab:
+.word   (.Lcase0-.Ltab)
+.word   (.Lcase1-.Ltab)
+.word   (.Ldefault-.Ltab)
+.word   (.Lcase3-.Ltab)</programlisting>
               </entry>
             </row>
           </tbody>
         </tgroup>
-      </table-->
+      </table>
       <para>For position-independent code targeted at being dynamically loaded
       to different address ranges as a DSO or a position-independent executable
       (PIE), the preferred code pattern uses TOC-indirect addresses for code
@@ -8457,17 +8466,8 @@ bctr
       table ensures position independence when code is loaded at different
       addresses.</para>
 
-      <figure>
-        <title>Position-Independent Switch Code for All Models (alternate, with
-        GOT-indirect addressing)</title>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="figures/fig2-40.png" format="PNG"
-            scalefit="1" width="100%" />
-          </imageobject>
-        </mediaobject>
-      </figure>
-      <!--table frame="all" pgwide="1">
+      <table frame="all" pgwide="1" revisionflag="changed"
+	     xml:id="dbdoclet.50655240_SwitchGotAll">
         <title>Position-Independent Switch Code for All Models (alternate, with
         GOT-indirect addressing)</title>
         <tgroup cols="2">
@@ -8490,41 +8490,42 @@ bctr
           <tbody>
             <row>
               <entry>
-                <programlisting>switch(j) 
-{ 
-case 0: 
-... 
-case 1: 
-... 
-case 3: 
+                <programlisting>switch (j)
+{
+case 0:
 ...
-default: 
-... 
+case 1:
+...
+case 3:
+...
+default:
+...
 }
+
 
 
 </programlisting>
               </entry>
               <entry>
-                <programlisting>cmplwi r12, 4 
-bge .Ldefault 
-addis r10,r2,.Ltab@got@ha 
-ld r10,.Ltab@got@l(r10) 
-slwi r12,2 
-lwax r8,r10,r8 
-add r10,r8,r12 
-mtctr r10 
-bctr 
-.Ltab: 
-.word (.Lcase0-.Ltab) 
-.word (.Lcase1-.Ltab) 
-.word (.Ldefault-.Ltab)
-.word (.Lcase3-.Ltab)</programlisting>
+                <programlisting>cmplwi  r12,4
+bge     .Ldefault
+addis   r10,r2,.Ltab@got@ha
+ld      r10,r10,.Ltab@got@l(r10)
+slwi    r12,2
+lwax    r8,r10,r12
+add     r10,r8,r10
+mtctr   r10
+bctr
+.Ltab:
+.word   (.Lcase0-.Ltab)
+.word   (.Lcase1-.Ltab)
+.word   (.Ldefault-.Ltab)
+.word   (.Lcase3-.Ltab)</programlisting>
               </entry>
             </row>
           </tbody>
         </tgroup>
-      </table-->
+      </table>
       <para>
       <xref linkend="dbdoclet.50655240_11405" /> shows how, in the medium code
       model, PIC code can be used to avoid using the lwa instruction, which may
@@ -8549,7 +8550,7 @@ f1:
       </figure>
       <para revisionflag="added">
 	<xref linkend="dbdoclet.50655240_PCRelSwitch" /> shows a switch
-	implementation for PC-relative compilation units.  [TBD: Formatting]
+	implementation for PC-relative compilation units.
       </para>
       <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_PCRelSwitch"
 	     revisionflag="added">
@@ -8587,6 +8588,7 @@ case 3:
 default: 
 ...
 }
+
 
 
 </programlisting>
