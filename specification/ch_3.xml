@@ -2120,7 +2120,8 @@ my_func:
       </informaltable>
       <para revisionflag="added">
 	In the following figure, prefix34 specifies a 34-bit field split
-	between bits 14-31 and 48-63 of a doubleword.  The other bits
+	between bits 14-31 and 48-63 of a doubleword.  The doubleword is
+	8-byte aligned.  The other bits
 	remain unchanged.  This is used by many PC-relative load and store
 	instructions.
       </para>
@@ -2816,9 +2817,9 @@ my_func:
               <entry>
                 <para>Denotes the higher adjusted value: bits 32&#8211;47
 		of the
-                indicated value, compensating for #hi( ) being treated as a
+                indicated value, compensating for #lo( ) being treated as a
                 signed number. That is:</para>
-                <para>#highera(x) = (x + 0x80000000) &gt;&gt; 32</para>
+                <para>#highera(x) = (x + 0x8000) &gt;&gt; 32</para>
               </entry>
             </row>
             <row revisionflag="added">
@@ -2828,7 +2829,7 @@ my_func:
               <entry>
                 <para>Denotes bits 48&#8211;63 of the indicated value. That
                 is:</para>
-                <para>#higher(x) = x &gt;&gt; 48</para>
+                <para>#highest(x) = x &gt;&gt; 48</para>
               </entry>
             </row>
             <row revisionflag="added">
@@ -2838,9 +2839,9 @@ my_func:
               <entry>
                 <para>Denotes the highest adjusted value: bits 48&#8211;63
 		of the
-                indicated value, compensating for #higher( ) being treated as a
+                indicated value, compensating for #lo( ) being treated as a
                 signed number. That is:</para>
-                <para>#highesta(x) = (x + 0x800000000000) &gt;&gt; 48</para>
+                <para>#highesta(x) = (x + 0x8000) &gt;&gt; 48</para>
               </entry>
             </row>
             <row>
@@ -4895,7 +4896,7 @@ my_func:
                 <para>prefix34*</para>
               </entry>
               <entry>
-                <para>S + A &#8211; P</para>
+                <para>L &#8211; P</para>
               </entry>
             </row>
             <row revisionflag="added">
@@ -4909,7 +4910,7 @@ my_func:
                 <para>prefix32*</para>
               </entry>
               <entry>
-                <para>(S + A &#8211; P) &gt;&gt; 2</para>
+                <para>(L &#8211; P) &gt;&gt; 2</para>
               </entry>
             </row>
             <row revisionflag="added">
@@ -4923,7 +4924,7 @@ my_func:
                 <para>prefix31*</para>
               </entry>
               <entry>
-                <para>(S + A &#8211; P) &gt;&gt; 3</para>
+                <para>(L &#8211; P) &gt;&gt; 3</para>
               </entry>
             </row>
             <row revisionflag="added">
@@ -4937,7 +4938,7 @@ my_func:
                 <para>prefix25*</para>
               </entry>
               <entry>
-                <para>(S + A &#8211; P) &gt;&gt; 3</para>
+                <para>(L &#8211; P) &gt;&gt; 3</para>
               </entry>
             </row>
             <row revisionflag="added">
@@ -4951,7 +4952,7 @@ my_func:
                 <para>prefix34*</para>
               </entry>
               <entry>
-                <para>S + A &#8211; P</para>
+                <para>L &#8211; P</para>
               </entry>
             </row>
             <row revisionflag="added">
@@ -4965,7 +4966,7 @@ my_func:
                 <para>prefix32*</para>
               </entry>
               <entry>
-                <para>(S + A &#8211; P) &gt;&gt; 2</para>
+                <para>(L &#8211; P) &gt;&gt; 2</para>
               </entry>
             </row>
             <row revisionflag="added">
@@ -4979,7 +4980,7 @@ my_func:
                 <para>prefix31*</para>
               </entry>
               <entry>
-                <para>(S + A &#8211; P) &gt;&gt; 3</para>
+                <para>(L &#8211; P) &gt;&gt; 3</para>
               </entry>
             </row>
             <row revisionflag="added">
@@ -4993,7 +4994,7 @@ my_func:
                 <para>prefix25*</para>
               </entry>
               <entry>
-                <para>(S + A &#8211; P) &gt;&gt; 3</para>
+                <para>(L &#8211; P) &gt;&gt; 3</para>
               </entry>
             </row>
             <row>
