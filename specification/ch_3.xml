@@ -305,7 +305,9 @@ e_ident[EI_DATA]     ELFDATA2LSB  For all little-endian implementations.</progra
       table entry for that symbol. This entry will identify the symbol as
       undefined by setting the st_shndx member to SHN_UNDEF.</para>
       <para>The OpenPOWER ABI uses the three most-significant bits in the
-      symbol st_other field to specify the number of instructions between a
+      symbol st_other field to specify the number of <phrase
+      revisionflag="deleted">instructions</phrase><phrase
+      revisionflag="added">bytes</phrase> between a
       function's global entry point and local entry point. The global entry
       point is used when it is necessary to set up the TOC pointer (r2) for the
       function. The local entry point is used when r2 is known to already be
@@ -357,7 +359,9 @@ e_ident[EI_DATA]     ELFDATA2LSB  For all little-endian implementations.</progra
                 <para>2</para>
               </entry>
               <entry>
-                <para>The local entry point is at one instruction past the
+                <para>The local entry point is at <phrase
+		revisionflag="deleted">one instruction</phrase><phrase
+		revisionflag="added">four bytes</phrase> past the
                 global entry point.</para>
                 <para>When called at the global entry point, r12 must be set to
                 the function entry address. r2 will be set to the TOC base that
@@ -373,7 +377,9 @@ e_ident[EI_DATA]     ELFDATA2LSB  For all little-endian implementations.</progra
                 <para>3</para>
               </entry>
               <entry>
-                <para>The local entry point is at two instructions past the
+                <para>The local entry point is at <phrase
+		revisionflag="deleted">two instructions</phrase><phrase
+		revisionflag="added">eight bytes</phrase> past the
                 global entry point.</para>
                 <para>When called at the global entry point, r12 must be set to
                 the function entry address. r2 will be set to the TOC base that
@@ -389,7 +395,9 @@ e_ident[EI_DATA]     ELFDATA2LSB  For all little-endian implementations.</progra
                 <para>4</para>
               </entry>
               <entry>
-                <para>The local entry point is at four instructions past the
+                <para>The local entry point is at <phrase
+		revisionflag="deleted">four instructions</phrase><phrase
+		revisionflag="added">sixteen bytes</phrase> past the
                 global entry point.</para>
                 <para>When called at the global entry point, r12 must be set to
                 the function entry address. r2 will be set to the TOC base that
@@ -405,7 +413,9 @@ e_ident[EI_DATA]     ELFDATA2LSB  For all little-endian implementations.</progra
                 <para>5</para>
               </entry>
               <entry>
-                <para>The local entry point is at eight instructions past the
+                <para>The local entry point is at <phrase
+		revisionflag="deleted">eight instructions</phrase><phrase
+		revisionflag="added">thirty-two bytes</phrase> past the
                 global entry point.</para>
                 <para>When called at the global entry point, r12 must be set to
                 the function entry address. r2 will be set to the TOC base that
@@ -421,7 +431,9 @@ e_ident[EI_DATA]     ELFDATA2LSB  For all little-endian implementations.</progra
                 <para>6</para>
               </entry>
               <entry>
-                <para>The local entry point is at 16 instructions past the
+                <para>The local entry point is at <phrase
+		revisionflag="deleted">16 instructions</phrase><phrase
+		revisionflag="added">sixty-four bytes</phrase> past the
                 global entry point.</para>
                 <para>When called at the global entry point, r12 must be set to
                 the function entry address. r2 will be set to the TOC base that
@@ -461,6 +473,8 @@ my_func:
       points, even if the global entry point will not be used. (In such a case,
       the instructions of the global entry setup sequence may optionally be
       initialized with TRAP instructions.)</para>
+      <para revisionflag="added">A function with an st_other value of 1 is
+      identified by a .localentry directive with a value of 1.</para>
       <para>For very large programs, a 32-bit offset from
       the TOC base may not suffice to reach all function addresses.  In this
       case, the large program model must be used, and the above sequence is
