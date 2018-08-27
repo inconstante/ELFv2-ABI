@@ -2134,50 +2134,74 @@ my_func:
       </informaltable>
       <para revisionflag="added">
 	In the following figure, prefix34 specifies a 34-bit field split
-	between bits 14-31 and 48-63 of a doubleword.  The doubleword is
-	8-byte aligned.  The other bits
-	remain unchanged.  This is used by many PC-relative load and store
-	instructions.
+	between bits 14-31 and 48-63 of two consecutive words.  This is used
+	by many PC-relative load and store instructions.
       </para>
       <informaltable frame="all" rowsep="0" colsep="0" revisionflag="added">
-        <tgroup cols="5">
-          <colspec colname="c1" colwidth="7*" />
-          <colspec colname="c2" colwidth="7*" />
-          <colspec colname="c3" colwidth="2*" />
-          <colspec colname="c4" colwidth="8*" />
-          <colspec colname="c5" colwidth="8*" />
+        <tgroup cols="10">
+          <colspec colname="c1" colwidth="4*" />
+          <colspec colname="c2" colwidth="4*" />
+          <colspec colname="c3" colwidth="3*" />
+          <colspec colname="c4" colwidth="3*" />
+          <colspec colname="c5" colwidth="1*" />
+          <colspec colname="c6" colwidth="1*" />
+          <colspec colname="c7" colwidth="4*" />
+          <colspec colname="c8" colwidth="4*" />
+          <colspec colname="c9" colwidth="4*" />
+          <colspec colname="c10" colwidth="4*" />
           <tbody>
             <row>
+              <entry align="left">
+                <para>0</para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para>3</para>
+              </entry>
+              <entry align="left">
+                <para>1</para>
+              </entry>
+              <entry colsep="1">
+                <para> </para>
+              </entry>
               <entry>
                 <para> </para>
               </entry>
               <entry align="right" colsep="1">
-                <para> </para>
+                <para>2</para>
               </entry>
-              <entry>
-                <para> </para>
+              <entry align="left">
+                <para>2</para>
               </entry>
-              <entry>
-                <para> </para>
+              <entry align="right" colsep="1">
+                <para>1</para>
               </entry>
-              <entry>
-                <para> </para>
+              <entry align="left">
+                <para>3</para>
+              </entry>
+              <entry align="right">
+                <para>0</para>
               </entry>
             </row>
             <row>
-	      <entry align="left">
+	      <entry nameend="c3" namest="c1" align="left">
 		<para> </para>
 	      </entry>
 	      <entry align="right" colsep="1">
 		<para> </para>
 	      </entry>
-              <entry nameend="c5" namest="c3" align="center">
-                <para>prefix34</para>
+              <entry nameend="c10" namest="c5" align="center">
+                <para>prefix34 (high 18 bits)</para>
               </entry>
             </row>
             <row rowsep="1">
               <entry align="left">
                 <para>0</para>
+              </entry>
+              <entry>
+                <para> </para>
+              </entry>
+              <entry>
+                <para> </para>
               </entry>
               <entry align="right" colsep="1">
                 <para>13</para>
@@ -2185,7 +2209,7 @@ my_func:
               <entry align="left">
                 <para>14</para>
               </entry>
-              <entry>
+              <entry nameend="c9" namest="c6">
                 <para> </para>
               </entry>
               <entry align="right">
@@ -2193,6 +2217,15 @@ my_func:
               </entry>
             </row>
             <row>
+              <entry align="left">
+                <para>4</para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para>7</para>
+              </entry>
+              <entry align="left">
+                <para>5</para>
+              </entry>
               <entry>
                 <para> </para>
               </entry>
@@ -2200,34 +2233,34 @@ my_func:
                 <para> </para>
               </entry>
               <entry align="right" colsep="1">
-                <para> </para>
+                <para>6</para>
               </entry>
-              <entry>
-                <para> </para>
+              <entry align="left">
+                <para>6</para>
               </entry>
-              <entry>
-                <para> </para>
+              <entry align="right" colsep="1">
+                <para>5</para>
+              </entry>
+              <entry align="left">
+                <para>7</para>
+              </entry>
+              <entry align="right">
+                <para>4</para>
               </entry>
             </row>
             <row>
-	      <entry>
+	      <entry nameend="c6" namest="c1" align="right" colsep="1">
 		<para> </para>
 	      </entry>
-	      <entry>
-		<para> </para>
-	      </entry>
-	      <entry align="right" colsep="1">
-		<para> </para>
-	      </entry>
-              <entry nameend="c5" namest="c4" align="center">
-                <para>prefix34 (continued)</para>
+              <entry nameend="c10" namest="c7" align="center">
+                <para>prefix34 (low 16 bits)</para>
               </entry>
             </row>
             <row>
               <entry align="left">
                 <para>32</para>
               </entry>
-              <entry>
+              <entry nameend="c5" namest="c2">
                 <para> </para>
               </entry>
               <entry align="right" colsep="1">
@@ -2236,7 +2269,7 @@ my_func:
               <entry align="left">
                 <para>48</para>
               </entry>
-              <entry align="right">
+              <entry nameend="c10" namest="c8" align="right">
                 <para>63</para>
               </entry>
             </row>
@@ -2245,55 +2278,66 @@ my_func:
       </informaltable>
       <para revisionflag="added">
 	In the following figure, prefix32 specifies a 32-bit field taking up
-	bits 14-31 and 48-61 of a doubleword.  The doubleword is 8-byte
-	aligned.  This is used, for example, by the pld instruction.
+	bits 14-31 and 48-61 of two consecutive words.  This is used, for
+	example, by the pld instruction.
       </para>
       <informaltable frame="all" rowsep="0" colsep="0" revisionflag="added">
-        <tgroup cols="7">
-          <colspec colname="c1" colwidth="7*" />
-          <colspec colname="c2" colwidth="7*" />
-          <colspec colname="c3" colwidth="2*" />
-          <colspec colname="c4" colwidth="7*" />
-          <colspec colname="c5" colwidth="7*" />
+        <tgroup cols="12">
+          <colspec colname="c1" colwidth="4*" />
+          <colspec colname="c2" colwidth="4*" />
+          <colspec colname="c3" colwidth="3*" />
+          <colspec colname="c4" colwidth="3*" />
+          <colspec colname="c5" colwidth="1*" />
           <colspec colname="c6" colwidth="1*" />
-          <colspec colname="c7" colwidth="1*" />
+          <colspec colname="c7" colwidth="4*" />
+          <colspec colname="c8" colwidth="4*" />
+          <colspec colname="c9" colwidth="3*" />
+          <colspec colname="c10" colwidth="3*" />
+          <colspec colname="c11" colwidth="1*" />
+          <colspec colname="c12" colwidth="1*" />
           <tbody>
             <row>
+              <entry align="left">
+                <para>0</para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para>3</para>
+              </entry>
+              <entry align="left">
+                <para>1</para>
+              </entry>
+              <entry colsep="1">
+                <para> </para>
+              </entry>
               <entry>
                 <para> </para>
               </entry>
               <entry align="right" colsep="1">
-                <para> </para>
+                <para>2</para>
               </entry>
-              <entry>
-                <para> </para>
+              <entry align="left">
+                <para>2</para>
               </entry>
-              <entry>
-                <para> </para>
+              <entry align="right" colsep="1">
+                <para>1</para>
               </entry>
-              <entry>
-                <para> </para>
+              <entry align="left">
+                <para>3</para>
               </entry>
-              <entry>
-                <para> </para>
-              </entry>
-              <entry>
-                <para> </para>
+              <entry align="right" nameend="c12" namest="c10">
+                <para>0</para>
               </entry>
             </row>
             <row>
-	      <entry align="left">
+	      <entry nameend="c4" namest="c1" align="right" colsep="1">
 		<para> </para>
 	      </entry>
-	      <entry align="right" colsep="1">
-		<para> </para>
-	      </entry>
-              <entry nameend="c7" namest="c3" align="center">
-                <para>prefix32</para>
+              <entry nameend="c12" namest="c5" align="center" colsep="1">
+                <para>prefix32 (high 18 bits)</para>
               </entry>
             </row>
             <row rowsep="1">
-              <entry align="left">
+              <entry nameend="c3" namest="c1" align="left">
                 <para>0</para>
               </entry>
               <entry align="right" colsep="1">
@@ -2302,54 +2346,48 @@ my_func:
               <entry align="left">
                 <para>14</para>
               </entry>
-              <entry>
-                <para> </para>
+              <entry nameend="c12" namest="c6" align="right">
+                <para>31</para>
               </entry>
-              <entry>
+            </row>
+            <row>
+              <entry align="left">
+                <para>4</para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para>7</para>
+              </entry>
+              <entry align="left">
+                <para>5</para>
+              </entry>
+              <entry nameend="c6" namest="c4" align="right" colsep="1">
+                <para>6</para>
+              </entry>
+              <entry align="left">
+                <para>6</para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para>5</para>
+              </entry>
+              <entry align="left">
+                <para>7</para>
+              </entry>
+              <entry align="right" colsep="1">
                 <para> </para>
               </entry>
               <entry>
                 <para> </para>
               </entry>
               <entry align="right">
-                <para>31</para>
+                <para>4</para>
               </entry>
             </row>
             <row>
-              <entry>
-                <para> </para>
-              </entry>
-              <entry>
-                <para> </para>
-              </entry>
-              <entry align="right" colsep="1">
-                <para> </para>
-              </entry>
-              <entry>
-                <para> </para>
-              </entry>
-              <entry align="right" colsep="1">
-                <para> </para>
-              </entry>
-              <entry>
-                <para> </para>
-              </entry>
-              <entry>
-                <para> </para>
-              </entry>
-            </row>
-            <row>
-	      <entry>
+	      <entry nameend="c6" namest="c1" align="right" colsep="1">
 		<para> </para>
 	      </entry>
-	      <entry>
-		<para> </para>
-	      </entry>
-	      <entry align="right" colsep="1">
-		<para> </para>
-	      </entry>
-              <entry nameend="c5" namest="c4" align="center" colsep="1">
-                <para>prefix32 (continued)</para>
+              <entry nameend="c10" namest="c7" align="center" colsep="1">
+                <para>prefix32 (low 14 bits)</para>
               </entry>
 	      <entry>
 		<para> </para>
@@ -2362,16 +2400,13 @@ my_func:
               <entry align="left">
                 <para>32</para>
               </entry>
-              <entry>
-                <para> </para>
-              </entry>
-              <entry align="right" colsep="1">
+              <entry nameend="c6" namest="c2" align="right" colsep="1">
                 <para>47</para>
               </entry>
               <entry align="left">
                 <para>48</para>
               </entry>
-              <entry align="right" colsep="1">
+              <entry nameend="c10" namest="c8" align="right" colsep="1">
                 <para>61</para>
               </entry>
               <entry align="left">
@@ -2385,112 +2420,114 @@ my_func:
         </tgroup>
       </informaltable>
       <para revisionflag="added">
-	In the following figure, prefix31 specifies a 31-bit field taking up
-	bits 14-31 and 48-60 of a doubleword.  The doubleword is 8-byte
-	aligned.  This is used, for example, by the plxv instruction.
+	In the following figure, prefix30 specifies a 30-bit field taking up
+	bits 14-31 and 48-59 of two consecutive words.  This is used, for
+	example, by the plxv instruction.
       </para>
       <informaltable frame="all" rowsep="0" colsep="0" revisionflag="added">
-        <tgroup cols="7">
-          <colspec colname="c1" colwidth="7*" />
-          <colspec colname="c2" colwidth="7*" />
-          <colspec colname="c3" colwidth="2*" />
-          <colspec colname="c4" colwidth="7*" />
-          <colspec colname="c5" colwidth="6*" />
-          <colspec colname="c6" colwidth="2*" />
-          <colspec colname="c7" colwidth="1*" />
+        <tgroup cols="12">
+          <colspec colname="c1" colwidth="4*" />
+          <colspec colname="c2" colwidth="4*" />
+          <colspec colname="c3" colwidth="3*" />
+          <colspec colname="c4" colwidth="3*" />
+          <colspec colname="c5" colwidth="1*" />
+          <colspec colname="c6" colwidth="1*" />
+          <colspec colname="c7" colwidth="4*" />
+          <colspec colname="c8" colwidth="4*" />
+          <colspec colname="c9" colwidth="2*" />
+          <colspec colname="c10" colwidth="2*" />
+          <colspec colname="c11" colwidth="2*" />
+          <colspec colname="c12" colwidth="2*" />
           <tbody>
             <row>
-              <entry>
-                <para> </para>
+              <entry align="left">
+                <para>0</para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para>3</para>
+              </entry>
+              <entry align="left">
+                <para>1</para>
               </entry>
               <entry align="right" colsep="1">
                 <para> </para>
               </entry>
-              <entry>
+              <entry align="left">
                 <para> </para>
               </entry>
-              <entry>
-                <para> </para>
+              <entry align="right" colsep="1">
+                <para>2</para>
               </entry>
-              <entry>
-                <para> </para>
+              <entry align="left">
+                <para>2</para>
               </entry>
-              <entry>
-                <para> </para>
+              <entry align="right" colsep="1">
+                <para>1</para>
               </entry>
-              <entry>
-                <para> </para>
+              <entry align="left">
+                <para>3</para>
+              </entry>
+              <entry nameend="c12" namest="c10" align="right">
+                <para>0</para>
               </entry>
             </row>
             <row>
-	      <entry align="left">
+	      <entry nameend="c4" namest="c1" align="right" colsep="1">
 		<para> </para>
 	      </entry>
-	      <entry align="right" colsep="1">
-		<para> </para>
+	      <entry nameend="c12" namest="c5" align="center" colsep="1">
+		<para>prefix30 (high 18 bits)</para>
 	      </entry>
-              <entry nameend="c7" namest="c3" align="center">
-                <para>prefix31</para>
-              </entry>
             </row>
             <row rowsep="1">
               <entry align="left">
                 <para>0</para>
               </entry>
-              <entry align="right" colsep="1">
+              <entry nameend="c4" namest="c2" align="right" colsep="1">
                 <para>13</para>
               </entry>
               <entry align="left">
                 <para>14</para>
               </entry>
-              <entry>
-                <para> </para>
-              </entry>
-              <entry>
-                <para> </para>
-              </entry>
-              <entry>
-                <para> </para>
-              </entry>
-              <entry align="right">
+              <entry nameend="c12" namest="c6" align="right">
                 <para>31</para>
               </entry>
             </row>
             <row>
-              <entry>
-                <para> </para>
-              </entry>
-              <entry>
-                <para> </para>
+              <entry align="left">
+                <para>4</para>
               </entry>
               <entry align="right" colsep="1">
-                <para> </para>
+                <para>7</para>
               </entry>
-              <entry>
-                <para> </para>
+              <entry align="left">
+                <para>5</para>
+              </entry>
+              <entry nameend="c6" namest="c4" align="right" colsep="1">
+                <para>6</para>
+              </entry>
+              <entry align="left">
+                <para>6</para>
               </entry>
               <entry align="right" colsep="1">
-                <para> </para>
+                <para>5</para>
               </entry>
-              <entry>
-                <para> </para>
+              <entry align="left">
+                <para>7</para>
               </entry>
-              <entry>
-                <para> </para>
+	      <entry colsep="1">
+		<para> </para>
+	      </entry>
+              <entry nameend="c12" namest="c11" align="right">
+                <para>4</para>
               </entry>
             </row>
             <row>
-	      <entry>
+	      <entry nameend="c6" namest="c1" colsep="1">
 		<para> </para>
 	      </entry>
-	      <entry>
-		<para> </para>
-	      </entry>
-	      <entry align="right" colsep="1">
-		<para> </para>
-	      </entry>
-              <entry nameend="c5" namest="c4" align="center" colsep="1">
-                <para>prefix31 (continued)</para>
+              <entry nameend="c10" namest="c7" align="center" colsep="1">
+                <para>prefix30 (low 12 bits)</para>
               </entry>
 	      <entry>
 		<para> </para>
@@ -2503,20 +2540,17 @@ my_func:
               <entry align="left">
                 <para>32</para>
               </entry>
-              <entry>
-                <para> </para>
-              </entry>
-              <entry align="right" colsep="1">
+              <entry nameend="c6" namest="c2" align="right" colsep="1">
                 <para>47</para>
               </entry>
               <entry align="left">
                 <para>48</para>
               </entry>
-              <entry align="right" colsep="1">
-                <para>60</para>
+              <entry nameend="c10" namest="c8" align="right" colsep="1">
+                <para>59</para>
               </entry>
               <entry align="left">
-                <para>61</para>
+                <para>60</para>
               </entry>
               <entry align="right">
                 <para>63</para>
@@ -2526,25 +2560,40 @@ my_func:
         </tgroup>
       </informaltable>
       <para revisionflag="added">
-	In the following figure, prefix25 specifies a 25-bit field taking up
-	bits 20-31 and 48-60 of a doubleword.  The doubleword is 8-byte
-	aligned.  This is used, for example, by the pmlxv instruction.
+	In the following figure, prefix24 specifies a 24-bit field taking up
+	bits 20-31 and 48-59 of two consecutive words.  This is used, for
+	example, by the pmlxv instruction.
       </para>
       <informaltable frame="all" rowsep="0" colsep="0" revisionflag="added">
-        <tgroup cols="6">
-          <colspec colname="c1" colwidth="8*" />
-          <colspec colname="c2" colwidth="8*" />
+        <tgroup cols="12">
+          <colspec colname="c1" colwidth="4*" />
+          <colspec colname="c2" colwidth="4*" />
           <colspec colname="c3" colwidth="4*" />
-          <colspec colname="c4" colwidth="9*" />
+          <colspec colname="c4" colwidth="4*" />
           <colspec colname="c5" colwidth="2*" />
-          <colspec colname="c6" colwidth="1*" />
+          <colspec colname="c6" colwidth="2*" />
+          <colspec colname="c7" colwidth="2*" />
+          <colspec colname="c8" colwidth="2*" />
+          <colspec colname="c9" colwidth="2*" />
+          <colspec colname="c10" colwidth="2*" />
+          <colspec colname="c11" colwidth="2*" />
+          <colspec colname="c12" colwidth="2*" />
           <tbody>
             <row>
-              <entry>
-                <para> </para>
+              <entry align="left">
+                <para>0</para>
               </entry>
-              <entry>
-                <para> </para>
+              <entry align="right" colsep="1">
+                <para>3</para>
+              </entry>
+              <entry align="left">
+                <para>1</para>
+              </entry>
+              <entry align="right" colsep="1">
+                <para>2</para>
+              </entry>
+              <entry align="left">
+                <para>2</para>
               </entry>
               <entry align="right" colsep="1">
                 <para> </para>
@@ -2552,76 +2601,70 @@ my_func:
               <entry>
                 <para> </para>
               </entry>
-              <entry>
-                <para> </para>
+              <entry align="right" colsep="1">
+                <para>1</para>
               </entry>
-              <entry>
-                <para> </para>
+              <entry align="left">
+                <para>3</para>
+              </entry>
+              <entry nameend="c12" namest="c10" align="right">
+                <para>0</para>
               </entry>
             </row>
             <row>
-	      <entry align="left">
+	      <entry nameend="c6" namest="c1" colsep="1">
 		<para> </para>
 	      </entry>
-              <entry>
-                <para> </para>
-              </entry>
-	      <entry align="right" colsep="1">
-		<para> </para>
-	      </entry>
-              <entry nameend="c6" namest="c4" align="center">
-                <para>prefix25</para>
+              <entry nameend="c12" namest="c7" align="center">
+                <para>prefix24 (high 12 bits)</para>
               </entry>
             </row>
             <row rowsep="1">
               <entry align="left">
                 <para>0</para>
               </entry>
-              <entry>
-                <para> </para>
-              </entry>
-              <entry align="right" colsep="1">
+              <entry nameend="c6" namest="c2" align="right" colsep="1">
                 <para>19</para>
               </entry>
               <entry align="left">
                 <para>20</para>
               </entry>
-              <entry>
-                <para> </para>
-              </entry>
-              <entry align="right">
+              <entry nameend="c12" namest="c8" align="right">
                 <para>31</para>
               </entry>
             </row>
             <row>
-              <entry>
-                <para> </para>
+              <entry align="left">
+                <para>4</para>
               </entry>
               <entry align="right" colsep="1">
-                <para> </para>
+                <para>7</para>
               </entry>
-              <entry>
-                <para> </para>
+              <entry align="left">
+                <para>5</para>
               </entry>
               <entry align="right" colsep="1">
-                <para> </para>
+                <para>6</para>
               </entry>
-              <entry>
-                <para> </para>
+              <entry align="left">
+                <para>6</para>
               </entry>
-              <entry>
-                <para> </para>
+              <entry nameend="c8" namest="c6" align="right" colsep="1">
+                <para>5</para>
+              </entry>
+              <entry nameend="c10" namest="c9" align="left" colsep="1">
+                <para>7</para>
+              </entry>
+              <entry nameend="c12" namest="c11" align="right">
+                <para>4</para>
               </entry>
             </row>
             <row>
-	      <entry>
+	      <entry nameend="c4" namest="c1" colsep="1">
 		<para> </para>
 	      </entry>
-	      <entry align="right" colsep="1">
-		<para> </para>
-	      </entry>
-              <entry nameend="c4" namest="c3" align="center" colsep="1">
-                <para>prefix25 (continued)</para>
+              <entry nameend="c10" namest="c5" align="center" colsep="1">
+                <para>prefix24 (low 12 bits)</para>
               </entry>
 	      <entry>
 		<para> </para>
@@ -2634,17 +2677,17 @@ my_func:
               <entry align="left">
                 <para>32</para>
               </entry>
-              <entry align="right" colsep="1">
+              <entry nameend="c4" namest="c2" align="right" colsep="1">
                 <para>47</para>
               </entry>
               <entry align="left">
                 <para>48</para>
               </entry>
-              <entry align="right" colsep="1">
-                <para>60</para>
+              <entry nameend="c10" namest="c6" align="right" colsep="1">
+                <para>59</para>
               </entry>
               <entry align="left">
-                <para>61</para>
+                <para>60</para>
               </entry>
               <entry align="right">
                 <para>63</para>
