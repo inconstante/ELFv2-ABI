@@ -2901,6 +2901,49 @@ my_func:
                 <para>#highesta(x) = (x + 0x8000) &gt;&gt; 48</para>
               </entry>
             </row>
+	    <row revisionflag="added">
+	      <entry>
+		<para>#lo34(value)</para>
+	      </entry>
+	      <entry>
+		<para>
+		  Denotes the least-significant 34 bits of the indicated
+		  64-bit value.  That is:
+		</para>
+		<para>
+		  #lo34(x) = x &amp; 0x3ffffffff
+		</para>
+	      </entry>
+	    </row>
+	    <row revisionflag="added">
+	      <entry>
+		<para>#hi30(value)</para>
+	      </entry>
+	      <entry>
+		<para>
+		  Denotes bits 34&#8211;63 of the indicated 64-bit value.
+		  That is:
+		</para>
+		<para>
+		  #hi30(x) = x &gt;&gt; 34
+		</para>
+	      </entry>
+	    </row>
+	    <row revisionflag="added">
+	      <entry>
+		<para>#ha30(value)</para>
+	      </entry>
+	      <entry>
+		<para>
+		  Denotes the high adjusted value: bits 34&#8211;63 of the
+		  indicated 64-bit value, compensating for #lo34() being
+		  treated as a signed number.  That is:
+		</para>
+		<para>
+		  #ha30(x) = (x + 0x200000000) &gt;&gt; 34
+		</para>
+	      </entry>
+	    </row>
             <row>
               <entry>
                 <para>TP</para>
@@ -4771,7 +4814,7 @@ my_func:
 		<para>half16</para>
 	      </entry>
 	      <entry>
-		<para>#lo(L &#8211; .TOC.)</para>
+		<para>#lo(L &#8211; P)</para>
 	      </entry>
 	    </row>
 	    <row revisionflag="added">
@@ -4785,7 +4828,7 @@ my_func:
 		<para>half16*</para>
 	      </entry>
 	      <entry>
-		<para>#hi(L &#8211; .TOC.)</para>
+		<para>#hi(L &#8211; P)</para>
 	      </entry>
 	    </row>
 	    <row revisionflag="added">
@@ -4799,7 +4842,7 @@ my_func:
 		<para>half16*</para>
 	      </entry>
 	      <entry>
-		<para>#ha(L &#8211; .TOC.)</para>
+		<para>#ha(L &#8211; P)</para>
 	      </entry>
 	    </row>
 	    <row revisionflag="added">
@@ -4813,7 +4856,7 @@ my_func:
 		<para>half16ds</para>
 	      </entry>
 	      <entry>
-		<para>#lo(L &#8211; .TOC.) &gt;&gt; 2</para>
+		<para>#lo(L &#8211; P) &gt;&gt; 2</para>
 	      </entry>
 	    </row>
             <row revisionflag="added">
@@ -4846,30 +4889,30 @@ my_func:
             </row>
             <row revisionflag="added">
               <entry>
-                <para>R_PPC64_PCREL31</para>
+                <para>R_PPC64_PCREL30</para>
               </entry>
               <entry>
                 <para>129</para>
               </entry>
               <entry>
-                <para>prefix31*</para>
+                <para>prefix30*</para>
               </entry>
               <entry>
-                <para>(S + A &#8211; P) >> 3</para>
+                <para>(S + A &#8211; P) >> 4</para>
               </entry>
             </row>
             <row revisionflag="added">
               <entry>
-                <para>R_PPC64_PCREL25</para>
+                <para>R_PPC64_PCREL24</para>
               </entry>
               <entry>
                 <para>130</para>
               </entry>
               <entry>
-                <para>prefix25*</para>
+                <para>prefix24*</para>
               </entry>
               <entry>
-                <para>(S + A &#8211; P) >> 3</para>
+                <para>(S + A &#8211; P) >> 4</para>
               </entry>
             </row>
             <row revisionflag="added">
@@ -4902,30 +4945,30 @@ my_func:
             </row>
             <row revisionflag="added">
               <entry>
-                <para>R_PPC64_GOT_PCREL31</para>
+                <para>R_PPC64_GOT_PCREL30</para>
               </entry>
               <entry>
                 <para>133</para>
               </entry>
               <entry>
-                <para>prefix31*</para>
+                <para>prefix30*</para>
               </entry>
               <entry>
-                <para>(G &#8211; P) >> 3</para>
+                <para>(G &#8211; P) >> 4</para>
               </entry>
             </row>
             <row revisionflag="added">
               <entry>
-                <para>R_PPC64_GOT_PCREL25</para>
+                <para>R_PPC64_GOT_PCREL24</para>
               </entry>
               <entry>
                 <para>134</para>
               </entry>
               <entry>
-                <para>prefix25*</para>
+                <para>prefix24*</para>
               </entry>
               <entry>
-                <para>(G &#8211; P) >> 3</para>
+                <para>(G &#8211; P) >> 4</para>
               </entry>
             </row>
             <row revisionflag="added">
@@ -4972,30 +5015,30 @@ my_func:
             </row>
             <row revisionflag="added">
               <entry>
-                <para>R_PPC64_PLT_PCREL31</para>
+                <para>R_PPC64_PLT_PCREL30</para>
               </entry>
               <entry>
                 <para>138</para>
               </entry>
               <entry>
-                <para>prefix31*</para>
+                <para>prefix30*</para>
               </entry>
               <entry>
-                <para>(L &#8211; P) &gt;&gt; 3</para>
+                <para>(L &#8211; P) &gt;&gt; 4</para>
               </entry>
             </row>
             <row revisionflag="added">
               <entry>
-                <para>R_PPC64_PLT_PCREL25</para>
+                <para>R_PPC64_PLT_PCREL24</para>
               </entry>
               <entry>
                 <para>139</para>
               </entry>
               <entry>
-                <para>prefix25*</para>
+                <para>prefix24*</para>
               </entry>
               <entry>
-                <para>(L &#8211; P) &gt;&gt; 3</para>
+                <para>(L &#8211; P) &gt;&gt; 4</para>
               </entry>
             </row>
             <row revisionflag="added">
@@ -5028,30 +5071,100 @@ my_func:
             </row>
             <row revisionflag="added">
               <entry>
-                <para>R_PPC64_PLT_PCREL31_NOTOC</para>
+                <para>R_PPC64_PLT_PCREL30_NOTOC</para>
               </entry>
               <entry>
                 <para>142</para>
               </entry>
               <entry>
-                <para>prefix31*</para>
+                <para>prefix30*</para>
               </entry>
               <entry>
-                <para>(L &#8211; P) &gt;&gt; 3</para>
+                <para>(L &#8211; P) &gt;&gt; 4</para>
               </entry>
             </row>
             <row revisionflag="added">
               <entry>
-                <para>R_PPC64_PLT_PCREL25_NOTOC</para>
+                <para>R_PPC64_PLT_PCREL24_NOTOC</para>
               </entry>
               <entry>
                 <para>143</para>
               </entry>
               <entry>
-                <para>prefix25*</para>
+                <para>prefix24*</para>
               </entry>
               <entry>
-                <para>(L &#8211; P) &gt;&gt; 3</para>
+                <para>(L &#8211; P) &gt;&gt; 4</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_ADDR64_LO34</para>
+              </entry>
+              <entry>
+                <para>144</para>
+              </entry>
+              <entry>
+                <para>prefix34*</para>
+              </entry>
+              <entry>
+                <para>#lo34(S + A)</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_ADDR64_LO32</para>
+              </entry>
+              <entry>
+                <para>145</para>
+              </entry>
+              <entry>
+                <para>prefix32*</para>
+              </entry>
+              <entry>
+                <para>#lo34(S + A) &gt;&gt; 2</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_ADDR64_LO30</para>
+              </entry>
+              <entry>
+                <para>146</para>
+              </entry>
+              <entry>
+                <para>prefix30*</para>
+              </entry>
+              <entry>
+                <para>#lo34(S + A) &gt;&gt; 4</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_ADDR64_HI30</para>
+              </entry>
+              <entry>
+                <para>147</para>
+              </entry>
+              <entry>
+                <para>prefix34*</para>
+              </entry>
+              <entry>
+                <para>#hi30(S + A)</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>R_PPC64_ADDR64_HA30</para>
+              </entry>
+              <entry>
+                <para>148</para>
+              </entry>
+              <entry>
+                <para>prefix34*</para>
+              </entry>
+              <entry>
+                <para>#ha30(S + A)</para>
               </entry>
             </row>
             <row>
