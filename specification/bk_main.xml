@@ -57,7 +57,7 @@
       <holder>Freescale Semiconductor, Inc</holder>
     </copyright>
     <!-- TODO: Set the correct document releaseinfo -->
-    <releaseinfo>Revision 1.5f draft</releaseinfo>
+    <releaseinfo>Revision 1.5g draft</releaseinfo>
     <productname>OpenPOWER</productname>
     <pubdate/>
 
@@ -93,6 +93,17 @@
 
     <revhistory>
       <!-- TODO: Set the initial version information and clear any old information out -->
+      <revision>
+          <date>2018-10-02</date>
+          <revdescription>
+            <itemizedlist spacing="compact">
+              <listitem>
+                <para>Revision 1.5g: PC-relative addressing seventh
+		draft.</para>
+              </listitem>
+            </itemizedlist>
+          </revdescription>
+      </revision>
       <revision>
           <date>2018-07-20</date>
           <revdescription>
