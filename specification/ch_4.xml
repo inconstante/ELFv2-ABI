@@ -771,13 +771,8 @@ PPC_FEATURE2_HTM_NO_SUSPEND 0x00080000 /* TM without suspended state */</program
       supporting debugging. The following dynamic tags are relevant to this
       processor-specific ABI:</para>
       <para>DT_PLTGOT</para>
-      <para>
-      The dynamic section provides information used by the dynamic linker
-      to manage dynamically loaded shared objects, including relocation,
-      initialization, and termination when loaded or unloaded, resolving 
-      dependencies on other shared objects, resolving references to 
-      symbols in the shared object, and supporting debugging.  The following
-      dynamic tags are relevant to this processor-specific ABI:</para>
+      <para>The d_ptr member of this dynamic tag points to the first byte of
+      the PLT.</para>
       <para>DT_JMPREL</para>
       <para>The d_ptr member of this dynamic tag points to the first byte of
       the table of relocation entries, which have a one-to-one correspondence
