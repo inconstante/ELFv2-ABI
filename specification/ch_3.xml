@@ -2550,8 +2550,7 @@ my_func:
                 <para>#hi(value)</para>
               </entry>
               <entry>
-                <para>Denotes bits 16&#8211;<phrase
-		revisionflag="changed">31</phrase> of the indicated value. That
+                <para>Denotes bits 16&#8211;63 of the indicated value. That
                 is:</para>
                 <para>#hi(x) = x &gt;&gt; 16</para>
               </entry>
@@ -2561,11 +2560,33 @@ my_func:
                 <para>#ha(value)</para>
               </entry>
               <entry>
-                <para>Denotes the high adjusted value: bits
-		16&#8211;<phrase revisionflag="changed">31</phrase> of the
+                <para>Denotes the high adjusted value: bits 16&#8211;63 of the
                 indicated value, compensating for #lo( ) being treated as a
                 signed number. That is:</para>
                 <para>#ha(x) = (x + 0x8000) &gt;&gt; 16</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>#high(value)</para>
+              </entry>
+              <entry>
+                <para>Denotes bits 16&#8211;31 of the indicated value. That
+                is:</para>
+                <para>#high(x) = (x &gt;&gt; 16) &amp; 0xffff</para>
+              </entry>
+            </row>
+            <row revisionflag="added">
+              <entry>
+                <para>#higha(value)</para>
+              </entry>
+              <entry>
+                <para>Denotes the high adjusted value: bits 16&#8211;31
+		of the
+                indicated value, compensating for #lo( ) being treated as a
+                signed number. That is:</para>
+                <para>#higha(x) = ((x + 0x8000) &gt;&gt; 16) &amp;
+		0xffff</para>
               </entry>
             </row>
             <row revisionflag="added">
@@ -2575,7 +2596,7 @@ my_func:
               <entry>
                 <para>Denotes bits 32&#8211;47 of the indicated value. That
                 is:</para>
-                <para>#higher(x) = x &gt;&gt; 32</para>
+                <para>#higher(x) = (x &gt;&gt; 32) &amp; 0xffff</para>
               </entry>
             </row>
             <row revisionflag="added">
@@ -2585,9 +2606,10 @@ my_func:
               <entry>
                 <para>Denotes the higher adjusted value: bits 32&#8211;47
 		of the
-                indicated value, compensating for #lo( ) being treated as a
+                indicated value, compensating for #hi( ) being treated as a
                 signed number. That is:</para>
-                <para>#highera(x) = (x + 0x8000) &gt;&gt; 32</para>
+                <para>#highera(x) = ((x + 0x80000000) &gt;&gt; 32) &amp;
+		0xffff</para>
               </entry>
             </row>
             <row revisionflag="added">
@@ -2607,9 +2629,9 @@ my_func:
               <entry>
                 <para>Denotes the highest adjusted value: bits 48&#8211;63
 		of the
-                indicated value, compensating for #lo( ) being treated as a
+                indicated value, compensating for #higher( ) being treated as a
                 signed number. That is:</para>
-                <para>#highesta(x) = (x + 0x8000) &gt;&gt; 48</para>
+                <para>#highesta(x) = (x + 0x800000000000) &gt;&gt; 48</para>
               </entry>
             </row>
 	    <row revisionflag="added">
@@ -2647,7 +2669,7 @@ my_func:
               <entry>
                 <para>Denotes bits 34&#8211;49 of the indicated value. That
                 is:</para>
-                <para>#higher34(x) = x &gt;&gt; 34</para>
+                <para>(#higher34(x) = x &gt;&gt; 34) &amp; 0xffff</para>
               </entry>
             </row>
             <row revisionflag="added">
@@ -2659,7 +2681,8 @@ my_func:
 		of the
                 indicated value, compensating for #lo34( ) being treated as a
                 signed number. That is:</para>
-                <para>#highera34(x) = (x + 0x200000000) &gt;&gt; 34</para>
+                <para>#highera34(x) = ((x + 0x200000000) &gt;&gt; 34) &amp;
+		0xffff</para>
               </entry>
             </row>
             <row revisionflag="added">
@@ -4374,7 +4397,7 @@ my_func:
                 <para>half16</para>
               </entry>
               <entry>
-                <para><phrase revisionflag="changed">#hi</phrase>(S + A)</para>
+                <para>#high(S + A)</para>
               </entry>
             </row>
             <row>
@@ -4388,7 +4411,7 @@ my_func:
                 <para>half16</para>
               </entry>
               <entry>
-                <para><phrase revisionflag="changed">#ha</phrase>(S + A)</para>
+                <para>#higha(S + A)</para>
               </entry>
             </row>
             <row>
@@ -4403,7 +4426,7 @@ my_func:
               </entry>
               <entry>
                 <para>
-		  <phrase revisionflag="changed">#hi</phrase>(@tprel)
+		  #high(@tprel)
 		</para>
               </entry>
             </row>
@@ -4419,7 +4442,7 @@ my_func:
               </entry>
               <entry>
                 <para>
-		  <phrase revisionflag="changed">#ha</phrase>(@tprel)
+		  #higha(@tprel)
 		</para>
               </entry>
             </row>
@@ -4435,7 +4458,7 @@ my_func:
               </entry>
               <entry>
                 <para>
-		  <phrase revisionflag="changed">#hi</phrase>(@dtprel)
+		  #high(@dtprel)
 		</para>
               </entry>
             </row>
@@ -4451,7 +4474,7 @@ my_func:
               </entry>
               <entry>
                 <para>
-		  <phrase revisionflag="changed">#ha</phrase>(@dtprel)
+		  #higha(@dtprel)
 		</para>
               </entry>
             </row>
@@ -4887,7 +4910,7 @@ my_func:
                 <para>half16</para>
               </entry>
               <entry>
-                <para>#hi(S + A &#8211; P)</para>
+                <para>#high(S + A &#8211; P)</para>
               </entry>
             </row>
             <row revisionflag="added">
@@ -4901,7 +4924,7 @@ my_func:
                 <para>half16</para>
               </entry>
               <entry>
-                <para>#ha(S + A &#8211; P)</para>
+                <para>#higha(S + A &#8211; P)</para>
               </entry>
             </row>
             <row revisionflag="added">
