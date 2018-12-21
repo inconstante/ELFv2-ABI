@@ -2606,9 +2606,9 @@ my_func:
               <entry>
                 <para>Denotes the higher adjusted value: bits 32&#8211;47
 		of the
-                indicated value, compensating for #hi( ) being treated as a
+                indicated value, compensating for #lo( ) being treated as a
                 signed number. That is:</para>
-                <para>#highera(x) = ((x + 0x80000000) &gt;&gt; 32) &amp;
+                <para>#highera(x) = ((x + 0x8000) &gt;&gt; 32) &amp;
 		0xffff</para>
               </entry>
             </row>
@@ -2629,9 +2629,9 @@ my_func:
               <entry>
                 <para>Denotes the highest adjusted value: bits 48&#8211;63
 		of the
-                indicated value, compensating for #higher( ) being treated as a
+                indicated value, compensating for #lo( ) being treated as a
                 signed number. That is:</para>
-                <para>#highesta(x) = (x + 0x800000000000) &gt;&gt; 48</para>
+                <para>#highesta(x) = (x + 0x8000) &gt;&gt; 48</para>
               </entry>
             </row>
 	    <row revisionflag="added">
@@ -2662,6 +2662,34 @@ my_func:
 		</para>
 	      </entry>
 	    </row>
+	    <row revisionflag="added">
+	      <entry>
+		<para>#hi30(value)</para>
+	      </entry>
+	      <entry>
+		<para>
+		  Denotes bits 34-63 of the indicated 64-bit value.  That is:
+		</para>
+		<para>
+		  #hi30(x) = x &gt;&gt; 34
+		</para>
+	      </entry>
+	    </row>
+	    <row revisionflag="added">
+	      <entry>
+		<para>#ha30(value)</para>
+	      </entry>
+	      <entry>
+		<para>
+		  Denotes bits 34-63 of the indicated 64-bit value,
+		  compensating for #lo34( ) being treated as a signed
+		  number.  That is:
+		</para>
+		<para>
+		  #ha30(x) = (x + 0x200000000) &gt;&gt; 34
+		</para>
+	      </entry>
+	    </row>
             <row revisionflag="added">
               <entry>
                 <para>#higher34(value)</para>
@@ -2669,7 +2697,7 @@ my_func:
               <entry>
                 <para>Denotes bits 34&#8211;49 of the indicated value. That
                 is:</para>
-                <para>(#higher34(x) = x &gt;&gt; 34) &amp; 0xffff</para>
+                <para>#higher34(x) = (x &gt;&gt; 34) &amp; 0xffff</para>
               </entry>
             </row>
             <row revisionflag="added">
@@ -4677,7 +4705,7 @@ my_func:
             </row>
             <row revisionflag="added">
               <entry>
-                <para>R_PPC64_D34_HIGHER34</para>
+                <para>R_PPC64_D34_HI30</para>
               </entry>
               <entry>
                 <para>130</para>
@@ -4686,12 +4714,12 @@ my_func:
                 <para>prefix34</para>
               </entry>
               <entry>
-                <para>#higher34(S + A)</para>
+                <para>#hi30(S + A)</para>
               </entry>
             </row>
             <row revisionflag="added">
               <entry>
-                <para>R_PPC64_D34_HIGHERA34</para>
+                <para>R_PPC64_D34_HA30</para>
               </entry>
               <entry>
                 <para>131</para>
@@ -4700,7 +4728,7 @@ my_func:
                 <para>prefix34</para>
               </entry>
               <entry>
-                <para>#highera34(S + A)</para>
+                <para>#ha30(S + A)</para>
               </entry>
             </row>
             <row revisionflag="added">
