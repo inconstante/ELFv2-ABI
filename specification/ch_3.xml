@@ -4619,62 +4619,6 @@ my_func:
                 <para>none</para>
               </entry>
             </row>
-	    <row revisionflag="added">
-	      <entry>
-		<para>R_PPC64_PLT16_LO_NOTOC</para>
-	      </entry>
-	      <entry>
-		<para>124</para>
-	      </entry>
-	      <entry>
-		<para>half16</para>
-	      </entry>
-	      <entry>
-		<para>#lo(L &#8211; P)</para>
-	      </entry>
-	    </row>
-	    <row revisionflag="added">
-	      <entry>
-		<para>R_PPC64_PLT16_HI_NOTOC</para>
-	      </entry>
-	      <entry>
-		<para>125</para>
-	      </entry>
-	      <entry>
-		<para>half16*</para>
-	      </entry>
-	      <entry>
-		<para>#hi(L &#8211; P)</para>
-	      </entry>
-	    </row>
-	    <row revisionflag="added">
-	      <entry>
-		<para>R_PPC64_PLT16_HA_NOTOC</para>
-	      </entry>
-	      <entry>
-		<para>126</para>
-	      </entry>
-	      <entry>
-		<para>half16*</para>
-	      </entry>
-	      <entry>
-		<para>#ha(L &#8211; P)</para>
-	      </entry>
-	    </row>
-	    <row revisionflag="added">
-	      <entry>
-		<para>R_PPC64_PLT16_LO_DS_NOTOC</para>
-	      </entry>
-	      <entry>
-		<para>127</para>
-	      </entry>
-	      <entry>
-		<para>half16ds</para>
-	      </entry>
-	      <entry>
-		<para>#lo(L &#8211; P) &gt;&gt; 2</para>
-	      </entry>
-	    </row>
             <row revisionflag="added">
               <entry>
                 <para>R_PPC64_D34</para>
