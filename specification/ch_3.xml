@@ -5350,15 +5350,15 @@ target:
 	  and replace the reference with direct PC-relative addressing.
 	  For example:
 	</para>
-	<programlisting>pld     r12, symbol@got@pcrel
-lvx     v1, 0, r12</programlisting>
+	<programlisting>pld     r10, symbol@got@pcrel
+lvx     v1, 0, r10</programlisting>
         <para>The previous sequence may be replaced by:</para>
 	<programlisting>plxv    v1, symbol@pcrel
 nop</programlisting>
 	<para>
 	  However, this optimization is not universally safe, since it
-	  changes the value of r12 following the data reference.  The
-	  compiler or programmer must ensure that the value of r12 is not
+	  changes the value of r10 following the data reference.  The
+	  compiler or programmer must ensure that the value of r10 is not
 	  subsequently used, and communicate a request for this optimization
 	  by placing an R_PPC64_PCREL_OPT relocation on the first instruction
 	  in the sequence.  The compiler or programmer must further ensure that
@@ -5375,19 +5375,19 @@ nop</programlisting>
 	  of these instructions, but may instead generate a short sequence
 	  that can be optimized by a linker.  For example:
 	</para>
-	<programlisting>paddi   r12,symbol@pcrel
-pmlxvx  v1,r10,r12,VRM,MC,P,0</programlisting>
+	<programlisting>paddi   r10,symbol@pcrel
+pmlxvx  v1,r9,r10,VRM,MC,P,0</programlisting>
         <para>The previous sequence may be replaced by:</para>
 	<programlisting>dnop
-pmlxv   v1,symbol@pcrel(r10),VRM,MC,P,1</programlisting>
+pmlxv   v1,symbol@pcrel(r9),VRM,MC,P,1</programlisting>
         <para>
 	  when the linker determines that the offset from the current
 	  instruction address to symbol's address will fit in 28 bits.
 	</para>
 	<para>
 	  Again, this optimization is not universally safe, since it changes
-	  the value of r12 following the data reference.  The compiler or
-	  programmer must ensure that the value of r12 is not subsequently
+	  the value of r10 following the data reference.  The compiler or
+	  programmer must ensure that the value of r10 is not subsequently
 	  used, and communicate a request for this optimization by placing
 	  an R_PPC64_PCREL_OPT relocation on the first instruction in the
 	  sequence.  The compiler or programmer must further ensure that the

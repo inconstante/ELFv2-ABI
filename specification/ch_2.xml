@@ -6645,8 +6645,8 @@ s6            -           72 (stored)</programlisting>
             instructions:</para>
           </listitem>
         </itemizedlist>
-        <programlisting>lis     r16, symbol@ha 
-ld      r12, symbol@l(r16) 
+        <programlisting revisionflag="changed">lis     r16, symbol@hba 
+ld      r10, symbol@l(r16) 
 
 lis     r16, symbol2@ha 
 addi    r16, r16, symbol2@l 
@@ -6658,8 +6658,8 @@ lvx     v1, r0, r16</programlisting>
             <xref linkend="dbdoclet.50655241_66700" />.)</para>
           </listitem>
         </itemizedlist>
-        <programlisting>&lt;load TOC base to r2&gt; 
-ld      r12, symbol@toc(r2) 
+        <programlisting revisionflag="changed">&lt;load TOC base to r2&gt; 
+ld      r10, symbol@toc(r2) 
 
 li      r16, symbol2@toc 
 lvx     v1, r2, r16</programlisting>
@@ -6669,13 +6669,13 @@ lvx     v1, r2, r16</programlisting>
             addressing:</para>
           </listitem>
         </itemizedlist>
-        <programlisting>&lt;load TOC base to r2&gt; 
+        <programlisting revisionflag="changed">&lt;load TOC base to r2&gt; 
 
-ld      r12, symbol@got(r2) 
-ld      r12, 0(r12) 
+ld      r10, symbol@got(r2) 
+ld      r10, 0(r10) 
 
-ld      r12, symbol2@got(r2) 
-lvx     v1, 0, r12</programlisting>
+ld      r10, symbol2@got(r2) 
+lvx     v1, 0, r10</programlisting>
         <itemizedlist>
 	  <listitem>
 	    <para revisionflag="added">
@@ -6683,7 +6683,7 @@ lvx     v1, 0, r12</programlisting>
 	    </para>
 	  </listitem>
 	</itemizedlist>
-	<programlisting revisionflag="added">pld     r12, symbol@pcrel
+	<programlisting revisionflag="added">pld     r10, symbol@pcrel
 
 plxv    v1, symbol@pcrel</programlisting>
         <para>In the OpenPOWER ELF V2 ABI, position-dependent code built with
@@ -6769,9 +6769,9 @@ plxv    v1, symbol@pcrel</programlisting>
             relative addressing (for private data).</para>
           </listitem>
         </itemizedlist>
-        <programlisting>&lt;load TOC base to r2&gt; 
+        <programlisting revisionflag="changed">&lt;load TOC base to r2&gt; 
 
-ld      r12, symbol@toc(r2) 
+ld      r10, symbol@toc(r2) 
 
 li      r16, symbol2@toc 
 lvx     v1, r2, r16</programlisting>
@@ -6782,21 +6782,21 @@ lvx     v1, r2, r16</programlisting>
             sections):</para>
           </listitem>
         </itemizedlist>
-        <programlisting>&lt;load TOC base to r2&gt; 
+        <programlisting revisionflag="changed">&lt;load TOC base to r2&gt; 
 
-ld      r12, symbol@got(r2) 
+ld      r10, symbol@got(r2) 
 
-ld      r12, 0(r12) 
+ld      r10, 0(r10) 
 
-ld      r12 symbol2@got(r2) 
-lvx     v1, 0, r12</programlisting>
+ld      r10, symbol2@got(r2) 
+lvx     v1, 0, r10</programlisting>
 	<itemizedlist>
 	  <listitem>
 	    <para revisionflag="added">By using PC-relative addressing (for
 	    private data).</para>
 	  </listitem>
 	</itemizedlist>
-	<programlisting revisionflag="added">pld     r12, symbol@pcrel
+	<programlisting revisionflag="added">pld     r10, symbol@pcrel
 
 plxv    v1, symbol@pcrel</programlisting>
         <itemizedlist>
@@ -6806,11 +6806,11 @@ plxv    v1, symbol@pcrel</programlisting>
 	    </para>
 	  </listitem>
 	</itemizedlist>
-	<programlisting revisionflag="added">pld     r12, symbol@got@pcrel
-ld      r12, 0(r12)
+	<programlisting revisionflag="added">pld     r10, symbol@got@pcrel
+ld      r10, 0(r10)
 
-pld     r12, symbol@got@pcrel
-lvx     v1, 0, r12</programlisting>
+pld     r10, symbol@got@pcrel
+lvx     v1, 0, r10</programlisting>
         <para revisionflag="added">
 	  A compiler may generate a PC-relative addressing sequence to access
 	  static or restricted-visibility data, but must generate a PC-relative
