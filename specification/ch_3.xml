@@ -5192,12 +5192,14 @@ my_func:
       </para>
       <para revisionflag="added">R_PPC64_PCREL_OPT</para>
       <para revisionflag="added">
-	This relocation type requests that the annotated 
-	instruction and its immediately following instruction be optimized by
-	the linker when the referenced symbol can be statically resolved,
-	or when a more efficient PC-relative sequence can be chosen.
+	This relocation specifies that the instruction at r_offset and the
+	instruction at <emphasis>r_offset</emphasis> +
+	<emphasis>r_addend</emphasis> may be optimized by the linker.
+	Specifically, the register set by the first instruction and used by
+	the second is not used by any intervening instruction nor is the value
+	used by any following instruction.
 	See <xref linkend="dbdoclet.50655241_OptPCRel" /> and
-	<xref linkend="dbdoclet.50655241_OptMask" /> for details.
+	<xref linkend="dbdoclet.50655241_OptMask" /> for more details.
       </para>
     </section>
     <section>
@@ -5351,18 +5353,19 @@ target:
 	  For example:
 	</para>
 	<programlisting>pld     r10, symbol@got@pcrel
-lvx     v1, 0, r10</programlisting>
+lxv     vs1, 0(r10)</programlisting>
         <para>The previous sequence may be replaced by:</para>
-	<programlisting>plxv    v1, symbol@pcrel
+	<programlisting>plxv    vs1, symbol@pcrel
 nop</programlisting>
 	<para>
 	  However, this optimization is not universally safe, since it
 	  changes the value of r10 following the data reference.  The
 	  compiler or programmer must ensure that the value of r10 is not
-	  subsequently used, and communicate a request for this optimization
+	  used between the two instructions nor subsequently used,
+	  and communicate a request for this optimization
 	  by placing an R_PPC64_PCREL_OPT relocation on the first instruction
-	  in the sequence.  The compiler or programmer must further ensure that
-	  the two instructions are not separated by intervening instructions.
+	  in the sequence that provides the offset to the second instruction
+	  in the sequence.
 	</para>
       </section>
       <section xml:id="dbdoclet.50655241_OptMask" revisionflag="added">
@@ -5376,10 +5379,10 @@ nop</programlisting>
 	  that can be optimized by a linker.  For example:
 	</para>
 	<programlisting>paddi   r10,symbol@pcrel
-pmlxvx  v1,r9,r10,VRM,MC,P,0</programlisting>
+pmlxv   vs1,0(r10),VRM,MC,P,0</programlisting>
         <para>The previous sequence may be replaced by:</para>
 	<programlisting>dnop
-pmlxv   v1,symbol@pcrel(r9),VRM,MC,P,1</programlisting>
+pmlxv   vs1,symbol@pcrel(r0),VRM,MC,P,1</programlisting>
         <para>
 	  when the linker determines that the offset from the current
 	  instruction address to symbol's address will fit in 28 bits.
@@ -5387,11 +5390,12 @@ pmlxv   v1,symbol@pcrel(r9),VRM,MC,P,1</programlisting>
 	<para>
 	  Again, this optimization is not universally safe, since it changes
 	  the value of r10 following the data reference.  The compiler or
-	  programmer must ensure that the value of r10 is not subsequently
+	  programmer must ensure that the value of r10 is not used between
+	  the two instructions nor subsequently
 	  used, and communicate a request for this optimization by placing
 	  an R_PPC64_PCREL_OPT relocation on the first instruction in the
-	  sequence.  The compiler or programmer must further ensure that the
-	  two instructions are not separated by intervening instructions.
+	  sequence that provides the offset to the second instruction in the
+	  sequence.
 	</para>
       </section>
     </section>
