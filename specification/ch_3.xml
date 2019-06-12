@@ -5192,12 +5192,15 @@ my_func:
       </para>
       <para revisionflag="added">R_PPC64_PCREL_OPT</para>
       <para revisionflag="added">
-	This relocation specifies that the instruction at r_offset and the
-	instruction at <emphasis>r_offset</emphasis> +
-	<emphasis>r_addend</emphasis> may be optimized by the linker.
-	Specifically, the register set by the first instruction and used by
-	the second is not used by any intervening instruction nor is the value
-	used by any following instruction.
+	This relocation specifies that the instruction at
+	<emphasis>r_offset</emphasis> and the instruction at
+	<emphasis>r_offset</emphasis> + <emphasis>r_addend</emphasis> may be
+	optimized by the linker; the compiler must guarantee that register
+	lifetimes are such that the optimization is safe.  In both code
+	sequences where this relocation	is valid, the first instruction also
+	has another relocation at <emphasis>r_offset</emphasis>.  The
+	R_PPC64_PCREL_OPT entry occurs immediately after that relocation in
+	the table of relocations.
 	See <xref linkend="dbdoclet.50655241_OptPCRel" /> and
 	<xref linkend="dbdoclet.50655241_OptMask" /> for more details.
       </para>
