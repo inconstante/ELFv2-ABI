@@ -5810,7 +5810,7 @@ extern void *__tls_get_addr (tls_index *ti);</programlisting>
             </row>
             <row>
               <entry morerows="1">
-                <para>bl __tls_get_addr(x@tlsgd)</para>
+                <para>bl __tls_get_addr@notoc(x@tlsgd)</para>
               </entry>
               <entry>
                 <para>R_PPC64_TLSGD</para>
@@ -6125,7 +6125,7 @@ static __thread unsigned int x3;
             </row>
             <row>
               <entry morerows="1">
-                <para>bl __tls_get_addr(x1@tlsld)</para>
+                <para>bl __tls_get_addr@notoc(x1@tlsld)</para>
               </entry>
               <entry>
                 <para>R_PPC64_TLSLD</para>
@@ -8319,21 +8319,10 @@ nop</programlisting>
           <tbody>
             <row>
               <entry>
-                <para>addis r3, r2, x@got@tlsgd@ha</para>
+                <para>pla r3, x@got@tlsgd@pcrel</para>
               </entry>
               <entry>
-                <para>R_PPC64_GOT_TLSGD16_HA</para>
-              </entry>
-              <entry>
-                <para>x</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>addi r3, r3, x@got@tlsgd@l</para>
-              </entry>
-              <entry>
-                <para>R_PPC64_GOT_TLSGD16_LO</para>
+                <para>R_PPC64_GOT_TLSGD34</para>
               </entry>
               <entry>
                 <para>x</para>
@@ -8341,7 +8330,7 @@ nop</programlisting>
             </row>
             <row>
               <entry morerows="1">
-                <para>bl __tls_get_addr(x@tlsgd)</para>
+                <para>bl __tls_get_addr@notoc(x@tlsgd)</para>
               </entry>
               <entry>
                 <para>R_PPC64_TLSGD</para>
@@ -8352,21 +8341,10 @@ nop</programlisting>
             </row>
             <row>
               <entry>
-                <para>R_PPC64_REL24</para>
+                <para>R_PPC64_REL24_NOTOC</para>
               </entry>
               <entry>
                 <para>__tls_get_addr</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>nop</para>
-              </entry>
-              <entry>
-                <para> </para>
-              </entry>
-              <entry>
-                <para> </para>
               </entry>
             </row>
           </tbody>
@@ -8457,35 +8435,13 @@ nop</programlisting>
           <tbody>
             <row>
               <entry>
-                <para>addis r3, r2, x@got@tprel@ha</para>
+                <para>pld r3, x@got@tprel@pcrel</para>
               </entry>
               <entry>
-                <para>R_PPC64_GOT_TPREL16_HA</para>
-              </entry>
-              <entry>
-                <para>x</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>ld r3, x@got@tprel@l(r3)</para>
-              </entry>
-              <entry>
-                <para>R_PPC64_GOT_TPREL16_LO_DS</para>
+                <para>R_PPC64_GOT_TPREL34</para>
               </entry>
               <entry>
                 <para>x</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>nop</para>
-              </entry>
-              <entry>
-                <para> </para>
-              </entry>
-              <entry>
-                <para> </para>
               </entry>
             </row>
             <row>
@@ -8576,21 +8532,10 @@ nop</programlisting>
           <tbody>
             <row>
               <entry>
-                <para>addis r3, r2, x@got@tlsgd@ha</para>
+                <para>pla r3, x@got@tlsgd@pcrel</para>
               </entry>
               <entry>
-                <para>R_PPC64_GOT_TLSGD16_HA</para>
-              </entry>
-              <entry>
-                <para>x</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>addi r3, r3, x@got@tlsgd@l</para>
-              </entry>
-              <entry>
-                <para>R_PPC64_GOT_TLSGD16_LO</para>
+                <para>R_PPC64_GOT_TLSGD34</para>
               </entry>
               <entry>
                 <para>x</para>
@@ -8598,7 +8543,7 @@ nop</programlisting>
             </row>
             <row>
               <entry morerows="1">
-                <para>bl __tls_get_addr(x@tlsgd)</para>
+                <para>bl __tls_get_addr@notoc(x@tlsgd)</para>
               </entry>
               <entry>
                 <para>R_PPC64_TLSGD</para>
@@ -8609,21 +8554,10 @@ nop</programlisting>
             </row>
             <row>
               <entry>
-                <para>R_PPC64_REL24</para>
+                <para>R_PPC64_REL24_NOTOC</para>
               </entry>
               <entry>
                 <para>__tls_get_addr</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>nop</para>
-              </entry>
-              <entry>
-                <para> </para>
-              </entry>
-              <entry>
-                <para> </para>
               </entry>
             </row>
           </tbody>
@@ -8683,18 +8617,9 @@ nop</programlisting>
       </table>
       <para>The preceding code and global offset table entries are replaced by
       the following code, which makes no reference to GOT entries. The GOT
-      entries in 
-      <xref linkend="dbdoclet.50655241_16273" /> can be removed from the GOT by
-      the linker when performing this code transformation.<footnote xml:id="pgfId-1134055p">
-        <para>To further optimize the code in 
-        <xref linkend="dbdoclet.50655241_16273" />, a linker may reschedule the
-        sequence to exploit fusion by generating a sequence that may be fused
-        by Power processors:</para>
-      <programlisting>nop
-addis  r3, r13, x@tprel@ha
-addi   r3, r3, x@tprel@l
-nop</programlisting>
-      </footnote></para>
+      entries in <xref linkend="dbdoclet.50655241_16273p" /> can be
+      removed from the GOT by the linker when performing this code
+      transformation.</para>
       <table frame="all" pgwide="1">
         <title>General-Dynamic-to-Local-Exec Replacement Initial
         Relocations (PC-Relative)</title>
@@ -8724,21 +8649,10 @@ nop</programlisting>
           <tbody>
             <row>
               <entry>
-                <para>nop</para>
+                <para>paddi r3, r13, x@tprel</para>
               </entry>
               <entry>
-                <para> </para>
-              </entry>
-              <entry>
-                <para> </para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>addis r3, r13, x@tprel@ha</para>
-              </entry>
-              <entry>
-                <para>R_PPC64_TPREL16_HA</para>
+                <para>R_PPC64_TPREL34</para>
               </entry>
               <entry>
                 <para>x</para>
@@ -8753,17 +8667,6 @@ nop</programlisting>
               </entry>
               <entry>
                 <para> </para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>addi r3, r3, x@tprel@l</para>
-              </entry>
-              <entry>
-                <para>R_PPC64_TPREL16_LO</para>
-              </entry>
-              <entry>
-                <para>x</para>
               </entry>
             </row>
           </tbody>
@@ -8804,21 +8707,10 @@ nop</programlisting>
           <tbody>
             <row>
               <entry>
-                <para>addis r3, r2, x1@got@tlsld@ha</para>
+                <para>pla r3, x1@got@tlsld@pcrel</para>
               </entry>
               <entry>
-                <para>R_PPC64_GOT_TLSLD16_HA</para>
-              </entry>
-              <entry>
-                <para>x1</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>addi r3, r3, x1@got@tlsld@l</para>
-              </entry>
-              <entry>
-                <para>R_PPC64_GOT_TLSLD16_LO</para>
+                <para>R_PPC64_GOT_TLSLD34</para>
               </entry>
               <entry>
                 <para>x1</para>
@@ -8826,7 +8718,7 @@ nop</programlisting>
             </row>
             <row>
               <entry>
-                <para>bl __tls_get_addr(x1@tlsld)</para>
+                <para>bl __tls_get_addr@notoc(x1@tlsld)</para>
               </entry>
               <entry>
                 <para>R_PPC64_TLSLD</para>
@@ -8840,7 +8732,7 @@ nop</programlisting>
                 <para> </para>
               </entry>
               <entry>
-                <para>R_PPC64_REL24</para>
+                <para>R_PPC64_REL24_NOTOC</para>
               </entry>
               <entry>
                 <para>__tls_get_addr</para>
@@ -8848,17 +8740,6 @@ nop</programlisting>
             </row>
             <row>
               <entry>
-                <para>nop</para>
-              </entry>
-              <entry>
-                <para> </para>
-              </entry>
-              <entry>
-                <para> </para>
-              </entry>
-            </row>
-            <row>
-              <entry>
                 <para>...</para>
               </entry>
               <entry>
@@ -8870,43 +8751,10 @@ nop</programlisting>
             </row>
             <row>
               <entry>
-                <para>addi r9, r3, x1@dtprel</para>
+                <para>paddi r9, r3, x2@dtprel</para>
               </entry>
               <entry>
-                <para>R_PPC64_DTPREL16</para>
-              </entry>
-              <entry>
-                <para>x1</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>...</para>
-              </entry>
-              <entry>
-                <para> </para>
-              </entry>
-              <entry>
-                <para> </para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>addis r9, r3, x2@dtprel@ha</para>
-              </entry>
-              <entry>
-                <para>R_PPC64_DTPREL16_HA</para>
-              </entry>
-              <entry>
-                <para>x2</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>addi r9, r9, x2@dtprel@l</para>
-              </entry>
-              <entry>
-                <para>R_PPC64_DTPREL16_LO</para>
+                <para>R_PPC64_DTPREL34</para>
               </entry>
               <entry>
                 <para>x2</para>
@@ -8925,21 +8773,10 @@ nop</programlisting>
             </row>
             <row>
               <entry>
-                <para>addis r9, r2, x3@got@dtprel@ha</para>
+                <para>pld r9, x3@got@dtprel@pcrel</para>
               </entry>
               <entry>
-                <para>R_PPC64_GOT_DTPREL16_HA</para>
-              </entry>
-              <entry>
-                <para>x3</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>ld r9, x3@got@dtprel@l(r9)</para>
-              </entry>
-              <entry>
-                <para>R_PPC64_GOT_DTPREL16_LO_DS</para>
+                <para>R_PPC64_GOT_DTPREL34</para>
               </entry>
               <entry>
                 <para>x3</para>
@@ -9064,24 +8901,13 @@ nop</programlisting>
           <tbody>
             <row>
               <entry>
-                <para>nop</para>
+                <para>paddi r3, r13, 0x1000</para>
               </entry>
               <entry>
-                <para> </para>
+                <para></para>
               </entry>
               <entry>
-                <para> </para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>addis r3, r13, L@tprel@ha</para>
-              </entry>
-              <entry>
-                <para>R_PPC64_TPREL16_HA</para>
-              </entry>
-              <entry>
-                <para>link editor generated local symbol</para>
+                <para></para>
               </entry>
             </row>
             <row>
@@ -9097,17 +8923,24 @@ nop</programlisting>
             </row>
             <row>
               <entry>
-                <para>addi r3, r3, L@tprel@l</para>
+                <para>..</para>
               </entry>
               <entry>
-                <para>R_PPC64_TPREL16_LO</para>
+                <para> </para>
               </entry>
               <entry>
-                <para>link editor generated local symbol<footnote>
-		<para>The linker may prefer to schedule the addis and addi
-		to be adjacent to take advantage of fusion as a
-		microarchitecture optimization opportunity.</para></footnote>
-		</para>
+                <para> </para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para>paddi r9, r3, x2@dtprel</para>
+              </entry>
+              <entry>
+                <para>R_PPC64_DTPREL34</para>
+              </entry>
+              <entry>
+                <para>x2</para>
               </entry>
             </row>
             <row>
@@ -9123,76 +8956,10 @@ nop</programlisting>
             </row>
             <row>
               <entry>
-                <para>addi r9, r3, x1@dtprel</para>
+                <para>pld r9, x3@got@dtprel@pcrel</para>
               </entry>
               <entry>
-                <para>R_PPC64_DTPREL16</para>
-              </entry>
-              <entry>
-                <para>x1</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>..</para>
-              </entry>
-              <entry>
-                <para> </para>
-              </entry>
-              <entry>
-                <para> </para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>addis r9, r3, x2@dtprel@ha</para>
-              </entry>
-              <entry>
-                <para>R_PPC64_DTPREL16_HA</para>
-              </entry>
-              <entry>
-                <para>x2</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>addi r9, r9, x2@dtprel@l</para>
-              </entry>
-              <entry>
-                <para>R_PPC64_DTPREL16_LO</para>
-              </entry>
-              <entry>
-                <para>x2</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>...</para>
-              </entry>
-              <entry>
-                <para> </para>
-              </entry>
-              <entry>
-                <para> </para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>addis r9, r2, x3@got@dtprel@ha</para>
-              </entry>
-              <entry>
-                <para>R_PPC64_GOT_DTPREL16_HA</para>
-              </entry>
-              <entry>
-                <para>x3</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>ld r9, x3@got@dtprel@l(r9)</para>
-              </entry>
-              <entry>
-                <para>R_PPC64_GOT_DTPREL16_LO_DS</para>
+                <para>R_PPC64_GOT_DTPREL34</para>
               </entry>
               <entry>
                 <para>x3</para>
@@ -9214,7 +8981,7 @@ nop</programlisting>
       </table>
       <para>The GOT[n] and GOT[n+1] entries can be removed by the linker after
       the code transformation as shown in 
-      <xref linkend="dbdoclet.50655241_90771" />.</para>
+      <xref linkend="dbdoclet.50655241_90771p" />.</para>
       <table frame="all" pgwide="1" xml:id="dbdoclet.50655241_90771p">
         <title>Local-Dynamic-to-Local-Exec Replacement GOT Entry
         Relocations (PC-Relative)</title>
@@ -9256,14 +9023,9 @@ nop</programlisting>
           </tbody>
         </tgroup>
       </table>
-      <para>The local symbol generated by the link editor points to the start
-      of the thread storage block plus 0x7000 bytes. In practice, a section
-      symbol with a suitable offset will be used.</para>
     </section>
     <section xml:id="dbdoclet.ie-le-pcrel" revisionflag="added">
       <title>Initial Exec to Local Exec (PC-Relative)</title>
-      <para>This transformation is only performed by the linker when the symbol
-      is within 2 GB + 28 KB of the thread pointer.</para>
       <table frame="all" pgwide="1">
         <title>Initial-Exec-to-Local-Exec Initial Relocations</title>
         <tgroup cols="3">
@@ -9292,21 +9054,10 @@ nop</programlisting>
           <tbody>
             <row>
               <entry>
-                <para>addis r9, r2, x@got@tprel@ha</para>
+                <para>pld r9, x@got@tprel@pcrel</para>
               </entry>
               <entry>
-                <para>R_PPC64_GOT_TPREL16_HA</para>
-              </entry>
-              <entry>
-                <para>x</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>ld r9, x@got@tprel@l(r9)</para>
-              </entry>
-              <entry>
-                <para>R_PPC64_GOT_TPREL16_LO_DS</para>
+                <para>R_PPC64_GOT_TPREL34</para>
               </entry>
               <entry>
                 <para>x</para>
@@ -9314,10 +9065,10 @@ nop</programlisting>
             </row>
             <row>
               <entry>
-                <para>add r9, r9, x@tls</para>
+                <para>add r9, r9, x@tls@pcrel</para>
               </entry>
               <entry>
-                <para>R_PPC64_TLS</para>
+                <para>R_PPC64_TLS with one-byte displacement</para>
               </entry>
               <entry>
                 <para>x</para>
@@ -9368,7 +9119,8 @@ nop</programlisting>
         </tgroup>
       </table>
       <para>The preceding code and global offset table entries are replaced by
-      the following code and global offset table entries.</para>
+      the following code.  The global offset entry GOT[n] can be
+      eliminated by the linker.</para>
       <table frame="all" pgwide="1">
         <title>Initial-Exec-to-Local-Exec Replacement Initial
         Relocations (PC-Relative)</title>
@@ -9390,6 +9142,17 @@ nop</programlisting>
             </row>
             <row>
               <entry>
+                <para>paddi r9, r9, x@tprel@l</para>
+              </entry>
+              <entry>
+                <para>R_PPC64_TPREL34</para>
+              </entry>
+              <entry>
+                <para>x</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
                 <para>nop</para>
               </entry>
               <entry>
@@ -9399,35 +9162,11 @@ nop</programlisting>
                 <para> </para>
               </entry>
             </row>
-            <row>
-              <entry>
-                <para>addis r9, r13, x@tprel@ha</para>
-              </entry>
-              <entry>
-                <para>R_PPC64_TPREL16_HA</para>
-              </entry>
-              <entry>
-                <para>x</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>addi r9, r9, x@tprel@l</para>
-              </entry>
-              <entry>
-                <para>R_PPC64_TPREL16_LO</para>
-              </entry>
-              <entry>
-                <para>x</para>
-              </entry>
-            </row>
           </tbody>
         </tgroup>
       </table>
-      <para>Other sizes and types of thread-local variables may use any of the
-      X-form indexed load or store instructions.</para>
       <para>
-      <xref linkend="dbdoclet.50655241_81882" /> shows how to access the
+      <xref linkend="dbdoclet.50655241_81882p" /> shows how to access the
       contents of a variable using the X-form indexed load and store
       instructions.</para>
       <table frame="all" pgwide="1" xml:id="dbdoclet.50655241_81882p">
@@ -9459,21 +9198,10 @@ nop</programlisting>
           <tbody>
             <row>
               <entry>
-                <para>addis r9, r2, x@got@tprel@ha</para>
+                <para>pld r9, x@got@tprel@pcrel</para>
               </entry>
               <entry>
-                <para>R_PPC64_GOT_TPREL16_HA</para>
-              </entry>
-              <entry>
-                <para>x</para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>ld r9, x@got@tprel@l(r9)</para>
-              </entry>
-              <entry>
-                <para>R_PPC64_GOT_TPREL16_LO_DS</para>
+                <para>R_PPC64_GOT_TPREL34</para>
               </entry>
               <entry>
                 <para>x</para>
@@ -9481,7 +9209,7 @@ nop</programlisting>
             </row>
             <row>
               <entry>
-                <para>lbzx r10, r9, x@tls</para>
+                <para>lbzx r10, r9, x@tls@pcrel</para>
               </entry>
               <entry>
                 <para>R_PPC64_TLS</para>
@@ -9503,7 +9231,7 @@ nop</programlisting>
             </row>
             <row>
               <entry>
-                <para>stbx r10, r9, x@tls</para>
+                <para>stbx r10, r9, x@tls@pcrel</para>
               </entry>
               <entry>
                 <para>R_PPC64_TLS</para>
@@ -9557,7 +9285,8 @@ nop</programlisting>
         </tgroup>
       </table>
       <para>The preceding code and global offset table entries are replaced by
-      the following code and global offset table entries.</para>
+      the following code.  The global offset table entry GOT[n] can be
+      removed by the linker.</para>
       <table frame="all" pgwide="1">
         <title>Initial-Exec-to-Local-Exec X-form Replacement Initial
         Relocations (PC-Relative)</title>
@@ -9587,21 +9316,10 @@ nop</programlisting>
           <tbody>
             <row>
               <entry>
-                <para>nop</para>
+                <para>paddi r9, r13, x@tprel</para>
               </entry>
               <entry>
-                <para> </para>
-              </entry>
-              <entry>
-                <para> </para>
-              </entry>
-            </row>
-            <row>
-              <entry>
-                <para>addis r9, r13, x@tprel@ha</para>
-              </entry>
-              <entry>
-                <para>R_PPC64_TPREL16_HA</para>
+                <para>R_PPC64_TPREL34</para>
               </entry>
               <entry>
                 <para>x</para>
@@ -9609,13 +9327,13 @@ nop</programlisting>
             </row>
             <row>
               <entry>
-                <para>lbz r10, x@tprel@l(r9)</para>
+                <para>lbz r10, 0(r9)</para>
               </entry>
               <entry>
-                <para>R_PPC64_TPREL16_LO</para>
+                <para></para>
               </entry>
               <entry>
-                <para>x</para>
+                <para></para>
               </entry>
             </row>
             <row>
@@ -9631,13 +9349,13 @@ nop</programlisting>
             </row>
             <row>
               <entry>
-                <para>stb r10, x@tprel@l(r9)</para>
+                <para>stb r10, 0(r9)</para>
               </entry>
               <entry>
-                <para>R_PPC64_TPREL16_LO</para>
+                <para></para>
               </entry>
               <entry>
-                <para>x</para>
+                <para></para>
               </entry>
             </row>
           </tbody>
