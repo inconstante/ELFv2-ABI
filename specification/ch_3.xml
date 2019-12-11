@@ -2278,8 +2278,8 @@ my_func:
       </informaltable>
       <para revisionflag="added">
 	In the following figure, prefix28 specifies a 28-bit field taking up
-	bits 20-31 and 48-63 of two consecutive words.  This is used, for
-	example, by the pmlxv instruction.
+	bits 20-31 and 48-63 of two consecutive words.  This is <!--used, for
+	example, by the pmlxv instruction --> reserved for future use.
       </para>
       <informaltable frame="all" rowsep="0" colsep="0" revisionflag="added">
         <tgroup cols="12">
@@ -2446,7 +2446,9 @@ my_func:
               <entry>
                 <para>Represents the <phrase revisionflag="changed">address in
 		the</phrase> .TOC. at which the address of
-                the relocation entry’s symbol resides during execution. This
+                the relocation entry’s symbol
+		<phrase revisionflag="added">plus addend</phrase>
+		resides during execution. This
                 implies the creation of a .got section. For more information,
                 see 
                 <xref linkend="dbdoclet.50655240___RefHeading___Toc377640591" /> and
@@ -2826,7 +2828,7 @@ my_func:
             </row>
             <row>
               <entry>
-                <para>tlsgd</para>
+                <para>@got@tlsgd</para>
               </entry>
               <entry>
                 <para>Allocates two contiguous entries in the GOT to hold a
@@ -2841,7 +2843,7 @@ my_func:
             </row>
             <row>
               <entry>
-                <para>tlsld</para>
+                <para>@got@tlsld</para>
               </entry>
               <entry>
                 <para>Allocates two contiguous entries in the GOT to hold a
@@ -2856,7 +2858,7 @@ my_func:
             </row>
             <row>
               <entry>
-                <para>tprelg</para>
+                <para>@got@tprel</para>
               </entry>
               <entry>
                 <para>Allocates an entry in the GOT with value tprel, and
@@ -5285,8 +5287,8 @@ my_func:
 	has another relocation at <emphasis>r_offset</emphasis>.  The
 	R_PPC64_PCREL_OPT entry occurs immediately after that relocation in
 	the table of relocations.
-	See <xref linkend="dbdoclet.50655241_OptPCRel" /> and
-	<xref linkend="dbdoclet.50655241_OptMask" /> for more details.
+	See <xref linkend="dbdoclet.50655241_OptPCRel" /> <!-- and
+	<xref linkend="dbdoclet.50655241_OptMask" /> --> for more details.
       </para>
     </section>
     <section>
@@ -5455,6 +5457,7 @@ nop</programlisting>
 	  in the sequence.
 	</para>
       </section>
+<!--
       <section xml:id="dbdoclet.50655241_OptMask" revisionflag="added">
 	<title>Optimization of Masked Load/Store Sequences</title>
 	<para>
@@ -5485,6 +5488,7 @@ pmlxv   vs1,symbol@pcrel(r0),VRM,MC,P,1</programlisting>
 	  sequence.
 	</para>
       </section>
+-->
     </section>
       
     <section>
@@ -5887,7 +5891,8 @@ extern void *__tls_get_addr (tls_index *ti);</programlisting>
       data object is loaded into the first argument register with the addis and
       addi instruction, and a standard function call is made. Notice that the
       bl instruction has two relocations: the R_PPC64_TLSGD tying it to the
-      argument setup instructions and the R_PPC64_REL24 specifying the call
+      argument setup instructions and the R_PPC64_REL24 <phrase
+      revisionflag="added"> or R_PPC64_REL24_NOTOC</phrase> specifying the call
       destination.</para>
     </section>
     <section>
@@ -6155,10 +6160,10 @@ static __thread unsigned int x3;
             </row>
             <row>
               <entry>
-                <para>paddi r9, r3, x1@dtprel</para>
+                <para>addi r9, r3, x1@dtprel</para>
               </entry>
               <entry>
-                <para>R_PPC64_DTPREL34</para>
+                <para>R_PPC64_DTPREL16</para>
               </entry>
               <entry>
                 <para>x1</para>
@@ -9142,7 +9147,7 @@ nop</programlisting>
             </row>
             <row>
               <entry>
-                <para>paddi r9, r9, x@tprel@l</para>
+                <para>paddi r9, r9, x@tprel</para>
               </entry>
               <entry>
                 <para>R_PPC64_TPREL34</para>
