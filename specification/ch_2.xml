@@ -4999,9 +4999,11 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         special-purpose register to provide floating-point status and control.
         Throughout this document, the symbol fN is used, where N is a register
         number, to refer to floating-point register N.</para>
-        <para>For the purpose of function calls, the right half of VSX
-        registers, corresponding to the classic floating-point registers (that
-        is, vsr0&#8211;vsr31), is volatile.</para>
+        <para>For the purpose of function calls, the <phrase
+	revisionflag="changed">least-significant halves of those VSX
+	registers corresponding</phrase> to the classic floating-point
+	registers (that is, vsr0&#8211;vsr31), <phrase
+	revisionflag="changed">are</phrase> volatile.</para>
 
         <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_83567">
           <title>Floating-Point Register Roles for Binary Floating-Point
