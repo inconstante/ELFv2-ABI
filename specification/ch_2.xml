@@ -4067,7 +4067,8 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
     functions use these conventions, except as documented for the register save
     and restore functions.</para>
     <para>The conventions given in this section are adhered to by C programs.  
-    For more information about the implementation of C, See https://apps.na.collabserv.com/meetings/join?id=2897-3986
+    For more information about the implementation of C, See
+    <phrase revisionflag="deleted">https://apps.na.collabserv.com/meetings/join?id=2897-3986</phrase>
     <xref linkend="dbdoclet.50655240___RefHeading___Toc377640591" />.</para>
     <note>
       <para>While it is recommended that all functions use the standard
