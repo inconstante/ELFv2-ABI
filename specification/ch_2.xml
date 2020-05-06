@@ -2382,10 +2382,24 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para>Function pointer</para>
                 </entry>
               </row>
-              <row>
-                <entry morerows="2">
+              <row revisionflag="changed">
+                <entry morerows="3">
                   <para>Binary Floating-Point</para>
                 </entry>
+                <entry>
+                  <para>_Float16</para>
+                </entry>
+                <entry>
+                  <para>2</para>
+                </entry>
+                <entry>
+                  <para>Halfword</para>
+                </entry>
+                <entry>
+                  <para>Half-precision float</para>
+                </entry>
+              </row>
+	      <row>
                 <entry>
                   <para>float</para>
                 </entry>
