@@ -6544,12 +6544,18 @@ s6            -           72 (stored)</programlisting>
       architectures that pass some of the arguments in registers. The Power
       Architecture is one of the architectures that passes some of the
       arguments in registers.</para>
-      <para><anchor xml:id="dbdoclet.50655240_page61" xreflabel="" />The parameter
+      <para revisionflag="deleted"><anchor
+      xml:id="dbdoclet.50655240_page61" xreflabel="" />The parameter
       list may be zero length and is only allocated when parameters are
       spilled, when a function has unnamed parameters, or when no prototype is
       provided. When the Parameter Save Area is allocated, the Parameter Save
       Area must be large enough to accommodate all parameters, including
       parameters passed in registers.</para>
+      <para revisionflag="added">
+	The caller of any function with an ellipsis in its prototype
+	must allocate a Parameter Save Area, as described in <xref
+	linkend="dbdoclet.50655240_78421" />.
+      </para>
     </section>
     <section xml:id="dbdoclet.50655240___RefHeading___Toc377640590">
       <title>Return Values</title>
