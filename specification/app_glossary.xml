@@ -197,7 +197,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>GNU Compiler Collection</para>
               </entry>
             </row>
-            <row>
+            <row revisionflag="deleted">
               <entry>
                 <para>GEP</para>
               </entry>
@@ -293,7 +293,7 @@ xml:id="dbdoclet.50655246_33489">
                 <para>Little-endian</para>
               </entry>
             </row>
-            <row>
+            <row revisionflag="deleted">
               <entry>
                 <para>LEP</para>
               </entry>

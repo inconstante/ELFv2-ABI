@@ -6935,12 +6935,13 @@ lvx     v1, 0, r10</programlisting>
 	a TOC pointer, and not all functions must preserve the existing value
 	of r2.  See <xref linkend="dbdoclet.50655241_FnLinkage" /> for more
 	information.</phrase></para>
-        <para>All functions have a global entry point (GEP) available to any
+        <para>All functions have a global entry point <phrase revisionflag="deleted">(GEP)</phrase> available to any
         caller and pointing to the beginning of the prologue. Some functions
         may have a secondary entry point to optimize the cost of TOC pointer
         management. In particular, functions within a common module sharing the
         same TOC base value in r2 may be entered using a secondary entry point
-        (the local entry point or LEP) that may bypass the code that loads a
+        (the local entry point<phrase revisionflag="deleted"> or
+	LEP</phrase>) that may bypass the code that loads a
         suitable TOC pointer value into the r2 register. When a dynamic or
         global linker transfers control from a function to another function in
         the same module, it 
@@ -6955,7 +6956,9 @@ lvx     v1, 0, r10</programlisting>
         entry-point address. Code at the global entry point <phrase
 	revisionflag="added">of a function that also has a local entry
 	point</phrase> can assume that
-        register r12 points to the GEP.  <phrase revisionflag="added">
+        register r12 points to the <phrase
+	revisionflag="deleted">GEP</phrase><phrase revisionflag="added">global
+	entry point</phrase>.  <phrase revisionflag="added">
 	However, code at the global entry point of a function that does not
 	have a separate local entry point cannot make any assumptions about
 	the values of either r2 or 12.</phrase></para>
