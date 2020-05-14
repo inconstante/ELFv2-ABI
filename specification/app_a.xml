@@ -13,7 +13,7 @@
 <appendix xmlns="http://docbook.org/ns/docbook"
 xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" 
 xml:lang="en"
-xml:id="dbdoclet.50655245_pgfId-1138128">
+xml:id="dbdoclet.50655245_pgfId-1138128" revisionflag="deleted">
   <title>Predefined Functions for Vector Programming</title>
   <para>So that programmers can access the vector facilities provided by the
   Power ISA, ABI-compliant environments should provide the vector functions

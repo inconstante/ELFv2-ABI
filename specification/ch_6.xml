@@ -15,16 +15,32 @@ xmlns:xl="http://www.w3.org/1999/xlink" version="5.0"
 xml:lang="en"
 xml:id="dbdoclet.50655244_pgfId-1095944">
   <title>Vector Programming Interfaces</title>
-  <para>To ensure portability of applications optimized to exploit the SIMD
+  <para revisionflag="added">
+    Earlier versions of this ABI included a description of vector
+    programming interfaces and techniques for POWER®, along with an
+    appendix enumerating the supported vector built-in functions.
+    Most of this information is not ABI, and is removed from this 
+    version of the document.  Instead, those interested are encouraged
+    to now refer to the <emphasis role="underline">POWER Vector
+    Intrinsics Programming Reference</emphasis>,
+    available from the OpenPOWER Foundation in their Technical
+    Resources Catalog (<link
+    xl:href="https://openpowerfoundation.org/technical/resource-catalog/"
+    />).
+  </para>
+  <para revisionflag="deleted">To ensure portability of applications
+  optimized to exploit the SIMD
   functions of Power ISA processors, the ELF V2 ABI defines a set of
   functions and data types for SIMD programming. ELF V2-compliant compilers
   will provide suitable support for these functions, preferably as built-in
   functions that translate to one or more Power ISA instructions.</para>
-  <para>Compilers are encouraged, but not required, to provide built-in
+  <para revisionflag="deleted">Compilers are encouraged, but not
+  required, to provide built-in
   functions to access individual instructions in the IBM POWER® instruction
   set architecture. In most cases, each such built-in function should provide
   direct access to the underlying instruction.</para>
-  <para>However, to ease porting between little-endian (LE) and big-endian
+  <para revisionflag="deleted">However, to ease porting between
+  little-endian (LE) and big-endian
   (BE) POWER systems, and between POWER and other platforms, it is preferable
   that some built-in functions provide the same semantics on both LE and BE
   POWER systems, even if this means that the built-in functions are
@@ -36,7 +52,8 @@ xml:id="dbdoclet.50655244_pgfId-1095944">
   instruction sequence. Rather, the compiler is free to generate optimized
   instruction sequences that implement the semantics of the program specified
   by the programmer using these built-in functions.</para>
-  <para>This is primarily applicable to the vector facility of the POWER ISA,
+  <para revisionflag="deleted">This is primarily applicable to the
+  vector facility of the POWER ISA,
   also known as Power SIMD, consisting of the VMX (or Altivec) and VSX
   instructions. This set of instructions operates on groups of 2, 4, 8, or 16
   vector elements at a time in 128-bit registers. On a big-endian POWER
@@ -47,7 +64,7 @@ xml:id="dbdoclet.50655244_pgfId-1095944">
   vector elements are loaded from memory such that the 0th element occupies
   the low-order bits of the register, and the (N &#8211; 1)th element occupies the
   high-order bits. This is referred to as little-endian element order.</para>
-  <section xml:id="dbdoclet.50655244_39970">
+  <section xml:id="dbdoclet.50655244_39970" revisionflag="deleted">
     <title>Vector Data Types</title>
     <para>Languages provide support for the data types in 
     <xref linkend="dbdoclet.50655240_89351" /> to represent vector data types
@@ -83,7 +100,7 @@ xml:id="dbdoclet.50655244_pgfId-1095944">
     <programlisting>double *double_ptr;
 register vector double vd = vec_splats(*double_ptr);</programlisting>
   </section>
-  <section xml:id="dbdoclet.50655244_83520">
+  <section xml:id="dbdoclet.50655244_83520" revisionflag="deleted">
     <title>Vector Operators</title>
     <para>In addition to the dereference and assignment operators, the Power
     SIMD Vector Programming API provides the usual operators that are valid on
@@ -109,7 +126,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
     <xref linkend="dbdoclet.50655244_25365" />). An l-value may either be
     assigned a new value or accessed for reading its value.</para>
   </section>
-  <section xml:id="dbdoclet.50655244_25365">
+  <section xml:id="dbdoclet.50655244_25365" revisionflag="deleted">
     <title>Vector Layout and Element Numbering</title>
     <para>Vector data types consist of a homogeneous sequence of elements of
     the base data type specified in the vector data type. Individual elements
@@ -170,7 +187,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
       </tgroup>
     </informaltable>
   </section>
-  <section xml:id="dbdoclet.50655244_90667">
+  <section xml:id="dbdoclet.50655244_90667" revisionflag="deleted">
     <title>Vector Built-in Functions</title>
     <para>The Power language environments provide a well-known set of built-in
     functions for the Power SIMD instructions (including both Altivec/VMX and
@@ -1240,7 +1257,7 @@ register vector double vd = vec_splats(*double_ptr);</programlisting>
       setting such as <literal>-qaltivec=be</literal> or <literal>-maltivec=be</literal>.</para>
     </section>
   </section>
-  <section xml:id="dbdoclet.50655244_20743">
+  <section xml:id="dbdoclet.50655244_20743" revisionflag="deleted">
     <title>Language-Specific Vector Support for Other Languages</title>
     <section xml:id="dbdoclet.50655244_37862">
       <title>Fortran</title>
