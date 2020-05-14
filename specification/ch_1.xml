@@ -66,7 +66,9 @@
     <itemizedlist>
       <listitem>
         <para>
-        <emphasis>Power Instruction Set Architecture,</emphasis> Versions 2.07
+        <emphasis>Power Instruction Set Architecture,</emphasis>
+	Versions <phrase revisionflag="deleted">2.7</phrase> <phrase
+	revisionflag="added">2.07</phrase>
 	and 3.0, IBM, 2013-2016. 
         <emphasis>
           <link xl:href="http://www.power.org">http://www.power.org

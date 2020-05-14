@@ -20,7 +20,9 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
     64-bit features to implement the ELF ABI version 2.</para>
     <section xml:id="dbdoclet.50655240___RefHeading___Toc377640572">
       <title>Processor Architecture</title>
-      <para>This ABI is predicated on, at a minimum, Power ISA version 2.07 and
+      <para>This ABI is predicated on, at a minimum, Power ISA version
+      <phrase revisionflag="deleted">2.7</phrase> <phrase
+      revisionflag="added">2.07</phrase> and
       contains additional implementation characteristics.</para>
       <para>All OpenPOWER instructions that are defined by the Power
       Architecture can be assumed to be implemented and to work as specified.
@@ -3489,7 +3491,9 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         xml:id="dbdoclet.50655240_54268">
           <?dbhtml table-width="60%" ?>
           <?dbfo table-width="60%" ?>
-          <title>Little-Endian Bit Numbering for 0x0001000200030004</title>
+          <title>Little-Endian Bit Numbering for <phrase
+	  revisionflag="added">0x0001000200030004</phrase> <phrase
+	  revisionflag="deleted">0x01020304</phrase></title>
           <tgroup cols="12">
             <colspec colname="c1" colwidth="3*" />
             <colspec colname="c2" colwidth="3*" />
@@ -3744,7 +3748,8 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         xml:id="dbdoclet.50655240_47219">
           <?dbhtml table-width="60%" ?>
           <?dbfo table-width="60%" ?>
-          <title>Big-Endian Bit Numbering for 0x0001000200030004</title>
+          <title>Big-Endian Bit Numbering for <phrase
+	  revisionflag="added">0x0001000200030004</phrase> <phrase revisionflag="deleted">0x01020304</phrase></title>
           <tgroup cols="12">
             <colspec colname="c1" colwidth="3*" />
             <colspec colname="c2" colwidth="3*" />
