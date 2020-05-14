@@ -1084,9 +1084,9 @@ bctr</programlisting>
     mtlr r0
     # Compute .plt section index from entry point address in r12
     # .plt section index is placed into r0 as argument to the resolver
-    sub r0,r12,r11
-    subi r0,r0,res_0-1b
-    srdi r0,r0,2
+    sub <phrase revisionflag="changed">r12</phrase>,r12,r11
+    subi <phrase revisionflag="changed">r12,r12</phrase>,res_0-1b
+    srdi r0,<phrase revisionflag="changed">r12</phrase>,2
     # Load address of the first byte of the PLT
     ld r12,PLToffset-1b(r11)
     add r11,r12,r11
