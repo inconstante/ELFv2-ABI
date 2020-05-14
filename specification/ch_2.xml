@@ -3489,7 +3489,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         xml:id="dbdoclet.50655240_54268">
           <?dbhtml table-width="60%" ?>
           <?dbfo table-width="60%" ?>
-          <title>Little-Endian Bit Numbering for 0x01020304</title>
+          <title>Little-Endian Bit Numbering for 0x0001000200030004</title>
           <tgroup cols="12">
             <colspec colname="c1" colwidth="3*" />
             <colspec colname="c2" colwidth="3*" />
@@ -3744,7 +3744,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         xml:id="dbdoclet.50655240_47219">
           <?dbhtml table-width="60%" ?>
           <?dbfo table-width="60%" ?>
-          <title>Big-Endian Bit Numbering for 0x01020304</title>
+          <title>Big-Endian Bit Numbering for 0x0001000200030004</title>
           <tgroup cols="12">
             <colspec colname="c1" colwidth="3*" />
             <colspec colname="c2" colwidth="3*" />
