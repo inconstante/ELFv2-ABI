@@ -6949,10 +6949,13 @@ lvx     v1, 0, r10</programlisting>
         entry point when the r2 register is known to hold a valid TOC base
         value. Function pointers shared between modules shall always use the
         global entry point to specify the address of a function.</para>
-        <para>When a linker causes control to transfer to a global entry point
+        <para><phrase revisionflag="deleted">When a linker causes
+	control to transfer</phrase><phrase revisionflag="added">When
+	control is transferred</phrase> to a global entry point
 	<phrase revisionflag="added">of a function that also has a local entry
-	point</phrase>,
-        it must insert a glue code sequence that loads r12 with the global
+	point</phrase>, <phrase revisionflag="deleted">it</phrase>
+	<phrase revisionflag="added">the linker</phrase> must insert a
+	glue code sequence that loads r12 with the global
         entry-point address. Code at the global entry point <phrase
 	revisionflag="added">of a function that also has a local entry
 	point</phrase> can assume that
