@@ -5940,8 +5940,10 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           floating-point type. (A complex floating-point data type is treated as if
           two separate scalar values of the base type were passed.)</para>
           <para>Homogeneous floating-point aggregates can have up to four IBM
-          EXTENDED PRECISION members, four IEEE BINARY 128 QUADRUPLE PRECISION
-          members, four _Decimal128 members, or eight members of other
+          EXTENDED PRECISION members, <phrase
+	  revisionflag="deleted">four IEEE BINARY 128 QUADRUPLE
+	  PRECISION members,</phrase> four _Decimal128 members, or
+	  eight members of other 
           floating-point types. (Unions are treated as their largest member. For
           homogeneous unions, different union alternatives may have different
           sizes, provided that all union members are homogeneous with respect to
