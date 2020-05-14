@@ -5561,13 +5561,16 @@ addi      r4, r4, lower</programlisting>
       <para>The current glibc extended TCB is:</para>
       <programlisting>typedef struct {
     /* Reservation for HWCAP data. */
-        unsigned int hwcap2;
+        <phrase revisionflag="deleted">unsigned int hwcap2;</phrase>
         unsigned int hwcap; /* not used in LE ABI */
  
-    /* Indicate if HTM capable (ISA 2.07). */
+    <phrase revisionflag="deleted">/* Indicate if HTM capable (ISA 2.07). */
         int tm_capable;
-        int tm_pad;
- 
+        int tm_pad;</phrase>
+    <phrase revisionflag="added">/* Reservation for AT_PLATFORM data.  */
+        uint32_t __unused;
+        uint32_t at_platform;</phrase>
+
     /* Reservation for dynamic system optimizer ABI. */
         uintptr_t dso_slot2;
         uintptr_t dso_slot1;
