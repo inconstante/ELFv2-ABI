@@ -8704,8 +8704,11 @@ addi  r3,r1,p           ; R3 = new data area following parameter save area.</pro
       <para>Because it is allowed (and common) to return without first
       deallocating this dynamically allocated memory, all the linkage
       information in the new location must be valid. Therefore, it is also
-      necessary to copy the CR save word and the TOC pointer doubleword from
-      their old locations to the new. It is not necessary to copy the LR save
+      necessary to copy the <phrase revisionflag="deleted">CR save
+      word and the</phrase> TOC pointer doubleword from <phrase
+      revisionflag="deleted">their old locations</phrase> <phrase
+      revisionflag="added">its old location</phrase> to the new. It is
+      not necessary to copy the LR save
       doubleword because, until this function makes a call, it does not contain
       a value that needs to be preserved. In the future, if it is defined and
       if the function uses the Reserved word, the LR save doubleword must also
