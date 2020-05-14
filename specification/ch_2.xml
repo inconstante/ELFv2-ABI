@@ -20,7 +20,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
     64-bit features to implement the ELF ABI version 2.</para>
     <section xml:id="dbdoclet.50655240___RefHeading___Toc377640572">
       <title>Processor Architecture</title>
-      <para>This ABI is predicated on, at a minimum, Power ISA version 2.7 and
+      <para>This ABI is predicated on, at a minimum, Power ISA version 2.07 and
       contains additional implementation characteristics.</para>
       <para>All OpenPOWER instructions that are defined by the Power
       Architecture can be assumed to be implemented and to work as specified.
