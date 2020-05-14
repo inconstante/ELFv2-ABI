@@ -473,8 +473,12 @@ my_func:
       points, even if the global entry point will not be used. (In such a case,
       the instructions of the global entry setup sequence may optionally be
       initialized with TRAP instructions.)</para>
-      <para revisionflag="added">A function with an st_other value of 1 is
-      identified by a .localentry directive with a value of 1.</para>
+      <para revisionflag="added">The value of st_other is determined
+      from the .localentry directive as follows: If the .localentry
+      value is 0, the value of st_other is 0.  If the .localentry
+      value is 1, the value of st_other is 1.  Otherwise, the value of
+      st_other is the logarithm (base 2) of the .localentry value.
+      </para>
       <para>For very large programs, a 32-bit offset from
       the TOC base may not suffice to reach all function addresses.  In this
       case, the large program model must be used, and the above sequence is
