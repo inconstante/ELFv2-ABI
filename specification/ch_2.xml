@@ -2615,6 +2615,24 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   2<superscript>16</superscript> &#8211; 1.</para>
                 </entry>
               </row>
+              <row revisionflag="added">
+                <entry>
+                  <para></para>
+                </entry>
+                <entry>
+                  <para>vector pixel</para>
+                </entry>
+                <entry>
+                  <para>16</para>
+                </entry>
+                <entry>
+                  <para>Quadword</para>
+                </entry>
+                <entry>
+                  <para>Vector of 8 halfwords containing a 1-bit
+		  channel and three 5-bit channels.</para>
+                </entry>
+              </row>
               <row>
                 <entry>
                   <para></para>
