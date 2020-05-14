@@ -7420,7 +7420,7 @@ _restvr_31:   addi  r12,r0,-16
       The values of symbols or their absolute virtual addresses are placed
       directly into instructions for symbolic references in absolute
       code.</para>
-      <para>
+      <para revisionflag="deleted">
       <xref linkend="dbdoclet.50655242_page119" /> shows an example of this
       method.</para>
       <para>Examples of absolute and position-independent compilations are
