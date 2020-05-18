@@ -6697,7 +6697,7 @@ s6            -           72 (stored)</programlisting>
             instructions:</para>
           </listitem>
         </itemizedlist>
-        <programlisting revisionflag="changed">lis     r16, symbol@hba 
+        <programlisting revisionflag="changed">lis     r16, symbol@ha 
 ld      r10, symbol@l(r16) 
 
 lis     r16, symbol2@ha 
