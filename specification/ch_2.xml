@@ -5027,7 +5027,11 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
 	revisionflag="changed">least-significant halves of those VSX
 	registers corresponding</phrase> to the classic floating-point
 	registers (that is, vsr0&#8211;vsr31), <phrase
-	revisionflag="changed">are</phrase> volatile.</para>
+	revisionflag="changed">are</phrase> volatile.  <phrase
+	revisionflag="added">If the most-significant half of such a
+	VSX register is a non-volatile floating-point register that is
+	not used for a function call, the entire VSX register is
+	volatile.</phrase></para>
 
         <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_83567">
           <title>Floating-Point Register Roles for Binary Floating-Point
