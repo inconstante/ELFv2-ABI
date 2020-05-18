@@ -7983,7 +7983,7 @@ nop</programlisting>
             <row>
               <entry>
                 <programlisting>extern void function( ); 
-extern void (*ptrfunc) ( ); 
+void (*ptrfunc) ( ); 
 
 ptrfunc = function; 
 
@@ -8002,7 +8002,7 @@ ptrfunc = function;
 .section .text
 lis    r11,ptrfunc@ha
 lis    r9,function@ha
-ld     r9,function@l(r9)
+addi   r9,r9,function@l
 std    r9,ptrfunc@l(r11)
 
 lis    r12,ptrfunc@ha
@@ -8043,7 +8043,7 @@ bctrl</programlisting>
             <row>
               <entry>
                 <programlisting>extern void function( ); 
-extern void (*ptrfunc) ( ); 
+void (*ptrfunc) ( ); 
 
 
 ptrfunc = function; 
@@ -8105,7 +8105,7 @@ ld     r2,24(r1)</programlisting>
             <row>
               <entry>
                 <programlisting>extern void function( ); 
-extern void (*ptrfunc) ( ); 
+void (*ptrfunc) ( ); 
 
 
 ptrfunc = function; 
@@ -8176,7 +8176,7 @@ ld     r2,24(r1)</programlisting>
               <entry>
                 <programlisting>extern void function( ); 
 
-extern void (*ptrfunc) ( ); 
+void (*ptrfunc) ( ); 
 ptrfunc=function; 
 
 
