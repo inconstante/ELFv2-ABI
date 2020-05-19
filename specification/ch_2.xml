@@ -6637,6 +6637,44 @@ s6            -           72 (stored)</programlisting>
         </listitem>
       </itemizedlist>
     </section>
+    <section xml:id="dbdoclet.50655240___tailcall"
+	     revisionflag="added">
+      <title>Tail-Call Optimization</title>
+      <para>
+	When the last action of a function <emphasis>F</emphasis> is
+	to perform a function call to a function
+	<emphasis>G</emphasis>, and optionally return the value
+	returned from <emphasis>G</emphasis>, a compiler may perform a
+	<emphasis>tail-call optimization</emphasis> so long as the
+	optimization is undetectable by the caller of
+	<emphasis>G</emphasis>.  The full details of and requirements
+	for tail-call optimization will not be described here, but in
+	essence <emphasis>F</emphasis> removes its stack frame and
+	issues a direct branch to <emphasis>G</emphasis>, which reuses
+	the stack space and the saved link register so that
+	<emphasis>G</emphasis> eventually returns to the caller of
+	<emphasis>F</emphasis>.
+      </para>
+      <para>
+	When the call from <emphasis>F</emphasis> to
+	<emphasis>G</emphasis> is not local, and
+	<emphasis>F</emphasis> is a TOC-preserving function, tail-call
+	optimization is disallowed because <emphasis>F</emphasis> and
+	<emphasis>G</emphasis> may have different TOC pointers.
+	Tail-call optimization cannot guarantee that the correct TOC
+	will be restored when <emphasis>G</emphasis> returns.
+      </para>
+      <para>
+	When the call from <emphasis>F</emphasis> to
+	<emphasis>G</emphasis> is local, and <emphasis>F</emphasis> is
+	a TOC-preserving function, but <emphasis>G</emphasis> is
+	<emphasis>not</emphasis> a TOC-preserving function, then
+	tail-call optimization is again disallowed.  In this case,
+	<emphasis>G</emphasis> may have placed any value into register
+	r2, and the correct TOC will not be restored when
+	<emphasis>G</emphasis> returns.
+      </para>
+    </section>
   </section>
   <section xml:id="dbdoclet.50655240___RefHeading___Toc377640591">
     <title>Coding Examples</title>
