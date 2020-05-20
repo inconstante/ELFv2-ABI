@@ -66,14 +66,29 @@
     <itemizedlist>
       <listitem>
         <para>
-        <emphasis>Power Instruction Set Architecture,</emphasis>
-	Versions <phrase revisionflag="deleted">2.7</phrase> <phrase
-	revisionflag="added">2.07</phrase>
-	and 3.0, IBM, 2013-2016. 
+        <emphasis><phrase revisionflag="added">IBM</phrase> Power
+	Instruction Set Architecture,</emphasis> Versions <phrase
+	revisionflag="deleted">2.7 and 3.0,</phrase> <phrase
+	revisionflag="added">2.07, 3.0, and 3.1,</phrase>
+	<phrase revisionflag="deleted">IBM</phrase><phrase
+	revisionflag="added">OpenPOWER Foundation</phrase>, <phrase
+	revisionflag="deleted">2013-2016</phrase><phrase
+	revisionflag="added">2013-2020</phrase>.
         <emphasis>
-          <link xl:href="http://www.power.org">http://www.power.org
+          <link xl:href="https://openpowerfoundation.org/technical/resource-catalog/">https://openpowerfoundation.org/technical/resource-catalog/
           </link>
         </emphasis></para>
+      </listitem>
+      <listitem revisionflag="added">
+	<para>
+	  <emphasis>POWER Vector Intrinsics Programming
+	  Reference</emphasis>, Version 1.0.0, OpenPOWER Foundation,
+	  2020.
+	  <emphasis>
+            <link xl:href="https://openpowerfoundation.org/technical/resource-catalog/">https://openpowerfoundation.org/technical/resource-catalog/
+            </link>
+	  </emphasis>
+	</para>
       </listitem>
       <listitem>
         <para>
