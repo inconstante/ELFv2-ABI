@@ -63,7 +63,7 @@
     <para>The OpenPOWER ELF V2 ABI is intended for use in little- and big-endian environments.
     </para>
     
-  <section>
+  <simplesect>
     <title>Notices</title>
     <?dbhtml stop-chunking?>
 
@@ -118,6 +118,6 @@
 
     <para>Other company, product, and service names may be trademarks or service marks of others.
     </para>
-  </section>
+  </simplesect>
   
 </preface>
