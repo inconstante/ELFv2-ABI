@@ -213,6 +213,8 @@
 	  a TOC pointer for such accesses.  The ABI has been updated to
 	  describe the implications of this new capability.  For specifics,
 	  see <xref linkend="dbdoclet.50655241_FnLinkage" />, <xref
+	  linkend="dbdoclet.50655240___codealign" />, <xref
+	  linkend="dbdoclet.50655240___tailcall" />, <xref
 	  linkend="dbdoclet.50655240___RefHeading___Toc377640591" />, <xref
 	  linkend="dbdoclet.50655241_18894" />, <xref
 	  linkend="dbdoclet.50655241_LinkerOpts" />, <xref
