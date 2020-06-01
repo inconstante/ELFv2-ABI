@@ -37,7 +37,7 @@
     </author>
     <copyright>
       <!-- TODO: Keep second year accurate for latest publish -->
-      <year>2014-2019</year>
+      <year>2014-<phrase revisionflag="changed">2020</phrase></year>
       <holder>OpenPOWER Foundation</holder>
     </copyright>
     <copyright>
@@ -57,7 +57,7 @@
       <holder>Freescale Semiconductor, Inc</holder>
     </copyright>
     <!-- TODO: Set the correct document releaseinfo -->
-    <releaseinfo>Revision 1.5j draft</releaseinfo>
+    <releaseinfo>Revision 1.5k draft</releaseinfo>
     <productname>OpenPOWER</productname>
     <pubdate/>
 
@@ -93,6 +93,16 @@
 
     <revhistory>
       <!-- TODO: Set the initial version information and clear any old information out -->
+      <revision>
+          <date>2020-05-21</date>
+          <revdescription>
+            <itemizedlist spacing="compact">
+              <listitem>
+                <para>Revision 1.5k: Address recorded issues.</para>
+              </listitem>
+            </itemizedlist>
+          </revdescription>
+      </revision>
       <revision>
           <date>2019-12-11</date>
           <revdescription>

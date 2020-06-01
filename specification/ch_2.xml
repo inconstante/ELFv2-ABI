@@ -4069,8 +4069,8 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
         </figure>
 
         <note>
-          <para>In <xref linkend="dbdoclet.50655240_30073" />, the alignment
-	  of the
+          <para><phrase revisionflag="added">In</phrase> <xref
+	  linkend="dbdoclet.50655240_30073" />, the alignment of the
             structure is not affected by the unnamed short and int fields. The
             named members are aligned relative to the start of the structure.
             However, it is possible that the alignment of the named members is
