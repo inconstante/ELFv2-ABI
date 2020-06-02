@@ -27,7 +27,11 @@
     implementation-specific features.
     </para>
     
-    <para>Specifically, to use this ABI and ABI-compliant programs, OpenPOWER-compliant 
+    <!-- Following deleted as redundant with sections 1 and 2.2.1, and
+	 confusing with regard to subsequent ISA publication
+	 strategies. -->
+
+    <para revisionflag="deleted">Specifically, to use this ABI and ABI-compliant programs, OpenPOWER-compliant 
     processors must implement the following categories:
       <itemizedlist>		      
         <listitem><para>Base</para></listitem>
@@ -56,11 +60,11 @@
       </itemizedlist>		      
     </para>
     
-    <para>For more information about these categories, see “Categories” in Book I of 
+    <para revisionflag="deleted">For more information about these categories, see “Categories” in Book I of 
     <citetitle>Power ISA</citetitle>, version 2.07B.
     </para>
     
-    <para>The OpenPOWER ELF V2 ABI is intended for use in little- and big-endian environments.
+    <para revisionflag="deleted">The OpenPOWER ELF V2 ABI is intended for use in little- and big-endian environments.
     </para>
     
   <simplesect>
