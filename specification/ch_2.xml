@@ -4080,6 +4080,21 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             all be on 4-byte (integer) boundaries.</para>
         </note>
       </section>
+      <section xml:id="dbdoclet.50655240___codealign"
+	       revisionflag="added">
+	<title>Code Alignment</title>
+	<para>
+	  Functions must be aligned on at least a 4-byte boundary.
+	</para>
+	<para>
+	  If a function contains any prefixed (8-byte) instructions,
+	  functions should preferably be aligned on at least a 64-byte
+	  boundary.  In ISA 3.1, executing a prefixed instruction that
+	  crosses a 64-byte boundary will cause a SIGILL that must be
+	  handled by the kernel.  Compilers and assemblers can avoid
+	  this if functions are aligned on a 64-byte boundary.
+	</para>
+      </section>
     </section>
   </section>
   <section xml:id="dbdoclet.50655240_85672">
@@ -6636,20 +6651,6 @@ s6            -           72 (stored)</programlisting>
           <para>_Bool</para>
         </listitem>
       </itemizedlist>
-    </section>
-    <section xml:id="dbdoclet.50655240___codealign"
-	     revisionflag="added">
-      <title>Code Alignment</title>
-      <para>
-	Functions must be aligned on at least a 4-byte boundary.
-      </para>
-      <para>
-	If a function contains any prefixed (8-byte) instructions,
-	functions must be aligned on at least a 64-byte boundary.
-	This is necessary so that compilers and assemblers can avoid
-	placing a prefixed instruction so that it crosses a 64-byte
-	boundary.
-      </para>
     </section>
     <section xml:id="dbdoclet.50655240___tailcall"
 	     revisionflag="added">
