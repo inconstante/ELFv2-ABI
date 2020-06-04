@@ -2449,7 +2449,7 @@ my_func:
               </entry>
               <entry>
                 <para>Represents the <phrase revisionflag="changed">address in
-		the</phrase> .TOC. at which the address of
+		the TOC</phrase> at which the address of
                 the relocation entry’s symbol
 		<phrase revisionflag="added">plus addend</phrase>
 		resides during execution. This
@@ -4949,7 +4949,7 @@ my_func:
             </row>
             <row revisionflag="added">
               <entry>
-                <para>R_PPC64_GOT_TLSGD34</para>
+                <para>R_PPC64_GOT_TLSGD_PCREL34</para>
               </entry>
               <entry>
                 <para>148</para>
@@ -4963,7 +4963,7 @@ my_func:
             </row>
             <row revisionflag="added">
               <entry>
-                <para>R_PPC64_GOT_TLSLD34</para>
+                <para>R_PPC64_GOT_TLSLD_PCREL34</para>
               </entry>
               <entry>
                 <para>149</para>
@@ -4977,7 +4977,7 @@ my_func:
             </row>
             <row revisionflag="added">
               <entry>
-                <para>R_PPC64_GOT_TPREL34</para>
+                <para>R_PPC64_GOT_TPREL_PCREL34</para>
               </entry>
               <entry>
                 <para>150</para>
@@ -4991,7 +4991,7 @@ my_func:
             </row>
             <row revisionflag="added">
               <entry>
-                <para>R_PPC64_GOT_DTPREL34</para>
+                <para>R_PPC64_GOT_DTPREL_PCREL34</para>
               </entry>
               <entry>
                 <para>151</para>
@@ -5328,7 +5328,7 @@ my_func:
 	<emphasis>r_offset</emphasis> and the instruction at
 	<emphasis>r_offset</emphasis> + <emphasis>r_addend</emphasis> may be
 	optimized by the linker; the compiler must guarantee that register
-	lifetimes are such that the optimization is safe.  In both code
+	lifetimes are such that the optimization is safe.  In code
 	sequences where this relocation	is valid, the first instruction also
 	has another relocation at <emphasis>r_offset</emphasis>.  The
 	R_PPC64_PCREL_OPT entry occurs immediately after that relocation in
@@ -5494,13 +5494,15 @@ lxv     vs1, 0(r10)</programlisting>
 nop</programlisting>
 	<para>
 	  However, this optimization is not universally safe, since it
-	  changes the value of r10 following the data reference.  The
-	  compiler or programmer must ensure that the value of r10 is not
-	  used between the two instructions nor subsequently used,
-	  and communicate a request for this optimization
-	  by placing an R_PPC64_PCREL_OPT relocation on the first instruction
-	  in the sequence that provides the offset to the second instruction
-	  in the sequence.
+	  changes lifetimes of registers set in both instructions.  In
+	  the example, the compiler or programmer must ensure that the
+	  value of r10 set by the first instruction is not used after
+	  that instruction, and that vs1 is not used between the two
+	  instructions.  If these conditions are met, the linker is
+	  informed that the optimization is safe by placing an
+	  R_PPC64_PCREL_OPT relocation on the first instruction in the
+	  sequence with the addend of that relocation giving the
+	  offset to the second instruction in the sequence.
 	</para>
       </section>
 <!--
@@ -5855,7 +5857,7 @@ extern void *__tls_get_addr (tls_index *ti);</programlisting>
                 <para>pla r3, x@got@tlsgd@pcrel</para>
               </entry>
               <entry>
-                <para>R_PPC64_GOT_TLSGD34</para>
+                <para>R_PPC64_GOT_TLSGD_PCREL34</para>
               </entry>
               <entry>
                 <para>x</para>
@@ -6171,7 +6173,7 @@ static __thread unsigned int x3;
                 <para>pla r3, x1@got@tlsld@pcrel</para>
               </entry>
               <entry>
-                <para>R_PPC64_GOT_TLSLD34</para>
+                <para>R_PPC64_GOT_TLSLD_PCREL34</para>
               </entry>
               <entry>
                 <para>x1</para>
@@ -6256,7 +6258,7 @@ static __thread unsigned int x3;
                 <para>pld r9, x3@got@dtprel@pcrel</para>
               </entry>
               <entry>
-                <para>R_PPC64_GOT_DTPREL34</para>
+                <para>R_PPC64_GOT_DTPREL_PCREL34</para>
               </entry>
               <entry>
                 <para>x3</para>
@@ -6566,7 +6568,7 @@ static __thread unsigned int x3;
                 <para>pld r9, x3@got@dtprel@pcrel(r3)</para>
               </entry>
               <entry>
-                <para>R_PPC64_GOT_DTPREL34</para>
+                <para>R_PPC64_GOT_DTPREL_PCREL34</para>
               </entry>
               <entry>
                 <para>x3</para>
@@ -6692,7 +6694,7 @@ static __thread unsigned int x3;
                 <para>pld r9, x@got@tprel@pcrel</para>
               </entry>
               <entry>
-                <para>R_PPC64_GOT_TPREL34</para>
+                <para>R_PPC64_GOT_TPREL_PCREL34</para>
               </entry>
               <entry>
                 <para>x</para>
@@ -8376,7 +8378,7 @@ nop</programlisting>
                 <para>pla r3, x@got@tlsgd@pcrel</para>
               </entry>
               <entry>
-                <para>R_PPC64_GOT_TLSGD34</para>
+                <para>R_PPC64_GOT_TLSGD_PCREL34</para>
               </entry>
               <entry>
                 <para>x</para>
@@ -8492,7 +8494,7 @@ nop</programlisting>
                 <para>pld r3, x@got@tprel@pcrel</para>
               </entry>
               <entry>
-                <para>R_PPC64_GOT_TPREL34</para>
+                <para>R_PPC64_GOT_TPREL_PCREL34</para>
               </entry>
               <entry>
                 <para>x</para>
@@ -8589,7 +8591,7 @@ nop</programlisting>
                 <para>pla r3, x@got@tlsgd@pcrel</para>
               </entry>
               <entry>
-                <para>R_PPC64_GOT_TLSGD34</para>
+                <para>R_PPC64_GOT_TLSGD_PCREL34</para>
               </entry>
               <entry>
                 <para>x</para>
@@ -8764,7 +8766,7 @@ nop</programlisting>
                 <para>pla r3, x1@got@tlsld@pcrel</para>
               </entry>
               <entry>
-                <para>R_PPC64_GOT_TLSLD34</para>
+                <para>R_PPC64_GOT_TLSLD_PCREL34</para>
               </entry>
               <entry>
                 <para>x1</para>
@@ -8830,7 +8832,7 @@ nop</programlisting>
                 <para>pld r9, x3@got@dtprel@pcrel</para>
               </entry>
               <entry>
-                <para>R_PPC64_GOT_DTPREL34</para>
+                <para>R_PPC64_GOT_DTPREL_PCREL34</para>
               </entry>
               <entry>
                 <para>x3</para>
@@ -9013,7 +9015,7 @@ nop</programlisting>
                 <para>pld r9, x3@got@dtprel@pcrel</para>
               </entry>
               <entry>
-                <para>R_PPC64_GOT_DTPREL34</para>
+                <para>R_PPC64_GOT_DTPREL_PCREL34</para>
               </entry>
               <entry>
                 <para>x3</para>
@@ -9111,7 +9113,7 @@ nop</programlisting>
                 <para>pld r9, x@got@tprel@pcrel</para>
               </entry>
               <entry>
-                <para>R_PPC64_GOT_TPREL34</para>
+                <para>R_PPC64_GOT_TPREL_PCREL34</para>
               </entry>
               <entry>
                 <para>x</para>
@@ -9255,7 +9257,7 @@ nop</programlisting>
                 <para>pld r9, x@got@tprel@pcrel</para>
               </entry>
               <entry>
-                <para>R_PPC64_GOT_TPREL34</para>
+                <para>R_PPC64_GOT_TPREL_PCREL34</para>
               </entry>
               <entry>
                 <para>x</para>
