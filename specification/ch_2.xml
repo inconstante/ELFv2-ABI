@@ -2384,24 +2384,10 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para>Function pointer</para>
                 </entry>
               </row>
-              <row revisionflag="changed">
-                <entry morerows="3">
+	      <row>
+                <entry morerows="2">
                   <para>Binary Floating-Point</para>
                 </entry>
-                <entry>
-                  <para>_Float16</para>
-                </entry>
-                <entry>
-                  <para>2</para>
-                </entry>
-                <entry>
-                  <para>Halfword</para>
-                </entry>
-                <entry>
-                  <para>Half-precision float</para>
-                </entry>
-              </row>
-	      <row>
                 <entry>
                   <para>float</para>
                 </entry>
@@ -2778,7 +2764,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                   <para>Vector of 1 signed quadword.</para>
                 </entry>
               </row>
-              <row>
+              <row revisionflag="deleted">
                 <entry>
                   <para></para>
                 </entry>
@@ -4091,9 +4077,9 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
 	If a function contains any prefixed (8-byte) instructions,
 	functions should preferably be aligned on at least a 64-byte
 	boundary.  In ISA 3.1, executing a prefixed instruction that
-	crosses a 64-byte boundary will cause a SIGILL that must be
-	handled by the kernel.  Compilers and assemblers can avoid
-	this if functions are aligned on a 64-byte boundary.
+	crosses a 64-byte boundary causes an alignment interrupt.
+	Compilers and assemblers can avoid this if functions are
+	aligned on a 64-byte boundary.
       </para>
     </section>
   </section>
@@ -4142,12 +4128,12 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
 	tables is further described in the referenced section.  A program may
 	contain any combination of the function call protocols in these
 	tables.
-	<note><para>Note that
-	this ABI does not define protocols where the caller does not use
-	a TOC pointer, but does preserve r2.  It is most efficient when
-	such functions are always leaf procedures.  It is not forbidden for
-	such a function to call another function, but in this case it is
-	up to the caller to save and restore r2 around each call.
+	<note><para>This ABI does not define protocols where the
+	caller does not use a TOC pointer, but does preserve r2.  It
+	is most efficient when such functions are always leaf
+	procedures.  It is not forbidden for such a function to call
+	another function, but in this case it is up to the caller to
+	save and restore r2 around each call.
 	</para></note>
       </para>
       <table frame="all" pgwide="1"
@@ -4471,10 +4457,9 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
 	  linkage table (PLT) stub that saves r2 and replaces the nop
 	  instruction with a restore of r2.  (The save of r2 may be omitted
 	  from the PLT stub if the R_PPC64_TOCSAVE relocation is used; see
-	  <xref linkend="dbdoclet.50655241_90220" />.)  If the callee requires
-	  a TOC, the PLT stub also includes code to place the callee's global
-	  entry point into r12.  See <xref linkend="dbdoclet.50655242_82622"
-	  /> for a full description of PLT stubs.
+	  <xref linkend="dbdoclet.50655241_90220" />.)  See <xref
+	  linkend="dbdoclet.50655242_82622" /> for a full description
+	  of PLT stubs.
 	</para>
       </section>
       <section xml:id="dbdoclet.50655241_Ext1">
@@ -4487,8 +4472,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
 	  after the bl instruction for the call.  Instead, the compiler
 	  annotates the bl instruction with an R_PPC64_REL24_NOTOC
 	  relocation.  The linker generates a PLT stub that does not include
-	  a save of r2.  If the callee requires a TOC, the PLT stub also
-	  includes code to place the callee's global entry point into r12.
+	  a save of r2.
 	</para>
       </section>
       <section xml:id="dbdoclet.50655241_Local20">
@@ -4685,19 +4669,23 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                 <entry>
                   <para>Nonvolatile<footnote>
                   <para>Register r2 is nonvolatile with respect to calls
-		  between <phrase revisionflag="added">most</phrase> functions
-		  in the same compilation unit. It is saved and restored by
-		  code inserted
-		  by the linker resolving a call to an external function. For
-		  more information, see <xref linkend="dbdoclet.50655240_51083"
-		  /> <phrase revisionflag="added"> and <xref
-		  linkend="dbdoclet.50655241_FnLinkage" /></phrase>.</para>
+		  between functions in the same compilation
+		  unit<phrase revisionflag="deleted">. It is saved and
+		  restored by code inserted by the linker resolving a
+		  call to an external function.</phrase><phrase
+		  revisionflag="added">, except under the conditions
+		  in footnote (b).</phrase> For more information, see
+		  <xref linkend="dbdoclet.50655240_51083" /> <phrase
+		  revisionflag="added"> and <xref
+		  linkend="dbdoclet.50655241_FnLinkage"
+		  /></phrase>.</para>
                   </footnote><phrase revisionflag="added"> or
 		  Volatile<footnote>
 		  <para>Register r2 is volatile and available for use in a
 		  function that does not use a TOC pointer and that does
-		  not preserve r2.  See
-		  <xref linkend="dbdoclet.50655241_FnLinkage" />.</para>
+		  not guarantee that it preserves r2.  See
+		  <xref linkend="dbdoclet.50655241_FnLinkage" /> and
+		  <xref linkend="dbdoclet.50655241_95185" />.</para>
 		  </footnote></phrase></para>
                 </entry>
                 <entry>
@@ -5042,11 +5030,7 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
 	revisionflag="changed">least-significant halves of those VSX
 	registers corresponding</phrase> to the classic floating-point
 	registers (that is, vsr0&#8211;vsr31), <phrase
-	revisionflag="changed">are</phrase> volatile.  <phrase
-	revisionflag="added">If the most-significant half of such a
-	VSX register is a non-volatile floating-point register that is
-	not used for a function call, the entire VSX register is
-	volatile.</phrase></para>
+	revisionflag="changed">are</phrase> volatile.</para>
 
         <table frame="all" pgwide="1" xml:id="dbdoclet.50655240_83567">
           <title>Floating-Point Register Roles for Binary Floating-Point
@@ -6009,8 +5993,15 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
           <para>Any future type requiring 16-byte alignment (see
           <xref linkend="dbdoclet.50655240_15141" />) or processed in vector
           registers</para>
-          <para>For the purpose of determining a qualified floating-point argument,
-          _Float128 shall be considered a vector data type. In addition, _Float128
+          <para>For the purpose of determining a qualified
+	  floating-point argument, <phrase
+	  revisionflag="deleted">_Float128</phrase><phrase
+	  revisionflag="added">IEEE BINARY 128 QUADRUPLE
+	  PRECISION</phrase> shall be considered a vector data type. In
+	  addition, <phrase
+	  revisionflag="deleted">_Float128</phrase><phrase
+	  revisionflag="added">IEEE BINARY 128 QUADRUPLE
+	  PRECISION</phrase>
           is like a vector data type for determining if multiple aggregate members
           are like.</para>
           <para>A homogeneous aggregate can consist of a variety of nested
@@ -6594,7 +6585,7 @@ s6            -           72 (stored)</programlisting>
       Area must be large enough to accommodate all parameters, including
       parameters passed in registers.</para>
       <para revisionflag="added">
-	The caller of any function with an ellipsis in its prototype
+	The caller of any function with a variable argument list
 	must allocate a Parameter Save Area, as described in <xref
 	linkend="dbdoclet.50655240_78421" />.
       </para>
@@ -6651,44 +6642,6 @@ s6            -           72 (stored)</programlisting>
           <para>_Bool</para>
         </listitem>
       </itemizedlist>
-    </section>
-    <section xml:id="dbdoclet.50655240___tailcall"
-	     revisionflag="added">
-      <title>Tail-Call Optimization</title>
-      <para>
-	When the last action of a function <emphasis>F</emphasis> is
-	to perform a function call to a function
-	<emphasis>G</emphasis>, and optionally return the value
-	returned from <emphasis>G</emphasis>, a compiler may perform a
-	<emphasis>tail-call optimization</emphasis> so long as the
-	optimization is undetectable by the caller of
-	<emphasis>G</emphasis>.  The full details of and requirements
-	for tail-call optimization will not be described here, but in
-	essence <emphasis>F</emphasis> removes its stack frame and
-	issues a direct branch to <emphasis>G</emphasis>, which reuses
-	the stack space and the saved link register so that
-	<emphasis>G</emphasis> eventually returns to the caller of
-	<emphasis>F</emphasis>.
-      </para>
-      <para>
-	When the call from <emphasis>F</emphasis> to
-	<emphasis>G</emphasis> is not local, and
-	<emphasis>F</emphasis> is a TOC-preserving function, tail-call
-	optimization is disallowed because <emphasis>F</emphasis> and
-	<emphasis>G</emphasis> may have different TOC pointers.
-	Tail-call optimization cannot guarantee that the correct TOC
-	will be restored when <emphasis>G</emphasis> returns.
-      </para>
-      <para>
-	When the call from <emphasis>F</emphasis> to
-	<emphasis>G</emphasis> is local, and <emphasis>F</emphasis> is
-	a TOC-preserving function, but <emphasis>G</emphasis> is
-	<emphasis>not</emphasis> a TOC-preserving function, then
-	tail-call optimization is again disallowed.  In this case,
-	<emphasis>G</emphasis> may have placed any value into register
-	r2, and the correct TOC will not be restored when
-	<emphasis>G</emphasis> returns.
-      </para>
     </section>
   </section>
   <section xml:id="dbdoclet.50655240___RefHeading___Toc377640591">
@@ -8255,19 +8208,30 @@ bctrl</programlisting>
           </tbody>
         </tgroup>
       </table>
-      <para>Function calls <phrase revisionflag="added">often</phrase>
+      <para revisionflag="deleted">Function calls 
       need to be performed in conjunction with
       establishing, maintaining, and restoring addressability through the TOC
       pointer register, r2. When a function is called, the TOC pointer register
-      may be modified. <phrase revisionflag="added">In many cases,</phrase>
-      <phrase revisionflag="changed">the</phrase> caller must provide a nop
+      may be modified. The caller must provide a nop
       after the bl instruction performing a call, if r2 is not known to have
       the same value in the callee. This is generally true for external calls.
       The linker will replace the nop with an r2 restoring instruction if the
-      caller and callee use different r2 values<phrase
-      revisionflag="changed">.</phrase> The linker leaves it unchanged if they
+      caller and callee use different r2 values, The linker leaves it
+      unchanged if they 
       use the same r2 value. This scheme avoids having a compiler generate an
-      overconservative r2 save and restore around every external call.</para>
+      overconservative r2 save and restore around every external
+      call.</para>
+      <para revisionflag="added">
+	When a function requires addressability through the TOC
+	pointer register, r2, and that function calls another function
+	that may not preserve the value of r2, the caller must provide
+	a nop after the bl instruction performing the call.  The
+	linker will replace the nop with an r2-restoring instruction
+	if it determines that r2 may be changed as a result of the
+	call; otherwise the linker will leave the nop unchanged.  See
+	<xref linkend="dbdoclet.50655241_FnLinkage" /> for a full
+	description of when a nop must be inserted.
+      </para>
       <para revisionflag="added">
 	There are two cases where the caller need not provide a nop after
 	the bl instruction performing a call:

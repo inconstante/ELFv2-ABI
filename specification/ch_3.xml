@@ -5606,7 +5606,7 @@ addi      r4, r4, lower</programlisting>
       <programlisting>typedef struct {
     /* Reservation for HWCAP data. */
         <phrase revisionflag="deleted">unsigned int hwcap2;</phrase>
-        unsigned int hwcap; /* not used in LE ABI */
+        <phrase revisionflag="changed">uint64_t</phrase> hwcap; <phrase revisionflag="deleted">/* not used in LE ABI */</phrase>
  
     <phrase revisionflag="deleted">/* Indicate if HTM capable (ISA 2.07). */
         int tm_capable;
@@ -9083,7 +9083,8 @@ nop</programlisting>
     <section xml:id="dbdoclet.ie-le-pcrel" revisionflag="added">
       <title>Initial Exec to Local Exec (PC-Relative)</title>
       <table frame="all" pgwide="1">
-        <title>Initial-Exec-to-Local-Exec Initial Relocations</title>
+        <title>Initial-Exec-to-Local-Exec Initial Relocations
+	(PC-Relative)</title>
         <tgroup cols="3">
           <colspec colname="c1" colwidth="33*" />
           <colspec colname="c2" colwidth="33*" />
