@@ -57,7 +57,7 @@
       <holder>Freescale Semiconductor, Inc</holder>
     </copyright>
     <!-- TODO: Set the correct document releaseinfo -->
-    <releaseinfo>Revision 1.5k draft</releaseinfo>
+    <releaseinfo>Revision 1.5_prd</releaseinfo>
     <productname>OpenPOWER</productname>
     <pubdate/>
 
@@ -94,116 +94,12 @@
     <revhistory>
       <!-- TODO: Set the initial version information and clear any old information out -->
       <revision>
-          <date>2020-06-04</date>
+          <date>2020-06-19</date>
           <revdescription>
             <itemizedlist spacing="compact">
               <listitem>
-                <para>Revision 1.5k: Address recorded issues.</para>
-              </listitem>
-            </itemizedlist>
-          </revdescription>
-      </revision>
-      <revision>
-          <date>2019-12-11</date>
-          <revdescription>
-            <itemizedlist spacing="compact">
-              <listitem>
-                <para>Revision 1.5j: Back out prefix28 uses.</para>
-              </listitem>
-            </itemizedlist>
-          </revdescription>
-      </revision>
-      <revision>
-          <date>2019-04-16</date>
-          <revdescription>
-            <itemizedlist spacing="compact">
-              <listitem>
-                <para>Revision 1.5i: Changes from compiler workshop.</para>
-              </listitem>
-            </itemizedlist>
-          </revdescription>
-      </revision>
-      <revision>
-          <date>2019-02-01</date>
-          <revdescription>
-            <itemizedlist spacing="compact">
-              <listitem>
-                <para>Revision 1.5h: PC-relative addressing eighth
-		draft.</para>
-              </listitem>
-            </itemizedlist>
-          </revdescription>
-      </revision>
-      <revision>
-          <date>2018-10-02</date>
-          <revdescription>
-            <itemizedlist spacing="compact">
-              <listitem>
-                <para>Revision 1.5g: PC-relative addressing seventh
-		draft.</para>
-              </listitem>
-            </itemizedlist>
-          </revdescription>
-      </revision>
-      <revision>
-          <date>2018-07-20</date>
-          <revdescription>
-            <itemizedlist spacing="compact">
-              <listitem>
-                <para>Revision 1.5f: PC-relative addressing sixth draft.</para>
-              </listitem>
-            </itemizedlist>
-          </revdescription>
-      </revision>
-      <revision>
-          <date>2018-05-21</date>
-          <revdescription>
-            <itemizedlist spacing="compact">
-              <listitem>
-                <para>Revision 1.5e: PC-relative addressing fifth draft.</para>
-              </listitem>
-            </itemizedlist>
-          </revdescription>
-      </revision>
-      <revision>
-          <date>2018-05-10</date>
-          <revdescription>
-            <itemizedlist spacing="compact">
-              <listitem>
-                <para>Revision 1.5d: PC-relative addressing fourth
-		draft.</para>
-              </listitem>
-            </itemizedlist>
-          </revdescription>
-      </revision>
-      <revision>
-          <date>2018-04-28</date>
-          <revdescription>
-            <itemizedlist spacing="compact">
-              <listitem>
-                <para>Revision 1.5c: PC-relative addressing third
-		draft.</para>
-              </listitem>
-            </itemizedlist>
-          </revdescription>
-      </revision>
-      <revision>
-          <date>2018-04-13</date>
-          <revdescription>
-            <itemizedlist spacing="compact">
-              <listitem>
-                <para>Revision 1.5b: PC-relative addressing second
-		draft.</para>
-              </listitem>
-            </itemizedlist>
-          </revdescription>
-      </revision>
-      <revision>
-          <date>2018-03-14</date>
-          <revdescription>
-            <itemizedlist spacing="compact">
-              <listitem>
-                <para>Revision 1.5a: PC-relative addressing first draft.</para>
+                <para>Revision 1.5_prd: POWER10 support (public review
+		draft).</para>
               </listitem>
             </itemizedlist>
           </revdescription>
