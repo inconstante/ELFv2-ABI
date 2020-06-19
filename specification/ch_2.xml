@@ -2827,7 +2827,6 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             bits set to 1.</para>
           </footnote>, is undefined for all vector elements.</para>
         </note>
-        <para>&#160;</para>
         <bridgehead xml:id="dbdoclet.50655240_43748">Decimal Floating-Point
         (ISO TR 24732 Support)</bridgehead>
         <para>The decimal floating-point data type is used to specify variables
@@ -2925,7 +2924,6 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </tbody>
           </tgroup>
         </table>
-        <para>&#160;</para>
         <bridgehead xml:id="dbdoclet.50655240_33603">IBM EXTENDED
         PRECISION</bridgehead>
         <table frame="all" pgwide="1">
@@ -2986,7 +2984,6 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </tbody>
           </tgroup>
         </table>
-        <para>&#160;</para>
         <bridgehead xml:id="dbdoclet.50655240_66797">IEEE BINARY 128 QUADRUPLE
         PRECISION</bridgehead>
         <table frame="all" pgwide="1">
@@ -3100,14 +3097,12 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </tbody>
           </tgroup>
         </table>
-        <para>&#160;</para>
         <bridgehead>IBM EXTENDED PRECISION &amp;&amp; IEEE BINARY 128 QUADRUPLE
         PRECISION</bridgehead>
         <para>Availability of the long double data type is subject to
         conformance to a long double standard where the IBM EXTENDED PRECISION
         format and the IEEE BINARY 128 QUADRUPLE PRECISION format are mutually
         exclusive.</para>
-        <para>&#160;</para>
         <bridgehead xml:id="dbdoclet.50655240_95080">IEEE BINARY 128 QUADRUPLE
         PRECISION || IBM EXTENDED PRECISION</bridgehead>
         <para>This ABI provides the following choices for implementation of
@@ -3136,6 +3131,33 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
                 long double ISO C type. However, this is not part of the C
                 standard.</para>
               </listitem>
+	      <listitem revisionflag="added">
+		<para>This implementation differs from the IEEE 754
+		Standard in the following ways:</para>
+		<itemizedlist>
+		  <listitem>
+		    <para>The software support is restricted to
+		    round-to-nearest mode.  Programs that use extended
+		    precision must ensure that this rounding mode is
+		    in effect when extended-precision calculations are
+		    performed.</para>
+		  </listitem>
+		  <listitem>
+		    <para>This implementation does not fully support
+		    the IEEE special numbers NaN and INF. These values
+		    are encoded in the high-order double value
+		    only. The low-order value is not significant, but
+		    the low-order value of an infinity must be
+		    positive or negative zero.</para>
+		  </listitem>
+		  <listitem>
+		    <para>This implementation does not support the
+		    IEEE status flags for overflow, underflow, and
+		    other conditions. These flags have no meaning in
+		    this format.</para>
+		  </listitem>
+		</itemizedlist>
+	      </listitem>
             </itemizedlist>
           </listitem>
           <listitem>
@@ -3178,9 +3200,10 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </itemizedlist>
           </listitem>
         </itemizedlist>
-        <para>This implementation differs from the IEEE 754 Standard in the
+        <para revisionflag="deleted">This implementation differs from
+	the IEEE 754 Standard in the 
         following ways:</para>
-        <itemizedlist>
+        <itemizedlist revisionflag="deleted">
           <listitem>
             <para>The software support is restricted to round-to-nearest mode.
             Programs that use extended precision must ensure that this rounding
