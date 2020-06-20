@@ -3097,13 +3097,14 @@ xml:id="dbdoclet.50655240_pgfId-1156194">
             </tbody>
           </tgroup>
         </table>
-        <bridgehead>IBM EXTENDED PRECISION &amp;&amp; IEEE BINARY 128 QUADRUPLE
-        PRECISION</bridgehead>
+        <bridgehead revisionflag="deleted">>IBM EXTENDED PRECISION
+	&amp;&amp; IEEE BINARY 128 QUADRUPLE PRECISION</bridgehead>
         <para>Availability of the long double data type is subject to
         conformance to a long double standard where the IBM EXTENDED PRECISION
         format and the IEEE BINARY 128 QUADRUPLE PRECISION format are mutually
         exclusive.</para>
-        <bridgehead xml:id="dbdoclet.50655240_95080">IEEE BINARY 128 QUADRUPLE
+        <bridgehead xml:id="dbdoclet.50655240_95080"
+		    revisionflag="deleted">IEEE BINARY 128 QUADRUPLE
         PRECISION || IBM EXTENDED PRECISION</bridgehead>
         <para>This ABI provides the following choices for implementation of
         long double in compilers and systems. The preferred implementation for
