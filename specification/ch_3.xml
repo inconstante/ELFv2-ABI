@@ -6933,7 +6933,7 @@ static __thread unsigned int x3;
                 <para>paddi r9, r13, x1@tprel</para>
               </entry>
               <entry>
-                <para>R_PPC_TPREL34</para>
+                <para>R_PPC64_TPREL34</para>
               </entry>
               <entry>
                 <para>x</para>
